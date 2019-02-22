@@ -6,6 +6,10 @@ system in relation to time.
 This project is a lightweight dsl for commands and events for use with
 ActiveRecord. Eventually I'd like it to support Sequel as well.
 
+[RDoc][rdoc_url]
+
+[![Build Status]][travis_status]
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -112,3 +116,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/baylorrae/fourth_dimensional.
+
+[rdoc_url]: https://baylorrae.com/fourth_dimensional
+
+[Build Status]: https://travis-ci.org/BaylorRae/fourth_dimensional.svg?branch=master
+[travis_status]: https://travis-ci.org/BaylorRae/fourth_dimensional
