@@ -1,3 +1,5 @@
+require "active_support/core_ext/hash/keys"
+
 module FourthDimensional
   # == FourthDimensional::Event
   #
@@ -47,8 +49,8 @@ module FourthDimensional
     #   event.metadata # => { 'two' => 2 }
     def initialize(aggregate_id:, data: nil, metadata: nil)
       @aggregate_id = aggregate_id
-      @data = data || {}
-      @metadata = metadata || {}
+      @data = (data || {}).transform_keys(&:to_s)
+      @metadata = (metadata || {}).transform_keys(&:to_s)
     end
   end
 end

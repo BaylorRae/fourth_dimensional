@@ -17,10 +17,10 @@ module FourthDimensional
 
     context "data" do
       it "has data" do
-        data = double(:data)
+        data = { this: 'that' }
 
         event = Event.new(aggregate_id: aggregate_id, data: data)
-        expect(event.data).to eq(data)
+        expect(event.data).to eq({'this' => 'that'})
       end
 
       it "defaults to a hash" do
@@ -31,10 +31,10 @@ module FourthDimensional
 
     context "metadata" do
       it "has metadata" do
-        metadata = double(:metadata)
+        metadata = { foo: 'bar' }
 
         event = Event.new(aggregate_id: aggregate_id, metadata: metadata)
-        expect(event.metadata).to eq(metadata)
+        expect(event.metadata).to eq({'foo' => 'bar'})
       end
 
       it "defaults to a hash" do
