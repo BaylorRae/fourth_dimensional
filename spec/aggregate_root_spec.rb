@@ -14,43 +14,6 @@ module FourthDimensional
       end
     end
 
-    context "on" do
-      before do
-        stub_const("Event1", Class.new(Event))
-        stub_const("Event2", Class.new(Event))
-        stub_const("ExampleAggregate", Class.new(AggregateRoot))
-      end
-
-      it "registers bound events" do
-        event1_callback = -> {}
-        event2_callback = -> {}
-
-        ExampleAggregate.class_eval do
-          on Event1, &event1_callback
-          on Event2, &event2_callback
-        end
-
-        expect(ExampleAggregate.event_bindings).to eq({
-          Event1 => event1_callback,
-          Event2 => event2_callback
-        })
-
-        expect(ExampleAggregate.events).to eq([Event1, Event2])
-      end
-
-      it "doesn't allow duplicate events" do
-        event1_callback = -> {}
-        event2_callback = -> {}
-
-        expect do
-          ExampleAggregate.class_eval do
-            on Event1, &event1_callback
-            on Event1, &event2_callback
-          end
-        end.to raise_error(KeyError, "Event1 is already bound on ExampleAggregate")
-      end
-    end
-
     context "apply" do
       let(:id) { double(:id) }
       let(:aggregate) { ExampleAggregate.new(id: id) }

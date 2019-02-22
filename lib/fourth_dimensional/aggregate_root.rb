@@ -45,6 +45,8 @@ module FourthDimensional
   #   aggregate.delete
   #   aggregate.state # => :deleted
   class AggregateRoot
+    include Eventable
+
     # aggregate id
     attr_reader :id
 
@@ -68,42 +70,6 @@ module FourthDimensional
       event = event_class.new(args.merge(aggregate_id: id))
       instance_exec(event, &callback)
       applied_events << event
-    end
-
-    # Binds an event to the aggregate. Raises a +KeyError+ if the event has
-    # already been bound.
-    #
-    #   Post.on(PostAdded, -> (event) {})
-    #   Post.on(PostAdded, -> (event) {}) # => raises KeyError
-    def self.on(klass, &block)
-      if event_bindings.has_key?(klass)
-        raise KeyError.new("#{klass.name} is already bound on #{self.name}") 
-      end
-
-      event_bindings[klass] = block
-    end
-
-    # Returns an array of class names for the bound events.
-    #
-    #   Post.on(PostAdded, -> (event) {})
-    #   Post.on(PostDeleted, -> (event) {})
-    #
-    #   Post.events # => [PostAdded, PostDeleted]
-    def self.events
-      event_bindings.keys
-    end
-
-    # Returns a hash of event classes and the callback.
-    #
-    #   Post.on(PostAdded, -> (event) {})
-    #   Post.on(PostDeleted, -> (event) {})
-    #
-    #   Post.event_bindings # => {
-    #     PostAdded => Proc,
-    #     PostDeleted => Proc
-    #   }
-    def self.event_bindings
-      @event_bindings ||= {}
     end
   end
 end
