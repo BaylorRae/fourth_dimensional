@@ -5,3 +5,11 @@ cache: bundler
 rvm:
   - 2.6.1
 before_install: gem install bundler -v 1.17.2
+deploy:
+  local-dir: ./doc
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
