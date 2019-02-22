@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::ExampleMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::ExampleMethods">
+
+  
+    
+    <meta name="description" content="Contains methods intended to be used from within code examples. Mix this in to your test context (such as a test framework base class) to use rspec-mocks with your test framework.">
+    <meta property="og:description" content="Contains methods intended to be used from within code examples. Mix this in to your test context (such as a test framework base class) to use rspec-mocks with your test framework.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::ExampleMethods class">
+  
+    <meta name="keywords" content="double, instance_double, class_double, object_double, spy, instance_spy, object_spy, class_spy, allow_message_expectations_on_nil, stub_const, hide_const, have_received, without_partial_double_verification, included, extended, declare_verifying_double, declare_double">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Mocks::ExampleMethods
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/example_methods_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb</a></li>
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/syntax_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/syntax.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Contains methods intended to be used from within code examples. Mix this in to your test context (such as a test framework base class) to use rspec-mocks with your test framework. If you&#39;re using rspec-core, it&#39;ll take care of doing this for you.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="ExampleMethods/ExpectHost.html">RSpec::Mocks::ExampleMethods::ExpectHost</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-allow_message_expectations_on_nil">allow_message_expectations_on_nil</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-class_double">class_double</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-class_spy">class_spy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-declare_double">declare_double</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-declare_verifying_double">declare_verifying_double</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-double">double</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-extended">extended</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-have_received">have_received</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-hide_const">hide_const</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-included">included</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-instance_double">instance_double</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-instance_spy">instance_spy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-object_double">object_double</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-object_spy">object_spy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-spy">spy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stub_const">stub_const</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-without_partial_double_verification">without_partial_double_verification</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="ArgumentMatchers.html">
+              RSpec::Mocks::ArgumentMatchers
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-declare_double">
+            
+              <b>declare_double</b>(type, *args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-c-declare_double" name="method-c-declare_double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-declare_double_source')" id="l_method-c-declare_double_source">show</a>
+                
+              </p>
+              <div id="method-c-declare_double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 423</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">declare_double</span>(<span class="ruby-identifier">type</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> {} <span class="ruby-keyword">unless</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">type</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-declare_verifying_double">
+            
+              <b>declare_verifying_double</b>(type, ref, *args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-c-declare_verifying_double" name="method-c-declare_verifying_double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-declare_verifying_double_source')" id="l_method-c-declare_verifying_double_source">show</a>
+                
+              </p>
+              <div id="method-c-declare_verifying_double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">declare_verifying_double</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">verify_doubled_constant_names?</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-operator">!</span><span class="ruby-identifier">ref</span>.<span class="ruby-identifier">defined?</span>
+
+    <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">error_generator</span>.<span class="ruby-identifier">raise_verifying_double_not_defined_error</span>(<span class="ruby-identifier">ref</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">verifying_double_callbacks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">ref</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">declare_double</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-extended">
+            
+              <b>extended</b>(object)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-c-extended" name="method-c-extended" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-extended_source')" id="l_method-c-extended_source">show</a>
+                
+              </p>
+              <div id="method-c-extended_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 401</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">extended</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-comment"># This gets extended in so that if `RSpec::Matchers` is included in</span>
+  <span class="ruby-comment"># `klass` later, its definition of `expect` will take precedence.</span>
+  <span class="ruby-identifier">object</span>.<span class="ruby-identifier">extend</span> <span class="ruby-constant">ExpectHost</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:expect</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-included">
+            
+              <b>included</b>(klass)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-c-included" name="method-c-included" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-included_source')" id="l_method-c-included_source">show</a>
+                
+              </p>
+              <div id="method-c-included_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">included</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">class_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># This gets mixed in so that if `RSpec::Matchers` is included in</span>
+    <span class="ruby-comment"># `klass` later, its definition of `expect` will take precedence.</span>
+    <span class="ruby-identifier">include</span> <span class="ruby-constant">ExpectHost</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:expect</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-allow_message_expectations_on_nil">
+            
+              <b>allow_message_expectations_on_nil</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-allow_message_expectations_on_nil" name="method-i-allow_message_expectations_on_nil" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Disables warning messages about expectations being set on nil.</p>
+
+<p>By default warning messages are issued when expectations are set on nil.  This is to prevent false-positives and to catch potential bugs early on. @deprecated Use {RSpec::Mocks::Configuration#allow_message_expectations_on_nil} instead.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-allow_message_expectations_on_nil_source')" id="l_method-i-allow_message_expectations_on_nil_source">show</a>
+                
+              </p>
+              <div id="method-i-allow_message_expectations_on_nil_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">allow_message_expectations_on_nil</span>
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.<span class="ruby-identifier">proxy_for</span>(<span class="ruby-keyword">nil</span>).<span class="ruby-identifier">warn_about_expectations</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_double">
+            
+              <b>class_double</b>(doubled_class, *args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-class_double" name="method-i-class_double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="ExampleMethods.html#method-i-class_double"><code>class_double</code></a>(doubled_class)</p>
+
+<pre><code>@param doubled_class [String, Module]
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-class_double"><code>class_double</code></a>(doubled_class, name)</p>
+
+<pre><code>@param doubled_class [String, Module]
+@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-class_double"><code>class_double</code></a>(doubled_class, stubs)</p>
+
+<pre><code>@param doubled_class [String, Module]
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-class_double"><code>class_double</code></a>(doubled_class, name, stubs)</p>
+
+<pre><code>@param doubled_class [String, Module]
+@param name [String/Symbol] name or description to be used in failure messages
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@return <a href="ClassVerifyingDouble.html"><code>ClassVerifyingDouble</code></a></p>
+
+<p>Constructs a test double against a specific class. If the given class name has been loaded, only class methods defined on the class are allowed to be stubbed. In all other ways it behaves like a [double](double).</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-class_double_source')" id="l_method-i-class_double_source">show</a>
+                
+              </p>
+              <div id="method-i-class_double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">class_double</span>(<span class="ruby-identifier">doubled_class</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">ref</span> = <span class="ruby-constant">ObjectReference</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">doubled_class</span>)
+  <span class="ruby-constant">ExampleMethods</span>.<span class="ruby-identifier">declare_verifying_double</span>(<span class="ruby-constant">ClassVerifyingDouble</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-class_spy">
+            
+              <b>class_spy</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-class_spy" name="method-i-class_spy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="ExampleMethods.html#method-i-class_spy"><code>class_spy</code></a>(doubled_class)</p>
+
+<pre><code>@param doubled_class [String, Module]
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-class_spy"><code>class_spy</code></a>(doubled_class, name)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-class_spy"><code>class_spy</code></a>(doubled_class, stubs)</p>
+
+<pre><code>@param doubled_class [String, Module]
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-class_spy"><code>class_spy</code></a>(doubled_class, name, stubs)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@return <a href="ClassVerifyingDouble.html"><code>ClassVerifyingDouble</code></a></p>
+
+<p>Constructs a test double that is optimized for use with `have_received` against a specific class. If the given class name has been loaded, only class methods defined on the class are allowed to be stubbed. With a normal double one has to stub methods in order to be able to spy them. An <a href="ExampleMethods.html#method-i-class_spy"><code>class_spy</code></a> automatically spies on all class methods to which the class responds.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-class_spy_source')" id="l_method-i-class_spy_source">show</a>
+                
+              </p>
+              <div id="method-i-class_spy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">class_spy</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">class_double</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">as_null_object</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-double">
+            
+              <b>double</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-double" name="method-i-double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload double() @overload double(name)</p>
+
+<pre><code>@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload double(stubs)</p>
+
+<pre><code>@param stubs (Hash) hash of message/return-value pairs
+</code></pre>
+
+<p>@overload double(name, stubs)</p>
+
+<pre><code>@param name [String/Symbol] name or description to be used in failure messages
+@param stubs (Hash) hash of message/return-value pairs
+</code></pre>
+
+<p>@return (Double)</p>
+
+<p>Constructs an instance of [RSpec::Mocks::Double](RSpec::Mocks::Double) configured with an optional name, used for reporting in failure messages, and an optional hash of message/return-value pairs.</p>
+
+<p>@example</p>
+
+<pre><code>book = double(&quot;book&quot;, :title =&gt; &quot;The RSpec Book&quot;)
+book.title #=&gt; &quot;The RSpec Book&quot;
+
+card = double(&quot;card&quot;, :suit =&gt; &quot;Spades&quot;, :rank =&gt; &quot;A&quot;)
+card.suit  #=&gt; &quot;Spades&quot;
+card.rank  #=&gt; &quot;A&quot;
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-double_source')" id="l_method-i-double_source">show</a>
+                
+              </p>
+              <div id="method-i-double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">double</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">ExampleMethods</span>.<span class="ruby-identifier">declare_double</span>(<span class="ruby-constant">Double</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-have_received">
+            
+              <b>have_received</b>(method_name, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-have_received" name="method-i-have_received" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Verifies that the given object received the expected message during the course of the test. On a spy objects or as null object doubles this works for any method, on other objects the method must have been stubbed beforehand in order for messages to be verified.</p>
+
+<p>Stubbing and verifying messages received in this way implements the Test Spy pattern.</p>
+
+<p>@param method_name [Symbol] name of the method expected to have been</p>
+
+<pre><code>called.
+</code></pre>
+
+<p>@example</p>
+
+<pre><code>invitation = double(&#39;invitation&#39;, accept: true)
+user.accept_invitation(invitation)
+expect(invitation).to have_received(:accept)
+
+# You can also use most message expectations:
+expect(invitation).to have_received(:accept).with(mailer).once
+</code></pre>
+
+<p>@note `have_received(…).with(…)` is unable to work properly when</p>
+
+<pre><code>passed arguments are mutated after the spy records the received message.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-have_received_source')" id="l_method-i-have_received_source">show</a>
+                
+              </p>
+              <div id="method-i-have_received_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">have_received</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">Matchers</span><span class="ruby-operator">::</span><span class="ruby-constant">HaveReceived</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-hide_const">
+            
+              <b>hide_const</b>(constant_name)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-hide_const" name="method-i-hide_const" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Hides the named constant with the given value. The constant will be undefined for the duration of the test.</p>
+
+<p>Like method stubs, the constant will be restored to its original value when the example completes.</p>
+
+<p>@param constant_name [String] The fully qualified name of the constant.</p>
+
+<pre><code>The current constant scoping at the point of call is not considered.
+</code></pre>
+
+<p>@example</p>
+
+<pre><code>hide_const(&quot;MyClass&quot;) # =&gt; MyClass is now an undefined constant
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-hide_const_source')" id="l_method-i-hide_const_source">show</a>
+                
+              </p>
+              <div id="method-i-hide_const_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hide_const</span>(<span class="ruby-identifier">constant_name</span>)
+  <span class="ruby-constant">ConstantMutator</span>.<span class="ruby-identifier">hide</span>(<span class="ruby-identifier">constant_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-instance_double">
+            
+              <b>instance_double</b>(doubled_class, *args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-instance_double" name="method-i-instance_double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="ExampleMethods.html#method-i-instance_double"><code>instance_double</code></a>(doubled_class)</p>
+
+<pre><code>@param doubled_class [String, Class]
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-instance_double"><code>instance_double</code></a>(doubled_class, name)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-instance_double"><code>instance_double</code></a>(doubled_class, stubs)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-instance_double"><code>instance_double</code></a>(doubled_class, name, stubs)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@return <a href="InstanceVerifyingDouble.html"><code>InstanceVerifyingDouble</code></a></p>
+
+<p>Constructs a test double against a specific class. If the given class name has been loaded, only instance methods defined on the class are allowed to be stubbed. In all other ways it behaves like a [double](double).</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-instance_double_source')" id="l_method-i-instance_double_source">show</a>
+                
+              </p>
+              <div id="method-i-instance_double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">instance_double</span>(<span class="ruby-identifier">doubled_class</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">ref</span> = <span class="ruby-constant">ObjectReference</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">doubled_class</span>)
+  <span class="ruby-constant">ExampleMethods</span>.<span class="ruby-identifier">declare_verifying_double</span>(<span class="ruby-constant">InstanceVerifyingDouble</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-instance_spy">
+            
+              <b>instance_spy</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-instance_spy" name="method-i-instance_spy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="ExampleMethods.html#method-i-instance_spy"><code>instance_spy</code></a>(doubled_class)</p>
+
+<pre><code>@param doubled_class [String, Class]
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-instance_spy"><code>instance_spy</code></a>(doubled_class, name)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-instance_spy"><code>instance_spy</code></a>(doubled_class, stubs)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-instance_spy"><code>instance_spy</code></a>(doubled_class, name, stubs)</p>
+
+<pre><code>@param doubled_class [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@return <a href="InstanceVerifyingDouble.html"><code>InstanceVerifyingDouble</code></a></p>
+
+<p>Constructs a test double that is optimized for use with `have_received` against a specific class. If the given class name has been loaded, only instance methods defined on the class are allowed to be stubbed.  With a normal double one has to stub methods in order to be able to spy them. An <a href="ExampleMethods.html#method-i-instance_spy"><code>instance_spy</code></a> automatically spies on all instance methods to which the class responds.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-instance_spy_source')" id="l_method-i-instance_spy_source">show</a>
+                
+              </p>
+              <div id="method-i-instance_spy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">instance_spy</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">instance_double</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">as_null_object</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-object_double">
+            
+              <b>object_double</b>(object_or_name, *args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-object_double" name="method-i-object_double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="ExampleMethods.html#method-i-object_double"><code>object_double</code></a>(object_or_name)</p>
+
+<pre><code>@param object_or_name [String, Object]
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-object_double"><code>object_double</code></a>(object_or_name, name)</p>
+
+<pre><code>@param object_or_name [String, Object]
+@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-object_double"><code>object_double</code></a>(object_or_name, stubs)</p>
+
+<pre><code>@param object_or_name [String, Object]
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-object_double"><code>object_double</code></a>(object_or_name, name, stubs)</p>
+
+<pre><code>@param object_or_name [String, Object]
+@param name [String/Symbol] name or description to be used in failure messages
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@return <a href="ObjectVerifyingDouble.html"><code>ObjectVerifyingDouble</code></a></p>
+
+<p>Constructs a test double against a specific object. Only the methods the object responds to are allowed to be stubbed. If a <a href="../../String.html"><code>String</code></a> argument is provided, it is assumed to reference a constant object which is used for verification. In all other ways it behaves like a [double](double).</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-object_double_source')" id="l_method-i-object_double_source">show</a>
+                
+              </p>
+              <div id="method-i-object_double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">object_double</span>(<span class="ruby-identifier">object_or_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">ref</span> = <span class="ruby-constant">ObjectReference</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">object_or_name</span>, <span class="ruby-value">:allow_direct_object_refs</span>)
+  <span class="ruby-constant">ExampleMethods</span>.<span class="ruby-identifier">declare_verifying_double</span>(<span class="ruby-constant">ObjectVerifyingDouble</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-object_spy">
+            
+              <b>object_spy</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-object_spy" name="method-i-object_spy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="ExampleMethods.html#method-i-object_spy"><code>object_spy</code></a>(object_or_name)</p>
+
+<pre><code>@param object_or_name [String, Object]
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-object_spy"><code>object_spy</code></a>(object_or_name, name)</p>
+
+<pre><code>@param object_or_name [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-object_spy"><code>object_spy</code></a>(object_or_name, stubs)</p>
+
+<pre><code>@param object_or_name [String, Object]
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@overload <a href="ExampleMethods.html#method-i-object_spy"><code>object_spy</code></a>(object_or_name, name, stubs)</p>
+
+<pre><code>@param object_or_name [String, Class]
+@param name [String/Symbol] name or description to be used in failure messages
+@param stubs [Hash] hash of message/return-value pairs
+</code></pre>
+
+<p>@return <a href="ObjectVerifyingDouble.html"><code>ObjectVerifyingDouble</code></a></p>
+
+<p>Constructs a test double that is optimized for use with `have_received` against a specific object. Only instance methods defined on the object are allowed to be stubbed.  With a normal double one has to stub methods in order to be able to spy them. An <a href="ExampleMethods.html#method-i-object_spy"><code>object_spy</code></a> automatically spies on all methods to which the object responds.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-object_spy_source')" id="l_method-i-object_spy_source">show</a>
+                
+              </p>
+              <div id="method-i-object_spy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">object_spy</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">object_double</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">as_null_object</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-spy">
+            
+              <b>spy</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-spy" name="method-i-spy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload spy() @overload spy(name)</p>
+
+<pre><code>@param name [String/Symbol] name or description to be used in failure messages
+</code></pre>
+
+<p>@overload spy(stubs)</p>
+
+<pre><code>@param stubs (Hash) hash of message/return-value pairs
+</code></pre>
+
+<p>@overload spy(name, stubs)</p>
+
+<pre><code>@param name [String/Symbol] name or description to be used in failure messages
+@param stubs (Hash) hash of message/return-value pairs
+</code></pre>
+
+<p>@return (Double)</p>
+
+<p>Constructs a test double that is optimized for use with `have_received`. With a normal double one has to stub methods in order to be able to spy them. A spy automatically spies on all methods.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-spy_source')" id="l_method-i-spy_source">show</a>
+                
+              </p>
+              <div id="method-i-spy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spy</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">double</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">as_null_object</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stub_const">
+            
+              <b>stub_const</b>(constant_name, value, options={})
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-stub_const" name="method-i-stub_const" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Stubs the named constant with the given value. Like method stubs, the constant will be restored to its original value (or lack of one, if it was undefined) when the example completes.</p>
+
+<p>@param constant_name [String] The fully qualified name of the constant. The current</p>
+
+<pre><code>constant scoping at the point of call is not considered.
+</code></pre>
+
+<p>@param value [Object] The value to make the constant refer to. When the</p>
+
+<pre><code>example completes, the constant will be restored to its prior state.
+</code></pre>
+
+<p>@param options [Hash] Stubbing options. @option options :transfer_nested_constants [Boolean, <a href="../../Array.html"><code>Array</code></a>&lt;Symbol&gt;] Determines</p>
+
+<pre><code>what nested constants, if any, will be transferred from the original value
+of the constant to the new value of the constant. This only works if both
+the original and new values are modules (or classes).
+</code></pre>
+
+<p>@return [Object] the stubbed value of the constant</p>
+
+<p>@example</p>
+
+<pre><code>stub_const(&quot;MyClass&quot;, Class.new) # =&gt; Replaces (or defines) MyClass with a new class object.
+stub_const(&quot;SomeModel::PER_PAGE&quot;, 5) # =&gt; Sets SomeModel::PER_PAGE to 5.
+
+class CardDeck
+  SUITS = [:Spades, :Diamonds, :Clubs, :Hearts]
+  NUM_CARDS = 52
+end
+
+stub_const(&quot;CardDeck&quot;, Class.new)
+CardDeck::SUITS # =&gt; uninitialized constant error
+CardDeck::NUM_CARDS # =&gt; uninitialized constant error
+
+stub_const(&quot;CardDeck&quot;, Class.new, :transfer_nested_constants =&gt; true)
+CardDeck::SUITS # =&gt; our suits array
+CardDeck::NUM_CARDS # =&gt; 52
+
+stub_const(&quot;CardDeck&quot;, Class.new, :transfer_nested_constants =&gt; [:SUITS])
+CardDeck::SUITS # =&gt; our suits array
+CardDeck::NUM_CARDS # =&gt; uninitialized constant error
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-stub_const_source')" id="l_method-i-stub_const_source">show</a>
+                
+              </p>
+              <div id="method-i-stub_const_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stub_const</span>(<span class="ruby-identifier">constant_name</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-constant">ConstantMutator</span>.<span class="ruby-identifier">stub</span>(<span class="ruby-identifier">constant_name</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-without_partial_double_verification">
+            
+              <b>without_partial_double_verification</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/ExampleMethods.html#method-i-without_partial_double_verification" name="method-i-without_partial_double_verification" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Turns off the verifying of partial doubles for the duration of the block, this is useful in situations where methods are defined at run time and you wish to define stubs for them but not turn off partial doubles for the entire run suite. (e.g. view specs in rspec-rails).</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-without_partial_double_verification_source')" id="l_method-i-without_partial_double_verification_source">show</a>
+                
+              </p>
+              <div id="method-i-without_partial_double_verification_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb, line 289</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">without_partial_double_verification</span>
+  <span class="ruby-identifier">original_state</span> = <span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">temporarily_suppress_partial_double_verification</span>
+  <span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">temporarily_suppress_partial_double_verification</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">temporarily_suppress_partial_double_verification</span> = <span class="ruby-identifier">original_state</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

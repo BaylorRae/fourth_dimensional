@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::InclusionRules</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::InclusionRules">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::InclusionRules class">
+  
+    <meta name="keywords" content="add, add_with_low_priority, include_example?, standalone?, split_file_scoped_rules">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::InclusionRules
+            
+                <span class="parent">&lt;
+                    
+                    <a href="FilterRules.html">RSpec::Core::FilterRules</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/filter_manager_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_with_low_priority">add_with_low_priority</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-include_example-3F">include_example?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-split_file_scoped_rules">split_file_scoped_rules</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-standalone-3F">standalone?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>(*args)
+            
+            <a href="../../../classes/RSpec/Core/InclusionRules.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">apply_standalone_filter</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_with_low_priority">
+            
+              <b>add_with_low_priority</b>(*args)
+            
+            <a href="../../../classes/RSpec/Core/InclusionRules.html#method-i-add_with_low_priority" name="method-i-add_with_low_priority" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_with_low_priority_source')" id="l_method-i-add_with_low_priority_source">show</a>
+                
+              </p>
+              <div id="method-i-add_with_low_priority_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_with_low_priority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">apply_standalone_filter</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-include_example-3F">
+            
+              <b>include_example?</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/InclusionRules.html#method-i-include_example-3F" name="method-i-include_example-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-include_example-3F_source')" id="l_method-i-include_example-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-include_example-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">include_example?</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-split_file_scoped_rules">
+            
+              <b>split_file_scoped_rules</b>()
+            
+            <a href="../../../classes/RSpec/Core/InclusionRules.html#method-i-split_file_scoped_rules" name="method-i-split_file_scoped_rules" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-split_file_scoped_rules_source')" id="l_method-i-split_file_scoped_rules_source">show</a>
+                
+              </p>
+              <div id="method-i-split_file_scoped_rules_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">split_file_scoped_rules</span>
+  <span class="ruby-identifier">rules_dup</span> = <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">locations</span> = <span class="ruby-identifier">rules_dup</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:locations</span>) { <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>([]) }
+  <span class="ruby-identifier">ids</span>       = <span class="ruby-identifier">rules_dup</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:ids</span>)       { <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>([]) }
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">locations</span>, <span class="ruby-identifier">ids</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rules_dup</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-standalone-3F">
+            
+              <b>standalone?</b>()
+            
+            <a href="../../../classes/RSpec/Core/InclusionRules.html#method-i-standalone-3F" name="method-i-standalone-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-standalone-3F_source')" id="l_method-i-standalone-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-standalone-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">standalone?</span>
+  <span class="ruby-identifier">is_standalone_filter?</span>(<span class="ruby-ivar">@rules</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

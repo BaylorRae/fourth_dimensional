@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer">
+
+  
+    
+    <meta name="description" content="Once we started supporting composing matchers, the algorithm for this matcher got much more complicated. Consider this expression:  expect([&quot;fool&quot;, &quot;food&quot;]).">
+    <meta property="og:description" content="Once we started supporting composing matchers, the algorithm for this matcher got much more complicated. Consider this expression:  expect([&quot;fool&quot;, &quot;food&quot;]).">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer class">
+  
+    <meta name="keywords" content="new, find_best_solution">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/contain_exactly_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/contain_exactly.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Once we started supporting composing matchers, the algorithm for this matcher got much more complicated. Consider this expression:</p>
+
+<pre><code>expect([&quot;fool&quot;, &quot;food&quot;]).to contain_exactly(/foo/, /fool/)
+</code></pre>
+
+<p>This should pass (because we can pair /fool/ with “fool” and /foo/ with “food”), but the original algorithm used by this matcher would pair the first elements it could (/foo/ with “fool”), which would leave /fool/ and “food” unmatched.  When we have an expected element which is a matcher that matches a superset of actual items compared to another expected element matcher, we need to consider every possible pairing.</p>
+
+<p>This class is designed to maximize the number of actual/expected pairings – or, conversely, to minimize the number of unpaired items. It&#39;s essentially a brute force solution, but with a few heuristics applied to reduce the size of the problem space:</p>
+
+<pre><code>* Any items which match none of the items in the other list are immediately
+  placed into the `unmatched_expected_indexes` or `unmatched_actual_indexes` array.
+  The extra items and missing items in the matcher failure message are derived
+  from these arrays.
+* Any items which reciprocally match only each other are paired up and not
+  considered further.
+</code></pre>
+
+<p>What&#39;s left is only the items which match multiple items from the other list (or vice versa). From here, it performs a brute-force depth-first search, looking for a solution which pairs all elements in both lists, or, barring that, that produces the fewest unmatched items.</p>
+
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-find_best_solution">find_best_solution</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">Solution</td>
+            <td>=</td>
+            <td class="attr-value">Struct.new(:unmatched_expected_indexes,     :unmatched_actual_indexes,
+:indeterminate_expected_indexes, :indeterminate_actual_indexes) do
+def worse_than?(other)
+unmatched_item_count &gt; other.unmatched_item_count
+end
+
+def candidate?
+indeterminate_expected_indexes.empty? &amp;&amp;
+indeterminate_actual_indexes.empty?
+end
+
+def ideal?
+candidate? &amp;&amp; (
+unmatched_expected_indexes.empty? ||
+unmatched_actual_indexes.empty?
+)
+end
+
+def unmatched_item_count
+unmatched_expected_indexes.count + unmatched_actual_indexes.count
+end
+
+def +(derived_candidate_solution)
+self.class.new(
+unmatched_expected_indexes + derived_candidate_solution.unmatched_expected_indexes,
+unmatched_actual_indexes   + derived_candidate_solution.unmatched_actual_indexes,
+# Ignore the indeterminate indexes: by the time we get here,
+# we&#39;ve dealt with all indeterminates.
+[], []
+)
+end
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">NullSolution</td>
+            <td>=</td>
+            <td class="attr-value">Class.new do
+def self.worse_than?(_other)
+true
+end
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private Starting solution that is worse than any other real solution.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>actual_to_expected_matched_indexes</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>expected_to_actual_matched_indexes</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>solution</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(expected_to_actual_matched_indexes, actual_to_expected_matched_indexes)
+            
+            <a href="../../../../../classes/RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/contain_exactly.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">expected_to_actual_matched_indexes</span>, <span class="ruby-identifier">actual_to_expected_matched_indexes</span>)
+  <span class="ruby-ivar">@expected_to_actual_matched_indexes</span> = <span class="ruby-identifier">expected_to_actual_matched_indexes</span>
+  <span class="ruby-ivar">@actual_to_expected_matched_indexes</span> = <span class="ruby-identifier">actual_to_expected_matched_indexes</span>
+
+  <span class="ruby-identifier">unmatched_expected_indexes</span>, <span class="ruby-identifier">indeterminate_expected_indexes</span> =
+    <span class="ruby-identifier">categorize_indexes</span>(<span class="ruby-identifier">expected_to_actual_matched_indexes</span>, <span class="ruby-identifier">actual_to_expected_matched_indexes</span>)
+
+  <span class="ruby-identifier">unmatched_actual_indexes</span>, <span class="ruby-identifier">indeterminate_actual_indexes</span> =
+    <span class="ruby-identifier">categorize_indexes</span>(<span class="ruby-identifier">actual_to_expected_matched_indexes</span>, <span class="ruby-identifier">expected_to_actual_matched_indexes</span>)
+
+  <span class="ruby-ivar">@solution</span> = <span class="ruby-constant">Solution</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">unmatched_expected_indexes</span>,     <span class="ruby-identifier">unmatched_actual_indexes</span>,
+                           <span class="ruby-identifier">indeterminate_expected_indexes</span>, <span class="ruby-identifier">indeterminate_actual_indexes</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-find_best_solution">
+            
+              <b>find_best_solution</b>()
+            
+            <a href="../../../../../classes/RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-i-find_best_solution" name="method-i-find_best_solution" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-find_best_solution_source')" id="l_method-i-find_best_solution_source">show</a>
+                
+              </p>
+              <div id="method-i-find_best_solution_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/contain_exactly.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_best_solution</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">solution</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">solution</span>.<span class="ruby-identifier">candidate?</span>
+  <span class="ruby-identifier">best_solution_so_far</span> = <span class="ruby-constant">NullSolution</span>
+
+  <span class="ruby-identifier">expected_index</span> = <span class="ruby-identifier">solution</span>.<span class="ruby-identifier">indeterminate_expected_indexes</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">actuals</span> = <span class="ruby-identifier">expected_to_actual_matched_indexes</span>[<span class="ruby-identifier">expected_index</span>]
+
+  <span class="ruby-identifier">actuals</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">actual_index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">solution</span> = <span class="ruby-identifier">best_solution_for_pairing</span>(<span class="ruby-identifier">expected_index</span>, <span class="ruby-identifier">actual_index</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">solution</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">solution</span>.<span class="ruby-identifier">ideal?</span>
+    <span class="ruby-identifier">best_solution_so_far</span> = <span class="ruby-identifier">solution</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">best_solution_so_far</span>.<span class="ruby-identifier">worse_than?</span>(<span class="ruby-identifier">solution</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">best_solution_so_far</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

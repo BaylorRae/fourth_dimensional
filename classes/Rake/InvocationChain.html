@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Rake::InvocationChain</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="Rake::InvocationChain">
+
+  
+    
+    <meta name="description" content="InvocationChain tracks the chain of task invocations to detect circular dependencies.">
+    <meta property="og:description" content="InvocationChain tracks the chain of task invocations to detect circular dependencies.">
+  
+
+    <meta name="keywords" content="Rake::InvocationChain class">
+  
+    <meta name="keywords" content="member?, append, to_s, append">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Rake::InvocationChain
+            
+                <span class="parent">&lt;
+                    
+                    LinkedList
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/lib/rake/invocation_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/invocation_chain.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/lib/rake/task_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/task.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="InvocationChain.html"><code>InvocationChain</code></a> tracks the chain of task invocations to detect circular dependencies.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="InvocationChain/EmptyInvocationChain.html">Rake::InvocationChain::EmptyInvocationChain</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-append">append</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-append">append</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-member-3F">member?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">EMPTY</td>
+            <td>=</td>
+            <td class="attr-value">EmptyInvocationChain.new</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-append">
+            
+              <b>append</b>(invocation, chain)
+            
+            <a href="../../classes/Rake/InvocationChain.html#method-c-append" name="method-c-append" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p><a href="../Class.html"><code>Class</code></a> level append.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-append_source')" id="l_method-c-append_source">show</a>
+                
+              </p>
+              <div id="method-c-append_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/invocation_chain.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">append</span>(<span class="ruby-identifier">invocation</span>, <span class="ruby-identifier">chain</span>)
+  <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">invocation</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-append">
+            
+              <b>append</b>(invocation)
+            
+            <a href="../../classes/Rake/InvocationChain.html#method-i-append" name="method-i-append" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Append an invocation to the chain of invocations. It is an error if the invocation already listed.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-append_source')" id="l_method-i-append_source">show</a>
+                
+              </p>
+              <div id="method-i-append_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/invocation_chain.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">append</span>(<span class="ruby-identifier">invocation</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">member?</span>(<span class="ruby-identifier">invocation</span>)
+    <span class="ruby-identifier">fail</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-node">&quot;Circular dependency detected: #{to_s} =&gt; #{invocation}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">conj</span>(<span class="ruby-identifier">invocation</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-member-3F">
+            
+              <b>member?</b>(invocation)
+            
+            <a href="../../classes/Rake/InvocationChain.html#method-i-member-3F" name="method-i-member-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Is the invocation already in the chain?</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-member-3F_source')" id="l_method-i-member-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-member-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/invocation_chain.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">member?</span>(<span class="ruby-identifier">invocation</span>)
+  <span class="ruby-identifier">head</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">invocation</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-identifier">invocation</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../../classes/Rake/InvocationChain.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Convert to string, ie: TOP =&gt; invocation =&gt; invocation</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/invocation_chain.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-node">&quot;#{prefix}#{head}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestThreadHistoryDisplay</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestThreadHistoryDisplay">
+
+  
+
+    <meta name="keywords" content="TestThreadHistoryDisplay class">
+  
+    <meta name="keywords" content="setup, test_banner, test_item_queued, test_item_dequeued, test_multiple_items, test_waiting, test_continue, test_thread_deleted, test_thread_created">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestThreadHistoryDisplay
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_thread_history_display_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_banner">test_banner</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_continue">test_continue</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_item_dequeued">test_item_dequeued</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_item_queued">test_item_queued</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_multiple_items">test_multiple_items</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_thread_created">test_thread_created</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_thread_deleted">test_thread_deleted</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_waiting">test_waiting</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@time</span> = <span class="ruby-value">1_000_000</span>
+  <span class="ruby-ivar">@stats</span> = []
+  <span class="ruby-ivar">@display</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">ThreadHistoryDisplay</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@stats</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_banner">
+            
+              <b>test_banner</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_banner" name="method-i-test_banner" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_banner_source')" id="l_method-i-test_banner_source">show</a>
+                
+              </p>
+              <div id="method-i-test_banner_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_banner</span>
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/Job History/i</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_continue">
+            
+              <b>test_continue</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_continue" name="method-i-test_continue" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_continue_source')" id="l_method-i-test_continue_source">show</a>
+                
+              </p>
+              <div id="method-i-test_continue_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_continue</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:continue</span>, <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +continue +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_item_dequeued">
+            
+              <b>test_item_dequeued</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_item_dequeued" name="method-i-test_item_dequeued" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_item_dequeued_source')" id="l_method-i-test_item_dequeued_source">show</a>
+                
+              </p>
+              <div id="method-i-test_item_dequeued_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_item_dequeued</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_dequeued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +item_dequeued +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_item_queued">
+            
+              <b>test_item_queued</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_item_queued" name="method-i-test_item_queued" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_item_queued_source')" id="l_method-i-test_item_queued_source">show</a>
+                
+              </p>
+              <div id="method-i-test_item_queued_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_item_queued</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_queued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +item_queued +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multiple_items">
+            
+              <b>test_multiple_items</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_multiple_items" name="method-i-test_multiple_items" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multiple_items_source')" id="l_method-i-test_multiple_items_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multiple_items_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_items</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_queued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:item_queued</span>,  <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">124</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +item_queued +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000001 +A +item_queued +item_id:2$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_thread_created">
+            
+              <b>test_thread_created</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_thread_created" name="method-i-test_thread_created" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_thread_created_source')" id="l_method-i-test_thread_created_source">show</a>
+                
+              </p>
+              <div id="method-i-test_thread_created_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_thread_created</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(
+    <span class="ruby-value">:thread_created</span>,
+    <span class="ruby-value">:new_thread</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123_456</span>,
+    <span class="ruby-value">:thread_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">13</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(
+    <span class="ruby-regexp">/^ *1000000 +A +thread_created( +new_thread:B| +thread_count:13){2}$/</span>,
+    <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_thread_deleted">
+            
+              <b>test_thread_deleted</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_thread_deleted" name="method-i-test_thread_deleted" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_thread_deleted_source')" id="l_method-i-test_thread_deleted_source">show</a>
+                
+              </p>
+              <div id="method-i-test_thread_deleted_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_thread_deleted</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(
+    <span class="ruby-value">:thread_deleted</span>,
+    <span class="ruby-value">:deleted_thread</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123_456</span>,
+    <span class="ruby-value">:thread_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">12</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(
+    <span class="ruby-regexp">/^ *1000000 +A +thread_deleted( +deleted_thread:B| +thread_count:12){2}$/</span>,
+    <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_waiting">
+            
+              <b>test_waiting</b>()
+            
+            <a href="../classes/TestThreadHistoryDisplay.html#method-i-test_waiting" name="method-i-test_waiting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_waiting_source')" id="l_method-i-test_waiting_source">show</a>
+                
+              </p>
+              <div id="method-i-test_waiting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_thread_history_display.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_waiting</span>
+  <span class="ruby-ivar">@stats</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>(<span class="ruby-value">:waiting</span>, <span class="ruby-value">:item_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">123</span>)
+  <span class="ruby-identifier">out</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">show</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^ *1000000 +A +waiting +item_id:1$/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

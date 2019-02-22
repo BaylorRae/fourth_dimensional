@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::DRbRunner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::DRbRunner">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::DRbRunner class">
+  
+    <meta name="keywords" content="new, drb_port, run, drb_argv">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::DRbRunner
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/drb_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-drb_argv">drb_argv</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-drb_port">drb_port</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(options, configuration=RSpec.configuration)
+            
+            <a href="../../../classes/RSpec/Core/DRbRunner.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">configuration</span>=<span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">configuration</span>)
+  <span class="ruby-ivar">@options</span>       = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@configuration</span> = <span class="ruby-identifier">configuration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-drb_argv">
+            
+              <b>drb_argv</b>()
+            
+            <a href="../../../classes/RSpec/Core/DRbRunner.html#method-i-drb_argv" name="method-i-drb_argv" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-drb_argv_source')" id="l_method-i-drb_argv_source">show</a>
+                
+              </p>
+              <div id="method-i-drb_argv_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">drb_argv</span>
+  <span class="ruby-ivar">@drb_argv</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">configure_filter_manager</span>(<span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">filter_manager</span>)
+    <span class="ruby-constant">DRbOptions</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@options</span>.<span class="ruby-identifier">options</span>, <span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">filter_manager</span>).<span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-drb_port">
+            
+              <b>drb_port</b>()
+            
+            <a href="../../../classes/RSpec/Core/DRbRunner.html#method-i-drb_port" name="method-i-drb_port" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-drb_port_source')" id="l_method-i-drb_port_source">show</a>
+                
+              </p>
+              <div id="method-i-drb_port_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">drb_port</span>
+  <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:drb_port</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RSPEC_DRB&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-value">8989</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>(err, out)
+            
+            <a href="../../../classes/RSpec/Core/DRbRunner.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run</span>(<span class="ruby-identifier">err</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">DRb</span>.<span class="ruby-identifier">start_service</span>(<span class="ruby-string">&quot;druby://localhost:0&quot;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SocketError</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EADDRNOTAVAIL</span>
+    <span class="ruby-constant">DRb</span>.<span class="ruby-identifier">start_service</span>(<span class="ruby-string">&quot;druby://:0&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">spec_server</span> = <span class="ruby-constant">DRbObject</span>.<span class="ruby-identifier">new_with_uri</span>(<span class="ruby-node">&quot;druby://127.0.0.1:#{drb_port}&quot;</span>)
+  <span class="ruby-identifier">spec_server</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">drb_argv</span>, <span class="ruby-identifier">err</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

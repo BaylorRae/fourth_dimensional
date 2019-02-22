@@ -1,0 +1,3619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Markdown</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Markdown">
+
+  
+    
+    <meta name="description" content="RDoc::Markdown as described by the markdown syntax.  To choose Markdown as your only default format see Saved Options at RDoc::Options for instructions on setting up a .">
+    <meta property="og:description" content="RDoc::Markdown as described by the markdown syntax.  To choose Markdown as your only default format see Saved Options at RDoc::Options for instructions on setting up a .">
+  
+
+    <meta name="keywords" content="RDoc::Markdown class">
+  
+    <meta name="keywords" content="extension, break_on_newline, css, definition_lists, github, html, notes, strike, parse, new, orig_initialize, emphasis, extension?, extension, link_to, list_item_from, note, note_for, paragraph, parse, peg_parse, reference, strong">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Markdown
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markdown_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markdown/entities_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown/entities.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markdown/literals_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown/literals.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="Markdown.html"><code>RDoc::Markdown</code></a> as described by the <a href="http://daringfireball.net/projects/markdown/syntax">markdown syntax</a>.</p>
+
+<p>To choose <a href="Markdown.html"><code>Markdown</code></a> as your only default format see <a href="Options.html#label-Saved+Options">Saved Options at <code>RDoc::Options</code></a> for instructions on setting up a <code>.doc_options</code> file to store your project default.</p>
+
+<h2 id="class-RDoc::Markdown-label-Usage">Usage</h2>
+
+<p>Here is a brief example of using this parse to read a markdown file by hand.</p>
+
+<pre><code>data = File.read(&quot;README.md&quot;)
+formatter = RDoc::Markup::ToHtml.new(RDoc::Options.new, nil)
+html = RDoc::Markdown.parse(data).accept(formatter)
+
+# do something with html
+</code></pre>
+
+<h2 id="class-RDoc::Markdown-label-Extensions">Extensions</h2>
+
+<p>The following markdown extensions are supported by the parser, but not all are used in <a href="../RDoc.html"><code>RDoc</code></a> output by default.</p>
+
+<h3 id="class-RDoc::Markdown-label-RDoc"><a href="../RDoc.html"><code>RDoc</code></a></h3>
+
+<p>The <a href="../RDoc.html"><code>RDoc</code></a> <a href="Markdown.html"><code>Markdown</code></a> parser has the following built-in behaviors that cannot be disabled.</p>
+
+<p>Underscores embedded in words are never interpreted as emphasis. (While the <a href="http://daringfireball.net/projects/markdown/dingus">markdown dingus</a> emphasizes in-word underscores, neither the <a href="Markdown.html"><code>Markdown</code></a> syntax nor MarkdownTest mention this behavior.)</p>
+
+<p>For HTML output, <a href="../RDoc.html"><code>RDoc</code></a> always auto-links bare URLs.</p>
+
+<h3 id="class-RDoc::Markdown-label-Break+on+Newline">Break on Newline</h3>
+
+<p>The <a href="Markdown.html#method-i-break_on_newline"><code>break_on_newline</code></a> extension converts all newlines into hard line breaks as in <a href="http://github.github.com/github-flavored-markdown/">Github Flavored Markdown</a>. This extension is disabled by default.</p>
+
+<h3 id="class-RDoc::Markdown-label-CSS">CSS</h3>
+
+<p>The <a href="Markdown.html#method-i-css"><code>css</code></a> extension enables CSS blocks to be included in the output, but they are not used for any built-in <a href="../RDoc.html"><code>RDoc</code></a> output format. This extension is disabled by default.</p>
+
+<p>Example:</p>
+
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+h1 { font-size: 3em }
+&lt;/style&gt;
+</code></pre>
+
+<h3 id="class-RDoc::Markdown-label-Definition+Lists">Definition Lists</h3>
+
+<p>The <a href="Markdown.html#method-i-definition_lists"><code>definition_lists</code></a> extension allows definition lists using the <a href="http://michelf.com/projects/php-markdown/extra/#def-list">PHP Markdown Extra syntax</a>, but only one label and definition are supported at this time. This extension is enabled by default.</p>
+
+<p>Example:</p>
+
+<pre><code>cat
+:   A small furry mammal
+that seems to sleep a lot
+
+ant
+:   A little insect that is known
+to enjoy picnics
+</code></pre>
+
+<p>Produces:</p>
+<dl class="rdoc-list note-list"><dt>cat
+<dd>
+<p>A small furry mammal that seems to sleep a lot</p>
+</dd><dt>ant
+<dd>
+<p>A little insect that is known to enjoy picnics</p>
+</dd></dl>
+
+<h3 id="class-RDoc::Markdown-label-Strike">Strike</h3>
+
+<p>Example:</p>
+
+<pre><code>This is ~~striked~~.
+</code></pre>
+
+<p>Produces:</p>
+
+<p>This is ~striked~.</p>
+
+<h3 id="class-RDoc::Markdown-label-Github">Github</h3>
+
+<p>The <a href="Markdown.html#method-i-github"><code>github</code></a> extension enables a partial set of <a href="http://github.github.com/github-flavored-markdown/">Github Flavored Markdown</a>. This extension is enabled by default.</p>
+
+<p>Supported github extensions include:</p>
+
+<h4 id="class-RDoc::Markdown-label-Fenced+code+blocks">Fenced code blocks</h4>
+
+<p>Use <code>```</code> around a block of code instead of indenting it four spaces.</p>
+
+<h4 id="class-RDoc::Markdown-label-Syntax+highlighting">Syntax highlighting</h4>
+
+<p>Use <code>``` ruby</code> as the start of a code fence to add syntax highlighting. (Currently only <code>ruby</code> syntax is supported).</p>
+
+<h3 id="class-RDoc::Markdown-label-HTML">HTML</h3>
+
+<p>Enables raw HTML to be included in the output. This extension is enabled by default.</p>
+
+<p>Example:</p>
+
+<pre><code>&lt;table&gt;
+...
+&lt;/table&gt;
+</code></pre>
+
+<h3 id="class-RDoc::Markdown-label-Notes">Notes</h3>
+
+<p>The <a href="Markdown.html#method-i-notes"><code>notes</code></a> extension enables footnote support. This extension is enabled by default.</p>
+
+<p>Example:</p>
+
+<pre><code>Here is some text[^1] including an inline footnote ^[for short footnotes]
+
+...
+
+[^1]: With the footnote text down at the bottom
+</code></pre>
+
+<p>Produces:</p>
+
+<p>Here is some text<sup><a id="footmark-1" href="#foottext-1">1</a></sup> including an inline footnote <sup><a id="footmark-2" href="#foottext-2">2</a></sup></p>
+
+<h2 id="class-RDoc::Markdown-label-Limitations">Limitations</h2>
+<ul><li>
+<p>Link titles are not used</p>
+</li><li>
+<p>Footnotes are collapsed into a single paragraph</p>
+</li></ul>
+
+<h2 id="class-RDoc::Markdown-label-Author">Author</h2>
+
+<p>This markdown parser is a port to kpeg from <a href="https://github.com/jgm/peg-markdown">peg-markdown</a> by John MacFarlane.</p>
+
+<p>It is used under the MIT license:</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<p>The port to kpeg was performed by Eric Hodel and Evan Phoenix</p>
+<hr>
+
+<p><sup><a id="foottext-1" href="#footmark-1">1</a></sup> With the footnote text down at the bottom</p>
+
+<p><sup><a id="foottext-2" href="#footmark-2">2</a></sup> for short footnotes</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+    <!-- Sections -->
+    <div class="sectiontitle">Sections</div>
+    <ul>
+      
+        <li><a href="#Extensions">Extensions</a></li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Markdown/Literals.html">RDoc::Markdown::Literals</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Markdown/MemoEntry.html">RDoc::Markdown::MemoEntry</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Markdown/ParseError.html">RDoc::Markdown::ParseError</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Markdown/RuleInfo.html">RDoc::Markdown::RuleInfo</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-break_on_newline">break_on_newline</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-css">css</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-definition_lists">definition_lists</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-emphasis">emphasis</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-extension">extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extension">extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extension-3F">extension?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-github">github</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-html">html</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-link_to">link_to</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-list_item_from">list_item_from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-note">note</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-note_for">note_for</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-notes">notes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-orig_initialize">orig_initialize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-paragraph">paragraph</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-parse">parse</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-parse">parse</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-peg_parse">peg_parse</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reference">reference</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-strike">strike</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-strong">strong</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSIONS</td>
+            <td>=</td>
+            <td class="attr-value">[]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Supported extensions</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DEFAULT_EXTENSIONS</td>
+            <td>=</td>
+            <td class="attr-value">[
+:definition_lists,
+:github,
+:html,
+:notes,
+:strike,
+]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Extensions enabled by default</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">HTML_ENTITIES</td>
+            <td>=</td>
+            <td class="attr-value">{
+&quot;AElig&quot; =&gt; [0x000C6],
+&quot;AMP&quot; =&gt; [0x00026],
+&quot;Aacute&quot; =&gt; [0x000C1],
+&quot;Abreve&quot; =&gt; [0x00102],
+&quot;Acirc&quot; =&gt; [0x000C2],
+&quot;Acy&quot; =&gt; [0x00410],
+&quot;Afr&quot; =&gt; [0x1D504],
+&quot;Agrave&quot; =&gt; [0x000C0],
+&quot;Alpha&quot; =&gt; [0x00391],
+&quot;Amacr&quot; =&gt; [0x00100],
+&quot;And&quot; =&gt; [0x02A53],
+&quot;Aogon&quot; =&gt; [0x00104],
+&quot;Aopf&quot; =&gt; [0x1D538],
+&quot;ApplyFunction&quot; =&gt; [0x02061],
+&quot;Aring&quot; =&gt; [0x000C5],
+&quot;Ascr&quot; =&gt; [0x1D49C],
+&quot;Assign&quot; =&gt; [0x02254],
+&quot;Atilde&quot; =&gt; [0x000C3],
+&quot;Auml&quot; =&gt; [0x000C4],
+&quot;Backslash&quot; =&gt; [0x02216],
+&quot;Barv&quot; =&gt; [0x02AE7],
+&quot;Barwed&quot; =&gt; [0x02306],
+&quot;Bcy&quot; =&gt; [0x00411],
+&quot;Because&quot; =&gt; [0x02235],
+&quot;Bernoullis&quot; =&gt; [0x0212C],
+&quot;Beta&quot; =&gt; [0x00392],
+&quot;Bfr&quot; =&gt; [0x1D505],
+&quot;Bopf&quot; =&gt; [0x1D539],
+&quot;Breve&quot; =&gt; [0x002D8],
+&quot;Bscr&quot; =&gt; [0x0212C],
+&quot;Bumpeq&quot; =&gt; [0x0224E],
+&quot;CHcy&quot; =&gt; [0x00427],
+&quot;COPY&quot; =&gt; [0x000A9],
+&quot;Cacute&quot; =&gt; [0x00106],
+&quot;Cap&quot; =&gt; [0x022D2],
+&quot;CapitalDifferentialD&quot; =&gt; [0x02145],
+&quot;Cayleys&quot; =&gt; [0x0212D],
+&quot;Ccaron&quot; =&gt; [0x0010C],
+&quot;Ccedil&quot; =&gt; [0x000C7],
+&quot;Ccirc&quot; =&gt; [0x00108],
+&quot;Cconint&quot; =&gt; [0x02230],
+&quot;Cdot&quot; =&gt; [0x0010A],
+&quot;Cedilla&quot; =&gt; [0x000B8],
+&quot;CenterDot&quot; =&gt; [0x000B7],
+&quot;Cfr&quot; =&gt; [0x0212D],
+&quot;Chi&quot; =&gt; [0x003A7],
+&quot;CircleDot&quot; =&gt; [0x02299],
+&quot;CircleMinus&quot; =&gt; [0x02296],
+&quot;CirclePlus&quot; =&gt; [0x02295],
+&quot;CircleTimes&quot; =&gt; [0x02297],
+&quot;ClockwiseContourIntegral&quot; =&gt; [0x02232],
+&quot;CloseCurlyDoubleQuote&quot; =&gt; [0x0201D],
+&quot;CloseCurlyQuote&quot; =&gt; [0x02019],
+&quot;Colon&quot; =&gt; [0x02237],
+&quot;Colone&quot; =&gt; [0x02A74],
+&quot;Congruent&quot; =&gt; [0x02261],
+&quot;Conint&quot; =&gt; [0x0222F],
+&quot;ContourIntegral&quot; =&gt; [0x0222E],
+&quot;Copf&quot; =&gt; [0x02102],
+&quot;Coproduct&quot; =&gt; [0x02210],
+&quot;CounterClockwiseContourIntegral&quot; =&gt; [0x02233],
+&quot;Cross&quot; =&gt; [0x02A2F],
+&quot;Cscr&quot; =&gt; [0x1D49E],
+&quot;Cup&quot; =&gt; [0x022D3],
+&quot;CupCap&quot; =&gt; [0x0224D],
+&quot;DD&quot; =&gt; [0x02145],
+&quot;DDotrahd&quot; =&gt; [0x02911],
+&quot;DJcy&quot; =&gt; [0x00402],
+&quot;DScy&quot; =&gt; [0x00405],
+&quot;DZcy&quot; =&gt; [0x0040F],
+&quot;Dagger&quot; =&gt; [0x02021],
+&quot;Darr&quot; =&gt; [0x021A1],
+&quot;Dashv&quot; =&gt; [0x02AE4],
+&quot;Dcaron&quot; =&gt; [0x0010E],
+&quot;Dcy&quot; =&gt; [0x00414],
+&quot;Del&quot; =&gt; [0x02207],
+&quot;Delta&quot; =&gt; [0x00394],
+&quot;Dfr&quot; =&gt; [0x1D507],
+&quot;DiacriticalAcute&quot; =&gt; [0x000B4],
+&quot;DiacriticalDot&quot; =&gt; [0x002D9],
+&quot;DiacriticalDoubleAcute&quot; =&gt; [0x002DD],
+&quot;DiacriticalGrave&quot; =&gt; [0x00060],
+&quot;DiacriticalTilde&quot; =&gt; [0x002DC],
+&quot;Diamond&quot; =&gt; [0x022C4],
+&quot;DifferentialD&quot; =&gt; [0x02146],
+&quot;Dopf&quot; =&gt; [0x1D53B],
+&quot;Dot&quot; =&gt; [0x000A8],
+&quot;DotDot&quot; =&gt; [0x020DC],
+&quot;DotEqual&quot; =&gt; [0x02250],
+&quot;DoubleContourIntegral&quot; =&gt; [0x0222F],
+&quot;DoubleDot&quot; =&gt; [0x000A8],
+&quot;DoubleDownArrow&quot; =&gt; [0x021D3],
+&quot;DoubleLeftArrow&quot; =&gt; [0x021D0],
+&quot;DoubleLeftRightArrow&quot; =&gt; [0x021D4],
+&quot;DoubleLeftTee&quot; =&gt; [0x02AE4],
+&quot;DoubleLongLeftArrow&quot; =&gt; [0x027F8],
+&quot;DoubleLongLeftRightArrow&quot; =&gt; [0x027FA],
+&quot;DoubleLongRightArrow&quot; =&gt; [0x027F9],
+&quot;DoubleRightArrow&quot; =&gt; [0x021D2],
+&quot;DoubleRightTee&quot; =&gt; [0x022A8],
+&quot;DoubleUpArrow&quot; =&gt; [0x021D1],
+&quot;DoubleUpDownArrow&quot; =&gt; [0x021D5],
+&quot;DoubleVerticalBar&quot; =&gt; [0x02225],
+&quot;DownArrow&quot; =&gt; [0x02193],
+&quot;DownArrowBar&quot; =&gt; [0x02913],
+&quot;DownArrowUpArrow&quot; =&gt; [0x021F5],
+&quot;DownBreve&quot; =&gt; [0x00311],
+&quot;DownLeftRightVector&quot; =&gt; [0x02950],
+&quot;DownLeftTeeVector&quot; =&gt; [0x0295E],
+&quot;DownLeftVector&quot; =&gt; [0x021BD],
+&quot;DownLeftVectorBar&quot; =&gt; [0x02956],
+&quot;DownRightTeeVector&quot; =&gt; [0x0295F],
+&quot;DownRightVector&quot; =&gt; [0x021C1],
+&quot;DownRightVectorBar&quot; =&gt; [0x02957],
+&quot;DownTee&quot; =&gt; [0x022A4],
+&quot;DownTeeArrow&quot; =&gt; [0x021A7],
+&quot;Downarrow&quot; =&gt; [0x021D3],
+&quot;Dscr&quot; =&gt; [0x1D49F],
+&quot;Dstrok&quot; =&gt; [0x00110],
+&quot;ENG&quot; =&gt; [0x0014A],
+&quot;ETH&quot; =&gt; [0x000D0],
+&quot;Eacute&quot; =&gt; [0x000C9],
+&quot;Ecaron&quot; =&gt; [0x0011A],
+&quot;Ecirc&quot; =&gt; [0x000CA],
+&quot;Ecy&quot; =&gt; [0x0042D],
+&quot;Edot&quot; =&gt; [0x00116],
+&quot;Efr&quot; =&gt; [0x1D508],
+&quot;Egrave&quot; =&gt; [0x000C8],
+&quot;Element&quot; =&gt; [0x02208],
+&quot;Emacr&quot; =&gt; [0x00112],
+&quot;EmptySmallSquare&quot; =&gt; [0x025FB],
+&quot;EmptyVerySmallSquare&quot; =&gt; [0x025AB],
+&quot;Eogon&quot; =&gt; [0x00118],
+&quot;Eopf&quot; =&gt; [0x1D53C],
+&quot;Epsilon&quot; =&gt; [0x00395],
+&quot;Equal&quot; =&gt; [0x02A75],
+&quot;EqualTilde&quot; =&gt; [0x02242],
+&quot;Equilibrium&quot; =&gt; [0x021CC],
+&quot;Escr&quot; =&gt; [0x02130],
+&quot;Esim&quot; =&gt; [0x02A73],
+&quot;Eta&quot; =&gt; [0x00397],
+&quot;Euml&quot; =&gt; [0x000CB],
+&quot;Exists&quot; =&gt; [0x02203],
+&quot;ExponentialE&quot; =&gt; [0x02147],
+&quot;Fcy&quot; =&gt; [0x00424],
+&quot;Ffr&quot; =&gt; [0x1D509],
+&quot;FilledSmallSquare&quot; =&gt; [0x025FC],
+&quot;FilledVerySmallSquare&quot; =&gt; [0x025AA],
+&quot;Fopf&quot; =&gt; [0x1D53D],
+&quot;ForAll&quot; =&gt; [0x02200],
+&quot;Fouriertrf&quot; =&gt; [0x02131],
+&quot;Fscr&quot; =&gt; [0x02131],
+&quot;GJcy&quot; =&gt; [0x00403],
+&quot;GT&quot; =&gt; [0x0003E],
+&quot;Gamma&quot; =&gt; [0x00393],
+&quot;Gammad&quot; =&gt; [0x003DC],
+&quot;Gbreve&quot; =&gt; [0x0011E],
+&quot;Gcedil&quot; =&gt; [0x00122],
+&quot;Gcirc&quot; =&gt; [0x0011C],
+&quot;Gcy&quot; =&gt; [0x00413],
+&quot;Gdot&quot; =&gt; [0x00120],
+&quot;Gfr&quot; =&gt; [0x1D50A],
+&quot;Gg&quot; =&gt; [0x022D9],
+&quot;Gopf&quot; =&gt; [0x1D53E],
+&quot;GreaterEqual&quot; =&gt; [0x02265],
+&quot;GreaterEqualLess&quot; =&gt; [0x022DB],
+&quot;GreaterFullEqual&quot; =&gt; [0x02267],
+&quot;GreaterGreater&quot; =&gt; [0x02AA2],
+&quot;GreaterLess&quot; =&gt; [0x02277],
+&quot;GreaterSlantEqual&quot; =&gt; [0x02A7E],
+&quot;GreaterTilde&quot; =&gt; [0x02273],
+&quot;Gscr&quot; =&gt; [0x1D4A2],
+&quot;Gt&quot; =&gt; [0x0226B],
+&quot;HARDcy&quot; =&gt; [0x0042A],
+&quot;Hacek&quot; =&gt; [0x002C7],
+&quot;Hat&quot; =&gt; [0x0005E],
+&quot;Hcirc&quot; =&gt; [0x00124],
+&quot;Hfr&quot; =&gt; [0x0210C],
+&quot;HilbertSpace&quot; =&gt; [0x0210B],
+&quot;Hopf&quot; =&gt; [0x0210D],
+&quot;HorizontalLine&quot; =&gt; [0x02500],
+&quot;Hscr&quot; =&gt; [0x0210B],
+&quot;Hstrok&quot; =&gt; [0x00126],
+&quot;HumpDownHump&quot; =&gt; [0x0224E],
+&quot;HumpEqual&quot; =&gt; [0x0224F],
+&quot;IEcy&quot; =&gt; [0x00415],
+&quot;IJlig&quot; =&gt; [0x00132],
+&quot;IOcy&quot; =&gt; [0x00401],
+&quot;Iacute&quot; =&gt; [0x000CD],
+&quot;Icirc&quot; =&gt; [0x000CE],
+&quot;Icy&quot; =&gt; [0x00418],
+&quot;Idot&quot; =&gt; [0x00130],
+&quot;Ifr&quot; =&gt; [0x02111],
+&quot;Igrave&quot; =&gt; [0x000CC],
+&quot;Im&quot; =&gt; [0x02111],
+&quot;Imacr&quot; =&gt; [0x0012A],
+&quot;ImaginaryI&quot; =&gt; [0x02148],
+&quot;Implies&quot; =&gt; [0x021D2],
+&quot;Int&quot; =&gt; [0x0222C],
+&quot;Integral&quot; =&gt; [0x0222B],
+&quot;Intersection&quot; =&gt; [0x022C2],
+&quot;InvisibleComma&quot; =&gt; [0x02063],
+&quot;InvisibleTimes&quot; =&gt; [0x02062],
+&quot;Iogon&quot; =&gt; [0x0012E],
+&quot;Iopf&quot; =&gt; [0x1D540],
+&quot;Iota&quot; =&gt; [0x00399],
+&quot;Iscr&quot; =&gt; [0x02110],
+&quot;Itilde&quot; =&gt; [0x00128],
+&quot;Iukcy&quot; =&gt; [0x00406],
+&quot;Iuml&quot; =&gt; [0x000CF],
+&quot;Jcirc&quot; =&gt; [0x00134],
+&quot;Jcy&quot; =&gt; [0x00419],
+&quot;Jfr&quot; =&gt; [0x1D50D],
+&quot;Jopf&quot; =&gt; [0x1D541],
+&quot;Jscr&quot; =&gt; [0x1D4A5],
+&quot;Jsercy&quot; =&gt; [0x00408],
+&quot;Jukcy&quot; =&gt; [0x00404],
+&quot;KHcy&quot; =&gt; [0x00425],
+&quot;KJcy&quot; =&gt; [0x0040C],
+&quot;Kappa&quot; =&gt; [0x0039A],
+&quot;Kcedil&quot; =&gt; [0x00136],
+&quot;Kcy&quot; =&gt; [0x0041A],
+&quot;Kfr&quot; =&gt; [0x1D50E],
+&quot;Kopf&quot; =&gt; [0x1D542],
+&quot;Kscr&quot; =&gt; [0x1D4A6],
+&quot;LJcy&quot; =&gt; [0x00409],
+&quot;LT&quot; =&gt; [0x0003C],
+&quot;Lacute&quot; =&gt; [0x00139],
+&quot;Lambda&quot; =&gt; [0x0039B],
+&quot;Lang&quot; =&gt; [0x027EA],
+&quot;Laplacetrf&quot; =&gt; [0x02112],
+&quot;Larr&quot; =&gt; [0x0219E],
+&quot;Lcaron&quot; =&gt; [0x0013D],
+&quot;Lcedil&quot; =&gt; [0x0013B],
+&quot;Lcy&quot; =&gt; [0x0041B],
+&quot;LeftAngleBracket&quot; =&gt; [0x027E8],
+&quot;LeftArrow&quot; =&gt; [0x02190],
+&quot;LeftArrowBar&quot; =&gt; [0x021E4],
+&quot;LeftArrowRightArrow&quot; =&gt; [0x021C6],
+&quot;LeftCeiling&quot; =&gt; [0x02308],
+&quot;LeftDoubleBracket&quot; =&gt; [0x027E6],
+&quot;LeftDownTeeVector&quot; =&gt; [0x02961],
+&quot;LeftDownVector&quot; =&gt; [0x021C3],
+&quot;LeftDownVectorBar&quot; =&gt; [0x02959],
+&quot;LeftFloor&quot; =&gt; [0x0230A],
+&quot;LeftRightArrow&quot; =&gt; [0x02194],
+&quot;LeftRightVector&quot; =&gt; [0x0294E],
+&quot;LeftTee&quot; =&gt; [0x022A3],
+&quot;LeftTeeArrow&quot; =&gt; [0x021A4],
+&quot;LeftTeeVector&quot; =&gt; [0x0295A],
+&quot;LeftTriangle&quot; =&gt; [0x022B2],
+&quot;LeftTriangleBar&quot; =&gt; [0x029CF],
+&quot;LeftTriangleEqual&quot; =&gt; [0x022B4],
+&quot;LeftUpDownVector&quot; =&gt; [0x02951],
+&quot;LeftUpTeeVector&quot; =&gt; [0x02960],
+&quot;LeftUpVector&quot; =&gt; [0x021BF],
+&quot;LeftUpVectorBar&quot; =&gt; [0x02958],
+&quot;LeftVector&quot; =&gt; [0x021BC],
+&quot;LeftVectorBar&quot; =&gt; [0x02952],
+&quot;Leftarrow&quot; =&gt; [0x021D0],
+&quot;Leftrightarrow&quot; =&gt; [0x021D4],
+&quot;LessEqualGreater&quot; =&gt; [0x022DA],
+&quot;LessFullEqual&quot; =&gt; [0x02266],
+&quot;LessGreater&quot; =&gt; [0x02276],
+&quot;LessLess&quot; =&gt; [0x02AA1],
+&quot;LessSlantEqual&quot; =&gt; [0x02A7D],
+&quot;LessTilde&quot; =&gt; [0x02272],
+&quot;Lfr&quot; =&gt; [0x1D50F],
+&quot;Ll&quot; =&gt; [0x022D8],
+&quot;Lleftarrow&quot; =&gt; [0x021DA],
+&quot;Lmidot&quot; =&gt; [0x0013F],
+&quot;LongLeftArrow&quot; =&gt; [0x027F5],
+&quot;LongLeftRightArrow&quot; =&gt; [0x027F7],
+&quot;LongRightArrow&quot; =&gt; [0x027F6],
+&quot;Longleftarrow&quot; =&gt; [0x027F8],
+&quot;Longleftrightarrow&quot; =&gt; [0x027FA],
+&quot;Longrightarrow&quot; =&gt; [0x027F9],
+&quot;Lopf&quot; =&gt; [0x1D543],
+&quot;LowerLeftArrow&quot; =&gt; [0x02199],
+&quot;LowerRightArrow&quot; =&gt; [0x02198],
+&quot;Lscr&quot; =&gt; [0x02112],
+&quot;Lsh&quot; =&gt; [0x021B0],
+&quot;Lstrok&quot; =&gt; [0x00141],
+&quot;Lt&quot; =&gt; [0x0226A],
+&quot;Map&quot; =&gt; [0x02905],
+&quot;Mcy&quot; =&gt; [0x0041C],
+&quot;MediumSpace&quot; =&gt; [0x0205F],
+&quot;Mellintrf&quot; =&gt; [0x02133],
+&quot;Mfr&quot; =&gt; [0x1D510],
+&quot;MinusPlus&quot; =&gt; [0x02213],
+&quot;Mopf&quot; =&gt; [0x1D544],
+&quot;Mscr&quot; =&gt; [0x02133],
+&quot;Mu&quot; =&gt; [0x0039C],
+&quot;NJcy&quot; =&gt; [0x0040A],
+&quot;Nacute&quot; =&gt; [0x00143],
+&quot;Ncaron&quot; =&gt; [0x00147],
+&quot;Ncedil&quot; =&gt; [0x00145],
+&quot;Ncy&quot; =&gt; [0x0041D],
+&quot;NegativeMediumSpace&quot; =&gt; [0x0200B],
+&quot;NegativeThickSpace&quot; =&gt; [0x0200B],
+&quot;NegativeThinSpace&quot; =&gt; [0x0200B],
+&quot;NegativeVeryThinSpace&quot; =&gt; [0x0200B],
+&quot;NestedGreaterGreater&quot; =&gt; [0x0226B],
+&quot;NestedLessLess&quot; =&gt; [0x0226A],
+&quot;NewLine&quot; =&gt; [0x0000A],
+&quot;Nfr&quot; =&gt; [0x1D511],
+&quot;NoBreak&quot; =&gt; [0x02060],
+&quot;NonBreakingSpace&quot; =&gt; [0x000A0],
+&quot;Nopf&quot; =&gt; [0x02115],
+&quot;Not&quot; =&gt; [0x02AEC],
+&quot;NotCongruent&quot; =&gt; [0x02262],
+&quot;NotCupCap&quot; =&gt; [0x0226D],
+&quot;NotDoubleVerticalBar&quot; =&gt; [0x02226],
+&quot;NotElement&quot; =&gt; [0x02209],
+&quot;NotEqual&quot; =&gt; [0x02260],
+&quot;NotEqualTilde&quot; =&gt; [0x02242, 0x00338],
+&quot;NotExists&quot; =&gt; [0x02204],
+&quot;NotGreater&quot; =&gt; [0x0226F],
+&quot;NotGreaterEqual&quot; =&gt; [0x02271],
+&quot;NotGreaterFullEqual&quot; =&gt; [0x02267, 0x00338],
+&quot;NotGreaterGreater&quot; =&gt; [0x0226B, 0x00338],
+&quot;NotGreaterLess&quot; =&gt; [0x02279],
+&quot;NotGreaterSlantEqual&quot; =&gt; [0x02A7E, 0x00338],
+&quot;NotGreaterTilde&quot; =&gt; [0x02275],
+&quot;NotHumpDownHump&quot; =&gt; [0x0224E, 0x00338],
+&quot;NotHumpEqual&quot; =&gt; [0x0224F, 0x00338],
+&quot;NotLeftTriangle&quot; =&gt; [0x022EA],
+&quot;NotLeftTriangleBar&quot; =&gt; [0x029CF, 0x00338],
+&quot;NotLeftTriangleEqual&quot; =&gt; [0x022EC],
+&quot;NotLess&quot; =&gt; [0x0226E],
+&quot;NotLessEqual&quot; =&gt; [0x02270],
+&quot;NotLessGreater&quot; =&gt; [0x02278],
+&quot;NotLessLess&quot; =&gt; [0x0226A, 0x00338],
+&quot;NotLessSlantEqual&quot; =&gt; [0x02A7D, 0x00338],
+&quot;NotLessTilde&quot; =&gt; [0x02274],
+&quot;NotNestedGreaterGreater&quot; =&gt; [0x02AA2, 0x00338],
+&quot;NotNestedLessLess&quot; =&gt; [0x02AA1, 0x00338],
+&quot;NotPrecedes&quot; =&gt; [0x02280],
+&quot;NotPrecedesEqual&quot; =&gt; [0x02AAF, 0x00338],
+&quot;NotPrecedesSlantEqual&quot; =&gt; [0x022E0],
+&quot;NotReverseElement&quot; =&gt; [0x0220C],
+&quot;NotRightTriangle&quot; =&gt; [0x022EB],
+&quot;NotRightTriangleBar&quot; =&gt; [0x029D0, 0x00338],
+&quot;NotRightTriangleEqual&quot; =&gt; [0x022ED],
+&quot;NotSquareSubset&quot; =&gt; [0x0228F, 0x00338],
+&quot;NotSquareSubsetEqual&quot; =&gt; [0x022E2],
+&quot;NotSquareSuperset&quot; =&gt; [0x02290, 0x00338],
+&quot;NotSquareSupersetEqual&quot; =&gt; [0x022E3],
+&quot;NotSubset&quot; =&gt; [0x02282, 0x020D2],
+&quot;NotSubsetEqual&quot; =&gt; [0x02288],
+&quot;NotSucceeds&quot; =&gt; [0x02281],
+&quot;NotSucceedsEqual&quot; =&gt; [0x02AB0, 0x00338],
+&quot;NotSucceedsSlantEqual&quot; =&gt; [0x022E1],
+&quot;NotSucceedsTilde&quot; =&gt; [0x0227F, 0x00338],
+&quot;NotSuperset&quot; =&gt; [0x02283, 0x020D2],
+&quot;NotSupersetEqual&quot; =&gt; [0x02289],
+&quot;NotTilde&quot; =&gt; [0x02241],
+&quot;NotTildeEqual&quot; =&gt; [0x02244],
+&quot;NotTildeFullEqual&quot; =&gt; [0x02247],
+&quot;NotTildeTilde&quot; =&gt; [0x02249],
+&quot;NotVerticalBar&quot; =&gt; [0x02224],
+&quot;Nscr&quot; =&gt; [0x1D4A9],
+&quot;Ntilde&quot; =&gt; [0x000D1],
+&quot;Nu&quot; =&gt; [0x0039D],
+&quot;OElig&quot; =&gt; [0x00152],
+&quot;Oacute&quot; =&gt; [0x000D3],
+&quot;Ocirc&quot; =&gt; [0x000D4],
+&quot;Ocy&quot; =&gt; [0x0041E],
+&quot;Odblac&quot; =&gt; [0x00150],
+&quot;Ofr&quot; =&gt; [0x1D512],
+&quot;Ograve&quot; =&gt; [0x000D2],
+&quot;Omacr&quot; =&gt; [0x0014C],
+&quot;Omega&quot; =&gt; [0x003A9],
+&quot;Omicron&quot; =&gt; [0x0039F],
+&quot;Oopf&quot; =&gt; [0x1D546],
+&quot;OpenCurlyDoubleQuote&quot; =&gt; [0x0201C],
+&quot;OpenCurlyQuote&quot; =&gt; [0x02018],
+&quot;Or&quot; =&gt; [0x02A54],
+&quot;Oscr&quot; =&gt; [0x1D4AA],
+&quot;Oslash&quot; =&gt; [0x000D8],
+&quot;Otilde&quot; =&gt; [0x000D5],
+&quot;Otimes&quot; =&gt; [0x02A37],
+&quot;Ouml&quot; =&gt; [0x000D6],
+&quot;OverBar&quot; =&gt; [0x0203E],
+&quot;OverBrace&quot; =&gt; [0x023DE],
+&quot;OverBracket&quot; =&gt; [0x023B4],
+&quot;OverParenthesis&quot; =&gt; [0x023DC],
+&quot;PartialD&quot; =&gt; [0x02202],
+&quot;Pcy&quot; =&gt; [0x0041F],
+&quot;Pfr&quot; =&gt; [0x1D513],
+&quot;Phi&quot; =&gt; [0x003A6],
+&quot;Pi&quot; =&gt; [0x003A0],
+&quot;PlusMinus&quot; =&gt; [0x000B1],
+&quot;Poincareplane&quot; =&gt; [0x0210C],
+&quot;Popf&quot; =&gt; [0x02119],
+&quot;Pr&quot; =&gt; [0x02ABB],
+&quot;Precedes&quot; =&gt; [0x0227A],
+&quot;PrecedesEqual&quot; =&gt; [0x02AAF],
+&quot;PrecedesSlantEqual&quot; =&gt; [0x0227C],
+&quot;PrecedesTilde&quot; =&gt; [0x0227E],
+&quot;Prime&quot; =&gt; [0x02033],
+&quot;Product&quot; =&gt; [0x0220F],
+&quot;Proportion&quot; =&gt; [0x02237],
+&quot;Proportional&quot; =&gt; [0x0221D],
+&quot;Pscr&quot; =&gt; [0x1D4AB],
+&quot;Psi&quot; =&gt; [0x003A8],
+&quot;QUOT&quot; =&gt; [0x00022],
+&quot;Qfr&quot; =&gt; [0x1D514],
+&quot;Qopf&quot; =&gt; [0x0211A],
+&quot;Qscr&quot; =&gt; [0x1D4AC],
+&quot;RBarr&quot; =&gt; [0x02910],
+&quot;REG&quot; =&gt; [0x000AE],
+&quot;Racute&quot; =&gt; [0x00154],
+&quot;Rang&quot; =&gt; [0x027EB],
+&quot;Rarr&quot; =&gt; [0x021A0],
+&quot;Rarrtl&quot; =&gt; [0x02916],
+&quot;Rcaron&quot; =&gt; [0x00158],
+&quot;Rcedil&quot; =&gt; [0x00156],
+&quot;Rcy&quot; =&gt; [0x00420],
+&quot;Re&quot; =&gt; [0x0211C],
+&quot;ReverseElement&quot; =&gt; [0x0220B],
+&quot;ReverseEquilibrium&quot; =&gt; [0x021CB],
+&quot;ReverseUpEquilibrium&quot; =&gt; [0x0296F],
+&quot;Rfr&quot; =&gt; [0x0211C],
+&quot;Rho&quot; =&gt; [0x003A1],
+&quot;RightAngleBracket&quot; =&gt; [0x027E9],
+&quot;RightArrow&quot; =&gt; [0x02192],
+&quot;RightArrowBar&quot; =&gt; [0x021E5],
+&quot;RightArrowLeftArrow&quot; =&gt; [0x021C4],
+&quot;RightCeiling&quot; =&gt; [0x02309],
+&quot;RightDoubleBracket&quot; =&gt; [0x027E7],
+&quot;RightDownTeeVector&quot; =&gt; [0x0295D],
+&quot;RightDownVector&quot; =&gt; [0x021C2],
+&quot;RightDownVectorBar&quot; =&gt; [0x02955],
+&quot;RightFloor&quot; =&gt; [0x0230B],
+&quot;RightTee&quot; =&gt; [0x022A2],
+&quot;RightTeeArrow&quot; =&gt; [0x021A6],
+&quot;RightTeeVector&quot; =&gt; [0x0295B],
+&quot;RightTriangle&quot; =&gt; [0x022B3],
+&quot;RightTriangleBar&quot; =&gt; [0x029D0],
+&quot;RightTriangleEqual&quot; =&gt; [0x022B5],
+&quot;RightUpDownVector&quot; =&gt; [0x0294F],
+&quot;RightUpTeeVector&quot; =&gt; [0x0295C],
+&quot;RightUpVector&quot; =&gt; [0x021BE],
+&quot;RightUpVectorBar&quot; =&gt; [0x02954],
+&quot;RightVector&quot; =&gt; [0x021C0],
+&quot;RightVectorBar&quot; =&gt; [0x02953],
+&quot;Rightarrow&quot; =&gt; [0x021D2],
+&quot;Ropf&quot; =&gt; [0x0211D],
+&quot;RoundImplies&quot; =&gt; [0x02970],
+&quot;Rrightarrow&quot; =&gt; [0x021DB],
+&quot;Rscr&quot; =&gt; [0x0211B],
+&quot;Rsh&quot; =&gt; [0x021B1],
+&quot;RuleDelayed&quot; =&gt; [0x029F4],
+&quot;SHCHcy&quot; =&gt; [0x00429],
+&quot;SHcy&quot; =&gt; [0x00428],
+&quot;SOFTcy&quot; =&gt; [0x0042C],
+&quot;Sacute&quot; =&gt; [0x0015A],
+&quot;Sc&quot; =&gt; [0x02ABC],
+&quot;Scaron&quot; =&gt; [0x00160],
+&quot;Scedil&quot; =&gt; [0x0015E],
+&quot;Scirc&quot; =&gt; [0x0015C],
+&quot;Scy&quot; =&gt; [0x00421],
+&quot;Sfr&quot; =&gt; [0x1D516],
+&quot;ShortDownArrow&quot; =&gt; [0x02193],
+&quot;ShortLeftArrow&quot; =&gt; [0x02190],
+&quot;ShortRightArrow&quot; =&gt; [0x02192],
+&quot;ShortUpArrow&quot; =&gt; [0x02191],
+&quot;Sigma&quot; =&gt; [0x003A3],
+&quot;SmallCircle&quot; =&gt; [0x02218],
+&quot;Sopf&quot; =&gt; [0x1D54A],
+&quot;Sqrt&quot; =&gt; [0x0221A],
+&quot;Square&quot; =&gt; [0x025A1],
+&quot;SquareIntersection&quot; =&gt; [0x02293],
+&quot;SquareSubset&quot; =&gt; [0x0228F],
+&quot;SquareSubsetEqual&quot; =&gt; [0x02291],
+&quot;SquareSuperset&quot; =&gt; [0x02290],
+&quot;SquareSupersetEqual&quot; =&gt; [0x02292],
+&quot;SquareUnion&quot; =&gt; [0x02294],
+&quot;Sscr&quot; =&gt; [0x1D4AE],
+&quot;Star&quot; =&gt; [0x022C6],
+&quot;Sub&quot; =&gt; [0x022D0],
+&quot;Subset&quot; =&gt; [0x022D0],
+&quot;SubsetEqual&quot; =&gt; [0x02286],
+&quot;Succeeds&quot; =&gt; [0x0227B],
+&quot;SucceedsEqual&quot; =&gt; [0x02AB0],
+&quot;SucceedsSlantEqual&quot; =&gt; [0x0227D],
+&quot;SucceedsTilde&quot; =&gt; [0x0227F],
+&quot;SuchThat&quot; =&gt; [0x0220B],
+&quot;Sum&quot; =&gt; [0x02211],
+&quot;Sup&quot; =&gt; [0x022D1],
+&quot;Superset&quot; =&gt; [0x02283],
+&quot;SupersetEqual&quot; =&gt; [0x02287],
+&quot;Supset&quot; =&gt; [0x022D1],
+&quot;THORN&quot; =&gt; [0x000DE],
+&quot;TRADE&quot; =&gt; [0x02122],
+&quot;TSHcy&quot; =&gt; [0x0040B],
+&quot;TScy&quot; =&gt; [0x00426],
+&quot;Tab&quot; =&gt; [0x00009],
+&quot;Tau&quot; =&gt; [0x003A4],
+&quot;Tcaron&quot; =&gt; [0x00164],
+&quot;Tcedil&quot; =&gt; [0x00162],
+&quot;Tcy&quot; =&gt; [0x00422],
+&quot;Tfr&quot; =&gt; [0x1D517],
+&quot;Therefore&quot; =&gt; [0x02234],
+&quot;Theta&quot; =&gt; [0x00398],
+&quot;ThickSpace&quot; =&gt; [0x0205F, 0x0200A],
+&quot;ThinSpace&quot; =&gt; [0x02009],
+&quot;Tilde&quot; =&gt; [0x0223C],
+&quot;TildeEqual&quot; =&gt; [0x02243],
+&quot;TildeFullEqual&quot; =&gt; [0x02245],
+&quot;TildeTilde&quot; =&gt; [0x02248],
+&quot;Topf&quot; =&gt; [0x1D54B],
+&quot;TripleDot&quot; =&gt; [0x020DB],
+&quot;Tscr&quot; =&gt; [0x1D4AF],
+&quot;Tstrok&quot; =&gt; [0x00166],
+&quot;Uacute&quot; =&gt; [0x000DA],
+&quot;Uarr&quot; =&gt; [0x0219F],
+&quot;Uarrocir&quot; =&gt; [0x02949],
+&quot;Ubrcy&quot; =&gt; [0x0040E],
+&quot;Ubreve&quot; =&gt; [0x0016C],
+&quot;Ucirc&quot; =&gt; [0x000DB],
+&quot;Ucy&quot; =&gt; [0x00423],
+&quot;Udblac&quot; =&gt; [0x00170],
+&quot;Ufr&quot; =&gt; [0x1D518],
+&quot;Ugrave&quot; =&gt; [0x000D9],
+&quot;Umacr&quot; =&gt; [0x0016A],
+&quot;UnderBar&quot; =&gt; [0x0005F],
+&quot;UnderBrace&quot; =&gt; [0x023DF],
+&quot;UnderBracket&quot; =&gt; [0x023B5],
+&quot;UnderParenthesis&quot; =&gt; [0x023DD],
+&quot;Union&quot; =&gt; [0x022C3],
+&quot;UnionPlus&quot; =&gt; [0x0228E],
+&quot;Uogon&quot; =&gt; [0x00172],
+&quot;Uopf&quot; =&gt; [0x1D54C],
+&quot;UpArrow&quot; =&gt; [0x02191],
+&quot;UpArrowBar&quot; =&gt; [0x02912],
+&quot;UpArrowDownArrow&quot; =&gt; [0x021C5],
+&quot;UpDownArrow&quot; =&gt; [0x02195],
+&quot;UpEquilibrium&quot; =&gt; [0x0296E],
+&quot;UpTee&quot; =&gt; [0x022A5],
+&quot;UpTeeArrow&quot; =&gt; [0x021A5],
+&quot;Uparrow&quot; =&gt; [0x021D1],
+&quot;Updownarrow&quot; =&gt; [0x021D5],
+&quot;UpperLeftArrow&quot; =&gt; [0x02196],
+&quot;UpperRightArrow&quot; =&gt; [0x02197],
+&quot;Upsi&quot; =&gt; [0x003D2],
+&quot;Upsilon&quot; =&gt; [0x003A5],
+&quot;Uring&quot; =&gt; [0x0016E],
+&quot;Uscr&quot; =&gt; [0x1D4B0],
+&quot;Utilde&quot; =&gt; [0x00168],
+&quot;Uuml&quot; =&gt; [0x000DC],
+&quot;VDash&quot; =&gt; [0x022AB],
+&quot;Vbar&quot; =&gt; [0x02AEB],
+&quot;Vcy&quot; =&gt; [0x00412],
+&quot;Vdash&quot; =&gt; [0x022A9],
+&quot;Vdashl&quot; =&gt; [0x02AE6],
+&quot;Vee&quot; =&gt; [0x022C1],
+&quot;Verbar&quot; =&gt; [0x02016],
+&quot;Vert&quot; =&gt; [0x02016],
+&quot;VerticalBar&quot; =&gt; [0x02223],
+&quot;VerticalLine&quot; =&gt; [0x0007C],
+&quot;VerticalSeparator&quot; =&gt; [0x02758],
+&quot;VerticalTilde&quot; =&gt; [0x02240],
+&quot;VeryThinSpace&quot; =&gt; [0x0200A],
+&quot;Vfr&quot; =&gt; [0x1D519],
+&quot;Vopf&quot; =&gt; [0x1D54D],
+&quot;Vscr&quot; =&gt; [0x1D4B1],
+&quot;Vvdash&quot; =&gt; [0x022AA],
+&quot;Wcirc&quot; =&gt; [0x00174],
+&quot;Wedge&quot; =&gt; [0x022C0],
+&quot;Wfr&quot; =&gt; [0x1D51A],
+&quot;Wopf&quot; =&gt; [0x1D54E],
+&quot;Wscr&quot; =&gt; [0x1D4B2],
+&quot;Xfr&quot; =&gt; [0x1D51B],
+&quot;Xi&quot; =&gt; [0x0039E],
+&quot;Xopf&quot; =&gt; [0x1D54F],
+&quot;Xscr&quot; =&gt; [0x1D4B3],
+&quot;YAcy&quot; =&gt; [0x0042F],
+&quot;YIcy&quot; =&gt; [0x00407],
+&quot;YUcy&quot; =&gt; [0x0042E],
+&quot;Yacute&quot; =&gt; [0x000DD],
+&quot;Ycirc&quot; =&gt; [0x00176],
+&quot;Ycy&quot; =&gt; [0x0042B],
+&quot;Yfr&quot; =&gt; [0x1D51C],
+&quot;Yopf&quot; =&gt; [0x1D550],
+&quot;Yscr&quot; =&gt; [0x1D4B4],
+&quot;Yuml&quot; =&gt; [0x00178],
+&quot;ZHcy&quot; =&gt; [0x00416],
+&quot;Zacute&quot; =&gt; [0x00179],
+&quot;Zcaron&quot; =&gt; [0x0017D],
+&quot;Zcy&quot; =&gt; [0x00417],
+&quot;Zdot&quot; =&gt; [0x0017B],
+&quot;ZeroWidthSpace&quot; =&gt; [0x0200B],
+&quot;Zeta&quot; =&gt; [0x00396],
+&quot;Zfr&quot; =&gt; [0x02128],
+&quot;Zopf&quot; =&gt; [0x02124],
+&quot;Zscr&quot; =&gt; [0x1D4B5],
+&quot;aacute&quot; =&gt; [0x000E1],
+&quot;abreve&quot; =&gt; [0x00103],
+&quot;ac&quot; =&gt; [0x0223E],
+&quot;acE&quot; =&gt; [0x0223E, 0x00333],
+&quot;acd&quot; =&gt; [0x0223F],
+&quot;acirc&quot; =&gt; [0x000E2],
+&quot;acute&quot; =&gt; [0x000B4],
+&quot;acy&quot; =&gt; [0x00430],
+&quot;aelig&quot; =&gt; [0x000E6],
+&quot;af&quot; =&gt; [0x02061],
+&quot;afr&quot; =&gt; [0x1D51E],
+&quot;agrave&quot; =&gt; [0x000E0],
+&quot;alefsym&quot; =&gt; [0x02135],
+&quot;aleph&quot; =&gt; [0x02135],
+&quot;alpha&quot; =&gt; [0x003B1],
+&quot;amacr&quot; =&gt; [0x00101],
+&quot;amalg&quot; =&gt; [0x02A3F],
+&quot;amp&quot; =&gt; [0x00026],
+&quot;and&quot; =&gt; [0x02227],
+&quot;andand&quot; =&gt; [0x02A55],
+&quot;andd&quot; =&gt; [0x02A5C],
+&quot;andslope&quot; =&gt; [0x02A58],
+&quot;andv&quot; =&gt; [0x02A5A],
+&quot;ang&quot; =&gt; [0x02220],
+&quot;ange&quot; =&gt; [0x029A4],
+&quot;angle&quot; =&gt; [0x02220],
+&quot;angmsd&quot; =&gt; [0x02221],
+&quot;angmsdaa&quot; =&gt; [0x029A8],
+&quot;angmsdab&quot; =&gt; [0x029A9],
+&quot;angmsdac&quot; =&gt; [0x029AA],
+&quot;angmsdad&quot; =&gt; [0x029AB],
+&quot;angmsdae&quot; =&gt; [0x029AC],
+&quot;angmsdaf&quot; =&gt; [0x029AD],
+&quot;angmsdag&quot; =&gt; [0x029AE],
+&quot;angmsdah&quot; =&gt; [0x029AF],
+&quot;angrt&quot; =&gt; [0x0221F],
+&quot;angrtvb&quot; =&gt; [0x022BE],
+&quot;angrtvbd&quot; =&gt; [0x0299D],
+&quot;angsph&quot; =&gt; [0x02222],
+&quot;angst&quot; =&gt; [0x000C5],
+&quot;angzarr&quot; =&gt; [0x0237C],
+&quot;aogon&quot; =&gt; [0x00105],
+&quot;aopf&quot; =&gt; [0x1D552],
+&quot;ap&quot; =&gt; [0x02248],
+&quot;apE&quot; =&gt; [0x02A70],
+&quot;apacir&quot; =&gt; [0x02A6F],
+&quot;ape&quot; =&gt; [0x0224A],
+&quot;apid&quot; =&gt; [0x0224B],
+&quot;apos&quot; =&gt; [0x00027],
+&quot;approx&quot; =&gt; [0x02248],
+&quot;approxeq&quot; =&gt; [0x0224A],
+&quot;aring&quot; =&gt; [0x000E5],
+&quot;ascr&quot; =&gt; [0x1D4B6],
+&quot;ast&quot; =&gt; [0x0002A],
+&quot;asymp&quot; =&gt; [0x02248],
+&quot;asympeq&quot; =&gt; [0x0224D],
+&quot;atilde&quot; =&gt; [0x000E3],
+&quot;auml&quot; =&gt; [0x000E4],
+&quot;awconint&quot; =&gt; [0x02233],
+&quot;awint&quot; =&gt; [0x02A11],
+&quot;bNot&quot; =&gt; [0x02AED],
+&quot;backcong&quot; =&gt; [0x0224C],
+&quot;backepsilon&quot; =&gt; [0x003F6],
+&quot;backprime&quot; =&gt; [0x02035],
+&quot;backsim&quot; =&gt; [0x0223D],
+&quot;backsimeq&quot; =&gt; [0x022CD],
+&quot;barvee&quot; =&gt; [0x022BD],
+&quot;barwed&quot; =&gt; [0x02305],
+&quot;barwedge&quot; =&gt; [0x02305],
+&quot;bbrk&quot; =&gt; [0x023B5],
+&quot;bbrktbrk&quot; =&gt; [0x023B6],
+&quot;bcong&quot; =&gt; [0x0224C],
+&quot;bcy&quot; =&gt; [0x00431],
+&quot;bdquo&quot; =&gt; [0x0201E],
+&quot;becaus&quot; =&gt; [0x02235],
+&quot;because&quot; =&gt; [0x02235],
+&quot;bemptyv&quot; =&gt; [0x029B0],
+&quot;bepsi&quot; =&gt; [0x003F6],
+&quot;bernou&quot; =&gt; [0x0212C],
+&quot;beta&quot; =&gt; [0x003B2],
+&quot;beth&quot; =&gt; [0x02136],
+&quot;between&quot; =&gt; [0x0226C],
+&quot;bfr&quot; =&gt; [0x1D51F],
+&quot;bigcap&quot; =&gt; [0x022C2],
+&quot;bigcirc&quot; =&gt; [0x025EF],
+&quot;bigcup&quot; =&gt; [0x022C3],
+&quot;bigodot&quot; =&gt; [0x02A00],
+&quot;bigoplus&quot; =&gt; [0x02A01],
+&quot;bigotimes&quot; =&gt; [0x02A02],
+&quot;bigsqcup&quot; =&gt; [0x02A06],
+&quot;bigstar&quot; =&gt; [0x02605],
+&quot;bigtriangledown&quot; =&gt; [0x025BD],
+&quot;bigtriangleup&quot; =&gt; [0x025B3],
+&quot;biguplus&quot; =&gt; [0x02A04],
+&quot;bigvee&quot; =&gt; [0x022C1],
+&quot;bigwedge&quot; =&gt; [0x022C0],
+&quot;bkarow&quot; =&gt; [0x0290D],
+&quot;blacklozenge&quot; =&gt; [0x029EB],
+&quot;blacksquare&quot; =&gt; [0x025AA],
+&quot;blacktriangle&quot; =&gt; [0x025B4],
+&quot;blacktriangledown&quot; =&gt; [0x025BE],
+&quot;blacktriangleleft&quot; =&gt; [0x025C2],
+&quot;blacktriangleright&quot; =&gt; [0x025B8],
+&quot;blank&quot; =&gt; [0x02423],
+&quot;blk12&quot; =&gt; [0x02592],
+&quot;blk14&quot; =&gt; [0x02591],
+&quot;blk34&quot; =&gt; [0x02593],
+&quot;block&quot; =&gt; [0x02588],
+&quot;bne&quot; =&gt; [0x0003D, 0x020E5],
+&quot;bnequiv&quot; =&gt; [0x02261, 0x020E5],
+&quot;bnot&quot; =&gt; [0x02310],
+&quot;bopf&quot; =&gt; [0x1D553],
+&quot;bot&quot; =&gt; [0x022A5],
+&quot;bottom&quot; =&gt; [0x022A5],
+&quot;bowtie&quot; =&gt; [0x022C8],
+&quot;boxDL&quot; =&gt; [0x02557],
+&quot;boxDR&quot; =&gt; [0x02554],
+&quot;boxDl&quot; =&gt; [0x02556],
+&quot;boxDr&quot; =&gt; [0x02553],
+&quot;boxH&quot; =&gt; [0x02550],
+&quot;boxHD&quot; =&gt; [0x02566],
+&quot;boxHU&quot; =&gt; [0x02569],
+&quot;boxHd&quot; =&gt; [0x02564],
+&quot;boxHu&quot; =&gt; [0x02567],
+&quot;boxUL&quot; =&gt; [0x0255D],
+&quot;boxUR&quot; =&gt; [0x0255A],
+&quot;boxUl&quot; =&gt; [0x0255C],
+&quot;boxUr&quot; =&gt; [0x02559],
+&quot;boxV&quot; =&gt; [0x02551],
+&quot;boxVH&quot; =&gt; [0x0256C],
+&quot;boxVL&quot; =&gt; [0x02563],
+&quot;boxVR&quot; =&gt; [0x02560],
+&quot;boxVh&quot; =&gt; [0x0256B],
+&quot;boxVl&quot; =&gt; [0x02562],
+&quot;boxVr&quot; =&gt; [0x0255F],
+&quot;boxbox&quot; =&gt; [0x029C9],
+&quot;boxdL&quot; =&gt; [0x02555],
+&quot;boxdR&quot; =&gt; [0x02552],
+&quot;boxdl&quot; =&gt; [0x02510],
+&quot;boxdr&quot; =&gt; [0x0250C],
+&quot;boxh&quot; =&gt; [0x02500],
+&quot;boxhD&quot; =&gt; [0x02565],
+&quot;boxhU&quot; =&gt; [0x02568],
+&quot;boxhd&quot; =&gt; [0x0252C],
+&quot;boxhu&quot; =&gt; [0x02534],
+&quot;boxminus&quot; =&gt; [0x0229F],
+&quot;boxplus&quot; =&gt; [0x0229E],
+&quot;boxtimes&quot; =&gt; [0x022A0],
+&quot;boxuL&quot; =&gt; [0x0255B],
+&quot;boxuR&quot; =&gt; [0x02558],
+&quot;boxul&quot; =&gt; [0x02518],
+&quot;boxur&quot; =&gt; [0x02514],
+&quot;boxv&quot; =&gt; [0x02502],
+&quot;boxvH&quot; =&gt; [0x0256A],
+&quot;boxvL&quot; =&gt; [0x02561],
+&quot;boxvR&quot; =&gt; [0x0255E],
+&quot;boxvh&quot; =&gt; [0x0253C],
+&quot;boxvl&quot; =&gt; [0x02524],
+&quot;boxvr&quot; =&gt; [0x0251C],
+&quot;bprime&quot; =&gt; [0x02035],
+&quot;breve&quot; =&gt; [0x002D8],
+&quot;brvbar&quot; =&gt; [0x000A6],
+&quot;bscr&quot; =&gt; [0x1D4B7],
+&quot;bsemi&quot; =&gt; [0x0204F],
+&quot;bsim&quot; =&gt; [0x0223D],
+&quot;bsime&quot; =&gt; [0x022CD],
+&quot;bsol&quot; =&gt; [0x0005C],
+&quot;bsolb&quot; =&gt; [0x029C5],
+&quot;bsolhsub&quot; =&gt; [0x027C8],
+&quot;bull&quot; =&gt; [0x02022],
+&quot;bullet&quot; =&gt; [0x02022],
+&quot;bump&quot; =&gt; [0x0224E],
+&quot;bumpE&quot; =&gt; [0x02AAE],
+&quot;bumpe&quot; =&gt; [0x0224F],
+&quot;bumpeq&quot; =&gt; [0x0224F],
+&quot;cacute&quot; =&gt; [0x00107],
+&quot;cap&quot; =&gt; [0x02229],
+&quot;capand&quot; =&gt; [0x02A44],
+&quot;capbrcup&quot; =&gt; [0x02A49],
+&quot;capcap&quot; =&gt; [0x02A4B],
+&quot;capcup&quot; =&gt; [0x02A47],
+&quot;capdot&quot; =&gt; [0x02A40],
+&quot;caps&quot; =&gt; [0x02229, 0x0FE00],
+&quot;caret&quot; =&gt; [0x02041],
+&quot;caron&quot; =&gt; [0x002C7],
+&quot;ccaps&quot; =&gt; [0x02A4D],
+&quot;ccaron&quot; =&gt; [0x0010D],
+&quot;ccedil&quot; =&gt; [0x000E7],
+&quot;ccirc&quot; =&gt; [0x00109],
+&quot;ccups&quot; =&gt; [0x02A4C],
+&quot;ccupssm&quot; =&gt; [0x02A50],
+&quot;cdot&quot; =&gt; [0x0010B],
+&quot;cedil&quot; =&gt; [0x000B8],
+&quot;cemptyv&quot; =&gt; [0x029B2],
+&quot;cent&quot; =&gt; [0x000A2],
+&quot;centerdot&quot; =&gt; [0x000B7],
+&quot;cfr&quot; =&gt; [0x1D520],
+&quot;chcy&quot; =&gt; [0x00447],
+&quot;check&quot; =&gt; [0x02713],
+&quot;checkmark&quot; =&gt; [0x02713],
+&quot;chi&quot; =&gt; [0x003C7],
+&quot;cir&quot; =&gt; [0x025CB],
+&quot;cirE&quot; =&gt; [0x029C3],
+&quot;circ&quot; =&gt; [0x002C6],
+&quot;circeq&quot; =&gt; [0x02257],
+&quot;circlearrowleft&quot; =&gt; [0x021BA],
+&quot;circlearrowright&quot; =&gt; [0x021BB],
+&quot;circledR&quot; =&gt; [0x000AE],
+&quot;circledS&quot; =&gt; [0x024C8],
+&quot;circledast&quot; =&gt; [0x0229B],
+&quot;circledcirc&quot; =&gt; [0x0229A],
+&quot;circleddash&quot; =&gt; [0x0229D],
+&quot;cire&quot; =&gt; [0x02257],
+&quot;cirfnint&quot; =&gt; [0x02A10],
+&quot;cirmid&quot; =&gt; [0x02AEF],
+&quot;cirscir&quot; =&gt; [0x029C2],
+&quot;clubs&quot; =&gt; [0x02663],
+&quot;clubsuit&quot; =&gt; [0x02663],
+&quot;colon&quot; =&gt; [0x0003A],
+&quot;colone&quot; =&gt; [0x02254],
+&quot;coloneq&quot; =&gt; [0x02254],
+&quot;comma&quot; =&gt; [0x0002C],
+&quot;commat&quot; =&gt; [0x00040],
+&quot;comp&quot; =&gt; [0x02201],
+&quot;compfn&quot; =&gt; [0x02218],
+&quot;complement&quot; =&gt; [0x02201],
+&quot;complexes&quot; =&gt; [0x02102],
+&quot;cong&quot; =&gt; [0x02245],
+&quot;congdot&quot; =&gt; [0x02A6D],
+&quot;conint&quot; =&gt; [0x0222E],
+&quot;copf&quot; =&gt; [0x1D554],
+&quot;coprod&quot; =&gt; [0x02210],
+&quot;copy&quot; =&gt; [0x000A9],
+&quot;copysr&quot; =&gt; [0x02117],
+&quot;crarr&quot; =&gt; [0x021B5],
+&quot;cross&quot; =&gt; [0x02717],
+&quot;cscr&quot; =&gt; [0x1D4B8],
+&quot;csub&quot; =&gt; [0x02ACF],
+&quot;csube&quot; =&gt; [0x02AD1],
+&quot;csup&quot; =&gt; [0x02AD0],
+&quot;csupe&quot; =&gt; [0x02AD2],
+&quot;ctdot&quot; =&gt; [0x022EF],
+&quot;cudarrl&quot; =&gt; [0x02938],
+&quot;cudarrr&quot; =&gt; [0x02935],
+&quot;cuepr&quot; =&gt; [0x022DE],
+&quot;cuesc&quot; =&gt; [0x022DF],
+&quot;cularr&quot; =&gt; [0x021B6],
+&quot;cularrp&quot; =&gt; [0x0293D],
+&quot;cup&quot; =&gt; [0x0222A],
+&quot;cupbrcap&quot; =&gt; [0x02A48],
+&quot;cupcap&quot; =&gt; [0x02A46],
+&quot;cupcup&quot; =&gt; [0x02A4A],
+&quot;cupdot&quot; =&gt; [0x0228D],
+&quot;cupor&quot; =&gt; [0x02A45],
+&quot;cups&quot; =&gt; [0x0222A, 0x0FE00],
+&quot;curarr&quot; =&gt; [0x021B7],
+&quot;curarrm&quot; =&gt; [0x0293C],
+&quot;curlyeqprec&quot; =&gt; [0x022DE],
+&quot;curlyeqsucc&quot; =&gt; [0x022DF],
+&quot;curlyvee&quot; =&gt; [0x022CE],
+&quot;curlywedge&quot; =&gt; [0x022CF],
+&quot;curren&quot; =&gt; [0x000A4],
+&quot;curvearrowleft&quot; =&gt; [0x021B6],
+&quot;curvearrowright&quot; =&gt; [0x021B7],
+&quot;cuvee&quot; =&gt; [0x022CE],
+&quot;cuwed&quot; =&gt; [0x022CF],
+&quot;cwconint&quot; =&gt; [0x02232],
+&quot;cwint&quot; =&gt; [0x02231],
+&quot;cylcty&quot; =&gt; [0x0232D],
+&quot;dArr&quot; =&gt; [0x021D3],
+&quot;dHar&quot; =&gt; [0x02965],
+&quot;dagger&quot; =&gt; [0x02020],
+&quot;daleth&quot; =&gt; [0x02138],
+&quot;darr&quot; =&gt; [0x02193],
+&quot;dash&quot; =&gt; [0x02010],
+&quot;dashv&quot; =&gt; [0x022A3],
+&quot;dbkarow&quot; =&gt; [0x0290F],
+&quot;dblac&quot; =&gt; [0x002DD],
+&quot;dcaron&quot; =&gt; [0x0010F],
+&quot;dcy&quot; =&gt; [0x00434],
+&quot;dd&quot; =&gt; [0x02146],
+&quot;ddagger&quot; =&gt; [0x02021],
+&quot;ddarr&quot; =&gt; [0x021CA],
+&quot;ddotseq&quot; =&gt; [0x02A77],
+&quot;deg&quot; =&gt; [0x000B0],
+&quot;delta&quot; =&gt; [0x003B4],
+&quot;demptyv&quot; =&gt; [0x029B1],
+&quot;dfisht&quot; =&gt; [0x0297F],
+&quot;dfr&quot; =&gt; [0x1D521],
+&quot;dharl&quot; =&gt; [0x021C3],
+&quot;dharr&quot; =&gt; [0x021C2],
+&quot;diam&quot; =&gt; [0x022C4],
+&quot;diamond&quot; =&gt; [0x022C4],
+&quot;diamondsuit&quot; =&gt; [0x02666],
+&quot;diams&quot; =&gt; [0x02666],
+&quot;die&quot; =&gt; [0x000A8],
+&quot;digamma&quot; =&gt; [0x003DD],
+&quot;disin&quot; =&gt; [0x022F2],
+&quot;div&quot; =&gt; [0x000F7],
+&quot;divide&quot; =&gt; [0x000F7],
+&quot;divideontimes&quot; =&gt; [0x022C7],
+&quot;divonx&quot; =&gt; [0x022C7],
+&quot;djcy&quot; =&gt; [0x00452],
+&quot;dlcorn&quot; =&gt; [0x0231E],
+&quot;dlcrop&quot; =&gt; [0x0230D],
+&quot;dollar&quot; =&gt; [0x00024],
+&quot;dopf&quot; =&gt; [0x1D555],
+&quot;dot&quot; =&gt; [0x002D9],
+&quot;doteq&quot; =&gt; [0x02250],
+&quot;doteqdot&quot; =&gt; [0x02251],
+&quot;dotminus&quot; =&gt; [0x02238],
+&quot;dotplus&quot; =&gt; [0x02214],
+&quot;dotsquare&quot; =&gt; [0x022A1],
+&quot;doublebarwedge&quot; =&gt; [0x02306],
+&quot;downarrow&quot; =&gt; [0x02193],
+&quot;downdownarrows&quot; =&gt; [0x021CA],
+&quot;downharpoonleft&quot; =&gt; [0x021C3],
+&quot;downharpoonright&quot; =&gt; [0x021C2],
+&quot;drbkarow&quot; =&gt; [0x02910],
+&quot;drcorn&quot; =&gt; [0x0231F],
+&quot;drcrop&quot; =&gt; [0x0230C],
+&quot;dscr&quot; =&gt; [0x1D4B9],
+&quot;dscy&quot; =&gt; [0x00455],
+&quot;dsol&quot; =&gt; [0x029F6],
+&quot;dstrok&quot; =&gt; [0x00111],
+&quot;dtdot&quot; =&gt; [0x022F1],
+&quot;dtri&quot; =&gt; [0x025BF],
+&quot;dtrif&quot; =&gt; [0x025BE],
+&quot;duarr&quot; =&gt; [0x021F5],
+&quot;duhar&quot; =&gt; [0x0296F],
+&quot;dwangle&quot; =&gt; [0x029A6],
+&quot;dzcy&quot; =&gt; [0x0045F],
+&quot;dzigrarr&quot; =&gt; [0x027FF],
+&quot;eDDot&quot; =&gt; [0x02A77],
+&quot;eDot&quot; =&gt; [0x02251],
+&quot;eacute&quot; =&gt; [0x000E9],
+&quot;easter&quot; =&gt; [0x02A6E],
+&quot;ecaron&quot; =&gt; [0x0011B],
+&quot;ecir&quot; =&gt; [0x02256],
+&quot;ecirc&quot; =&gt; [0x000EA],
+&quot;ecolon&quot; =&gt; [0x02255],
+&quot;ecy&quot; =&gt; [0x0044D],
+&quot;edot&quot; =&gt; [0x00117],
+&quot;ee&quot; =&gt; [0x02147],
+&quot;efDot&quot; =&gt; [0x02252],
+&quot;efr&quot; =&gt; [0x1D522],
+&quot;eg&quot; =&gt; [0x02A9A],
+&quot;egrave&quot; =&gt; [0x000E8],
+&quot;egs&quot; =&gt; [0x02A96],
+&quot;egsdot&quot; =&gt; [0x02A98],
+&quot;el&quot; =&gt; [0x02A99],
+&quot;elinters&quot; =&gt; [0x023E7],
+&quot;ell&quot; =&gt; [0x02113],
+&quot;els&quot; =&gt; [0x02A95],
+&quot;elsdot&quot; =&gt; [0x02A97],
+&quot;emacr&quot; =&gt; [0x00113],
+&quot;empty&quot; =&gt; [0x02205],
+&quot;emptyset&quot; =&gt; [0x02205],
+&quot;emptyv&quot; =&gt; [0x02205],
+&quot;emsp&quot; =&gt; [0x02003],
+&quot;emsp13&quot; =&gt; [0x02004],
+&quot;emsp14&quot; =&gt; [0x02005],
+&quot;eng&quot; =&gt; [0x0014B],
+&quot;ensp&quot; =&gt; [0x02002],
+&quot;eogon&quot; =&gt; [0x00119],
+&quot;eopf&quot; =&gt; [0x1D556],
+&quot;epar&quot; =&gt; [0x022D5],
+&quot;eparsl&quot; =&gt; [0x029E3],
+&quot;eplus&quot; =&gt; [0x02A71],
+&quot;epsi&quot; =&gt; [0x003B5],
+&quot;epsilon&quot; =&gt; [0x003B5],
+&quot;epsiv&quot; =&gt; [0x003F5],
+&quot;eqcirc&quot; =&gt; [0x02256],
+&quot;eqcolon&quot; =&gt; [0x02255],
+&quot;eqsim&quot; =&gt; [0x02242],
+&quot;eqslantgtr&quot; =&gt; [0x02A96],
+&quot;eqslantless&quot; =&gt; [0x02A95],
+&quot;equals&quot; =&gt; [0x0003D],
+&quot;equest&quot; =&gt; [0x0225F],
+&quot;equiv&quot; =&gt; [0x02261],
+&quot;equivDD&quot; =&gt; [0x02A78],
+&quot;eqvparsl&quot; =&gt; [0x029E5],
+&quot;erDot&quot; =&gt; [0x02253],
+&quot;erarr&quot; =&gt; [0x02971],
+&quot;escr&quot; =&gt; [0x0212F],
+&quot;esdot&quot; =&gt; [0x02250],
+&quot;esim&quot; =&gt; [0x02242],
+&quot;eta&quot; =&gt; [0x003B7],
+&quot;eth&quot; =&gt; [0x000F0],
+&quot;euml&quot; =&gt; [0x000EB],
+&quot;euro&quot; =&gt; [0x020AC],
+&quot;excl&quot; =&gt; [0x00021],
+&quot;exist&quot; =&gt; [0x02203],
+&quot;expectation&quot; =&gt; [0x02130],
+&quot;exponentiale&quot; =&gt; [0x02147],
+&quot;fallingdotseq&quot; =&gt; [0x02252],
+&quot;fcy&quot; =&gt; [0x00444],
+&quot;female&quot; =&gt; [0x02640],
+&quot;ffilig&quot; =&gt; [0x0FB03],
+&quot;fflig&quot; =&gt; [0x0FB00],
+&quot;ffllig&quot; =&gt; [0x0FB04],
+&quot;ffr&quot; =&gt; [0x1D523],
+&quot;filig&quot; =&gt; [0x0FB01],
+&quot;fjlig&quot; =&gt; [0x00066, 0x0006A],
+&quot;flat&quot; =&gt; [0x0266D],
+&quot;fllig&quot; =&gt; [0x0FB02],
+&quot;fltns&quot; =&gt; [0x025B1],
+&quot;fnof&quot; =&gt; [0x00192],
+&quot;fopf&quot; =&gt; [0x1D557],
+&quot;forall&quot; =&gt; [0x02200],
+&quot;fork&quot; =&gt; [0x022D4],
+&quot;forkv&quot; =&gt; [0x02AD9],
+&quot;fpartint&quot; =&gt; [0x02A0D],
+&quot;frac12&quot; =&gt; [0x000BD],
+&quot;frac13&quot; =&gt; [0x02153],
+&quot;frac14&quot; =&gt; [0x000BC],
+&quot;frac15&quot; =&gt; [0x02155],
+&quot;frac16&quot; =&gt; [0x02159],
+&quot;frac18&quot; =&gt; [0x0215B],
+&quot;frac23&quot; =&gt; [0x02154],
+&quot;frac25&quot; =&gt; [0x02156],
+&quot;frac34&quot; =&gt; [0x000BE],
+&quot;frac35&quot; =&gt; [0x02157],
+&quot;frac38&quot; =&gt; [0x0215C],
+&quot;frac45&quot; =&gt; [0x02158],
+&quot;frac56&quot; =&gt; [0x0215A],
+&quot;frac58&quot; =&gt; [0x0215D],
+&quot;frac78&quot; =&gt; [0x0215E],
+&quot;frasl&quot; =&gt; [0x02044],
+&quot;frown&quot; =&gt; [0x02322],
+&quot;fscr&quot; =&gt; [0x1D4BB],
+&quot;gE&quot; =&gt; [0x02267],
+&quot;gEl&quot; =&gt; [0x02A8C],
+&quot;gacute&quot; =&gt; [0x001F5],
+&quot;gamma&quot; =&gt; [0x003B3],
+&quot;gammad&quot; =&gt; [0x003DD],
+&quot;gap&quot; =&gt; [0x02A86],
+&quot;gbreve&quot; =&gt; [0x0011F],
+&quot;gcirc&quot; =&gt; [0x0011D],
+&quot;gcy&quot; =&gt; [0x00433],
+&quot;gdot&quot; =&gt; [0x00121],
+&quot;ge&quot; =&gt; [0x02265],
+&quot;gel&quot; =&gt; [0x022DB],
+&quot;geq&quot; =&gt; [0x02265],
+&quot;geqq&quot; =&gt; [0x02267],
+&quot;geqslant&quot; =&gt; [0x02A7E],
+&quot;ges&quot; =&gt; [0x02A7E],
+&quot;gescc&quot; =&gt; [0x02AA9],
+&quot;gesdot&quot; =&gt; [0x02A80],
+&quot;gesdoto&quot; =&gt; [0x02A82],
+&quot;gesdotol&quot; =&gt; [0x02A84],
+&quot;gesl&quot; =&gt; [0x022DB, 0x0FE00],
+&quot;gesles&quot; =&gt; [0x02A94],
+&quot;gfr&quot; =&gt; [0x1D524],
+&quot;gg&quot; =&gt; [0x0226B],
+&quot;ggg&quot; =&gt; [0x022D9],
+&quot;gimel&quot; =&gt; [0x02137],
+&quot;gjcy&quot; =&gt; [0x00453],
+&quot;gl&quot; =&gt; [0x02277],
+&quot;glE&quot; =&gt; [0x02A92],
+&quot;gla&quot; =&gt; [0x02AA5],
+&quot;glj&quot; =&gt; [0x02AA4],
+&quot;gnE&quot; =&gt; [0x02269],
+&quot;gnap&quot; =&gt; [0x02A8A],
+&quot;gnapprox&quot; =&gt; [0x02A8A],
+&quot;gne&quot; =&gt; [0x02A88],
+&quot;gneq&quot; =&gt; [0x02A88],
+&quot;gneqq&quot; =&gt; [0x02269],
+&quot;gnsim&quot; =&gt; [0x022E7],
+&quot;gopf&quot; =&gt; [0x1D558],
+&quot;grave&quot; =&gt; [0x00060],
+&quot;gscr&quot; =&gt; [0x0210A],
+&quot;gsim&quot; =&gt; [0x02273],
+&quot;gsime&quot; =&gt; [0x02A8E],
+&quot;gsiml&quot; =&gt; [0x02A90],
+&quot;gt&quot; =&gt; [0x0003E],
+&quot;gtcc&quot; =&gt; [0x02AA7],
+&quot;gtcir&quot; =&gt; [0x02A7A],
+&quot;gtdot&quot; =&gt; [0x022D7],
+&quot;gtlPar&quot; =&gt; [0x02995],
+&quot;gtquest&quot; =&gt; [0x02A7C],
+&quot;gtrapprox&quot; =&gt; [0x02A86],
+&quot;gtrarr&quot; =&gt; [0x02978],
+&quot;gtrdot&quot; =&gt; [0x022D7],
+&quot;gtreqless&quot; =&gt; [0x022DB],
+&quot;gtreqqless&quot; =&gt; [0x02A8C],
+&quot;gtrless&quot; =&gt; [0x02277],
+&quot;gtrsim&quot; =&gt; [0x02273],
+&quot;gvertneqq&quot; =&gt; [0x02269, 0x0FE00],
+&quot;gvnE&quot; =&gt; [0x02269, 0x0FE00],
+&quot;hArr&quot; =&gt; [0x021D4],
+&quot;hairsp&quot; =&gt; [0x0200A],
+&quot;half&quot; =&gt; [0x000BD],
+&quot;hamilt&quot; =&gt; [0x0210B],
+&quot;hardcy&quot; =&gt; [0x0044A],
+&quot;harr&quot; =&gt; [0x02194],
+&quot;harrcir&quot; =&gt; [0x02948],
+&quot;harrw&quot; =&gt; [0x021AD],
+&quot;hbar&quot; =&gt; [0x0210F],
+&quot;hcirc&quot; =&gt; [0x00125],
+&quot;hearts&quot; =&gt; [0x02665],
+&quot;heartsuit&quot; =&gt; [0x02665],
+&quot;hellip&quot; =&gt; [0x02026],
+&quot;hercon&quot; =&gt; [0x022B9],
+&quot;hfr&quot; =&gt; [0x1D525],
+&quot;hksearow&quot; =&gt; [0x02925],
+&quot;hkswarow&quot; =&gt; [0x02926],
+&quot;hoarr&quot; =&gt; [0x021FF],
+&quot;homtht&quot; =&gt; [0x0223B],
+&quot;hookleftarrow&quot; =&gt; [0x021A9],
+&quot;hookrightarrow&quot; =&gt; [0x021AA],
+&quot;hopf&quot; =&gt; [0x1D559],
+&quot;horbar&quot; =&gt; [0x02015],
+&quot;hscr&quot; =&gt; [0x1D4BD],
+&quot;hslash&quot; =&gt; [0x0210F],
+&quot;hstrok&quot; =&gt; [0x00127],
+&quot;hybull&quot; =&gt; [0x02043],
+&quot;hyphen&quot; =&gt; [0x02010],
+&quot;iacute&quot; =&gt; [0x000ED],
+&quot;ic&quot; =&gt; [0x02063],
+&quot;icirc&quot; =&gt; [0x000EE],
+&quot;icy&quot; =&gt; [0x00438],
+&quot;iecy&quot; =&gt; [0x00435],
+&quot;iexcl&quot; =&gt; [0x000A1],
+&quot;iff&quot; =&gt; [0x021D4],
+&quot;ifr&quot; =&gt; [0x1D526],
+&quot;igrave&quot; =&gt; [0x000EC],
+&quot;ii&quot; =&gt; [0x02148],
+&quot;iiiint&quot; =&gt; [0x02A0C],
+&quot;iiint&quot; =&gt; [0x0222D],
+&quot;iinfin&quot; =&gt; [0x029DC],
+&quot;iiota&quot; =&gt; [0x02129],
+&quot;ijlig&quot; =&gt; [0x00133],
+&quot;imacr&quot; =&gt; [0x0012B],
+&quot;image&quot; =&gt; [0x02111],
+&quot;imagline&quot; =&gt; [0x02110],
+&quot;imagpart&quot; =&gt; [0x02111],
+&quot;imath&quot; =&gt; [0x00131],
+&quot;imof&quot; =&gt; [0x022B7],
+&quot;imped&quot; =&gt; [0x001B5],
+&quot;in&quot; =&gt; [0x02208],
+&quot;incare&quot; =&gt; [0x02105],
+&quot;infin&quot; =&gt; [0x0221E],
+&quot;infintie&quot; =&gt; [0x029DD],
+&quot;inodot&quot; =&gt; [0x00131],
+&quot;int&quot; =&gt; [0x0222B],
+&quot;intcal&quot; =&gt; [0x022BA],
+&quot;integers&quot; =&gt; [0x02124],
+&quot;intercal&quot; =&gt; [0x022BA],
+&quot;intlarhk&quot; =&gt; [0x02A17],
+&quot;intprod&quot; =&gt; [0x02A3C],
+&quot;iocy&quot; =&gt; [0x00451],
+&quot;iogon&quot; =&gt; [0x0012F],
+&quot;iopf&quot; =&gt; [0x1D55A],
+&quot;iota&quot; =&gt; [0x003B9],
+&quot;iprod&quot; =&gt; [0x02A3C],
+&quot;iquest&quot; =&gt; [0x000BF],
+&quot;iscr&quot; =&gt; [0x1D4BE],
+&quot;isin&quot; =&gt; [0x02208],
+&quot;isinE&quot; =&gt; [0x022F9],
+&quot;isindot&quot; =&gt; [0x022F5],
+&quot;isins&quot; =&gt; [0x022F4],
+&quot;isinsv&quot; =&gt; [0x022F3],
+&quot;isinv&quot; =&gt; [0x02208],
+&quot;it&quot; =&gt; [0x02062],
+&quot;itilde&quot; =&gt; [0x00129],
+&quot;iukcy&quot; =&gt; [0x00456],
+&quot;iuml&quot; =&gt; [0x000EF],
+&quot;jcirc&quot; =&gt; [0x00135],
+&quot;jcy&quot; =&gt; [0x00439],
+&quot;jfr&quot; =&gt; [0x1D527],
+&quot;jmath&quot; =&gt; [0x00237],
+&quot;jopf&quot; =&gt; [0x1D55B],
+&quot;jscr&quot; =&gt; [0x1D4BF],
+&quot;jsercy&quot; =&gt; [0x00458],
+&quot;jukcy&quot; =&gt; [0x00454],
+&quot;kappa&quot; =&gt; [0x003BA],
+&quot;kappav&quot; =&gt; [0x003F0],
+&quot;kcedil&quot; =&gt; [0x00137],
+&quot;kcy&quot; =&gt; [0x0043A],
+&quot;kfr&quot; =&gt; [0x1D528],
+&quot;kgreen&quot; =&gt; [0x00138],
+&quot;khcy&quot; =&gt; [0x00445],
+&quot;kjcy&quot; =&gt; [0x0045C],
+&quot;kopf&quot; =&gt; [0x1D55C],
+&quot;kscr&quot; =&gt; [0x1D4C0],
+&quot;lAarr&quot; =&gt; [0x021DA],
+&quot;lArr&quot; =&gt; [0x021D0],
+&quot;lAtail&quot; =&gt; [0x0291B],
+&quot;lBarr&quot; =&gt; [0x0290E],
+&quot;lE&quot; =&gt; [0x02266],
+&quot;lEg&quot; =&gt; [0x02A8B],
+&quot;lHar&quot; =&gt; [0x02962],
+&quot;lacute&quot; =&gt; [0x0013A],
+&quot;laemptyv&quot; =&gt; [0x029B4],
+&quot;lagran&quot; =&gt; [0x02112],
+&quot;lambda&quot; =&gt; [0x003BB],
+&quot;lang&quot; =&gt; [0x027E8],
+&quot;langd&quot; =&gt; [0x02991],
+&quot;langle&quot; =&gt; [0x027E8],
+&quot;lap&quot; =&gt; [0x02A85],
+&quot;laquo&quot; =&gt; [0x000AB],
+&quot;larr&quot; =&gt; [0x02190],
+&quot;larrb&quot; =&gt; [0x021E4],
+&quot;larrbfs&quot; =&gt; [0x0291F],
+&quot;larrfs&quot; =&gt; [0x0291D],
+&quot;larrhk&quot; =&gt; [0x021A9],
+&quot;larrlp&quot; =&gt; [0x021AB],
+&quot;larrpl&quot; =&gt; [0x02939],
+&quot;larrsim&quot; =&gt; [0x02973],
+&quot;larrtl&quot; =&gt; [0x021A2],
+&quot;lat&quot; =&gt; [0x02AAB],
+&quot;latail&quot; =&gt; [0x02919],
+&quot;late&quot; =&gt; [0x02AAD],
+&quot;lates&quot; =&gt; [0x02AAD, 0x0FE00],
+&quot;lbarr&quot; =&gt; [0x0290C],
+&quot;lbbrk&quot; =&gt; [0x02772],
+&quot;lbrace&quot; =&gt; [0x0007B],
+&quot;lbrack&quot; =&gt; [0x0005B],
+&quot;lbrke&quot; =&gt; [0x0298B],
+&quot;lbrksld&quot; =&gt; [0x0298F],
+&quot;lbrkslu&quot; =&gt; [0x0298D],
+&quot;lcaron&quot; =&gt; [0x0013E],
+&quot;lcedil&quot; =&gt; [0x0013C],
+&quot;lceil&quot; =&gt; [0x02308],
+&quot;lcub&quot; =&gt; [0x0007B],
+&quot;lcy&quot; =&gt; [0x0043B],
+&quot;ldca&quot; =&gt; [0x02936],
+&quot;ldquo&quot; =&gt; [0x0201C],
+&quot;ldquor&quot; =&gt; [0x0201E],
+&quot;ldrdhar&quot; =&gt; [0x02967],
+&quot;ldrushar&quot; =&gt; [0x0294B],
+&quot;ldsh&quot; =&gt; [0x021B2],
+&quot;le&quot; =&gt; [0x02264],
+&quot;leftarrow&quot; =&gt; [0x02190],
+&quot;leftarrowtail&quot; =&gt; [0x021A2],
+&quot;leftharpoondown&quot; =&gt; [0x021BD],
+&quot;leftharpoonup&quot; =&gt; [0x021BC],
+&quot;leftleftarrows&quot; =&gt; [0x021C7],
+&quot;leftrightarrow&quot; =&gt; [0x02194],
+&quot;leftrightarrows&quot; =&gt; [0x021C6],
+&quot;leftrightharpoons&quot; =&gt; [0x021CB],
+&quot;leftrightsquigarrow&quot; =&gt; [0x021AD],
+&quot;leftthreetimes&quot; =&gt; [0x022CB],
+&quot;leg&quot; =&gt; [0x022DA],
+&quot;leq&quot; =&gt; [0x02264],
+&quot;leqq&quot; =&gt; [0x02266],
+&quot;leqslant&quot; =&gt; [0x02A7D],
+&quot;les&quot; =&gt; [0x02A7D],
+&quot;lescc&quot; =&gt; [0x02AA8],
+&quot;lesdot&quot; =&gt; [0x02A7F],
+&quot;lesdoto&quot; =&gt; [0x02A81],
+&quot;lesdotor&quot; =&gt; [0x02A83],
+&quot;lesg&quot; =&gt; [0x022DA, 0x0FE00],
+&quot;lesges&quot; =&gt; [0x02A93],
+&quot;lessapprox&quot; =&gt; [0x02A85],
+&quot;lessdot&quot; =&gt; [0x022D6],
+&quot;lesseqgtr&quot; =&gt; [0x022DA],
+&quot;lesseqqgtr&quot; =&gt; [0x02A8B],
+&quot;lessgtr&quot; =&gt; [0x02276],
+&quot;lesssim&quot; =&gt; [0x02272],
+&quot;lfisht&quot; =&gt; [0x0297C],
+&quot;lfloor&quot; =&gt; [0x0230A],
+&quot;lfr&quot; =&gt; [0x1D529],
+&quot;lg&quot; =&gt; [0x02276],
+&quot;lgE&quot; =&gt; [0x02A91],
+&quot;lhard&quot; =&gt; [0x021BD],
+&quot;lharu&quot; =&gt; [0x021BC],
+&quot;lharul&quot; =&gt; [0x0296A],
+&quot;lhblk&quot; =&gt; [0x02584],
+&quot;ljcy&quot; =&gt; [0x00459],
+&quot;ll&quot; =&gt; [0x0226A],
+&quot;llarr&quot; =&gt; [0x021C7],
+&quot;llcorner&quot; =&gt; [0x0231E],
+&quot;llhard&quot; =&gt; [0x0296B],
+&quot;lltri&quot; =&gt; [0x025FA],
+&quot;lmidot&quot; =&gt; [0x00140],
+&quot;lmoust&quot; =&gt; [0x023B0],
+&quot;lmoustache&quot; =&gt; [0x023B0],
+&quot;lnE&quot; =&gt; [0x02268],
+&quot;lnap&quot; =&gt; [0x02A89],
+&quot;lnapprox&quot; =&gt; [0x02A89],
+&quot;lne&quot; =&gt; [0x02A87],
+&quot;lneq&quot; =&gt; [0x02A87],
+&quot;lneqq&quot; =&gt; [0x02268],
+&quot;lnsim&quot; =&gt; [0x022E6],
+&quot;loang&quot; =&gt; [0x027EC],
+&quot;loarr&quot; =&gt; [0x021FD],
+&quot;lobrk&quot; =&gt; [0x027E6],
+&quot;longleftarrow&quot; =&gt; [0x027F5],
+&quot;longleftrightarrow&quot; =&gt; [0x027F7],
+&quot;longmapsto&quot; =&gt; [0x027FC],
+&quot;longrightarrow&quot; =&gt; [0x027F6],
+&quot;looparrowleft&quot; =&gt; [0x021AB],
+&quot;looparrowright&quot; =&gt; [0x021AC],
+&quot;lopar&quot; =&gt; [0x02985],
+&quot;lopf&quot; =&gt; [0x1D55D],
+&quot;loplus&quot; =&gt; [0x02A2D],
+&quot;lotimes&quot; =&gt; [0x02A34],
+&quot;lowast&quot; =&gt; [0x02217],
+&quot;lowbar&quot; =&gt; [0x0005F],
+&quot;loz&quot; =&gt; [0x025CA],
+&quot;lozenge&quot; =&gt; [0x025CA],
+&quot;lozf&quot; =&gt; [0x029EB],
+&quot;lpar&quot; =&gt; [0x00028],
+&quot;lparlt&quot; =&gt; [0x02993],
+&quot;lrarr&quot; =&gt; [0x021C6],
+&quot;lrcorner&quot; =&gt; [0x0231F],
+&quot;lrhar&quot; =&gt; [0x021CB],
+&quot;lrhard&quot; =&gt; [0x0296D],
+&quot;lrm&quot; =&gt; [0x0200E],
+&quot;lrtri&quot; =&gt; [0x022BF],
+&quot;lsaquo&quot; =&gt; [0x02039],
+&quot;lscr&quot; =&gt; [0x1D4C1],
+&quot;lsh&quot; =&gt; [0x021B0],
+&quot;lsim&quot; =&gt; [0x02272],
+&quot;lsime&quot; =&gt; [0x02A8D],
+&quot;lsimg&quot; =&gt; [0x02A8F],
+&quot;lsqb&quot; =&gt; [0x0005B],
+&quot;lsquo&quot; =&gt; [0x02018],
+&quot;lsquor&quot; =&gt; [0x0201A],
+&quot;lstrok&quot; =&gt; [0x00142],
+&quot;lt&quot; =&gt; [0x0003C],
+&quot;ltcc&quot; =&gt; [0x02AA6],
+&quot;ltcir&quot; =&gt; [0x02A79],
+&quot;ltdot&quot; =&gt; [0x022D6],
+&quot;lthree&quot; =&gt; [0x022CB],
+&quot;ltimes&quot; =&gt; [0x022C9],
+&quot;ltlarr&quot; =&gt; [0x02976],
+&quot;ltquest&quot; =&gt; [0x02A7B],
+&quot;ltrPar&quot; =&gt; [0x02996],
+&quot;ltri&quot; =&gt; [0x025C3],
+&quot;ltrie&quot; =&gt; [0x022B4],
+&quot;ltrif&quot; =&gt; [0x025C2],
+&quot;lurdshar&quot; =&gt; [0x0294A],
+&quot;luruhar&quot; =&gt; [0x02966],
+&quot;lvertneqq&quot; =&gt; [0x02268, 0x0FE00],
+&quot;lvnE&quot; =&gt; [0x02268, 0x0FE00],
+&quot;mDDot&quot; =&gt; [0x0223A],
+&quot;macr&quot; =&gt; [0x000AF],
+&quot;male&quot; =&gt; [0x02642],
+&quot;malt&quot; =&gt; [0x02720],
+&quot;maltese&quot; =&gt; [0x02720],
+&quot;map&quot; =&gt; [0x021A6],
+&quot;mapsto&quot; =&gt; [0x021A6],
+&quot;mapstodown&quot; =&gt; [0x021A7],
+&quot;mapstoleft&quot; =&gt; [0x021A4],
+&quot;mapstoup&quot; =&gt; [0x021A5],
+&quot;marker&quot; =&gt; [0x025AE],
+&quot;mcomma&quot; =&gt; [0x02A29],
+&quot;mcy&quot; =&gt; [0x0043C],
+&quot;mdash&quot; =&gt; [0x02014],
+&quot;measuredangle&quot; =&gt; [0x02221],
+&quot;mfr&quot; =&gt; [0x1D52A],
+&quot;mho&quot; =&gt; [0x02127],
+&quot;micro&quot; =&gt; [0x000B5],
+&quot;mid&quot; =&gt; [0x02223],
+&quot;midast&quot; =&gt; [0x0002A],
+&quot;midcir&quot; =&gt; [0x02AF0],
+&quot;middot&quot; =&gt; [0x000B7],
+&quot;minus&quot; =&gt; [0x02212],
+&quot;minusb&quot; =&gt; [0x0229F],
+&quot;minusd&quot; =&gt; [0x02238],
+&quot;minusdu&quot; =&gt; [0x02A2A],
+&quot;mlcp&quot; =&gt; [0x02ADB],
+&quot;mldr&quot; =&gt; [0x02026],
+&quot;mnplus&quot; =&gt; [0x02213],
+&quot;models&quot; =&gt; [0x022A7],
+&quot;mopf&quot; =&gt; [0x1D55E],
+&quot;mp&quot; =&gt; [0x02213],
+&quot;mscr&quot; =&gt; [0x1D4C2],
+&quot;mstpos&quot; =&gt; [0x0223E],
+&quot;mu&quot; =&gt; [0x003BC],
+&quot;multimap&quot; =&gt; [0x022B8],
+&quot;mumap&quot; =&gt; [0x022B8],
+&quot;nGg&quot; =&gt; [0x022D9, 0x00338],
+&quot;nGt&quot; =&gt; [0x0226B, 0x020D2],
+&quot;nGtv&quot; =&gt; [0x0226B, 0x00338],
+&quot;nLeftarrow&quot; =&gt; [0x021CD],
+&quot;nLeftrightarrow&quot; =&gt; [0x021CE],
+&quot;nLl&quot; =&gt; [0x022D8, 0x00338],
+&quot;nLt&quot; =&gt; [0x0226A, 0x020D2],
+&quot;nLtv&quot; =&gt; [0x0226A, 0x00338],
+&quot;nRightarrow&quot; =&gt; [0x021CF],
+&quot;nVDash&quot; =&gt; [0x022AF],
+&quot;nVdash&quot; =&gt; [0x022AE],
+&quot;nabla&quot; =&gt; [0x02207],
+&quot;nacute&quot; =&gt; [0x00144],
+&quot;nang&quot; =&gt; [0x02220, 0x020D2],
+&quot;nap&quot; =&gt; [0x02249],
+&quot;napE&quot; =&gt; [0x02A70, 0x00338],
+&quot;napid&quot; =&gt; [0x0224B, 0x00338],
+&quot;napos&quot; =&gt; [0x00149],
+&quot;napprox&quot; =&gt; [0x02249],
+&quot;natur&quot; =&gt; [0x0266E],
+&quot;natural&quot; =&gt; [0x0266E],
+&quot;naturals&quot; =&gt; [0x02115],
+&quot;nbsp&quot; =&gt; [0x000A0],
+&quot;nbump&quot; =&gt; [0x0224E, 0x00338],
+&quot;nbumpe&quot; =&gt; [0x0224F, 0x00338],
+&quot;ncap&quot; =&gt; [0x02A43],
+&quot;ncaron&quot; =&gt; [0x00148],
+&quot;ncedil&quot; =&gt; [0x00146],
+&quot;ncong&quot; =&gt; [0x02247],
+&quot;ncongdot&quot; =&gt; [0x02A6D, 0x00338],
+&quot;ncup&quot; =&gt; [0x02A42],
+&quot;ncy&quot; =&gt; [0x0043D],
+&quot;ndash&quot; =&gt; [0x02013],
+&quot;ne&quot; =&gt; [0x02260],
+&quot;neArr&quot; =&gt; [0x021D7],
+&quot;nearhk&quot; =&gt; [0x02924],
+&quot;nearr&quot; =&gt; [0x02197],
+&quot;nearrow&quot; =&gt; [0x02197],
+&quot;nedot&quot; =&gt; [0x02250, 0x00338],
+&quot;nequiv&quot; =&gt; [0x02262],
+&quot;nesear&quot; =&gt; [0x02928],
+&quot;nesim&quot; =&gt; [0x02242, 0x00338],
+&quot;nexist&quot; =&gt; [0x02204],
+&quot;nexists&quot; =&gt; [0x02204],
+&quot;nfr&quot; =&gt; [0x1D52B],
+&quot;ngE&quot; =&gt; [0x02267, 0x00338],
+&quot;nge&quot; =&gt; [0x02271],
+&quot;ngeq&quot; =&gt; [0x02271],
+&quot;ngeqq&quot; =&gt; [0x02267, 0x00338],
+&quot;ngeqslant&quot; =&gt; [0x02A7E, 0x00338],
+&quot;nges&quot; =&gt; [0x02A7E, 0x00338],
+&quot;ngsim&quot; =&gt; [0x02275],
+&quot;ngt&quot; =&gt; [0x0226F],
+&quot;ngtr&quot; =&gt; [0x0226F],
+&quot;nhArr&quot; =&gt; [0x021CE],
+&quot;nharr&quot; =&gt; [0x021AE],
+&quot;nhpar&quot; =&gt; [0x02AF2],
+&quot;ni&quot; =&gt; [0x0220B],
+&quot;nis&quot; =&gt; [0x022FC],
+&quot;nisd&quot; =&gt; [0x022FA],
+&quot;niv&quot; =&gt; [0x0220B],
+&quot;njcy&quot; =&gt; [0x0045A],
+&quot;nlArr&quot; =&gt; [0x021CD],
+&quot;nlE&quot; =&gt; [0x02266, 0x00338],
+&quot;nlarr&quot; =&gt; [0x0219A],
+&quot;nldr&quot; =&gt; [0x02025],
+&quot;nle&quot; =&gt; [0x02270],
+&quot;nleftarrow&quot; =&gt; [0x0219A],
+&quot;nleftrightarrow&quot; =&gt; [0x021AE],
+&quot;nleq&quot; =&gt; [0x02270],
+&quot;nleqq&quot; =&gt; [0x02266, 0x00338],
+&quot;nleqslant&quot; =&gt; [0x02A7D, 0x00338],
+&quot;nles&quot; =&gt; [0x02A7D, 0x00338],
+&quot;nless&quot; =&gt; [0x0226E],
+&quot;nlsim&quot; =&gt; [0x02274],
+&quot;nlt&quot; =&gt; [0x0226E],
+&quot;nltri&quot; =&gt; [0x022EA],
+&quot;nltrie&quot; =&gt; [0x022EC],
+&quot;nmid&quot; =&gt; [0x02224],
+&quot;nopf&quot; =&gt; [0x1D55F],
+&quot;not&quot; =&gt; [0x000AC],
+&quot;notin&quot; =&gt; [0x02209],
+&quot;notinE&quot; =&gt; [0x022F9, 0x00338],
+&quot;notindot&quot; =&gt; [0x022F5, 0x00338],
+&quot;notinva&quot; =&gt; [0x02209],
+&quot;notinvb&quot; =&gt; [0x022F7],
+&quot;notinvc&quot; =&gt; [0x022F6],
+&quot;notni&quot; =&gt; [0x0220C],
+&quot;notniva&quot; =&gt; [0x0220C],
+&quot;notnivb&quot; =&gt; [0x022FE],
+&quot;notnivc&quot; =&gt; [0x022FD],
+&quot;npar&quot; =&gt; [0x02226],
+&quot;nparallel&quot; =&gt; [0x02226],
+&quot;nparsl&quot; =&gt; [0x02AFD, 0x020E5],
+&quot;npart&quot; =&gt; [0x02202, 0x00338],
+&quot;npolint&quot; =&gt; [0x02A14],
+&quot;npr&quot; =&gt; [0x02280],
+&quot;nprcue&quot; =&gt; [0x022E0],
+&quot;npre&quot; =&gt; [0x02AAF, 0x00338],
+&quot;nprec&quot; =&gt; [0x02280],
+&quot;npreceq&quot; =&gt; [0x02AAF, 0x00338],
+&quot;nrArr&quot; =&gt; [0x021CF],
+&quot;nrarr&quot; =&gt; [0x0219B],
+&quot;nrarrc&quot; =&gt; [0x02933, 0x00338],
+&quot;nrarrw&quot; =&gt; [0x0219D, 0x00338],
+&quot;nrightarrow&quot; =&gt; [0x0219B],
+&quot;nrtri&quot; =&gt; [0x022EB],
+&quot;nrtrie&quot; =&gt; [0x022ED],
+&quot;nsc&quot; =&gt; [0x02281],
+&quot;nsccue&quot; =&gt; [0x022E1],
+&quot;nsce&quot; =&gt; [0x02AB0, 0x00338],
+&quot;nscr&quot; =&gt; [0x1D4C3],
+&quot;nshortmid&quot; =&gt; [0x02224],
+&quot;nshortparallel&quot; =&gt; [0x02226],
+&quot;nsim&quot; =&gt; [0x02241],
+&quot;nsime&quot; =&gt; [0x02244],
+&quot;nsimeq&quot; =&gt; [0x02244],
+&quot;nsmid&quot; =&gt; [0x02224],
+&quot;nspar&quot; =&gt; [0x02226],
+&quot;nsqsube&quot; =&gt; [0x022E2],
+&quot;nsqsupe&quot; =&gt; [0x022E3],
+&quot;nsub&quot; =&gt; [0x02284],
+&quot;nsubE&quot; =&gt; [0x02AC5, 0x00338],
+&quot;nsube&quot; =&gt; [0x02288],
+&quot;nsubset&quot; =&gt; [0x02282, 0x020D2],
+&quot;nsubseteq&quot; =&gt; [0x02288],
+&quot;nsubseteqq&quot; =&gt; [0x02AC5, 0x00338],
+&quot;nsucc&quot; =&gt; [0x02281],
+&quot;nsucceq&quot; =&gt; [0x02AB0, 0x00338],
+&quot;nsup&quot; =&gt; [0x02285],
+&quot;nsupE&quot; =&gt; [0x02AC6, 0x00338],
+&quot;nsupe&quot; =&gt; [0x02289],
+&quot;nsupset&quot; =&gt; [0x02283, 0x020D2],
+&quot;nsupseteq&quot; =&gt; [0x02289],
+&quot;nsupseteqq&quot; =&gt; [0x02AC6, 0x00338],
+&quot;ntgl&quot; =&gt; [0x02279],
+&quot;ntilde&quot; =&gt; [0x000F1],
+&quot;ntlg&quot; =&gt; [0x02278],
+&quot;ntriangleleft&quot; =&gt; [0x022EA],
+&quot;ntrianglelefteq&quot; =&gt; [0x022EC],
+&quot;ntriangleright&quot; =&gt; [0x022EB],
+&quot;ntrianglerighteq&quot; =&gt; [0x022ED],
+&quot;nu&quot; =&gt; [0x003BD],
+&quot;num&quot; =&gt; [0x00023],
+&quot;numero&quot; =&gt; [0x02116],
+&quot;numsp&quot; =&gt; [0x02007],
+&quot;nvDash&quot; =&gt; [0x022AD],
+&quot;nvHarr&quot; =&gt; [0x02904],
+&quot;nvap&quot; =&gt; [0x0224D, 0x020D2],
+&quot;nvdash&quot; =&gt; [0x022AC],
+&quot;nvge&quot; =&gt; [0x02265, 0x020D2],
+&quot;nvgt&quot; =&gt; [0x0003E, 0x020D2],
+&quot;nvinfin&quot; =&gt; [0x029DE],
+&quot;nvlArr&quot; =&gt; [0x02902],
+&quot;nvle&quot; =&gt; [0x02264, 0x020D2],
+&quot;nvlt&quot; =&gt; [0x0003C, 0x020D2],
+&quot;nvltrie&quot; =&gt; [0x022B4, 0x020D2],
+&quot;nvrArr&quot; =&gt; [0x02903],
+&quot;nvrtrie&quot; =&gt; [0x022B5, 0x020D2],
+&quot;nvsim&quot; =&gt; [0x0223C, 0x020D2],
+&quot;nwArr&quot; =&gt; [0x021D6],
+&quot;nwarhk&quot; =&gt; [0x02923],
+&quot;nwarr&quot; =&gt; [0x02196],
+&quot;nwarrow&quot; =&gt; [0x02196],
+&quot;nwnear&quot; =&gt; [0x02927],
+&quot;oS&quot; =&gt; [0x024C8],
+&quot;oacute&quot; =&gt; [0x000F3],
+&quot;oast&quot; =&gt; [0x0229B],
+&quot;ocir&quot; =&gt; [0x0229A],
+&quot;ocirc&quot; =&gt; [0x000F4],
+&quot;ocy&quot; =&gt; [0x0043E],
+&quot;odash&quot; =&gt; [0x0229D],
+&quot;odblac&quot; =&gt; [0x00151],
+&quot;odiv&quot; =&gt; [0x02A38],
+&quot;odot&quot; =&gt; [0x02299],
+&quot;odsold&quot; =&gt; [0x029BC],
+&quot;oelig&quot; =&gt; [0x00153],
+&quot;ofcir&quot; =&gt; [0x029BF],
+&quot;ofr&quot; =&gt; [0x1D52C],
+&quot;ogon&quot; =&gt; [0x002DB],
+&quot;ograve&quot; =&gt; [0x000F2],
+&quot;ogt&quot; =&gt; [0x029C1],
+&quot;ohbar&quot; =&gt; [0x029B5],
+&quot;ohm&quot; =&gt; [0x003A9],
+&quot;oint&quot; =&gt; [0x0222E],
+&quot;olarr&quot; =&gt; [0x021BA],
+&quot;olcir&quot; =&gt; [0x029BE],
+&quot;olcross&quot; =&gt; [0x029BB],
+&quot;oline&quot; =&gt; [0x0203E],
+&quot;olt&quot; =&gt; [0x029C0],
+&quot;omacr&quot; =&gt; [0x0014D],
+&quot;omega&quot; =&gt; [0x003C9],
+&quot;omicron&quot; =&gt; [0x003BF],
+&quot;omid&quot; =&gt; [0x029B6],
+&quot;ominus&quot; =&gt; [0x02296],
+&quot;oopf&quot; =&gt; [0x1D560],
+&quot;opar&quot; =&gt; [0x029B7],
+&quot;operp&quot; =&gt; [0x029B9],
+&quot;oplus&quot; =&gt; [0x02295],
+&quot;or&quot; =&gt; [0x02228],
+&quot;orarr&quot; =&gt; [0x021BB],
+&quot;ord&quot; =&gt; [0x02A5D],
+&quot;order&quot; =&gt; [0x02134],
+&quot;orderof&quot; =&gt; [0x02134],
+&quot;ordf&quot; =&gt; [0x000AA],
+&quot;ordm&quot; =&gt; [0x000BA],
+&quot;origof&quot; =&gt; [0x022B6],
+&quot;oror&quot; =&gt; [0x02A56],
+&quot;orslope&quot; =&gt; [0x02A57],
+&quot;orv&quot; =&gt; [0x02A5B],
+&quot;oscr&quot; =&gt; [0x02134],
+&quot;oslash&quot; =&gt; [0x000F8],
+&quot;osol&quot; =&gt; [0x02298],
+&quot;otilde&quot; =&gt; [0x000F5],
+&quot;otimes&quot; =&gt; [0x02297],
+&quot;otimesas&quot; =&gt; [0x02A36],
+&quot;ouml&quot; =&gt; [0x000F6],
+&quot;ovbar&quot; =&gt; [0x0233D],
+&quot;par&quot; =&gt; [0x02225],
+&quot;para&quot; =&gt; [0x000B6],
+&quot;parallel&quot; =&gt; [0x02225],
+&quot;parsim&quot; =&gt; [0x02AF3],
+&quot;parsl&quot; =&gt; [0x02AFD],
+&quot;part&quot; =&gt; [0x02202],
+&quot;pcy&quot; =&gt; [0x0043F],
+&quot;percnt&quot; =&gt; [0x00025],
+&quot;period&quot; =&gt; [0x0002E],
+&quot;permil&quot; =&gt; [0x02030],
+&quot;perp&quot; =&gt; [0x022A5],
+&quot;pertenk&quot; =&gt; [0x02031],
+&quot;pfr&quot; =&gt; [0x1D52D],
+&quot;phi&quot; =&gt; [0x003C6],
+&quot;phiv&quot; =&gt; [0x003D5],
+&quot;phmmat&quot; =&gt; [0x02133],
+&quot;phone&quot; =&gt; [0x0260E],
+&quot;pi&quot; =&gt; [0x003C0],
+&quot;pitchfork&quot; =&gt; [0x022D4],
+&quot;piv&quot; =&gt; [0x003D6],
+&quot;planck&quot; =&gt; [0x0210F],
+&quot;planckh&quot; =&gt; [0x0210E],
+&quot;plankv&quot; =&gt; [0x0210F],
+&quot;plus&quot; =&gt; [0x0002B],
+&quot;plusacir&quot; =&gt; [0x02A23],
+&quot;plusb&quot; =&gt; [0x0229E],
+&quot;pluscir&quot; =&gt; [0x02A22],
+&quot;plusdo&quot; =&gt; [0x02214],
+&quot;plusdu&quot; =&gt; [0x02A25],
+&quot;pluse&quot; =&gt; [0x02A72],
+&quot;plusmn&quot; =&gt; [0x000B1],
+&quot;plussim&quot; =&gt; [0x02A26],
+&quot;plustwo&quot; =&gt; [0x02A27],
+&quot;pm&quot; =&gt; [0x000B1],
+&quot;pointint&quot; =&gt; [0x02A15],
+&quot;popf&quot; =&gt; [0x1D561],
+&quot;pound&quot; =&gt; [0x000A3],
+&quot;pr&quot; =&gt; [0x0227A],
+&quot;prE&quot; =&gt; [0x02AB3],
+&quot;prap&quot; =&gt; [0x02AB7],
+&quot;prcue&quot; =&gt; [0x0227C],
+&quot;pre&quot; =&gt; [0x02AAF],
+&quot;prec&quot; =&gt; [0x0227A],
+&quot;precapprox&quot; =&gt; [0x02AB7],
+&quot;preccurlyeq&quot; =&gt; [0x0227C],
+&quot;preceq&quot; =&gt; [0x02AAF],
+&quot;precnapprox&quot; =&gt; [0x02AB9],
+&quot;precneqq&quot; =&gt; [0x02AB5],
+&quot;precnsim&quot; =&gt; [0x022E8],
+&quot;precsim&quot; =&gt; [0x0227E],
+&quot;prime&quot; =&gt; [0x02032],
+&quot;primes&quot; =&gt; [0x02119],
+&quot;prnE&quot; =&gt; [0x02AB5],
+&quot;prnap&quot; =&gt; [0x02AB9],
+&quot;prnsim&quot; =&gt; [0x022E8],
+&quot;prod&quot; =&gt; [0x0220F],
+&quot;profalar&quot; =&gt; [0x0232E],
+&quot;profline&quot; =&gt; [0x02312],
+&quot;profsurf&quot; =&gt; [0x02313],
+&quot;prop&quot; =&gt; [0x0221D],
+&quot;propto&quot; =&gt; [0x0221D],
+&quot;prsim&quot; =&gt; [0x0227E],
+&quot;prurel&quot; =&gt; [0x022B0],
+&quot;pscr&quot; =&gt; [0x1D4C5],
+&quot;psi&quot; =&gt; [0x003C8],
+&quot;puncsp&quot; =&gt; [0x02008],
+&quot;qfr&quot; =&gt; [0x1D52E],
+&quot;qint&quot; =&gt; [0x02A0C],
+&quot;qopf&quot; =&gt; [0x1D562],
+&quot;qprime&quot; =&gt; [0x02057],
+&quot;qscr&quot; =&gt; [0x1D4C6],
+&quot;quaternions&quot; =&gt; [0x0210D],
+&quot;quatint&quot; =&gt; [0x02A16],
+&quot;quest&quot; =&gt; [0x0003F],
+&quot;questeq&quot; =&gt; [0x0225F],
+&quot;quot&quot; =&gt; [0x00022],
+&quot;rAarr&quot; =&gt; [0x021DB],
+&quot;rArr&quot; =&gt; [0x021D2],
+&quot;rAtail&quot; =&gt; [0x0291C],
+&quot;rBarr&quot; =&gt; [0x0290F],
+&quot;rHar&quot; =&gt; [0x02964],
+&quot;race&quot; =&gt; [0x0223D, 0x00331],
+&quot;racute&quot; =&gt; [0x00155],
+&quot;radic&quot; =&gt; [0x0221A],
+&quot;raemptyv&quot; =&gt; [0x029B3],
+&quot;rang&quot; =&gt; [0x027E9],
+&quot;rangd&quot; =&gt; [0x02992],
+&quot;range&quot; =&gt; [0x029A5],
+&quot;rangle&quot; =&gt; [0x027E9],
+&quot;raquo&quot; =&gt; [0x000BB],
+&quot;rarr&quot; =&gt; [0x02192],
+&quot;rarrap&quot; =&gt; [0x02975],
+&quot;rarrb&quot; =&gt; [0x021E5],
+&quot;rarrbfs&quot; =&gt; [0x02920],
+&quot;rarrc&quot; =&gt; [0x02933],
+&quot;rarrfs&quot; =&gt; [0x0291E],
+&quot;rarrhk&quot; =&gt; [0x021AA],
+&quot;rarrlp&quot; =&gt; [0x021AC],
+&quot;rarrpl&quot; =&gt; [0x02945],
+&quot;rarrsim&quot; =&gt; [0x02974],
+&quot;rarrtl&quot; =&gt; [0x021A3],
+&quot;rarrw&quot; =&gt; [0x0219D],
+&quot;ratail&quot; =&gt; [0x0291A],
+&quot;ratio&quot; =&gt; [0x02236],
+&quot;rationals&quot; =&gt; [0x0211A],
+&quot;rbarr&quot; =&gt; [0x0290D],
+&quot;rbbrk&quot; =&gt; [0x02773],
+&quot;rbrace&quot; =&gt; [0x0007D],
+&quot;rbrack&quot; =&gt; [0x0005D],
+&quot;rbrke&quot; =&gt; [0x0298C],
+&quot;rbrksld&quot; =&gt; [0x0298E],
+&quot;rbrkslu&quot; =&gt; [0x02990],
+&quot;rcaron&quot; =&gt; [0x00159],
+&quot;rcedil&quot; =&gt; [0x00157],
+&quot;rceil&quot; =&gt; [0x02309],
+&quot;rcub&quot; =&gt; [0x0007D],
+&quot;rcy&quot; =&gt; [0x00440],
+&quot;rdca&quot; =&gt; [0x02937],
+&quot;rdldhar&quot; =&gt; [0x02969],
+&quot;rdquo&quot; =&gt; [0x0201D],
+&quot;rdquor&quot; =&gt; [0x0201D],
+&quot;rdsh&quot; =&gt; [0x021B3],
+&quot;real&quot; =&gt; [0x0211C],
+&quot;realine&quot; =&gt; [0x0211B],
+&quot;realpart&quot; =&gt; [0x0211C],
+&quot;reals&quot; =&gt; [0x0211D],
+&quot;rect&quot; =&gt; [0x025AD],
+&quot;reg&quot; =&gt; [0x000AE],
+&quot;rfisht&quot; =&gt; [0x0297D],
+&quot;rfloor&quot; =&gt; [0x0230B],
+&quot;rfr&quot; =&gt; [0x1D52F],
+&quot;rhard&quot; =&gt; [0x021C1],
+&quot;rharu&quot; =&gt; [0x021C0],
+&quot;rharul&quot; =&gt; [0x0296C],
+&quot;rho&quot; =&gt; [0x003C1],
+&quot;rhov&quot; =&gt; [0x003F1],
+&quot;rightarrow&quot; =&gt; [0x02192],
+&quot;rightarrowtail&quot; =&gt; [0x021A3],
+&quot;rightharpoondown&quot; =&gt; [0x021C1],
+&quot;rightharpoonup&quot; =&gt; [0x021C0],
+&quot;rightleftarrows&quot; =&gt; [0x021C4],
+&quot;rightleftharpoons&quot; =&gt; [0x021CC],
+&quot;rightrightarrows&quot; =&gt; [0x021C9],
+&quot;rightsquigarrow&quot; =&gt; [0x0219D],
+&quot;rightthreetimes&quot; =&gt; [0x022CC],
+&quot;ring&quot; =&gt; [0x002DA],
+&quot;risingdotseq&quot; =&gt; [0x02253],
+&quot;rlarr&quot; =&gt; [0x021C4],
+&quot;rlhar&quot; =&gt; [0x021CC],
+&quot;rlm&quot; =&gt; [0x0200F],
+&quot;rmoust&quot; =&gt; [0x023B1],
+&quot;rmoustache&quot; =&gt; [0x023B1],
+&quot;rnmid&quot; =&gt; [0x02AEE],
+&quot;roang&quot; =&gt; [0x027ED],
+&quot;roarr&quot; =&gt; [0x021FE],
+&quot;robrk&quot; =&gt; [0x027E7],
+&quot;ropar&quot; =&gt; [0x02986],
+&quot;ropf&quot; =&gt; [0x1D563],
+&quot;roplus&quot; =&gt; [0x02A2E],
+&quot;rotimes&quot; =&gt; [0x02A35],
+&quot;rpar&quot; =&gt; [0x00029],
+&quot;rpargt&quot; =&gt; [0x02994],
+&quot;rppolint&quot; =&gt; [0x02A12],
+&quot;rrarr&quot; =&gt; [0x021C9],
+&quot;rsaquo&quot; =&gt; [0x0203A],
+&quot;rscr&quot; =&gt; [0x1D4C7],
+&quot;rsh&quot; =&gt; [0x021B1],
+&quot;rsqb&quot; =&gt; [0x0005D],
+&quot;rsquo&quot; =&gt; [0x02019],
+&quot;rsquor&quot; =&gt; [0x02019],
+&quot;rthree&quot; =&gt; [0x022CC],
+&quot;rtimes&quot; =&gt; [0x022CA],
+&quot;rtri&quot; =&gt; [0x025B9],
+&quot;rtrie&quot; =&gt; [0x022B5],
+&quot;rtrif&quot; =&gt; [0x025B8],
+&quot;rtriltri&quot; =&gt; [0x029CE],
+&quot;ruluhar&quot; =&gt; [0x02968],
+&quot;rx&quot; =&gt; [0x0211E],
+&quot;sacute&quot; =&gt; [0x0015B],
+&quot;sbquo&quot; =&gt; [0x0201A],
+&quot;sc&quot; =&gt; [0x0227B],
+&quot;scE&quot; =&gt; [0x02AB4],
+&quot;scap&quot; =&gt; [0x02AB8],
+&quot;scaron&quot; =&gt; [0x00161],
+&quot;sccue&quot; =&gt; [0x0227D],
+&quot;sce&quot; =&gt; [0x02AB0],
+&quot;scedil&quot; =&gt; [0x0015F],
+&quot;scirc&quot; =&gt; [0x0015D],
+&quot;scnE&quot; =&gt; [0x02AB6],
+&quot;scnap&quot; =&gt; [0x02ABA],
+&quot;scnsim&quot; =&gt; [0x022E9],
+&quot;scpolint&quot; =&gt; [0x02A13],
+&quot;scsim&quot; =&gt; [0x0227F],
+&quot;scy&quot; =&gt; [0x00441],
+&quot;sdot&quot; =&gt; [0x022C5],
+&quot;sdotb&quot; =&gt; [0x022A1],
+&quot;sdote&quot; =&gt; [0x02A66],
+&quot;seArr&quot; =&gt; [0x021D8],
+&quot;searhk&quot; =&gt; [0x02925],
+&quot;searr&quot; =&gt; [0x02198],
+&quot;searrow&quot; =&gt; [0x02198],
+&quot;sect&quot; =&gt; [0x000A7],
+&quot;semi&quot; =&gt; [0x0003B],
+&quot;seswar&quot; =&gt; [0x02929],
+&quot;setminus&quot; =&gt; [0x02216],
+&quot;setmn&quot; =&gt; [0x02216],
+&quot;sext&quot; =&gt; [0x02736],
+&quot;sfr&quot; =&gt; [0x1D530],
+&quot;sfrown&quot; =&gt; [0x02322],
+&quot;sharp&quot; =&gt; [0x0266F],
+&quot;shchcy&quot; =&gt; [0x00449],
+&quot;shcy&quot; =&gt; [0x00448],
+&quot;shortmid&quot; =&gt; [0x02223],
+&quot;shortparallel&quot; =&gt; [0x02225],
+&quot;shy&quot; =&gt; [0x000AD],
+&quot;sigma&quot; =&gt; [0x003C3],
+&quot;sigmaf&quot; =&gt; [0x003C2],
+&quot;sigmav&quot; =&gt; [0x003C2],
+&quot;sim&quot; =&gt; [0x0223C],
+&quot;simdot&quot; =&gt; [0x02A6A],
+&quot;sime&quot; =&gt; [0x02243],
+&quot;simeq&quot; =&gt; [0x02243],
+&quot;simg&quot; =&gt; [0x02A9E],
+&quot;simgE&quot; =&gt; [0x02AA0],
+&quot;siml&quot; =&gt; [0x02A9D],
+&quot;simlE&quot; =&gt; [0x02A9F],
+&quot;simne&quot; =&gt; [0x02246],
+&quot;simplus&quot; =&gt; [0x02A24],
+&quot;simrarr&quot; =&gt; [0x02972],
+&quot;slarr&quot; =&gt; [0x02190],
+&quot;smallsetminus&quot; =&gt; [0x02216],
+&quot;smashp&quot; =&gt; [0x02A33],
+&quot;smeparsl&quot; =&gt; [0x029E4],
+&quot;smid&quot; =&gt; [0x02223],
+&quot;smile&quot; =&gt; [0x02323],
+&quot;smt&quot; =&gt; [0x02AAA],
+&quot;smte&quot; =&gt; [0x02AAC],
+&quot;smtes&quot; =&gt; [0x02AAC, 0x0FE00],
+&quot;softcy&quot; =&gt; [0x0044C],
+&quot;sol&quot; =&gt; [0x0002F],
+&quot;solb&quot; =&gt; [0x029C4],
+&quot;solbar&quot; =&gt; [0x0233F],
+&quot;sopf&quot; =&gt; [0x1D564],
+&quot;spades&quot; =&gt; [0x02660],
+&quot;spadesuit&quot; =&gt; [0x02660],
+&quot;spar&quot; =&gt; [0x02225],
+&quot;sqcap&quot; =&gt; [0x02293],
+&quot;sqcaps&quot; =&gt; [0x02293, 0x0FE00],
+&quot;sqcup&quot; =&gt; [0x02294],
+&quot;sqcups&quot; =&gt; [0x02294, 0x0FE00],
+&quot;sqsub&quot; =&gt; [0x0228F],
+&quot;sqsube&quot; =&gt; [0x02291],
+&quot;sqsubset&quot; =&gt; [0x0228F],
+&quot;sqsubseteq&quot; =&gt; [0x02291],
+&quot;sqsup&quot; =&gt; [0x02290],
+&quot;sqsupe&quot; =&gt; [0x02292],
+&quot;sqsupset&quot; =&gt; [0x02290],
+&quot;sqsupseteq&quot; =&gt; [0x02292],
+&quot;squ&quot; =&gt; [0x025A1],
+&quot;square&quot; =&gt; [0x025A1],
+&quot;squarf&quot; =&gt; [0x025AA],
+&quot;squf&quot; =&gt; [0x025AA],
+&quot;srarr&quot; =&gt; [0x02192],
+&quot;sscr&quot; =&gt; [0x1D4C8],
+&quot;ssetmn&quot; =&gt; [0x02216],
+&quot;ssmile&quot; =&gt; [0x02323],
+&quot;sstarf&quot; =&gt; [0x022C6],
+&quot;star&quot; =&gt; [0x02606],
+&quot;starf&quot; =&gt; [0x02605],
+&quot;straightepsilon&quot; =&gt; [0x003F5],
+&quot;straightphi&quot; =&gt; [0x003D5],
+&quot;strns&quot; =&gt; [0x000AF],
+&quot;sub&quot; =&gt; [0x02282],
+&quot;subE&quot; =&gt; [0x02AC5],
+&quot;subdot&quot; =&gt; [0x02ABD],
+&quot;sube&quot; =&gt; [0x02286],
+&quot;subedot&quot; =&gt; [0x02AC3],
+&quot;submult&quot; =&gt; [0x02AC1],
+&quot;subnE&quot; =&gt; [0x02ACB],
+&quot;subne&quot; =&gt; [0x0228A],
+&quot;subplus&quot; =&gt; [0x02ABF],
+&quot;subrarr&quot; =&gt; [0x02979],
+&quot;subset&quot; =&gt; [0x02282],
+&quot;subseteq&quot; =&gt; [0x02286],
+&quot;subseteqq&quot; =&gt; [0x02AC5],
+&quot;subsetneq&quot; =&gt; [0x0228A],
+&quot;subsetneqq&quot; =&gt; [0x02ACB],
+&quot;subsim&quot; =&gt; [0x02AC7],
+&quot;subsub&quot; =&gt; [0x02AD5],
+&quot;subsup&quot; =&gt; [0x02AD3],
+&quot;succ&quot; =&gt; [0x0227B],
+&quot;succapprox&quot; =&gt; [0x02AB8],
+&quot;succcurlyeq&quot; =&gt; [0x0227D],
+&quot;succeq&quot; =&gt; [0x02AB0],
+&quot;succnapprox&quot; =&gt; [0x02ABA],
+&quot;succneqq&quot; =&gt; [0x02AB6],
+&quot;succnsim&quot; =&gt; [0x022E9],
+&quot;succsim&quot; =&gt; [0x0227F],
+&quot;sum&quot; =&gt; [0x02211],
+&quot;sung&quot; =&gt; [0x0266A],
+&quot;sup&quot; =&gt; [0x02283],
+&quot;sup1&quot; =&gt; [0x000B9],
+&quot;sup2&quot; =&gt; [0x000B2],
+&quot;sup3&quot; =&gt; [0x000B3],
+&quot;supE&quot; =&gt; [0x02AC6],
+&quot;supdot&quot; =&gt; [0x02ABE],
+&quot;supdsub&quot; =&gt; [0x02AD8],
+&quot;supe&quot; =&gt; [0x02287],
+&quot;supedot&quot; =&gt; [0x02AC4],
+&quot;suphsol&quot; =&gt; [0x027C9],
+&quot;suphsub&quot; =&gt; [0x02AD7],
+&quot;suplarr&quot; =&gt; [0x0297B],
+&quot;supmult&quot; =&gt; [0x02AC2],
+&quot;supnE&quot; =&gt; [0x02ACC],
+&quot;supne&quot; =&gt; [0x0228B],
+&quot;supplus&quot; =&gt; [0x02AC0],
+&quot;supset&quot; =&gt; [0x02283],
+&quot;supseteq&quot; =&gt; [0x02287],
+&quot;supseteqq&quot; =&gt; [0x02AC6],
+&quot;supsetneq&quot; =&gt; [0x0228B],
+&quot;supsetneqq&quot; =&gt; [0x02ACC],
+&quot;supsim&quot; =&gt; [0x02AC8],
+&quot;supsub&quot; =&gt; [0x02AD4],
+&quot;supsup&quot; =&gt; [0x02AD6],
+&quot;swArr&quot; =&gt; [0x021D9],
+&quot;swarhk&quot; =&gt; [0x02926],
+&quot;swarr&quot; =&gt; [0x02199],
+&quot;swarrow&quot; =&gt; [0x02199],
+&quot;swnwar&quot; =&gt; [0x0292A],
+&quot;szlig&quot; =&gt; [0x000DF],
+&quot;target&quot; =&gt; [0x02316],
+&quot;tau&quot; =&gt; [0x003C4],
+&quot;tbrk&quot; =&gt; [0x023B4],
+&quot;tcaron&quot; =&gt; [0x00165],
+&quot;tcedil&quot; =&gt; [0x00163],
+&quot;tcy&quot; =&gt; [0x00442],
+&quot;tdot&quot; =&gt; [0x020DB],
+&quot;telrec&quot; =&gt; [0x02315],
+&quot;tfr&quot; =&gt; [0x1D531],
+&quot;there4&quot; =&gt; [0x02234],
+&quot;therefore&quot; =&gt; [0x02234],
+&quot;theta&quot; =&gt; [0x003B8],
+&quot;thetasym&quot; =&gt; [0x003D1],
+&quot;thetav&quot; =&gt; [0x003D1],
+&quot;thickapprox&quot; =&gt; [0x02248],
+&quot;thicksim&quot; =&gt; [0x0223C],
+&quot;thinsp&quot; =&gt; [0x02009],
+&quot;thkap&quot; =&gt; [0x02248],
+&quot;thksim&quot; =&gt; [0x0223C],
+&quot;thorn&quot; =&gt; [0x000FE],
+&quot;tilde&quot; =&gt; [0x002DC],
+&quot;times&quot; =&gt; [0x000D7],
+&quot;timesb&quot; =&gt; [0x022A0],
+&quot;timesbar&quot; =&gt; [0x02A31],
+&quot;timesd&quot; =&gt; [0x02A30],
+&quot;tint&quot; =&gt; [0x0222D],
+&quot;toea&quot; =&gt; [0x02928],
+&quot;top&quot; =&gt; [0x022A4],
+&quot;topbot&quot; =&gt; [0x02336],
+&quot;topcir&quot; =&gt; [0x02AF1],
+&quot;topf&quot; =&gt; [0x1D565],
+&quot;topfork&quot; =&gt; [0x02ADA],
+&quot;tosa&quot; =&gt; [0x02929],
+&quot;tprime&quot; =&gt; [0x02034],
+&quot;trade&quot; =&gt; [0x02122],
+&quot;triangle&quot; =&gt; [0x025B5],
+&quot;triangledown&quot; =&gt; [0x025BF],
+&quot;triangleleft&quot; =&gt; [0x025C3],
+&quot;trianglelefteq&quot; =&gt; [0x022B4],
+&quot;triangleq&quot; =&gt; [0x0225C],
+&quot;triangleright&quot; =&gt; [0x025B9],
+&quot;trianglerighteq&quot; =&gt; [0x022B5],
+&quot;tridot&quot; =&gt; [0x025EC],
+&quot;trie&quot; =&gt; [0x0225C],
+&quot;triminus&quot; =&gt; [0x02A3A],
+&quot;triplus&quot; =&gt; [0x02A39],
+&quot;trisb&quot; =&gt; [0x029CD],
+&quot;tritime&quot; =&gt; [0x02A3B],
+&quot;trpezium&quot; =&gt; [0x023E2],
+&quot;tscr&quot; =&gt; [0x1D4C9],
+&quot;tscy&quot; =&gt; [0x00446],
+&quot;tshcy&quot; =&gt; [0x0045B],
+&quot;tstrok&quot; =&gt; [0x00167],
+&quot;twixt&quot; =&gt; [0x0226C],
+&quot;twoheadleftarrow&quot; =&gt; [0x0219E],
+&quot;twoheadrightarrow&quot; =&gt; [0x021A0],
+&quot;uArr&quot; =&gt; [0x021D1],
+&quot;uHar&quot; =&gt; [0x02963],
+&quot;uacute&quot; =&gt; [0x000FA],
+&quot;uarr&quot; =&gt; [0x02191],
+&quot;ubrcy&quot; =&gt; [0x0045E],
+&quot;ubreve&quot; =&gt; [0x0016D],
+&quot;ucirc&quot; =&gt; [0x000FB],
+&quot;ucy&quot; =&gt; [0x00443],
+&quot;udarr&quot; =&gt; [0x021C5],
+&quot;udblac&quot; =&gt; [0x00171],
+&quot;udhar&quot; =&gt; [0x0296E],
+&quot;ufisht&quot; =&gt; [0x0297E],
+&quot;ufr&quot; =&gt; [0x1D532],
+&quot;ugrave&quot; =&gt; [0x000F9],
+&quot;uharl&quot; =&gt; [0x021BF],
+&quot;uharr&quot; =&gt; [0x021BE],
+&quot;uhblk&quot; =&gt; [0x02580],
+&quot;ulcorn&quot; =&gt; [0x0231C],
+&quot;ulcorner&quot; =&gt; [0x0231C],
+&quot;ulcrop&quot; =&gt; [0x0230F],
+&quot;ultri&quot; =&gt; [0x025F8],
+&quot;umacr&quot; =&gt; [0x0016B],
+&quot;uml&quot; =&gt; [0x000A8],
+&quot;uogon&quot; =&gt; [0x00173],
+&quot;uopf&quot; =&gt; [0x1D566],
+&quot;uparrow&quot; =&gt; [0x02191],
+&quot;updownarrow&quot; =&gt; [0x02195],
+&quot;upharpoonleft&quot; =&gt; [0x021BF],
+&quot;upharpoonright&quot; =&gt; [0x021BE],
+&quot;uplus&quot; =&gt; [0x0228E],
+&quot;upsi&quot; =&gt; [0x003C5],
+&quot;upsih&quot; =&gt; [0x003D2],
+&quot;upsilon&quot; =&gt; [0x003C5],
+&quot;upuparrows&quot; =&gt; [0x021C8],
+&quot;urcorn&quot; =&gt; [0x0231D],
+&quot;urcorner&quot; =&gt; [0x0231D],
+&quot;urcrop&quot; =&gt; [0x0230E],
+&quot;uring&quot; =&gt; [0x0016F],
+&quot;urtri&quot; =&gt; [0x025F9],
+&quot;uscr&quot; =&gt; [0x1D4CA],
+&quot;utdot&quot; =&gt; [0x022F0],
+&quot;utilde&quot; =&gt; [0x00169],
+&quot;utri&quot; =&gt; [0x025B5],
+&quot;utrif&quot; =&gt; [0x025B4],
+&quot;uuarr&quot; =&gt; [0x021C8],
+&quot;uuml&quot; =&gt; [0x000FC],
+&quot;uwangle&quot; =&gt; [0x029A7],
+&quot;vArr&quot; =&gt; [0x021D5],
+&quot;vBar&quot; =&gt; [0x02AE8],
+&quot;vBarv&quot; =&gt; [0x02AE9],
+&quot;vDash&quot; =&gt; [0x022A8],
+&quot;vangrt&quot; =&gt; [0x0299C],
+&quot;varepsilon&quot; =&gt; [0x003F5],
+&quot;varkappa&quot; =&gt; [0x003F0],
+&quot;varnothing&quot; =&gt; [0x02205],
+&quot;varphi&quot; =&gt; [0x003D5],
+&quot;varpi&quot; =&gt; [0x003D6],
+&quot;varpropto&quot; =&gt; [0x0221D],
+&quot;varr&quot; =&gt; [0x02195],
+&quot;varrho&quot; =&gt; [0x003F1],
+&quot;varsigma&quot; =&gt; [0x003C2],
+&quot;varsubsetneq&quot; =&gt; [0x0228A, 0x0FE00],
+&quot;varsubsetneqq&quot; =&gt; [0x02ACB, 0x0FE00],
+&quot;varsupsetneq&quot; =&gt; [0x0228B, 0x0FE00],
+&quot;varsupsetneqq&quot; =&gt; [0x02ACC, 0x0FE00],
+&quot;vartheta&quot; =&gt; [0x003D1],
+&quot;vartriangleleft&quot; =&gt; [0x022B2],
+&quot;vartriangleright&quot; =&gt; [0x022B3],
+&quot;vcy&quot; =&gt; [0x00432],
+&quot;vdash&quot; =&gt; [0x022A2],
+&quot;vee&quot; =&gt; [0x02228],
+&quot;veebar&quot; =&gt; [0x022BB],
+&quot;veeeq&quot; =&gt; [0x0225A],
+&quot;vellip&quot; =&gt; [0x022EE],
+&quot;verbar&quot; =&gt; [0x0007C],
+&quot;vert&quot; =&gt; [0x0007C],
+&quot;vfr&quot; =&gt; [0x1D533],
+&quot;vltri&quot; =&gt; [0x022B2],
+&quot;vnsub&quot; =&gt; [0x02282, 0x020D2],
+&quot;vnsup&quot; =&gt; [0x02283, 0x020D2],
+&quot;vopf&quot; =&gt; [0x1D567],
+&quot;vprop&quot; =&gt; [0x0221D],
+&quot;vrtri&quot; =&gt; [0x022B3],
+&quot;vscr&quot; =&gt; [0x1D4CB],
+&quot;vsubnE&quot; =&gt; [0x02ACB, 0x0FE00],
+&quot;vsubne&quot; =&gt; [0x0228A, 0x0FE00],
+&quot;vsupnE&quot; =&gt; [0x02ACC, 0x0FE00],
+&quot;vsupne&quot; =&gt; [0x0228B, 0x0FE00],
+&quot;vzigzag&quot; =&gt; [0x0299A],
+&quot;wcirc&quot; =&gt; [0x00175],
+&quot;wedbar&quot; =&gt; [0x02A5F],
+&quot;wedge&quot; =&gt; [0x02227],
+&quot;wedgeq&quot; =&gt; [0x02259],
+&quot;weierp&quot; =&gt; [0x02118],
+&quot;wfr&quot; =&gt; [0x1D534],
+&quot;wopf&quot; =&gt; [0x1D568],
+&quot;wp&quot; =&gt; [0x02118],
+&quot;wr&quot; =&gt; [0x02240],
+&quot;wreath&quot; =&gt; [0x02240],
+&quot;wscr&quot; =&gt; [0x1D4CC],
+&quot;xcap&quot; =&gt; [0x022C2],
+&quot;xcirc&quot; =&gt; [0x025EF],
+&quot;xcup&quot; =&gt; [0x022C3],
+&quot;xdtri&quot; =&gt; [0x025BD],
+&quot;xfr&quot; =&gt; [0x1D535],
+&quot;xhArr&quot; =&gt; [0x027FA],
+&quot;xharr&quot; =&gt; [0x027F7],
+&quot;xi&quot; =&gt; [0x003BE],
+&quot;xlArr&quot; =&gt; [0x027F8],
+&quot;xlarr&quot; =&gt; [0x027F5],
+&quot;xmap&quot; =&gt; [0x027FC],
+&quot;xnis&quot; =&gt; [0x022FB],
+&quot;xodot&quot; =&gt; [0x02A00],
+&quot;xopf&quot; =&gt; [0x1D569],
+&quot;xoplus&quot; =&gt; [0x02A01],
+&quot;xotime&quot; =&gt; [0x02A02],
+&quot;xrArr&quot; =&gt; [0x027F9],
+&quot;xrarr&quot; =&gt; [0x027F6],
+&quot;xscr&quot; =&gt; [0x1D4CD],
+&quot;xsqcup&quot; =&gt; [0x02A06],
+&quot;xuplus&quot; =&gt; [0x02A04],
+&quot;xutri&quot; =&gt; [0x025B3],
+&quot;xvee&quot; =&gt; [0x022C1],
+&quot;xwedge&quot; =&gt; [0x022C0],
+&quot;yacute&quot; =&gt; [0x000FD],
+&quot;yacy&quot; =&gt; [0x0044F],
+&quot;ycirc&quot; =&gt; [0x00177],
+&quot;ycy&quot; =&gt; [0x0044B],
+&quot;yen&quot; =&gt; [0x000A5],
+&quot;yfr&quot; =&gt; [0x1D536],
+&quot;yicy&quot; =&gt; [0x00457],
+&quot;yopf&quot; =&gt; [0x1D56A],
+&quot;yscr&quot; =&gt; [0x1D4CE],
+&quot;yucy&quot; =&gt; [0x0044E],
+&quot;yuml&quot; =&gt; [0x000FF],
+&quot;zacute&quot; =&gt; [0x0017A],
+&quot;zcaron&quot; =&gt; [0x0017E],
+&quot;zcy&quot; =&gt; [0x00437],
+&quot;zdot&quot; =&gt; [0x0017C],
+&quot;zeetrf&quot; =&gt; [0x02128],
+&quot;zeta&quot; =&gt; [0x003B6],
+&quot;zfr&quot; =&gt; [0x1D537],
+&quot;zhcy&quot; =&gt; [0x00436],
+&quot;zigrarr&quot; =&gt; [0x021DD],
+&quot;zopf&quot; =&gt; [0x1D56B],
+&quot;zscr&quot; =&gt; [0x1D4CF],
+&quot;zwj&quot; =&gt; [0x0200D],
+&quot;zwnj&quot; =&gt; [0x0200C],
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>HTML entity name map for <a href="Markdown.html"><code>RDoc::Markdown</code></a></p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(extensions = DEFAULT_EXTENSIONS, debug = false)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new markdown parser that enables the given <code>extensions</code>.</p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Markdown.html#method-i-orig_initialize">orig_initialize</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 630</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">extensions</span> = <span class="ruby-constant">DEFAULT_EXTENSIONS</span>, <span class="ruby-identifier">debug</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@debug</span>      = <span class="ruby-identifier">debug</span>
+  <span class="ruby-ivar">@formatter</span>  = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">ToJoinedParagraph</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@extensions</span> = <span class="ruby-identifier">extensions</span>
+
+  <span class="ruby-ivar">@references</span>          = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@unlinked_references</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@footnotes</span>       = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@note_order</span>      = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-parse">
+            
+              <b>parse</b>(markdown)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-c-parse" name="method-c-parse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Parses the <code>markdown</code> document into an RDoc::Document using the default extensions.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-parse_source')" id="l_method-c-parse_source">show</a>
+                
+              </p>
+              <div id="method-c-parse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 618</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">parse</span> <span class="ruby-identifier">markdown</span>
+  <span class="ruby-identifier">parser</span> = <span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">markdown</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-emphasis">
+            
+              <b>emphasis</b>(text)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-emphasis" name="method-i-emphasis" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Wraps <code>text</code> in emphasis for rdoc inline formatting</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-emphasis_source')" id="l_method-i-emphasis_source">show</a>
+                
+              </p>
+              <div id="method-i-emphasis_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 645</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">emphasis</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A[a-z\d.\/]+\z/i</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-node">&quot;_#{text}_&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;&lt;em&gt;#{text}&lt;/em&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-link_to">
+            
+              <b>link_to</b>(content, label = content, text = nil)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-link_to" name="method-i-link_to" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Finds a link reference for <code>label</code> and creates a new link to it with <code>content</code> as the link text. If <code>label</code> was not encountered in the reference-gathering parser pass the label and content are reconstructed with the linking <code>text</code> (usually whitespace).</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-link_to_source')" id="l_method-i-link_to_source">show</a>
+                
+              </p>
+              <div id="method-i-link_to_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 699</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">link_to</span> <span class="ruby-identifier">content</span>, <span class="ruby-identifier">label</span> = <span class="ruby-identifier">content</span>, <span class="ruby-identifier">text</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseError</span>, <span class="ruby-string">&#39;enable notes extension&#39;</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-identifier">content</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-string">&#39;^&#39;</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">label</span>.<span class="ruby-identifier">equal?</span> <span class="ruby-identifier">content</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref</span> = <span class="ruby-ivar">@references</span>[<span class="ruby-identifier">label</span>] <span class="ruby-keyword">then</span>
+    <span class="ruby-node">&quot;{#{content}}[#{ref}]&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">label</span>.<span class="ruby-identifier">equal?</span> <span class="ruby-identifier">content</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-node">&quot;[#{content}]#{text}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;[#{content}]#{text}[#{label}]&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-list_item_from">
+            
+              <b>list_item_from</b>(unparsed)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-list_item_from" name="method-i-list_item_from" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates an <a href="Markup/ListItem.html"><code>RDoc::Markup::ListItem</code></a> by parsing the <code>unparsed</code> content from the first parsing pass.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-list_item_from_source')" id="l_method-i-list_item_from_source">show</a>
+                
+              </p>
+              <div id="method-i-list_item_from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 716</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">list_item_from</span> <span class="ruby-identifier">unparsed</span>
+  <span class="ruby-identifier">parsed</span> = <span class="ruby-identifier">inner_parse</span> <span class="ruby-identifier">unparsed</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">ListItem</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">parsed</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-note">
+            
+              <b>note</b>(label)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-note" name="method-i-note" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Stores <code>label</code> as a note and fills in previously unknown note references.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-note_source')" id="l_method-i-note_source">show</a>
+                
+              </p>
+              <div id="method-i-note_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 724</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">note</span> <span class="ruby-identifier">label</span>
+  <span class="ruby-comment">#foottext = &quot;rdoc-label:foottext-#{label}:footmark-#{label}&quot;</span>
+
+  <span class="ruby-comment">#ref.replace foottext if ref = @unlinked_notes.delete(label)</span>
+
+  <span class="ruby-ivar">@notes</span>[<span class="ruby-identifier">label</span>] = <span class="ruby-identifier">foottext</span>
+
+  <span class="ruby-comment">#&quot;{^1}[rdoc-label:footmark-#{label}:foottext-#{label}] &quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-note_for">
+            
+              <b>note_for</b>(ref)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-note_for" name="method-i-note_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new link for the footnote <code>reference</code> and adds the reference to the note order list for proper display at the end of the document.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-note_for_source')" id="l_method-i-note_for_source">show</a>
+                
+              </p>
+              <div id="method-i-note_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 738</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">note_for</span> <span class="ruby-identifier">ref</span>
+  <span class="ruby-ivar">@note_order</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ref</span>
+
+  <span class="ruby-identifier">label</span> = <span class="ruby-ivar">@note_order</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-node">&quot;{*#{label}}[rdoc-label:foottext-#{label}:footmark-#{label}]&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-orig_initialize">
+            
+              <b>orig_initialize</b>(extensions = DEFAULT_EXTENSIONS, debug = false)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-orig_initialize" name="method-i-orig_initialize" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>TODO remove when kpeg 0.10 is released</p>
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Markdown.html#method-c-new">new</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-paragraph">
+            
+              <b>paragraph</b>(parts)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-paragraph" name="method-i-paragraph" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates an <a href="Markup/Paragraph.html"><code>RDoc::Markup::Paragraph</code></a> from <code>parts</code> and including extension-specific behavior</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-paragraph_source')" id="l_method-i-paragraph_source">show</a>
+                
+              </p>
+              <div id="method-i-paragraph_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 755</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">paragraph</span> <span class="ruby-identifier">parts</span>
+  <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-string">&quot;\n&quot;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">part</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">HardBreak</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">part</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">break_on_newline?</span>
+
+  <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">parts</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse">
+            
+              <b>parse</b>(markdown)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-parse" name="method-i-parse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Parses <code>markdown</code> into an RDoc::Document</p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Markdown.html#method-i-peg_parse">peg_parse</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-parse_source')" id="l_method-i-parse_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 770</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse</span> <span class="ruby-identifier">markdown</span>
+  <span class="ruby-ivar">@references</span>          = {}
+  <span class="ruby-ivar">@unlinked_references</span> = {}
+
+  <span class="ruby-identifier">markdown</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+
+  <span class="ruby-identifier">setup_parser</span> <span class="ruby-identifier">markdown</span>, <span class="ruby-ivar">@debug</span>
+  <span class="ruby-identifier">peg_parse</span> <span class="ruby-string">&#39;References&#39;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">notes?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@footnotes</span>       = {}
+
+    <span class="ruby-identifier">setup_parser</span> <span class="ruby-identifier">markdown</span>, <span class="ruby-ivar">@debug</span>
+    <span class="ruby-identifier">peg_parse</span> <span class="ruby-string">&#39;Notes&#39;</span>
+
+    <span class="ruby-comment"># using note_order on the first pass would be a bug</span>
+    <span class="ruby-ivar">@note_order</span>      = []
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">setup_parser</span> <span class="ruby-identifier">markdown</span>, <span class="ruby-ivar">@debug</span>
+  <span class="ruby-identifier">peg_parse</span>
+
+  <span class="ruby-identifier">doc</span> = <span class="ruby-identifier">result</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">notes?</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@footnotes</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">doc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Rule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@note_order</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ref</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">label</span> = <span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">note</span> = <span class="ruby-ivar">@footnotes</span>[<span class="ruby-identifier">ref</span>]
+
+      <span class="ruby-identifier">link</span> = <span class="ruby-node">&quot;{^#{label}}[rdoc-label:footmark-#{label}:foottext-#{label}] &quot;</span>
+      <span class="ruby-identifier">note</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">link</span>
+
+      <span class="ruby-identifier">doc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">note</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">accept</span> <span class="ruby-ivar">@formatter</span>
+
+  <span class="ruby-identifier">doc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-peg_parse">
+            
+              <b>peg_parse</b>(markdown)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-peg_parse" name="method-i-peg_parse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>The internal kpeg parse method</p>
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Markdown.html#method-i-parse">parse</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reference">
+            
+              <b>reference</b>(label, link)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-reference" name="method-i-reference" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Stores <code>label</code> as a reference to <code>link</code> and fills in previously unknown link references.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-reference_source')" id="l_method-i-reference_source">show</a>
+                
+              </p>
+              <div id="method-i-reference_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 817</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reference</span> <span class="ruby-identifier">label</span>, <span class="ruby-identifier">link</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref</span> = <span class="ruby-ivar">@unlinked_references</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">label</span>) <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">ref</span>.<span class="ruby-identifier">replace</span> <span class="ruby-identifier">link</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@references</span>[<span class="ruby-identifier">label</span>] = <span class="ruby-identifier">link</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-strong">
+            
+              <b>strong</b>(text)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-strong" name="method-i-strong" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Wraps <code>text</code> in strong markup for rdoc inline formatting</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-strong_source')" id="l_method-i-strong_source">show</a>
+                
+              </p>
+              <div id="method-i-strong_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 828</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">strong</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A[a-z\d.\/-]+\z/i</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-node">&quot;*#{text}*&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;&lt;b&gt;#{text}&lt;/b&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+
+    
+      <div class="contenttitle" id="Extensions">
+        Extensions
+      </div>
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-extension">
+            
+              <b>extension</b>(name)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-c-extension" name="method-c-extension" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates extension methods for the <code>name</code> extension to enable and disable the extension and to query if they are active.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-extension_source')" id="l_method-c-extension_source">show</a>
+                
+              </p>
+              <div id="method-c-extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 565</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">extension</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-constant">EXTENSIONS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{name}?&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">extension?</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">define_method</span> <span class="ruby-node">&quot;#{name}=&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">enable</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">extension</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">enable</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-break_on_newline">
+            
+              <b>break_on_newline</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-break_on_newline" name="method-i-break_on_newline" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Converts all newlines into hard breaks</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-break_on_newline_source')" id="l_method-i-break_on_newline_source">show</a>
+                
+              </p>
+              <div id="method-i-break_on_newline_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 580</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:break_on_newline</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-css">
+            
+              <b>css</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-css" name="method-i-css" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Allow style blocks</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-css_source')" id="l_method-i-css_source">show</a>
+                
+              </p>
+              <div id="method-i-css_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 585</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:css</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-definition_lists">
+            
+              <b>definition_lists</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-definition_lists" name="method-i-definition_lists" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Allow PHP <a href="Markdown.html"><code>Markdown</code></a> Extras style definition lists</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-definition_lists_source')" id="l_method-i-definition_lists_source">show</a>
+                
+              </p>
+              <div id="method-i-definition_lists_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 590</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:definition_lists</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extension">
+            
+              <b>extension</b>(name, enable)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-extension" name="method-i-extension" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Enables or disables the extension with <code>name</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-extension_source')" id="l_method-i-extension_source">show</a>
+                
+              </p>
+              <div id="method-i-extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 667</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extension</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">enable</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">enable</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@extensions</span> <span class="ruby-operator">|=</span> [<span class="ruby-identifier">name</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@extensions</span> <span class="ruby-operator">-=</span> [<span class="ruby-identifier">name</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extension-3F">
+            
+              <b>extension?</b>(name)
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-extension-3F" name="method-i-extension-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Is the extension <code>name</code> enabled?</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-extension-3F_source')" id="l_method-i-extension-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-extension-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 658</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extension?</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@extensions</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-github">
+            
+              <b>github</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-github" name="method-i-github" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Allow Github Flavored <a href="Markdown.html"><code>Markdown</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-github_source')" id="l_method-i-github_source">show</a>
+                
+              </p>
+              <div id="method-i-github_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 595</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:github</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-html">
+            
+              <b>html</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-html" name="method-i-html" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Allow HTML</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-html_source')" id="l_method-i-html_source">show</a>
+                
+              </p>
+              <div id="method-i-html_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 600</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:html</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-notes">
+            
+              <b>notes</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-notes" name="method-i-notes" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Enables the notes extension</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-notes_source')" id="l_method-i-notes_source">show</a>
+                
+              </p>
+              <div id="method-i-notes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 605</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:notes</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-strike">
+            
+              <b>strike</b>
+            
+            <a href="../../classes/RDoc/Markdown.html#method-i-strike" name="method-i-strike" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Enables the strike extension</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-strike_source')" id="l_method-i-strike_source">show</a>
+                
+              </p>
+              <div id="method-i-strike_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.rb, line 610</span>
+<span class="ruby-identifier">extension</span> <span class="ruby-value">:strike</span>
+</pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

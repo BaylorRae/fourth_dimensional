@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::Ruby</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::Ruby">
+
+  
+    
+    <meta name="description" content="@api private  Provides query methods for different rubies.">
+    <meta property="og:description" content="@api private  Provides query methods for different rubies.">
+  
+
+    <meta name="keywords" content="RSpec::Support::Ruby class">
+  
+    <meta name="keywords" content="jruby?, jruby_version, jruby_9000?, rbx?, non_mri?, mri?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Support::Ruby
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/ruby_features_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private</p>
+
+<p>Provides query methods for different rubies</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>J</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-jruby-3F">jruby?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-jruby_9000-3F">jruby_9000?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-jruby_version">jruby_version</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mri-3F">mri?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-non_mri-3F">non_mri?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-rbx-3F">rbx?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-jruby-3F">
+            
+              <b>jruby?</b>()
+            
+            <a href="../../../classes/RSpec/Support/Ruby.html#method-i-jruby-3F" name="method-i-jruby-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-jruby-3F_source')" id="l_method-i-jruby-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-jruby-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">jruby?</span>
+  <span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;java&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-jruby_9000-3F">
+            
+              <b>jruby_9000?</b>()
+            
+            <a href="../../../classes/RSpec/Support/Ruby.html#method-i-jruby_9000-3F" name="method-i-jruby_9000-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-jruby_9000-3F_source')" id="l_method-i-jruby_9000-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-jruby_9000-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">jruby_9000?</span>
+  <span class="ruby-identifier">jruby?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">JRUBY_VERSION</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-string">&#39;9.0.0.0&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-jruby_version">
+            
+              <b>jruby_version</b>()
+            
+            <a href="../../../classes/RSpec/Support/Ruby.html#method-i-jruby_version" name="method-i-jruby_version" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-jruby_version_source')" id="l_method-i-jruby_version_source">show</a>
+                
+              </p>
+              <div id="method-i-jruby_version_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">jruby_version</span>
+  <span class="ruby-ivar">@jruby_version</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ComparableVersion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">JRUBY_VERSION</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mri-3F">
+            
+              <b>mri?</b>()
+            
+            <a href="../../../classes/RSpec/Support/Ruby.html#method-i-mri-3F" name="method-i-mri-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-mri-3F_source')" id="l_method-i-mri-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-mri-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mri?</span>
+  <span class="ruby-operator">!</span><span class="ruby-keyword">defined?</span>(<span class="ruby-constant">RUBY_ENGINE</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">RUBY_ENGINE</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;ruby&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-non_mri-3F">
+            
+              <b>non_mri?</b>()
+            
+            <a href="../../../classes/RSpec/Support/Ruby.html#method-i-non_mri-3F" name="method-i-non_mri-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-non_mri-3F_source')" id="l_method-i-non_mri-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-non_mri-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">non_mri?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">mri?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rbx-3F">
+            
+              <b>rbx?</b>()
+            
+            <a href="../../../classes/RSpec/Support/Ruby.html#method-i-rbx-3F" name="method-i-rbx-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-rbx-3F_source')" id="l_method-i-rbx-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-rbx-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rbx?</span>
+  <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">RUBY_ENGINE</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">RUBY_ENGINE</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;rbx&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

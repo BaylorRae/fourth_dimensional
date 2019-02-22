@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::Warnings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::Warnings">
+
+  
+
+    <meta name="keywords" content="RSpec::Support::Warnings class">
+  
+    <meta name="keywords" content="deprecate, warn_deprecation, warning, warn_with">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Support::Warnings
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/warnings_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/warnings.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-deprecate">deprecate</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-warn_deprecation">warn_deprecation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-warn_with">warn_with</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-warning">warning</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-deprecate">
+            
+              <b>deprecate</b>(deprecated, options={})
+            
+            <a href="../../../classes/RSpec/Support/Warnings.html#method-i-deprecate" name="method-i-deprecate" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-deprecate_source')" id="l_method-i-deprecate_source">show</a>
+                
+              </p>
+              <div id="method-i-deprecate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/warnings.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deprecate</span>(<span class="ruby-identifier">deprecated</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">warn_with</span> <span class="ruby-node">&quot;DEPRECATION: #{deprecated} is deprecated.&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-warn_deprecation">
+            
+              <b>warn_deprecation</b>(message, options={})
+            
+            <a href="../../../classes/RSpec/Support/Warnings.html#method-i-warn_deprecation" name="method-i-warn_deprecation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+
+<p>Used internally to print deprecation warnings when rspec-core isn&#39;t loaded</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-warn_deprecation_source')" id="l_method-i-warn_deprecation_source">show</a>
+                
+              </p>
+              <div id="method-i-warn_deprecation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/warnings.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warn_deprecation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">warn_with</span> <span class="ruby-node">&quot;DEPRECATION: \n #{message}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-warn_with">
+            
+              <b>warn_with</b>(message, options={})
+            
+            <a href="../../../classes/RSpec/Support/Warnings.html#method-i-warn_with" name="method-i-warn_with" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+
+<p>Used internally to print longer warnings</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-warn_with_source')" id="l_method-i-warn_with_source">show</a>
+                
+              </p>
+              <div id="method-i-warn_with_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/warnings.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warn_with</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">call_site</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:call_site</span>) { <span class="ruby-constant">CallerFilter</span>.<span class="ruby-identifier">first_non_rspec_line</span> }
+  <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; Use #{options[:replacement]} instead.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:replacement</span>]
+  <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; Called from #{call_site}.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">call_site</span>
+  <span class="ruby-constant">Support</span>.<span class="ruby-identifier">warning_notifier</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-warning">
+            
+              <b>warning</b>(text, options={})
+            
+            <a href="../../../classes/RSpec/Support/Warnings.html#method-i-warning" name="method-i-warning" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+
+<p>Used internally to print warnings</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-warning_source')" id="l_method-i-warning_source">show</a>
+                
+              </p>
+              <div id="method-i-warning_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/warnings.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warning</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">warn_with</span> <span class="ruby-node">&quot;WARNING: #{text}.&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

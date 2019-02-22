@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakeBacktrace</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakeBacktrace">
+
+  
+
+    <meta name="keywords" content="TestRakeBacktrace class">
+  
+    <meta name="keywords" content="setup, invoke, test_single_collapse, test_multi_collapse, test_suppress_option">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakeBacktrace
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_backtrace_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_backtrace.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-invoke">invoke</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_multi_collapse">test_multi_collapse</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_single_collapse">test_single_collapse</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_suppress_option">test_suppress_option</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="RubyRunner.html">
+              RubyRunner
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-invoke">
+            
+              <b>invoke</b>(*args)
+            
+            <a href="../classes/TestRakeBacktrace.html#method-i-invoke" name="method-i-invoke" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-invoke_source')" id="l_method-i-invoke_source">show</a>
+                
+              </p>
+              <div id="method-i-invoke_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_backtrace.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">invoke</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">rake</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakeBacktrace.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_backtrace.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-identifier">skip</span> <span class="ruby-string">&#39;tmpdir is suppressed in backtrace&#39;</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Backtrace</span><span class="ruby-operator">::</span><span class="ruby-constant">SUPPRESS_PATTERN</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multi_collapse">
+            
+              <b>test_multi_collapse</b>()
+            
+            <a href="../classes/TestRakeBacktrace.html#method-i-test_multi_collapse" name="method-i-test_multi_collapse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multi_collapse_source')" id="l_method-i-test_multi_collapse_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multi_collapse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_backtrace.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multi_collapse</span>
+  <span class="ruby-identifier">rakefile</span> <span class="ruby-string">%q{
+    task :foo do
+      Rake.application.invoke_task(:bar)
+    end
+    task :bar do
+      raise &quot;barrr!&quot;
+    end
+  }</span>
+
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">invoke</span>(<span class="ruby-string">&quot;foo&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;rake aborted!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;barrr!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">assert_something_matches</span> <span class="ruby-regexp">%r!\A#{Regexp.quote Dir.pwd}/Rakefile:6!i</span>, <span class="ruby-identifier">lines</span>
+  <span class="ruby-identifier">assert_something_matches</span> <span class="ruby-regexp">%r!\A#{Regexp.quote Dir.pwd}/Rakefile:3!i</span>, <span class="ruby-identifier">lines</span>
+  <span class="ruby-identifier">assert_something_matches</span> <span class="ruby-regexp">%r!\ATasks:!</span>, <span class="ruby-identifier">lines</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_single_collapse">
+            
+              <b>test_single_collapse</b>()
+            
+            <a href="../classes/TestRakeBacktrace.html#method-i-test_single_collapse" name="method-i-test_single_collapse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_single_collapse_source')" id="l_method-i-test_single_collapse_source">show</a>
+                
+              </p>
+              <div id="method-i-test_single_collapse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_backtrace.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_single_collapse</span>
+  <span class="ruby-identifier">rakefile</span> <span class="ruby-string">%q{
+    task :foo do
+      raise &quot;foooo!&quot;
+    end
+  }</span>
+
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">invoke</span>(<span class="ruby-string">&quot;foo&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;rake aborted!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;foooo!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">assert_something_matches</span> <span class="ruby-regexp">%r!\A#{Regexp.quote Dir.pwd}/Rakefile:3!i</span>, <span class="ruby-identifier">lines</span>
+  <span class="ruby-identifier">assert_something_matches</span> <span class="ruby-regexp">%r!\ATasks:!</span>, <span class="ruby-identifier">lines</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_suppress_option">
+            
+              <b>test_suppress_option</b>()
+            
+            <a href="../classes/TestRakeBacktrace.html#method-i-test_suppress_option" name="method-i-test_suppress_option" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_suppress_option_source')" id="l_method-i-test_suppress_option_source">show</a>
+                
+              </p>
+              <div id="method-i-test_suppress_option_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_backtrace.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_suppress_option</span>
+  <span class="ruby-identifier">rakefile</span> <span class="ruby-string">%q{
+    task :baz do
+      raise &quot;bazzz!&quot;
+    end
+  }</span>
+
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">invoke</span>(<span class="ruby-string">&quot;baz&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;rake aborted!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;bazzz!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">assert_something_matches</span> <span class="ruby-regexp">%r!Rakefile!i</span>, <span class="ruby-identifier">lines</span>
+
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">invoke</span>(<span class="ruby-string">&quot;--suppress-backtrace&quot;</span>, <span class="ruby-string">&quot;.ak.file&quot;</span>, <span class="ruby-string">&quot;baz&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;rake aborted!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;bazzz!&quot;</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">refute_match</span> <span class="ruby-regexp">%r!Rakefile!i</span>, <span class="ruby-identifier">lines</span>[<span class="ruby-value">2</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

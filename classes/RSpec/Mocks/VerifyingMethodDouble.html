@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::VerifyingMethodDouble</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::VerifyingMethodDouble">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::VerifyingMethodDouble class">
+  
+    <meta name="keywords" content="new, message_expectation_class, add_expectation, add_stub, proxy_method_invoked, validate_arguments!">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::VerifyingMethodDouble
+            
+                <span class="parent">&lt;
+                    
+                    <a href="MethodDouble.html">RSpec::Mocks::MethodDouble</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/verifying_proxy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_expectation">add_expectation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_stub">add_stub</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message_expectation_class">message_expectation_class</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-proxy_method_invoked">proxy_method_invoked</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_arguments-21">validate_arguments!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(object, method_name, proxy, method_reference)
+            
+            <a href="../../../classes/RSpec/Mocks/VerifyingMethodDouble.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">proxy</span>, <span class="ruby-identifier">method_reference</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">proxy</span>)
+  <span class="ruby-ivar">@method_reference</span> = <span class="ruby-identifier">method_reference</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_expectation">
+            
+              <b>add_expectation</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/VerifyingMethodDouble.html#method-i-add_expectation" name="method-i-add_expectation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_expectation_source')" id="l_method-i-add_expectation_source">show</a>
+                
+              </p>
+              <div id="method-i-add_expectation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_expectation</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># explict params necessary for 1.8.7 see #626</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">method_reference</span> = <span class="ruby-ivar">@method_reference</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_stub">
+            
+              <b>add_stub</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/VerifyingMethodDouble.html#method-i-add_stub" name="method-i-add_stub" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_stub_source')" id="l_method-i-add_stub_source">show</a>
+                
+              </p>
+              <div id="method-i-add_stub_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_stub</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># explict params necessary for 1.8.7 see #626</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">method_reference</span> = <span class="ruby-ivar">@method_reference</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-message_expectation_class">
+            
+              <b>message_expectation_class</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/VerifyingMethodDouble.html#method-i-message_expectation_class" name="method-i-message_expectation_class" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_expectation_class_source')" id="l_method-i-message_expectation_class_source">show</a>
+                
+              </p>
+              <div id="method-i-message_expectation_class_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message_expectation_class</span>
+  <span class="ruby-constant">VerifyingMessageExpectation</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-proxy_method_invoked">
+            
+              <b>proxy_method_invoked</b>(obj, *args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/VerifyingMethodDouble.html#method-i-proxy_method_invoked" name="method-i-proxy_method_invoked" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-proxy_method_invoked_source')" id="l_method-i-proxy_method_invoked_source">show</a>
+                
+              </p>
+              <div id="method-i-proxy_method_invoked_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proxy_method_invoked</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">validate_arguments!</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_arguments-21">
+            
+              <b>validate_arguments!</b>(actual_args)
+            
+            <a href="../../../classes/RSpec/Mocks/VerifyingMethodDouble.html#method-i-validate_arguments-21" name="method-i-validate_arguments-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-validate_arguments-21_source')" id="l_method-i-validate_arguments-21_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_arguments-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">validate_arguments!</span>(<span class="ruby-identifier">actual_args</span>)
+  <span class="ruby-ivar">@method_reference</span>.<span class="ruby-identifier">with_signature</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">signature</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">verifier</span> = <span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">StrictSignatureVerifier</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">signature</span>, <span class="ruby-identifier">actual_args</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-identifier">verifier</span>.<span class="ruby-identifier">error_message</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">verifier</span>.<span class="ruby-identifier">valid?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

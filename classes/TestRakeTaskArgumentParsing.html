@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakeTaskArgumentParsing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakeTaskArgumentParsing">
+
+  
+
+    <meta name="keywords" content="TestRakeTaskArgumentParsing class">
+  
+    <meta name="keywords" content="setup, test_name_only, test_empty_args, test_one_argument, test_two_arguments, test_can_handle_spaces_between_args, test_keeps_embedded_spaces, test_can_handle_commas_in_args, test_treat_blank_arg_as_empty_string, test_terminal_width_using_env, test_terminal_width_using_stty, test_terminal_width_using_tput, test_terminal_width_using_hardcoded_80, test_terminal_width_with_failure, test_no_rakeopt, test_rakeopt_with_blank_options, test_rakeopt_with_silent_options">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakeTaskArgumentParsing
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_task_argument_parsing_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_can_handle_commas_in_args">test_can_handle_commas_in_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_can_handle_spaces_between_args">test_can_handle_spaces_between_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_empty_args">test_empty_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_keeps_embedded_spaces">test_keeps_embedded_spaces</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_name_only">test_name_only</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_no_rakeopt">test_no_rakeopt</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_one_argument">test_one_argument</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rakeopt_with_blank_options">test_rakeopt_with_blank_options</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rakeopt_with_silent_options">test_rakeopt_with_silent_options</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_terminal_width_using_env">test_terminal_width_using_env</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_terminal_width_using_hardcoded_80">test_terminal_width_using_hardcoded_80</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_terminal_width_using_stty">test_terminal_width_using_stty</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_terminal_width_using_tput">test_terminal_width_using_tput</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_terminal_width_with_failure">test_terminal_width_with_failure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_treat_blank_arg_as_empty_string">test_treat_blank_arg_as_empty_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_two_arguments">test_two_arguments</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-ivar">@app</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_can_handle_commas_in_args">
+            
+              <b>test_can_handle_commas_in_args</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_can_handle_commas_in_args" name="method-i-test_can_handle_commas_in_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_can_handle_commas_in_args_source')" id="l_method-i-test_can_handle_commas_in_args_source">show</a>
+                
+              </p>
+              <div id="method-i-test_can_handle_commas_in_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_can_handle_commas_in_args</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[one, two, three_a\\, three_b, four]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;two&quot;</span>, <span class="ruby-string">&quot;three_a, three_b&quot;</span>, <span class="ruby-string">&quot;four&quot;</span>], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_can_handle_spaces_between_args">
+            
+              <b>test_can_handle_spaces_between_args</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_can_handle_spaces_between_args" name="method-i-test_can_handle_spaces_between_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_can_handle_spaces_between_args_source')" id="l_method-i-test_can_handle_spaces_between_args_source">show</a>
+                
+              </p>
+              <div id="method-i-test_can_handle_spaces_between_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_can_handle_spaces_between_args</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[one, two,\tthree , \tfour]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;two&quot;</span>, <span class="ruby-string">&quot;three&quot;</span>, <span class="ruby-string">&quot;four&quot;</span>], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_empty_args">
+            
+              <b>test_empty_args</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_empty_args" name="method-i-test_empty_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_empty_args_source')" id="l_method-i-test_empty_args_source">show</a>
+                
+              </p>
+              <div id="method-i-test_empty_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_empty_args</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_keeps_embedded_spaces">
+            
+              <b>test_keeps_embedded_spaces</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_keeps_embedded_spaces" name="method-i-test_keeps_embedded_spaces" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_keeps_embedded_spaces_source')" id="l_method-i-test_keeps_embedded_spaces_source">show</a>
+                
+              </p>
+              <div id="method-i-test_keeps_embedded_spaces_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_keeps_embedded_spaces</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[a one ana, two]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;a one ana&quot;</span>, <span class="ruby-string">&quot;two&quot;</span>], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_name_only">
+            
+              <b>test_name_only</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_name_only" name="method-i-test_name_only" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_name_only_source')" id="l_method-i-test_name_only_source">show</a>
+                
+              </p>
+              <div id="method-i-test_name_only_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_name_only</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_no_rakeopt">
+            
+              <b>test_no_rakeopt</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_no_rakeopt" name="method-i-test_no_rakeopt" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_no_rakeopt_source')" id="l_method-i-test_no_rakeopt_source">show</a>
+                
+              </p>
+              <div id="method-i-test_no_rakeopt_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_no_rakeopt</span>
+  <span class="ruby-constant">ARGV</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--trace&#39;</span>
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">app</span>.<span class="ruby-identifier">init</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">app</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">silent</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_one_argument">
+            
+              <b>test_one_argument</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_one_argument" name="method-i-test_one_argument" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_one_argument_source')" id="l_method-i-test_one_argument_source">show</a>
+                
+              </p>
+              <div id="method-i-test_one_argument_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_one_argument</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[one]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;one&quot;</span>], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rakeopt_with_blank_options">
+            
+              <b>test_rakeopt_with_blank_options</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_rakeopt_with_blank_options" name="method-i-test_rakeopt_with_blank_options" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rakeopt_with_blank_options_source')" id="l_method-i-test_rakeopt_with_blank_options_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rakeopt_with_blank_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rakeopt_with_blank_options</span>
+  <span class="ruby-constant">ARGV</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;--trace&#39;</span>
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">app</span>.<span class="ruby-identifier">init</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">app</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">silent</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rakeopt_with_silent_options">
+            
+              <b>test_rakeopt_with_silent_options</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_rakeopt_with_silent_options" name="method-i-test_rakeopt_with_silent_options" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rakeopt_with_silent_options_source')" id="l_method-i-test_rakeopt_with_silent_options_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rakeopt_with_silent_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rakeopt_with_silent_options</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKEOPT&#39;</span>] = <span class="ruby-string">&#39;-s&#39;</span>
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">app</span>.<span class="ruby-identifier">init</span>
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">silent</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_terminal_width_using_env">
+            
+              <b>test_terminal_width_using_env</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_terminal_width_using_env" name="method-i-test_terminal_width_using_env" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_terminal_width_using_env_source')" id="l_method-i-test_terminal_width_using_env_source">show</a>
+                
+              </p>
+              <div id="method-i-test_terminal_width_using_env_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_terminal_width_using_env</span>
+  <span class="ruby-identifier">app</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">app</span>.<span class="ruby-identifier">terminal_columns</span> = <span class="ruby-value">1234</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1234</span>, <span class="ruby-identifier">app</span>.<span class="ruby-identifier">terminal_width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_terminal_width_using_hardcoded_80">
+            
+              <b>test_terminal_width_using_hardcoded_80</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_terminal_width_using_hardcoded_80" name="method-i-test_terminal_width_using_hardcoded_80" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_terminal_width_using_hardcoded_80_source')" id="l_method-i-test_terminal_width_using_hardcoded_80_source">show</a>
+                
+              </p>
+              <div id="method-i-test_terminal_width_using_hardcoded_80_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_terminal_width_using_hardcoded_80</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">unix?</span>() <span class="ruby-keyword">false</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">80</span>, <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">terminal_width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_terminal_width_using_stty">
+            
+              <b>test_terminal_width_using_stty</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_terminal_width_using_stty" name="method-i-test_terminal_width_using_stty" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_terminal_width_using_stty_source')" id="l_method-i-test_terminal_width_using_stty_source">show</a>
+                
+              </p>
+              <div id="method-i-test_terminal_width_using_stty_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_terminal_width_using_stty</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">unix?</span>() <span class="ruby-keyword">true</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">dynamic_width_stty</span>() <span class="ruby-value">1235</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">dynamic_width_tput</span>() <span class="ruby-value">0</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1235</span>, <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">terminal_width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_terminal_width_using_tput">
+            
+              <b>test_terminal_width_using_tput</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_terminal_width_using_tput" name="method-i-test_terminal_width_using_tput" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_terminal_width_using_tput_source')" id="l_method-i-test_terminal_width_using_tput_source">show</a>
+                
+              </p>
+              <div id="method-i-test_terminal_width_using_tput_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_terminal_width_using_tput</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">unix?</span>() <span class="ruby-keyword">true</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">dynamic_width_stty</span>() <span class="ruby-value">0</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">dynamic_width_tput</span>() <span class="ruby-value">1236</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1236</span>, <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">terminal_width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_terminal_width_with_failure">
+            
+              <b>test_terminal_width_with_failure</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_terminal_width_with_failure" name="method-i-test_terminal_width_with_failure" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_terminal_width_with_failure_source')" id="l_method-i-test_terminal_width_with_failure_source">show</a>
+                
+              </p>
+              <div id="method-i-test_terminal_width_with_failure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_terminal_width_with_failure</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier ruby-title">unix?</span>() <span class="ruby-identifier">raise</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">80</span>, <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">terminal_width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_treat_blank_arg_as_empty_string">
+            
+              <b>test_treat_blank_arg_as_empty_string</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_treat_blank_arg_as_empty_string" name="method-i-test_treat_blank_arg_as_empty_string" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_treat_blank_arg_as_empty_string_source')" id="l_method-i-test_treat_blank_arg_as_empty_string_source">show</a>
+                
+              </p>
+              <div id="method-i-test_treat_blank_arg_as_empty_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_treat_blank_arg_as_empty_string</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[one,]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;&quot;</span>], <span class="ruby-identifier">args</span>
+
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[one,,two]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;two&quot;</span>], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_two_arguments">
+            
+              <b>test_two_arguments</b>()
+            
+            <a href="../classes/TestRakeTaskArgumentParsing.html#method-i-test_two_arguments" name="method-i-test_two_arguments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_two_arguments_source')" id="l_method-i-test_two_arguments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_two_arguments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task_argument_parsing.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_two_arguments</span>
+  <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">parse_task_string</span>(<span class="ruby-string">&quot;name[one,two]&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;one&quot;</span>, <span class="ruby-string">&quot;two&quot;</span>], <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

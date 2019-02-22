@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::Source::Token</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::Source::Token">
+
+  
+    
+    <meta name="description" content="@private A wrapper for Ripper token which is generated with `Ripper.lex`.">
+    <meta property="og:description" content="@private A wrapper for Ripper token which is generated with `Ripper.lex`.">
+  
+
+    <meta name="keywords" content="RSpec::Support::Source::Token class">
+  
+    <meta name="keywords" content="tokens_from_ripper_tokens, new, location, type, string, ==, eql?, inspect, keyword?, opening?, closed_by?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Support::Source::Token
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/token_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private A wrapper for Ripper token which is generated with `Ripper.lex`.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-3D-3D">==</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-closed_by-3F">closed_by?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-eql-3F">eql?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>K</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-keyword-3F">keyword?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-location">location</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-opening-3F">opening?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-string">string</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-tokens_from_ripper_tokens">tokens_from_ripper_tokens</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-type">type</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">CLOSING_TYPES_BY_OPENING_TYPE</td>
+            <td>=</td>
+            <td class="attr-value">{
+:on_lbracket    =&gt; :on_rbracket,
+:on_lparen      =&gt; :on_rparen,
+:on_lbrace      =&gt; :on_rbrace,
+:on_heredoc_beg =&gt; :on_heredoc_end
+}.freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CLOSING_KEYWORDS_BY_OPENING_KEYWORD</td>
+            <td>=</td>
+            <td class="attr-value">{
+&#39;def&#39; =&gt; &#39;end&#39;,
+&#39;do&#39;  =&gt; &#39;end&#39;,
+}.freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>token</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(ripper_token)
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">ripper_token</span>)
+  <span class="ruby-ivar">@token</span> = <span class="ruby-identifier">ripper_token</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-tokens_from_ripper_tokens">
+            
+              <b>tokens_from_ripper_tokens</b>(ripper_tokens)
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-c-tokens_from_ripper_tokens" name="method-c-tokens_from_ripper_tokens" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-tokens_from_ripper_tokens_source')" id="l_method-c-tokens_from_ripper_tokens_source">show</a>
+                
+              </p>
+              <div id="method-c-tokens_from_ripper_tokens_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">tokens_from_ripper_tokens</span>(<span class="ruby-identifier">ripper_tokens</span>)
+  <span class="ruby-identifier">ripper_tokens</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">ripper_token</span><span class="ruby-operator">|</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">ripper_token</span>) }.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-3D-3D">
+            
+              <b>==</b>(other)
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-3D-3D" name="method-i-3D-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Token.html#method-i-eql-3F">eql?</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-3D-3D_source')" id="l_method-i-3D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3D-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">token</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-closed_by-3F">
+            
+              <b>closed_by?</b>(other)
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-closed_by-3F" name="method-i-closed_by-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-closed_by-3F_source')" id="l_method-i-closed_by-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-closed_by-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">closed_by?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">closed_by_delimiter?</span>(<span class="ruby-identifier">other</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">closed_by_keyword?</span>(<span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eql-3F">
+            
+              <b>eql?</b>(other)
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-eql-3F" name="method-i-eql-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Token.html#method-i-3D-3D">==</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-node">&quot;#&lt;#{self.class} #{type} #{string.inspect}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-keyword-3F">
+            
+              <b>keyword?</b>()
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-keyword-3F" name="method-i-keyword-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-keyword-3F_source')" id="l_method-i-keyword-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-keyword-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">keyword?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:on_kw</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-location">
+            
+              <b>location</b>()
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-location" name="method-i-location" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-location_source')" id="l_method-i-location_source">show</a>
+                
+              </p>
+              <div id="method-i-location_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">location</span>
+  <span class="ruby-ivar">@location</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">token</span>[<span class="ruby-value">0</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-opening-3F">
+            
+              <b>opening?</b>()
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-opening-3F" name="method-i-opening-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-opening-3F_source')" id="l_method-i-opening-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-opening-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">opening?</span>
+  <span class="ruby-identifier">opening_delimiter?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">opening_keyword?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-string">
+            
+              <b>string</b>()
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-string" name="method-i-string" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-string_source')" id="l_method-i-string_source">show</a>
+                
+              </p>
+              <div id="method-i-string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">string</span>
+  <span class="ruby-identifier">token</span>[<span class="ruby-value">2</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-type">
+            
+              <b>type</b>()
+            
+            <a href="../../../../classes/RSpec/Support/Source/Token.html#method-i-type" name="method-i-type" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-type_source')" id="l_method-i-type_source">show</a>
+                
+              </p>
+              <div id="method-i-type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">type</span>
+  <span class="ruby-identifier">token</span>[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

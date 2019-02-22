@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::ObjectFormatter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::ObjectFormatter">
+
+  
+    
+    <meta name="description" content="Provide additional output details beyond what `inspect` provides when printing Time, DateTime, or BigDecimal @api private.">
+    <meta property="og:description" content="Provide additional output details beyond what `inspect` provides when printing Time, DateTime, or BigDecimal @api private.">
+  
+
+    <meta name="keywords" content="RSpec::Support::ObjectFormatter class">
+  
+    <meta name="keywords" content="default_instance, format, prepare_for_inspection, new, format, prepare_for_inspection, prepare_array, prepare_hash, sort_hash_keys, prepare_element, with_entering_structure, recursive_structure?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Support::ObjectFormatter
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/object_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Provide additional output details beyond what `inspect` provides when printing Time, DateTime, or BigDecimal @api private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/BigDecimalInspector.html">RSpec::Support::ObjectFormatter::BigDecimalInspector</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/DateTimeInspector.html">RSpec::Support::ObjectFormatter::DateTimeInspector</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/DelegatorInspector.html">RSpec::Support::ObjectFormatter::DelegatorInspector</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/DescribableMatcherInspector.html">RSpec::Support::ObjectFormatter::DescribableMatcherInspector</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/InspectableObjectInspector.html">RSpec::Support::ObjectFormatter::InspectableObjectInspector</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/TimeInspector.html">RSpec::Support::ObjectFormatter::TimeInspector</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="ObjectFormatter/UninspectableObjectInspector.html">RSpec::Support::ObjectFormatter::UninspectableObjectInspector</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-default_instance">default_instance</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-format">format</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-format">format</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prepare_array">prepare_array</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepare_element">prepare_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-prepare_for_inspection">prepare_for_inspection</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepare_for_inspection">prepare_for_inspection</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prepare_hash">prepare_hash</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-recursive_structure-3F">recursive_structure?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sort_hash_keys">sort_hash_keys</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-with_entering_structure">with_entering_structure</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">ELLIPSIS</td>
+            <td>=</td>
+            <td class="attr-value">&quot;...&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">InspectableItem</td>
+            <td>=</td>
+            <td class="attr-value">Struct.new(:text) do
+def inspect
+text
+end
+
+def pretty_print(pp)
+pp.text(text)
+end
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">BaseInspector</td>
+            <td>=</td>
+            <td class="attr-value">Struct.new(:object, :formatter) do
+def self.can_inspect?(_object)
+raise NotImplementedError
+end
+
+def inspect
+raise NotImplementedError
+end
+
+def pretty_print(pp)
+pp.text(inspect)
+end
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">INSPECTOR_CLASSES</td>
+            <td>=</td>
+            <td class="attr-value">[
+TimeInspector,
+DateTimeInspector,
+BigDecimalInspector,
+UninspectableObjectInspector,
+DescribableMatcherInspector,
+DelegatorInspector,
+InspectableObjectInspector
+].tap do |classes|
+# 2.4 has improved BigDecimal formatting so we do not need
+# to provide our own.
+# https://github.com/ruby/bigdecimal/pull/42
+classes.delete(BigDecimalInspector) if RUBY_VERSION &gt;= &#39;2.4&#39;
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>max_formatted_output_length</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-default_instance">
+            
+              <b>default_instance</b>()
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-c-default_instance" name="method-c-default_instance" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Methods are deferred to a default instance of the class to maintain the interface For example, calling <a href="ObjectFormatter.html#method-c-format"><code>ObjectFormatter.format</code></a> is still possible</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-default_instance_source')" id="l_method-c-default_instance_source">show</a>
+                
+              </p>
+              <div id="method-c-default_instance_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">default_instance</span>
+  <span class="ruby-ivar">@default_instance</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-format">
+            
+              <b>format</b>(object)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-c-format" name="method-c-format" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-format_source')" id="l_method-c-format_source">show</a>
+                
+              </p>
+              <div id="method-c-format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">format</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">default_instance</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(max_formatted_output_length=200)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">max_formatted_output_length</span>=<span class="ruby-value">200</span>)
+  <span class="ruby-ivar">@max_formatted_output_length</span> = <span class="ruby-identifier">max_formatted_output_length</span>
+  <span class="ruby-ivar">@current_structure_stack</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-prepare_for_inspection">
+            
+              <b>prepare_for_inspection</b>(object)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-c-prepare_for_inspection" name="method-c-prepare_for_inspection" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-prepare_for_inspection_source')" id="l_method-c-prepare_for_inspection_source">show</a>
+                
+              </p>
+              <div id="method-c-prepare_for_inspection_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">prepare_for_inspection</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">default_instance</span>.<span class="ruby-identifier">prepare_for_inspection</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-format">
+            
+              <b>format</b>(object)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-format" name="method-i-format" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-format_source')" id="l_method-i-format_source">show</a>
+                
+              </p>
+              <div id="method-i-format_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">format</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">max_formatted_output_length</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">prepare_for_inspection</span>(<span class="ruby-identifier">object</span>).<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">formatted_object</span> = <span class="ruby-identifier">prepare_for_inspection</span>(<span class="ruby-identifier">object</span>).<span class="ruby-identifier">inspect</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">formatted_object</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">max_formatted_output_length</span>
+      <span class="ruby-identifier">formatted_object</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">beginning</span> = <span class="ruby-identifier">truncate_string</span> <span class="ruby-identifier">formatted_object</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">max_formatted_output_length</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">ending</span> = <span class="ruby-identifier">truncate_string</span> <span class="ruby-identifier">formatted_object</span>, <span class="ruby-operator">-</span><span class="ruby-identifier">max_formatted_output_length</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>, <span class="ruby-value">-1</span>
+      <span class="ruby-identifier">beginning</span> <span class="ruby-operator">+</span> <span class="ruby-constant">ELLIPSIS</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ending</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepare_array">
+            
+              <b>prepare_array</b>(array)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-prepare_array" name="method-i-prepare_array" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prepare_array_source')" id="l_method-i-prepare_array_source">show</a>
+                
+              </p>
+              <div id="method-i-prepare_array_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepare_array</span>(<span class="ruby-identifier">array</span>)
+  <span class="ruby-identifier">with_entering_structure</span>(<span class="ruby-identifier">array</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">array</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">prepare_element</span>(<span class="ruby-identifier">element</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepare_element">
+            
+              <b>prepare_element</b>(element)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-prepare_element" name="method-i-prepare_element" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prepare_element_source')" id="l_method-i-prepare_element_source">show</a>
+                
+              </p>
+              <div id="method-i-prepare_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepare_element</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">recursive_structure?</span>(<span class="ruby-identifier">element</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">element</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">InspectableItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;[...]&#39;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">InspectableItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;{...}&#39;</span>)
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">raise</span> <span class="ruby-comment"># This won&#39;t happen</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">prepare_for_inspection</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepare_for_inspection">
+            
+              <b>prepare_for_inspection</b>(object)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-prepare_for_inspection" name="method-i-prepare_for_inspection" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the provided object to be formatted by wrapping it as needed in something that, when `inspect` is called on it, will produce the desired output.</p>
+
+<p>This allows us to apply the desired formatting to hash/array data structures at any level of nesting, simply by walking that structure and replacing items with custom items that have `inspect` defined to return the desired output for that item. Then we can just use `Array#inspect` or `Hash#inspect` to format the entire thing.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prepare_for_inspection_source')" id="l_method-i-prepare_for_inspection_source">show</a>
+                
+              </p>
+              <div id="method-i-prepare_for_inspection_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepare_for_inspection</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">prepare_array</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">prepare_hash</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">inspector_class</span> = <span class="ruby-constant">INSPECTOR_CLASSES</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">inspector</span><span class="ruby-operator">|</span> <span class="ruby-identifier">inspector</span>.<span class="ruby-identifier">can_inspect?</span>(<span class="ruby-identifier">object</span>) }
+    <span class="ruby-identifier">inspector_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepare_hash">
+            
+              <b>prepare_hash</b>(input_hash)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-prepare_hash" name="method-i-prepare_hash" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prepare_hash_source')" id="l_method-i-prepare_hash_source">show</a>
+                
+              </p>
+              <div id="method-i-prepare_hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepare_hash</span>(<span class="ruby-identifier">input_hash</span>)
+  <span class="ruby-identifier">with_entering_structure</span>(<span class="ruby-identifier">input_hash</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">sort_hash_keys</span>(<span class="ruby-identifier">input_hash</span>).<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">output_hash</span>, <span class="ruby-identifier">key_and_value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> = <span class="ruby-identifier">key_and_value</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">prepare_element</span>(<span class="ruby-identifier">element</span>) }
+      <span class="ruby-identifier">output_hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+      <span class="ruby-identifier">output_hash</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-recursive_structure-3F">
+            
+              <b>recursive_structure?</b>(object)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-recursive_structure-3F" name="method-i-recursive_structure-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-recursive_structure-3F_source')" id="l_method-i-recursive_structure-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-recursive_structure-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recursive_structure?</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-ivar">@current_structure_stack</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">seen_structure</span><span class="ruby-operator">|</span> <span class="ruby-identifier">seen_structure</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">object</span>) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sort_hash_keys">
+            
+              <b>sort_hash_keys</b>(input_hash)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-sort_hash_keys" name="method-i-sort_hash_keys" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-sort_hash_keys_source')" id="l_method-i-sort_hash_keys_source">show</a>
+                
+              </p>
+              <div id="method-i-sort_hash_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sort_hash_keys</span>(<span class="ruby-identifier">input_hash</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">input_hash</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) }
+    <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">input_hash</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">_v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> }]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">input_hash</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-with_entering_structure">
+            
+              <b>with_entering_structure</b>(structure)
+            
+            <a href="../../../classes/RSpec/Support/ObjectFormatter.html#method-i-with_entering_structure" name="method-i-with_entering_structure" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-with_entering_structure_source')" id="l_method-i-with_entering_structure_source">show</a>
+                
+              </p>
+              <div id="method-i-with_entering_structure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with_entering_structure</span>(<span class="ruby-identifier">structure</span>)
+  <span class="ruby-ivar">@current_structure_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">structure</span>)
+  <span class="ruby-identifier">return_value</span> = <span class="ruby-keyword">yield</span>
+  <span class="ruby-ivar">@current_structure_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">return_value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

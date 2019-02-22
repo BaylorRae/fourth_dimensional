@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Parser::RubyTools</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Parser::RubyTools">
+
+  
+    
+    <meta name="description" content="Collection of methods for writing parsers.">
+    <meta property="og:description" content="Collection of methods for writing parsers.">
+  
+
+    <meta name="keywords" content="RDoc::Parser::RubyTools class">
+  
+    <meta name="keywords" content="add_token_listener, get_tk, get_tk_until, get_tkread, peek_read, peek_tk, remove_token_listener, reset, skip_tkspace, skip_tkspace_without_nl, token_listener, unget_tk">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RDoc::Parser::RubyTools
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/parser/ruby_tools_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Collection of methods for writing parsers</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_token_listener">add_token_listener</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_tk">get_tk</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_tk_until">get_tk_until</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_tkread">get_tkread</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-peek_read">peek_read</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-peek_tk">peek_tk</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-remove_token_listener">remove_token_listener</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-reset">reset</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-skip_tkspace">skip_tkspace</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-skip_tkspace_without_nl">skip_tkspace_without_nl</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-token_listener">token_listener</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unget_tk">unget_tk</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_token_listener">
+            
+              <b>add_token_listener</b>(obj)
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-add_token_listener" name="method-i-add_token_listener" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds a token listener <code>obj</code>, but you should probably use <a href="RubyTools.html#method-i-token_listener"><code>token_listener</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_token_listener_source')" id="l_method-i-add_token_listener_source">show</a>
+                
+              </p>
+              <div id="method-i-add_token_listener_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_token_listener</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-ivar">@token_listeners</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@token_listeners</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_tk">
+            
+              <b>get_tk</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-get_tk" name="method-i-get_tk" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Fetches the next token from the scanner</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-get_tk_source')" id="l_method-i-get_tk_source">show</a>
+                
+              </p>
+              <div id="method-i-get_tk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_tk</span>
+  <span class="ruby-identifier">tk</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tokens</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@scanner_point</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">tk</span> = <span class="ruby-ivar">@scanner</span>[<span class="ruby-ivar">@scanner_point</span>]
+      <span class="ruby-ivar">@scanner_point</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@read</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">tk</span>[<span class="ruby-value">:text</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@read</span>.<span class="ruby-identifier">push</span> <span class="ruby-ivar">@unget_read</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-identifier">tk</span> = <span class="ruby-ivar">@tokens</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tk</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">||</span> <span class="ruby-value">:on___end__</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tk</span>[<span class="ruby-value">:kind</span>]
+    <span class="ruby-identifier">tk</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tk</span>
+
+  <span class="ruby-comment"># inform any listeners of our shiny new token</span>
+  <span class="ruby-ivar">@token_listeners</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">add_token</span>(<span class="ruby-identifier">tk</span>)
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@token_listeners</span>
+
+  <span class="ruby-identifier">tk</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_tk_until">
+            
+              <b>get_tk_until</b>(*tokens)
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-get_tk_until" name="method-i-get_tk_until" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Reads and returns all tokens up to one of <code>tokens</code>.  Leaves the matched token in the token list.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-get_tk_until_source')" id="l_method-i-get_tk_until_source">show</a>
+                
+              </p>
+              <div id="method-i-get_tk_until_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_tk_until</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">tokens</span>)
+  <span class="ruby-identifier">read</span> = []
+
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">tk</span> = <span class="ruby-identifier">get_tk</span>
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">tk</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-identifier">tokens</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">unget_tk</span> <span class="ruby-identifier">tk</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">read</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tk</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">read</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_tkread">
+            
+              <b>get_tkread</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-get_tkread" name="method-i-get_tkread" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Retrieves a <a href="../../String.html"><code>String</code></a> representation of the read tokens</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-get_tkread_source')" id="l_method-i-get_tkread_source">show</a>
+                
+              </p>
+              <div id="method-i-get_tkread_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_tkread</span>
+  <span class="ruby-identifier">read</span> = <span class="ruby-ivar">@read</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-ivar">@read</span> = []
+  <span class="ruby-identifier">read</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-peek_read">
+            
+              <b>peek_read</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-peek_read" name="method-i-peek_read" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Peek equivalent for <a href="RubyTools.html#method-i-get_tkread"><code>get_tkread</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-peek_read_source')" id="l_method-i-peek_read_source">show</a>
+                
+              </p>
+              <div id="method-i-peek_read_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">peek_read</span>
+  <span class="ruby-ivar">@read</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-peek_tk">
+            
+              <b>peek_tk</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-peek_tk" name="method-i-peek_tk" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Peek at the next token, but don&#39;t remove it from the stream</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-peek_tk_source')" id="l_method-i-peek_tk_source">show</a>
+                
+              </p>
+              <div id="method-i-peek_tk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">peek_tk</span>
+  <span class="ruby-identifier">unget_tk</span>(<span class="ruby-identifier">tk</span> = <span class="ruby-identifier">get_tk</span>)
+  <span class="ruby-identifier">tk</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_token_listener">
+            
+              <b>remove_token_listener</b>(obj)
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-remove_token_listener" name="method-i-remove_token_listener" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes the token listener <code>obj</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-remove_token_listener_source')" id="l_method-i-remove_token_listener_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_token_listener_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_token_listener</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-ivar">@token_listeners</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reset">
+            
+              <b>reset</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-reset" name="method-i-reset" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Resets the tools</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-reset_source')" id="l_method-i-reset_source">show</a>
+                
+              </p>
+              <div id="method-i-reset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset</span>
+  <span class="ruby-ivar">@read</span>       = []
+  <span class="ruby-ivar">@tokens</span>     = []
+  <span class="ruby-ivar">@unget_read</span> = []
+  <span class="ruby-ivar">@nest</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@scanner_point</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-skip_tkspace">
+            
+              <b>skip_tkspace</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-skip_tkspace" name="method-i-skip_tkspace" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Skips whitespace tokens including newlines</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-skip_tkspace_source')" id="l_method-i-skip_tkspace_source">show</a>
+                
+              </p>
+              <div id="method-i-skip_tkspace_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">skip_tkspace</span>
+  <span class="ruby-identifier">tokens</span> = []
+
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">tk</span> = <span class="ruby-identifier">get_tk</span>) <span class="ruby-keyword">and</span> (<span class="ruby-value">:on_sp</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tk</span>[<span class="ruby-value">:kind</span>] <span class="ruby-keyword">or</span> <span class="ruby-value">:on_nl</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tk</span>[<span class="ruby-value">:kind</span>] <span class="ruby-keyword">or</span> <span class="ruby-value">:on_ignored_nl</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tk</span>[<span class="ruby-value">:kind</span>]) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">tk</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">unget_tk</span>(<span class="ruby-identifier">tk</span>)
+  <span class="ruby-identifier">tokens</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-skip_tkspace_without_nl">
+            
+              <b>skip_tkspace_without_nl</b>()
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-skip_tkspace_without_nl" name="method-i-skip_tkspace_without_nl" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Skips whitespace tokens excluding newlines</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-skip_tkspace_without_nl_source')" id="l_method-i-skip_tkspace_without_nl_source">show</a>
+                
+              </p>
+              <div id="method-i-skip_tkspace_without_nl_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">skip_tkspace_without_nl</span>
+  <span class="ruby-identifier">tokens</span> = []
+
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">tk</span> = <span class="ruby-identifier">get_tk</span>) <span class="ruby-keyword">and</span> <span class="ruby-value">:on_sp</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tk</span>[<span class="ruby-value">:kind</span>] <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">tk</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">unget_tk</span>(<span class="ruby-identifier">tk</span>)
+  <span class="ruby-identifier">tokens</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-token_listener">
+            
+              <b>token_listener</b>(obj)
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-token_listener" name="method-i-token_listener" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Has <code>obj</code> listen to tokens</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-token_listener_source')" id="l_method-i-token_listener_source">show</a>
+                
+              </p>
+              <div id="method-i-token_listener_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">token_listener</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">add_token_listener</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">remove_token_listener</span> <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unget_tk">
+            
+              <b>unget_tk</b>(tk)
+            
+            <a href="../../../classes/RDoc/Parser/RubyTools.html#method-i-unget_tk" name="method-i-unget_tk" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns <code>tk</code> to the scanner</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-unget_tk_source')" id="l_method-i-unget_tk_source">show</a>
+                
+              </p>
+              <div id="method-i-unget_tk_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/ruby_tools.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unget_tk</span>(<span class="ruby-identifier">tk</span>)
+  <span class="ruby-ivar">@tokens</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">tk</span>
+  <span class="ruby-ivar">@unget_read</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-ivar">@read</span>.<span class="ruby-identifier">pop</span>
+
+  <span class="ruby-comment"># Remove this token from any listeners</span>
+  <span class="ruby-ivar">@token_listeners</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">pop_token</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@token_listeners</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

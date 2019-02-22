@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::ProxyForNil</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::ProxyForNil">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::ProxyForNil class">
+  
+    <meta name="keywords" content="new, add_message_expectation, add_stub">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::ProxyForNil
+            
+                <span class="parent">&lt;
+                    
+                    <a href="PartialDoubleProxy.html">RSpec::Mocks::PartialDoubleProxy</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/proxy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_message_expectation">add_message_expectation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_stub">add_stub</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>disallow_expectations</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>warn_about_expectations</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(order_group)
+            
+            <a href="../../../classes/RSpec/Mocks/ProxyForNil.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 430</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">order_group</span>)
+  <span class="ruby-identifier">set_expectation_behavior</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">order_group</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_message_expectation">
+            
+              <b>add_message_expectation</b>(method_name, opts={}, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/ProxyForNil.html#method-i-add_message_expectation" name="method-i-add_message_expectation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_message_expectation_source')" id="l_method-i-add_message_expectation_source">show</a>
+                
+              </p>
+              <div id="method-i-add_message_expectation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_message_expectation</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">warn_or_raise!</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_stub">
+            
+              <b>add_stub</b>(method_name, opts={}, &amp;implementation)
+            
+            <a href="../../../classes/RSpec/Mocks/ProxyForNil.html#method-i-add_stub" name="method-i-add_stub" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_stub_source')" id="l_method-i-add_stub_source">show</a>
+                
+              </p>
+              <div id="method-i-add_stub_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 443</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_stub</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">implementation</span>)
+  <span class="ruby-identifier">warn_or_raise!</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakePathMap</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakePathMap">
+
+  
+
+    <meta name="keywords" content="TestRakePathMap class">
+  
+    <meta name="keywords" content="test_returns_self_with_no_args, test_s_returns_file_separator, test_f_returns_basename, test_n_returns_basename_without_extension, test_d_returns_dirname, test_9d_returns_partial_dirname, test_x_returns_extension, test_x_returns_everything_but_extension, test_p_returns_entire_pathname, test_dash_returns_empty_string, test_percent_percent_returns_percent, test_undefined_percent_causes_error, test_pattern_returns_substitutions, test_pattern_can_use_backreferences, test_pattern_with_star_replacement_string_uses_block, test_pattern_with_no_replacement_nor_block_substitutes_empty_string, test_pattern_works_with_certain_valid_operators, test_multiple_patterns, test_partial_directory_selection_works_with_patterns, test_pattern_with_invalid_operator, test_works_with_windows_separators, test_complex_patterns">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakePathMap
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_path_map_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_9d_returns_partial_dirname">test_9d_returns_partial_dirname</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_complex_patterns">test_complex_patterns</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_d_returns_dirname">test_d_returns_dirname</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_dash_returns_empty_string">test_dash_returns_empty_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_f_returns_basename">test_f_returns_basename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_multiple_patterns">test_multiple_patterns</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_n_returns_basename_without_extension">test_n_returns_basename_without_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_p_returns_entire_pathname">test_p_returns_entire_pathname</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_partial_directory_selection_works_with_patterns">test_partial_directory_selection_works_with_patterns</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pattern_can_use_backreferences">test_pattern_can_use_backreferences</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pattern_returns_substitutions">test_pattern_returns_substitutions</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pattern_with_invalid_operator">test_pattern_with_invalid_operator</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string">test_pattern_with_no_replacement_nor_block_substitutes_empty_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pattern_with_star_replacement_string_uses_block">test_pattern_with_star_replacement_string_uses_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pattern_works_with_certain_valid_operators">test_pattern_works_with_certain_valid_operators</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_percent_percent_returns_percent">test_percent_percent_returns_percent</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_returns_self_with_no_args">test_returns_self_with_no_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_s_returns_file_separator">test_s_returns_file_separator</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_undefined_percent_causes_error">test_undefined_percent_causes_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_works_with_windows_separators">test_works_with_windows_separators</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_x_returns_everything_but_extension">test_x_returns_everything_but_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_x_returns_extension">test_x_returns_extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-test_9d_returns_partial_dirname">
+            
+              <b>test_9d_returns_partial_dirname</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_9d_returns_partial_dirname" name="method-i-test_9d_returns_partial_dirname" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_9d_returns_partial_dirname_source')" id="l_method-i-test_9d_returns_partial_dirname_source">show</a>
+                
+              </p>
+              <div id="method-i-test_9d_returns_partial_dirname_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_9d_returns_partial_dirname</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%2d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%1d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%0d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;dir&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%-1d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a/dir&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%-2d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is/a/dir&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%100d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is/a/dir&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%-100d&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_complex_patterns">
+            
+              <b>test_complex_patterns</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_complex_patterns" name="method-i-test_complex_patterns" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_complex_patterns_source')" id="l_method-i-test_complex_patterns_source">show</a>
+                
+              </p>
+              <div id="method-i-test_complex_patterns_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_complex_patterns</span>
+  <span class="ruby-identifier">sep</span> = <span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%s&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-string">&quot;dir/abc.rb&quot;</span>,
+    <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d/%n%x&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-string">&quot;./abc.rb&quot;</span>,
+    <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d/%n%x&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-string">&quot;Your file extension is &#39;.rb&#39;&quot;</span>,
+    <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;Your file extension is &#39;%x&#39;&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-string">&quot;bin/org/onestepback/proj/A.class&quot;</span>,
+    <span class="ruby-string">&quot;src/org/onestepback/proj/A.java&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{src,bin}d/%n.class&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-string">&quot;src_work/bin/org/onestepback/proj/A.class&quot;</span>,
+    <span class="ruby-string">&quot;src_work/src/org/onestepback/proj/A.java&quot;</span>.
+      <span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&#39;%{\bsrc\b,bin}X.class&#39;</span>))
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-string">&quot;.depends.bak&quot;</span>,
+    <span class="ruby-string">&quot;.depends&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X.bak&quot;</span>))
+  <span class="ruby-identifier">assert_equal</span>(
+    <span class="ruby-node">&quot;d#{sep}a/b/c#{sep}file.txt&quot;</span>,
+    <span class="ruby-string">&quot;a/b/c/d/file.txt&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%-1d%s%3d%s%f&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_d_returns_dirname">
+            
+              <b>test_d_returns_dirname</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_d_returns_dirname" name="method-i-test_d_returns_dirname" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_d_returns_dirname_source')" id="l_method-i-test_d_returns_dirname_source">show</a>
+                
+              </p>
+              <div id="method-i-test_d_returns_dirname_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_d_returns_dirname</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-string">&quot;/abc&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is/a/dir&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;/this/is/a/dir&quot;</span>, <span class="ruby-string">&quot;/this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_dash_returns_empty_string">
+            
+              <b>test_dash_returns_empty_string</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_dash_returns_empty_string" name="method-i-test_dash_returns_empty_string" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_dash_returns_empty_string_source')" id="l_method-i-test_dash_returns_empty_string_source">show</a>
+                
+              </p>
+              <div id="method-i-test_dash_returns_empty_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_dash_returns_empty_string</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%-&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.rb&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X%-%x&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_f_returns_basename">
+            
+              <b>test_f_returns_basename</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_f_returns_basename" name="method-i-test_f_returns_basename" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_f_returns_basename_source')" id="l_method-i-test_f_returns_basename_source">show</a>
+                
+              </p>
+              <div id="method-i-test_f_returns_basename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_f_returns_basename</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.rb&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%f&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.rb&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%f&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.rb&quot;</span>, <span class="ruby-string">&quot;/this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%f&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multiple_patterns">
+            
+              <b>test_multiple_patterns</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_multiple_patterns" name="method-i-test_multiple_patterns" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multiple_patterns_source')" id="l_method-i-test_multiple_patterns_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multiple_patterns_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_patterns</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is/b/directory/abc.rb&quot;</span>,
+    <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{a,b;dir,\\0ectory}p&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_n_returns_basename_without_extension">
+            
+              <b>test_n_returns_basename_without_extension</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_n_returns_basename_without_extension" name="method-i-test_n_returns_basename_without_extension" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_n_returns_basename_without_extension_source')" id="l_method-i-test_n_returns_basename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-test_n_returns_basename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_n_returns_basename_without_extension</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%n&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;abc&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%n&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%n&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;/this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%n&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;/this/is/a/dir/abc&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_p_returns_entire_pathname">
+            
+              <b>test_p_returns_entire_pathname</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_p_returns_entire_pathname" name="method-i-test_p_returns_entire_pathname" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_p_returns_entire_pathname_source')" id="l_method-i-test_p_returns_entire_pathname_source">show</a>
+                
+              </p>
+              <div id="method-i-test_p_returns_entire_pathname_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_p_returns_entire_pathname</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.rb&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%p&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>, <span class="ruby-string">&quot;this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%p&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;/this/is/a/dir/abc.rb&quot;</span>, <span class="ruby-string">&quot;/this/is/a/dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%p&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_partial_directory_selection_works_with_patterns">
+            
+              <b>test_partial_directory_selection_works_with_patterns</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_partial_directory_selection_works_with_patterns" name="method-i-test_partial_directory_selection_works_with_patterns" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_partial_directory_selection_works_with_patterns_source')" id="l_method-i-test_partial_directory_selection_works_with_patterns_source">show</a>
+                
+              </p>
+              <div id="method-i-test_partial_directory_selection_works_with_patterns_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_partial_directory_selection_works_with_patterns</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;this/is/a/long&quot;</span>,
+    <span class="ruby-string">&quot;this/is/a/really/long/path/ok.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{/really/,/}5d&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pattern_can_use_backreferences">
+            
+              <b>test_pattern_can_use_backreferences</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_pattern_can_use_backreferences" name="method-i-test_pattern_can_use_backreferences" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pattern_can_use_backreferences_source')" id="l_method-i-test_pattern_can_use_backreferences_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pattern_can_use_backreferences_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pattern_can_use_backreferences</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;dir/hi/is&quot;</span>, <span class="ruby-string">&quot;dir/this/is&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{t(hi)s,\\1}p&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pattern_returns_substitutions">
+            
+              <b>test_pattern_returns_substitutions</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_pattern_returns_substitutions" name="method-i-test_pattern_returns_substitutions" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pattern_returns_substitutions_source')" id="l_method-i-test_pattern_returns_substitutions_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pattern_returns_substitutions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pattern_returns_substitutions</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;bin/org/osb&quot;</span>,
+    <span class="ruby-string">&quot;src/org/osb/Xyz.java&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{src,bin}d&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pattern_with_invalid_operator">
+            
+              <b>test_pattern_with_invalid_operator</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_pattern_with_invalid_operator" name="method-i-test_pattern_with_invalid_operator" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pattern_with_invalid_operator_source')" id="l_method-i-test_pattern_with_invalid_operator_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pattern_with_invalid_operator_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pattern_with_invalid_operator</span>
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-string">&quot;abc.xyz&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{src,bin}z&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/unknown.*pathmap.*spec.*z/i</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string">
+            
+              <b>test_pattern_with_no_replacement_nor_block_substitutes_empty_string</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string" name="method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string_source')" id="l_method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pattern_with_no_replacement_nor_block_substitutes_empty_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pattern_with_no_replacement_nor_block_substitutes_empty_string</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;bc.rb&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{a}f&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pattern_with_star_replacement_string_uses_block">
+            
+              <b>test_pattern_with_star_replacement_string_uses_block</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_pattern_with_star_replacement_string_uses_block" name="method-i-test_pattern_with_star_replacement_string_uses_block" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pattern_with_star_replacement_string_uses_block_source')" id="l_method-i-test_pattern_with_star_replacement_string_uses_block_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pattern_with_star_replacement_string_uses_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pattern_with_star_replacement_string_uses_block</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;src/ORG/osb&quot;</span>,
+    <span class="ruby-string">&quot;src/org/osb/Xyz.java&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{/org,*}d&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Xyz.java&quot;</span>,
+    <span class="ruby-string">&quot;src/org/osb/Xyz.java&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{.*,*}f&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">capitalize</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pattern_works_with_certain_valid_operators">
+            
+              <b>test_pattern_works_with_certain_valid_operators</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_pattern_works_with_certain_valid_operators" name="method-i-test_pattern_works_with_certain_valid_operators" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pattern_works_with_certain_valid_operators_source')" id="l_method-i-test_pattern_works_with_certain_valid_operators_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pattern_works_with_certain_valid_operators_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pattern_works_with_certain_valid_operators</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;dir/xbc.rb&quot;</span>, <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{a,x}p&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;d1r&quot;</span>, <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{i,1}d&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;xbc.rb&quot;</span>, <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{a,x}f&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.Rb&quot;</span>, <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{r,R}x&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;xbc&quot;</span>, <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{a,x}n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_percent_percent_returns_percent">
+            
+              <b>test_percent_percent_returns_percent</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_percent_percent_returns_percent" name="method-i-test_percent_percent_returns_percent" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_percent_percent_returns_percent_source')" id="l_method-i-test_percent_percent_returns_percent_source">show</a>
+                
+              </p>
+              <div id="method-i-test_percent_percent_returns_percent_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_percent_percent_returns_percent</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a%b&quot;</span>, <span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;a%%b&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_returns_self_with_no_args">
+            
+              <b>test_returns_self_with_no_args</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_returns_self_with_no_args" name="method-i-test_returns_self_with_no_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_returns_self_with_no_args_source')" id="l_method-i-test_returns_self_with_no_args_source">show</a>
+                
+              </p>
+              <div id="method-i-test_returns_self_with_no_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_returns_self_with_no_args</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.rb&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_s_returns_file_separator">
+            
+              <b>test_s_returns_file_separator</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_s_returns_file_separator" name="method-i-test_s_returns_file_separator" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_s_returns_file_separator_source')" id="l_method-i-test_s_returns_file_separator_source">show</a>
+                
+              </p>
+              <div id="method-i-test_s_returns_file_separator_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_s_returns_file_separator</span>
+  <span class="ruby-identifier">sep</span> = <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span> <span class="ruby-operator">||</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">sep</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%s&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">sep</span>, <span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%s&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">&quot;a#{sep}b&quot;</span>, <span class="ruby-string">&quot;a/b&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d%s%f&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_undefined_percent_causes_error">
+            
+              <b>test_undefined_percent_causes_error</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_undefined_percent_causes_error" name="method-i-test_undefined_percent_causes_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_undefined_percent_causes_error_source')" id="l_method-i-test_undefined_percent_causes_error_source">show</a>
+                
+              </p>
+              <div id="method-i-test_undefined_percent_causes_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_undefined_percent_causes_error</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) {
+    <span class="ruby-string">&quot;dir/abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%z&quot;</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_works_with_windows_separators">
+            
+              <b>test_works_with_windows_separators</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_works_with_windows_separators" name="method-i-test_works_with_windows_separators" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_works_with_windows_separators_source')" id="l_method-i-test_works_with_windows_separators_source">show</a>
+                
+              </p>
+              <div id="method-i-test_works_with_windows_separators_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_works_with_windows_separators</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&#39;dir\abc.rb&#39;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%n&quot;</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;this\is\a\dir&#39;</span>,
+      <span class="ruby-string">&#39;this\is\a\dir\abc.rb&#39;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%d&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_x_returns_everything_but_extension">
+            
+              <b>test_x_returns_everything_but_extension</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_x_returns_everything_but_extension" name="method-i-test_x_returns_everything_but_extension" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_x_returns_everything_but_extension_source')" id="l_method-i-test_x_returns_everything_but_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-test_x_returns_everything_but_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_x_returns_everything_but_extension</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;abc&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc.xyz&quot;</span>, <span class="ruby-string">&quot;abc.xyz.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;ab.xyz&quot;</span>, <span class="ruby-string">&quot;ab.xyz.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a.xyz&quot;</span>, <span class="ruby-string">&quot;a.xyz.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;ab&quot;</span>, <span class="ruby-string">&quot;ab.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;a.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.depends&quot;</span>, <span class="ruby-string">&quot;.depends&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a/dir/.depends&quot;</span>, <span class="ruby-string">&quot;a/dir/.depends&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;/.depends&quot;</span>, <span class="ruby-string">&quot;/.depends&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%X&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_x_returns_extension">
+            
+              <b>test_x_returns_extension</b>()
+            
+            <a href="../classes/TestRakePathMap.html#method-i-test_x_returns_extension" name="method-i-test_x_returns_extension" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_x_returns_extension_source')" id="l_method-i-test_x_returns_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-test_x_returns_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_x_returns_extension</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;abc&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%x&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.rb&quot;</span>, <span class="ruby-string">&quot;abc.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%x&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.rb&quot;</span>, <span class="ruby-string">&quot;abc.xyz.rb&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%x&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;.depends&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%x&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;dir/.depends&quot;</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%x&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

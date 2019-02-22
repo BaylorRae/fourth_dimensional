@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::AliasedNegatedMatcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::AliasedNegatedMatcher">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::AliasedNegatedMatcher class">
+  
+    <meta name="keywords" content="matches?, does_not_match?, failure_message, failure_message_when_negated">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::AliasedNegatedMatcher
+            
+                <span class="parent">&lt;
+                    
+                    <a href="AliasedMatcher.html">RSpec::Matchers::AliasedMatcher</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/aliased_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-does_not_match-3F">does_not_match?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-failure_message">failure_message</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-failure_message_when_negated">failure_message_when_negated</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-matches-3F">matches?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">DefaultFailureMessages</td>
+            <td>=</td>
+            <td class="attr-value">BuiltIn::BaseMatcher::DefaultFailureMessages</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-does_not_match-3F">
+            
+              <b>does_not_match?</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Matchers/AliasedNegatedMatcher.html#method-i-does_not_match-3F" name="method-i-does_not_match-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-does_not_match-3F_source')" id="l_method-i-does_not_match-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-does_not_match-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">does_not_match?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@base_matcher</span>.<span class="ruby-identifier">matches?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message">
+            
+              <b>failure_message</b>()
+            
+            <a href="../../../classes/RSpec/Matchers/AliasedNegatedMatcher.html#method-i-failure_message" name="method-i-failure_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_source')" id="l_method-i-failure_message_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message</span>
+  <span class="ruby-identifier">optimal_failure_message</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-value">:failure_message_when_negated</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message_when_negated">
+            
+              <b>failure_message_when_negated</b>()
+            
+            <a href="../../../classes/RSpec/Matchers/AliasedNegatedMatcher.html#method-i-failure_message_when_negated" name="method-i-failure_message_when_negated" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_when_negated_source')" id="l_method-i-failure_message_when_negated_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_when_negated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message_when_negated</span>
+  <span class="ruby-identifier">optimal_failure_message</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-value">:failure_message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matches-3F">
+            
+              <b>matches?</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Matchers/AliasedNegatedMatcher.html#method-i-matches-3F" name="method-i-matches-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-matches-3F_source')" id="l_method-i-matches-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-matches-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">matches?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@base_matcher</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:does_not_match?</span>)
+    <span class="ruby-ivar">@base_matcher</span>.<span class="ruby-identifier">does_not_match?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-operator">!</span><span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

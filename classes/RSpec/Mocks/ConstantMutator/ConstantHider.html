@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::ConstantMutator::ConstantHider</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::ConstantMutator::ConstantHider">
+
+  
+    
+    <meta name="description" content="Hides a defined constant for the duration of an example.">
+    <meta property="og:description" content="Hides a defined constant for the duration of an example.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::ConstantMutator::ConstantHider class">
+  
+    <meta name="keywords" content="mutate, to_constant, reset">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::ConstantMutator::ConstantHider
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseMutator.html">RSpec::Mocks::ConstantMutator::BaseMutator</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/mutate_const_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Hides a defined constant for the duration of an example.</p>
+
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mutate">mutate</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reset">reset</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_constant">to_constant</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-mutate">
+            
+              <b>mutate</b>()
+            
+            <a href="../../../../classes/RSpec/Mocks/ConstantMutator/ConstantHider.html#method-i-mutate" name="method-i-mutate" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-mutate_source')" id="l_method-i-mutate_source">show</a>
+                
+              </p>
+              <div id="method-i-mutate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mutate</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-ivar">@defined</span> = <span class="ruby-identifier">recursive_const_defined?</span>(<span class="ruby-identifier">full_constant_name</span>))
+  <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">recursive_const_get</span>(<span class="ruby-ivar">@context_parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;::&#39;</span>))
+  <span class="ruby-ivar">@original_value</span> = <span class="ruby-identifier">get_const_defined_on</span>(<span class="ruby-ivar">@context</span>, <span class="ruby-ivar">@const_name</span>)
+
+  <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:remove_const</span>, <span class="ruby-ivar">@const_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reset">
+            
+              <b>reset</b>()
+            
+            <a href="../../../../classes/RSpec/Mocks/ConstantMutator/ConstantHider.html#method-i-reset" name="method-i-reset" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-reset_source')" id="l_method-i-reset_source">show</a>
+                
+              </p>
+              <div id="method-i-reset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@defined</span>
+  <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-ivar">@const_name</span>, <span class="ruby-ivar">@original_value</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_constant">
+            
+              <b>to_constant</b>()
+            
+            <a href="../../../../classes/RSpec/Mocks/ConstantMutator/ConstantHider.html#method-i-to_constant" name="method-i-to_constant" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_constant_source')" id="l_method-i-to_constant_source">show</a>
+                
+              </p>
+              <div id="method-i-to_constant_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_constant</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Constant</span>.<span class="ruby-identifier">unmutated</span>(<span class="ruby-identifier">full_constant_name</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@defined</span>
+
+  <span class="ruby-identifier">const</span> = <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">const</span>.<span class="ruby-identifier">hidden</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">const</span>.<span class="ruby-identifier">previously_defined</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">const</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers">
+
+  
+    
+    <meta name="description" content="RSpec::Matchers provides a number of useful matchers we use to define expectations. Any object that implements the [matcher protocol](Matchers/MatcherProtocol) can be used as a matcher.">
+    <meta property="og:description" content="RSpec::Matchers provides a number of useful matchers we use to define expectations. Any object that implements the [matcher protocol](Matchers/MatcherProtocol) can be used as a matcher.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers class">
+  
+    <meta name="keywords" content="alias_matcher, aggregate_failures, be_truthy, be_falsey, be_nil, be, be_a, be_an, be_an_instance_of, be_instance_of, be_a_kind_of, be_kind_of, be_between, be_within, change, contain_exactly, cover, end_with, eq, eql, equal, exist, have_attributes, include, all, match, match_array, output, raise_error, raise_exception, respond_to, satisfy, start_with, throw_symbol, yield_control, yield_with_no_args, yield_with_args, yield_successive_args, configuration, clear_generated_description, generated_description, last_description">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Matchers
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/aliased_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/all_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/all.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/base_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_between_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_instance_of_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_instance_of.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_kind_of_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_kind_of.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_within_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_within.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/change_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/compound_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/contain_exactly_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/contain_exactly.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/cover_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/cover.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/eq_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/eq.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/eql_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/eql.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/equal_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/equal.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/exist_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/exist.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/has_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/has.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/have_attributes_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/include_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/include.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/match_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/match.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/operators_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/operators.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/output_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/output.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/raise_error_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/raise_error.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/respond_to_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/respond_to.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/satisfy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/satisfy.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/start_or_end_with_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/start_or_end_with.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/throw_symbol_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/throw_symbol.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/yield_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/yield.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/composable_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/composable.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/dsl_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/english_phrasing_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/english_phrasing.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/expecteds_for_multiple_diffs_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/fail_matchers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/fail_matchers.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/generated_descriptions_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/generated_descriptions.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/matcher_delegator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/matcher_delegator.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/matcher_protocol_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/matcher_protocol.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="Matchers.html"><code>RSpec::Matchers</code></a> provides a number of useful matchers we use to define expectations. Any object that implements the [matcher protocol](Matchers/MatcherProtocol) can be used as a matcher.</p>
+
+<p>## Predicates</p>
+
+<p>In addition to matchers that are defined explicitly, <a href="../RSpec.html"><code>RSpec</code></a> will create custom matchers on the fly for any arbitrary predicate, giving your specs a much more natural language feel.</p>
+
+<p>A Ruby predicate is a method that ends with a “?” and returns true or false. Common examples are `empty?`, `nil?`, and `instance_of?`.</p>
+
+<p>All you need to do is write `expect(..).to be_` followed by the predicate without the question mark, and <a href="../RSpec.html"><code>RSpec</code></a> will figure it out from there. For example:</p>
+
+<pre><code>expect([]).to be_empty     # =&gt; [].empty?() | passes
+expect([]).not_to be_empty # =&gt; [].empty?() | fails
+</code></pre>
+
+<p>In addtion to prefixing the predicate matchers with “be_”, you can also use “be_a_” and “be_an_”, making your specs read much more naturally:</p>
+
+<pre><code>expect(&quot;a string&quot;).to be_an_instance_of(String) # =&gt;&quot;a string&quot;.instance_of?(String) # passes
+
+expect(3).to be_a_kind_of(Integer)          # =&gt; 3.kind_of?(Numeric)     | passes
+expect(3).to be_a_kind_of(Numeric)          # =&gt; 3.kind_of?(Numeric)     | passes
+expect(3).to be_an_instance_of(Integer)     # =&gt; 3.instance_of?(Integer) | passes
+expect(3).not_to be_an_instance_of(Numeric) # =&gt; 3.instance_of?(Numeric) | fails
+</code></pre>
+
+<p><a href="../RSpec.html"><code>RSpec</code></a> will also create custom matchers for predicates like `has_key?`. To use this feature, just state that the object should have_key(:key) and <a href="../RSpec.html"><code>RSpec</code></a> will call has_key?(:key) on the target. For example:</p>
+
+<pre><code>expect(:a =&gt; &quot;A&quot;).to have_key(:a)
+expect(:a =&gt; &quot;A&quot;).to have_key(:b) # fails
+</code></pre>
+
+<p>You can use this feature to invoke any predicate that begins with “has_”, whether it is part of the Ruby libraries (like `Hash#has_key?`) or a method you wrote on your own class.</p>
+
+<p>Note that <a href="../RSpec.html"><code>RSpec</code></a> does not provide composable aliases for these dynamic predicate matchers. You can easily define your own aliases, though:</p>
+
+<pre><code>RSpec::Matchers.alias_matcher :a_user_who_is_an_admin, :be_an_admin
+expect(user_list).to include(a_user_who_is_an_admin)
+</code></pre>
+
+<p>## Alias <a href="Matchers.html"><code>Matchers</code></a></p>
+
+<p>With {RSpec::Matchers.alias_matcher}, you can easily create an alternate name for a given matcher.</p>
+
+<p>The description will also change according to the new name:</p>
+
+<pre><code>RSpec::Matchers.alias_matcher :a_list_that_sums_to, :sum_to
+sum_to(3).description # =&gt; &quot;sum to 3&quot;
+a_list_that_sums_to(3).description # =&gt; &quot;a list that sums to 3&quot;
+</code></pre>
+
+<p>or you can specify a custom description like this:</p>
+
+<pre><code>RSpec::Matchers.alias_matcher :a_list_sorted_by, :be_sorted_by do |description|
+  description.sub(&quot;be sorted by&quot;, &quot;a list sorted by&quot;)
+end
+
+be_sorted_by(:age).description # =&gt; &quot;be sorted by age&quot;
+a_list_sorted_by(:age).description # =&gt; &quot;a list sorted by age&quot;
+</code></pre>
+
+<p>## Custom <a href="Matchers.html"><code>Matchers</code></a></p>
+
+<p>When you find that none of the stock matchers provide a natural feeling expectation, you can very easily write your own using RSpec&#39;s matcher <a href="Matchers/DSL.html"><code>DSL</code></a> or writing one from scratch.</p>
+
+<p>### Matcher <a href="Matchers/DSL.html"><code>DSL</code></a></p>
+
+<p>Imagine that you are writing a game in which players can be in various zones on a virtual board. To specify that bob should be in zone 4, you could say:</p>
+
+<pre><code>expect(bob.current_zone).to eql(Zone.new(&quot;4&quot;))
+</code></pre>
+
+<p>But you might find it more expressive to say:</p>
+
+<pre><code>expect(bob).to be_in_zone(&quot;4&quot;)
+</code></pre>
+
+<p>and/or</p>
+
+<pre><code>expect(bob).not_to be_in_zone(&quot;3&quot;)
+</code></pre>
+
+<p>You can create such a matcher like so:</p>
+
+<pre><code>RSpec::Matchers.define :be_in_zone do |zone|
+  match do |player|
+    player.in_zone?(zone)
+  end
+end
+</code></pre>
+
+<p>This will generate a <code>be_in_zone</code> method that returns a matcher with logical default messages for failures. You can override the failure messages and the generated description as follows:</p>
+
+<pre><code>RSpec::Matchers.define :be_in_zone do |zone|
+  match do |player|
+    player.in_zone?(zone)
+  end
+
+  failure_message do |player|
+    # generate and return the appropriate string.
+  end
+
+  failure_message_when_negated do |player|
+    # generate and return the appropriate string.
+  end
+
+  description do
+    # generate and return the appropriate string.
+  end
+end
+</code></pre>
+
+<p>Each of the message-generation methods has access to the block arguments passed to the <code>create</code> method (in this case, <code>zone</code>). The failure message methods (<code>failure_message</code> and <code>failure_message_when_negated</code>) are passed the actual value (the receiver of <code>expect(..)</code> or <code>expect(..).not_to</code>).</p>
+
+<p>### Custom Matcher from scratch</p>
+
+<p>You could also write a custom matcher from scratch, as follows:</p>
+
+<pre><code>class BeInZone
+  def initialize(expected)
+    @expected = expected
+  end
+
+  def matches?(target)
+    @target = target
+    @target.current_zone.eql?(Zone.new(@expected))
+  end
+
+  def failure_message
+    &quot;expected #{@target.inspect} to be in Zone #{@expected}&quot;
+  end
+
+  def failure_message_when_negated
+    &quot;expected #{@target.inspect} not to be in Zone #{@expected}&quot;
+  end
+end
+</code></pre>
+
+<p>… and a method like this:</p>
+
+<pre><code>def be_in_zone(expected)
+  BeInZone.new(expected)
+end
+</code></pre>
+
+<p>And then expose the method to your specs. This is normally done by including the method and the class in a module, which is then included in your spec:</p>
+
+<pre><code>module CustomGameMatchers
+  class BeInZone
+    # ...
+  end
+
+  def be_in_zone(expected)
+    # ...
+  end
+end
+
+describe &quot;Player behaviour&quot; do
+  include CustomGameMatchers
+  # ...
+end
+</code></pre>
+
+<p>or you can include in globally in a spec_helper.rb file <code>require</code>d from your spec file(s):</p>
+
+<pre><code>RSpec::configure do |config|
+  config.include(CustomGameMatchers)
+end
+</code></pre>
+
+<p>### Making custom matchers composable</p>
+
+<p>RSpec&#39;s built-in matchers are designed to be composed, in expressions like:</p>
+
+<pre><code>expect([&quot;barn&quot;, 2.45]).to contain_exactly(
+  a_value_within(0.1).of(2.5),
+  a_string_starting_with(&quot;bar&quot;)
+)
+</code></pre>
+
+<p>Custom matchers can easily participate in composed matcher expressions like these. Include {RSpec::Matchers::Composable} in your custom matcher to make it support being composed (matchers defined using the <a href="Matchers/DSL.html"><code>DSL</code></a> have this included automatically). Within your matcher&#39;s `matches?` method (or the `match` block, if using the <a href="Matchers/DSL.html"><code>DSL</code></a>), use `values_match?(expected, actual)` rather than `expected == actual`. Under the covers, `values_match?` is able to match arbitrary nested data structures containing a mix of both matchers and non-matcher objects. It uses `===` and `==` to perform the matching, considering the values to match if either returns `true`. The `Composable` mixin also provides some helper methods for surfacing the matcher descriptions within your matcher&#39;s description or failure messages.</p>
+
+<p>RSpec&#39;s built-in matchers each have a number of aliases that rephrase the matcher from a verb phrase (such as `be_within`) to a noun phrase (such as `a_value_within`), which reads better when the matcher is passed as an argument in a composed matcher expressions, and also uses the noun-phrase wording in the matcher&#39;s `description`, for readable failure messages. You can alias your custom matchers in similar fashion using {RSpec::Matchers.alias_matcher}.</p>
+
+<p>## Negated <a href="Matchers.html"><code>Matchers</code></a></p>
+
+<p>Sometimes if you want to test for the opposite using a more descriptive name instead of using `not_to`, you can use {RSpec::Matchers.define_negated_matcher}:</p>
+
+<pre><code>RSpec::Matchers.define_negated_matcher :exclude, :include
+include(1, 2).description # =&gt; &quot;include 1 and 2&quot;
+exclude(1, 2).description # =&gt; &quot;exclude 1 and 2&quot;
+</code></pre>
+
+<p>While the most obvious negated form may be to add a `not_` prefix, the failure messages you get with that form can be confusing (e.g. “expected [actual] to not [verb], but did not”). We&#39;ve found it works best to find a more positive name for the negated form, such as `avoid_changing` rather than `not_change`.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Matchers/BuiltIn.html">RSpec::Matchers::BuiltIn</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Matchers/Composable.html">RSpec::Matchers::Composable</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Matchers/DSL.html">RSpec::Matchers::DSL</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Matchers/EnglishPhrasing.html">RSpec::Matchers::EnglishPhrasing</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Matchers/FailMatchers.html">RSpec::Matchers::FailMatchers</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Matchers/AliasedMatcher.html">RSpec::Matchers::AliasedMatcher</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Matchers/AliasedMatcherWithOperatorSupport.html">RSpec::Matchers::AliasedMatcherWithOperatorSupport</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Matchers/AliasedNegatedMatcher.html">RSpec::Matchers::AliasedNegatedMatcher</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Matchers/ExpectedsForMultipleDiffs.html">RSpec::Matchers::ExpectedsForMultipleDiffs</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Matchers/MatcherDelegator.html">RSpec::Matchers::MatcherDelegator</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Matchers/MatcherProtocol.html">RSpec::Matchers::MatcherProtocol</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-aggregate_failures">aggregate_failures</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-alias_matcher">alias_matcher</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-all">all</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-be">be</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_a">be_a</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_a_kind_of">be_a_kind_of</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_an">be_an</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_an_instance_of">be_an_instance_of</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_between">be_between</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_falsey">be_falsey</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_instance_of">be_instance_of</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_kind_of">be_kind_of</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_nil">be_nil</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_truthy">be_truthy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-be_within">be_within</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-change">change</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-clear_generated_description">clear_generated_description</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-configuration">configuration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-contain_exactly">contain_exactly</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cover">cover</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-end_with">end_with</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eq">eq</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-eql">eql</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-equal">equal</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-exist">exist</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-generated_description">generated_description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-have_attributes">have_attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-include">include</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-last_description">last_description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-match">match</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-match_array">match_array</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output">output</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-raise_error">raise_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_exception">raise_exception</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-respond_to">respond_to</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-satisfy">satisfy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-start_with">start_with</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-throw_symbol">throw_symbol</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Y</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-yield_control">yield_control</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-yield_successive_args">yield_successive_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-yield_with_args">yield_with_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-yield_with_no_args">yield_with_no_args</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">BE_PREDICATE_REGEX</td>
+            <td>=</td>
+            <td class="attr-value">/^(be_(?:an?_)?)(.*)/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">HAS_REGEX</td>
+            <td>=</td>
+            <td class="attr-value">/^(?:have_)(.*)/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DYNAMIC_MATCHER_REGEX</td>
+            <td>=</td>
+            <td class="attr-value">Regexp.union(BE_PREDICATE_REGEX, HAS_REGEX)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>last_expectation_handler</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>last_matcher</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-alias_matcher">
+            
+              <b>alias_matcher</b>(*args, &amp;block)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-c-alias_matcher" name="method-c-alias_matcher" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@!macro [attach] <a href="Matchers.html#method-c-alias_matcher"><code>alias_matcher</code></a></p>
+
+<pre><code>@!parse
+  alias $1 $2
+</code></pre>
+
+<p>@!visibility private We define this override here so we can attach a YARD macro to it. It ensures that our docs list all the matcher aliases.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-alias_matcher_source')" id="l_method-c-alias_matcher_source">show</a>
+                
+              </p>
+              <div id="method-c-alias_matcher_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">alias_matcher</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-clear_generated_description">
+            
+              <b>clear_generated_description</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-c-clear_generated_description" name="method-c-clear_generated_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Used by rspec-core to clear the state used to generate descriptions after an example.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-clear_generated_description_source')" id="l_method-c-clear_generated_description_source">show</a>
+                
+              </p>
+              <div id="method-c-clear_generated_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/generated_descriptions.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">clear_generated_description</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_matcher</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last_expectation_handler</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-configuration">
+            
+              <b>configuration</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-c-configuration" name="method-c-configuration" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Delegates to {RSpec::Expectations.configuration}. This is here because rspec-core&#39;s `expect_with` option looks for a `configuration` method on the mixin (`RSpec::Matchers`) to yield to a block. @return [RSpec::Expectations::Configuration] the configuration object</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-configuration_source')" id="l_method-c-configuration_source">show</a>
+                
+              </p>
+              <div id="method-c-configuration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 946</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">configuration</span>
+  <span class="ruby-constant">Expectations</span>.<span class="ruby-identifier">configuration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-generated_description">
+            
+              <b>generated_description</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-c-generated_description" name="method-c-generated_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Generates an an example description based on the last expectation. Used by rspec-core&#39;s one-liner syntax.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-generated_description_source')" id="l_method-c-generated_description_source">show</a>
+                
+              </p>
+              <div id="method-c-generated_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/generated_descriptions.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">generated_description</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_expectation_handler</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-node">&quot;#{last_expectation_handler.verb} #{last_description}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-last_description">
+            
+              <b>last_description</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-c-last_description" name="method-c-last_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-last_description_source')" id="l_method-c-last_description_source">show</a>
+                
+              </p>
+              <div id="method-c-last_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/generated_descriptions.rb, line 25</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">last_description</span>
+      <span class="ruby-identifier">last_matcher</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:description</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">last_matcher</span>.<span class="ruby-identifier">description</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">&lt;&lt;-MESSAGE</span>
+<span class="ruby-value">When you call a matcher in an example without a String, like this:
+
+specify { expect(object).to matcher }
+
+or this:
+
+it { is_expected.to matcher }
+
+RSpec expects the matcher to have a #description method. You should either
+add a String to the example this matcher is being used in, or give it a
+description method. Then you won&#39;t have to suffer this lengthy warning again.
+</span><span class="ruby-identifier">MESSAGE</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-aggregate_failures">
+            
+              <b>aggregate_failures</b>(label=nil, metadata={}, &amp;block)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-aggregate_failures" name="method-i-aggregate_failures" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Allows multiple expectations in the provided block to fail, and then aggregates them into a single exception, rather than aborting on the first expectation failure like normal. This allows you to see all failures from an entire set of expectations without splitting each off into its own example (which may slow things down if the example setup is expensive).</p>
+
+<p>@param label [String] label for this aggregation block, which will be</p>
+
+<pre><code>included in the aggregated exception message.
+</code></pre>
+
+<p>@param metadata [Hash] additional metadata about this failure aggregation</p>
+
+<pre><code>block. If multiple expectations fail, it will be exposed from the
+{Expectations::MultipleExpectationsNotMetError} exception. Mostly
+intended for internal RSpec use but you can use it as well.
+</code></pre>
+
+<p>@yield Block containing as many expectation as you want. The block is</p>
+
+<pre><code>simply yielded to, so you can trust that anything that works outside
+the block should work within it.
+</code></pre>
+
+<p>@raise [Expectations::MultipleExpectationsNotMetError] raised when</p>
+
+<pre><code>multiple expectations fail.
+</code></pre>
+
+<p>@raise [Expectations::ExpectationNotMetError] raised when a single</p>
+
+<pre><code>expectation fails.
+</code></pre>
+
+<p>@raise [Exception] other sorts of exceptions will be raised as normal.</p>
+
+<p>@example</p>
+
+<pre><code>aggregate_failures(&quot;verifying response&quot;) do
+  expect(response.status).to eq(200)
+  expect(response.headers).to include(&quot;Content-Type&quot; =&gt; &quot;text/plain&quot;)
+  expect(response.body).to include(&quot;Success&quot;)
+end
+</code></pre>
+
+<p>@note The implementation of this feature uses a thread-local variable,</p>
+
+<pre><code>which means that if you have an expectation failure in another thread,
+it&#39;ll abort like normal.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-aggregate_failures_source')" id="l_method-i-aggregate_failures_source">show</a>
+                
+              </p>
+              <div id="method-i-aggregate_failures_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">aggregate_failures</span>(<span class="ruby-identifier">label</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">metadata</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">FailureAggregator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">label</span>, <span class="ruby-identifier">metadata</span>).<span class="ruby-identifier">aggregate</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-all">
+            
+              <b>all</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-all" name="method-i-all" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if the provided matcher passes when checked against all elements of the collection.</p>
+
+<p>@example</p>
+
+<pre><code>expect([1, 3, 5]).to all be_odd
+expect([1, 3, 6]).to all be_odd # fails
+</code></pre>
+
+<p>@note The negative form `not_to all` is not supported. Instead</p>
+
+<pre><code>use `not_to include` or pass a negative form of a matcher
+as the argument (e.g. `all exclude(:foo)`).
+</code></pre>
+
+<p>@note You can also use this with compound matchers as well.</p>
+
+<p>@example</p>
+
+<pre><code>expect([1, 3, 5]).to all( be_odd.and be_an(Integer) )
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-all_source')" id="l_method-i-all_source">show</a>
+                
+              </p>
+              <div id="method-i-all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 662</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">all</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">All</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be">
+            
+              <b>be</b>(*args)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be" name="method-i-be" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@example</p>
+
+<pre><code>expect(actual).to     be_truthy
+expect(actual).to     be_falsey
+expect(actual).to     be_nil
+expect(actual).to     be_[arbitrary_predicate](*args)
+expect(actual).not_to be_nil
+expect(actual).not_to be_[arbitrary_predicate](*args)
+</code></pre>
+
+<p>Given true, false, or nil, will pass if actual value is true, false or nil (respectively). Given no args means the caller should satisfy an if condition (to be or not to be).</p>
+
+<p>Predicates are any Ruby method that ends in a “?” and returns true or false.  Given be_ followed by arbitrary_predicate (without the “?”), <a href="../RSpec.html"><code>RSpec</code></a> will match convert that into a query against the target object.</p>
+
+<p>The arbitrary_predicate feature will handle any predicate prefixed with “be_an_” (e.g. <a href="Matchers.html#method-i-be_an_instance_of"><code>be_an_instance_of</code></a>), “be_a_” (e.g. <a href="Matchers.html#method-i-be_a_kind_of"><code>be_a_kind_of</code></a>) or “be_” (e.g. be_empty), letting you choose the prefix that best suits the predicate.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_source')" id="l_method-i-be_source">show</a>
+                
+              </p>
+              <div id="method-i-be_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Matchers</span><span class="ruby-operator">::</span><span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Be</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">equal</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_a">
+            
+              <b>be_a</b>(klass)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_a" name="method-i-be_a" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>passes if target.kind_of?(klass)</p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Matchers.html#method-i-be_an">be_an</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_a_source')" id="l_method-i-be_a_source">show</a>
+                
+              </p>
+              <div id="method-i-be_a_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 355</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_a</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">be_a_kind_of</span>(<span class="ruby-identifier">klass</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_a_kind_of">
+            
+              <b>be_a_kind_of</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_a_kind_of" name="method-i-be_a_kind_of" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual.kind_of?(expected)</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to     be_a_kind_of(Integer)
+expect(5).to     be_a_kind_of(Numeric)
+expect(5).not_to be_a_kind_of(Float)
+</code></pre>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Matchers.html#method-i-be_kind_of">be_kind_of</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_a_kind_of_source')" id="l_method-i-be_a_kind_of_source">show</a>
+                
+              </p>
+              <div id="method-i-be_a_kind_of_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 378</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_a_kind_of</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeAKindOf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_an">
+            
+              <b>be_an</b>(klass)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_an" name="method-i-be_an" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Matchers.html#method-i-be_a">be_a</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_an_instance_of">
+            
+              <b>be_an_instance_of</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_an_instance_of" name="method-i-be_an_instance_of" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual.instance_of?(expected)</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to     be_an_instance_of(Integer)
+expect(5).not_to be_an_instance_of(Numeric)
+expect(5).not_to be_an_instance_of(Float)
+</code></pre>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Matchers.html#method-i-be_instance_of">be_instance_of</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_an_instance_of_source')" id="l_method-i-be_an_instance_of_source">show</a>
+                
+              </p>
+              <div id="method-i-be_an_instance_of_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_an_instance_of</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeAnInstanceOf</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_between">
+            
+              <b>be_between</b>(min, max)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_between" name="method-i-be_between" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual.between?(min, max). Works with any Comparable object, including <a href="../String.html"><code>String</code></a>, Symbol, Time, or Numeric (Fixnum, Bignum, Integer, Float, Complex, and Rational).</p>
+
+<p>By default, `be_between` is inclusive (i.e. passes when given either the max or min value), but you can make it `exclusive` by chaining that off the matcher.</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to      be_between(1, 10)
+expect(11).not_to be_between(1, 10)
+expect(10).not_to be_between(1, 10).exclusive
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_between_source')" id="l_method-i-be_between_source">show</a>
+                
+              </p>
+              <div id="method-i-be_between_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 395</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_between</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeBetween</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_falsey">
+            
+              <b>be_falsey</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_falsey" name="method-i-be_falsey" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual is falsey (false or nil)</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_falsey_source')" id="l_method-i-be_falsey_source">show</a>
+                
+              </p>
+              <div id="method-i-be_falsey_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_falsey</span>
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeFalsey</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_instance_of">
+            
+              <b>be_instance_of</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_instance_of" name="method-i-be_instance_of" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Matchers.html#method-i-be_an_instance_of">be_an_instance_of</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_kind_of">
+            
+              <b>be_kind_of</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_kind_of" name="method-i-be_kind_of" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Matchers.html#method-i-be_a_kind_of">be_a_kind_of</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_nil">
+            
+              <b>be_nil</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_nil" name="method-i-be_nil" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual is nil</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_nil_source')" id="l_method-i-be_nil_source">show</a>
+                
+              </p>
+              <div id="method-i-be_nil_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_nil</span>
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeNil</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_truthy">
+            
+              <b>be_truthy</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_truthy" name="method-i-be_truthy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual is truthy (anything but false or nil)</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_truthy_source')" id="l_method-i-be_truthy_source">show</a>
+                
+              </p>
+              <div id="method-i-be_truthy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_truthy</span>
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeTruthy</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-be_within">
+            
+              <b>be_within</b>(delta)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-be_within" name="method-i-be_within" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual == expected +/- delta</p>
+
+<p>@example</p>
+
+<pre><code>expect(result).to     be_within(0.5).of(3.0)
+expect(result).not_to be_within(0.5).of(3.0)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-be_within_source')" id="l_method-i-be_within_source">show</a>
+                
+              </p>
+              <div id="method-i-be_within_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">be_within</span>(<span class="ruby-identifier">delta</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">BeWithin</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">delta</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-change">
+            
+              <b>change</b>(receiver=nil, message=nil, &amp;block)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-change" name="method-i-change" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Applied to a proc, specifies that its execution will cause some value to change.</p>
+
+<p>@param [Object] receiver @param [Symbol] message the message to send the receiver</p>
+
+<p>You can either pass <code>receiver</code> and <code>message</code>, or a block, but not both.</p>
+
+<p>When passing a block, it must use the `{ … }` format, not do/end, as `{ … }` binds to the `change` method, whereas do/end would errantly bind to the `expect(..).to` or `expect(…).not_to` method.</p>
+
+<p>You can chain any of the following off of the end to specify details about the change:</p>
+<ul><li>
+<p>`from`</p>
+</li><li>
+<p>`to`</p>
+</li></ul>
+
+<p>or any one of:</p>
+<ul><li>
+<p>`by`</p>
+</li><li>
+<p>`by_at_least`</p>
+</li><li>
+<p>`by_at_most`</p>
+</li></ul>
+
+<p>@example</p>
+
+<pre><code>expect {
+  team.add_player(player)
+}.to change(roster, :count)
+
+expect {
+  team.add_player(player)
+}.to change(roster, :count).by(1)
+
+expect {
+  team.add_player(player)
+}.to change(roster, :count).by_at_least(1)
+
+expect {
+  team.add_player(player)
+}.to change(roster, :count).by_at_most(1)
+
+string = &quot;string&quot;
+expect {
+  string.reverse!
+}.to change { string }.from(&quot;string&quot;).to(&quot;gnirts&quot;)
+
+string = &quot;string&quot;
+expect {
+  string
+}.not_to change { string }.from(&quot;string&quot;)
+
+expect {
+  person.happy_birthday
+}.to change(person, :birthday).from(32).to(33)
+
+expect {
+  employee.develop_great_new_social_networking_app
+}.to change(employee, :title).from(&quot;Mail Clerk&quot;).to(&quot;CEO&quot;)
+
+expect {
+  doctor.leave_office
+}.to change(doctor, :sign).from(/is in/).to(/is out/)
+
+user = User.new(:type =&gt; &quot;admin&quot;)
+expect {
+  user.symbolize_type
+}.to change(user, :type).from(String).to(Symbol)
+</code></pre>
+
+<h2 id="method-i-change-label-Notes">Notes</h2>
+
+<p>Evaluates `receiver.message` or `block` before and after it evaluates the block passed to `expect`. If the value is the same object, its before/after `hash` value is used to see if it has changed. Therefore, your object needs to properly implement `hash` to work correctly with this matcher.</p>
+
+<p>`expect( … ).not_to change` supports the form that specifies `from` (which specifies what you expect the starting, unchanged value to be) but does not support forms with subsequent calls to `by`, `by_at_least`, `by_at_most` or `to`.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-change_source')" id="l_method-i-change_source">show</a>
+                
+              </p>
+              <div id="method-i-change_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 492</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change</span>(<span class="ruby-identifier">receiver</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">receiver</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-contain_exactly">
+            
+              <b>contain_exactly</b>(*items)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-contain_exactly" name="method-i-contain_exactly" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual contains all of the expected regardless of order. This works for collections. Pass in multiple args and it will only pass if all args are found in collection.</p>
+
+<p>@note This is also available using the `=~` operator with `should`,</p>
+
+<pre><code>but `=~` is not supported with `expect`.
+</code></pre>
+
+<p>@example</p>
+
+<pre><code>expect([1, 2, 3]).to contain_exactly(1, 2, 3)
+expect([1, 2, 3]).to contain_exactly(1, 3, 2)
+</code></pre>
+
+<p>@see <a href="Matchers.html#method-i-match_array"><code>match_array</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-contain_exactly_source')" id="l_method-i-contain_exactly_source">show</a>
+                
+              </p>
+              <div id="method-i-contain_exactly_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 510</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">contain_exactly</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">items</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">ContainExactly</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">items</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cover">
+            
+              <b>cover</b>(*values)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-cover" name="method-i-cover" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual covers expected. This works for Ranges. You can also pass in multiple args and it will only pass if all args are found in Range.</p>
+
+<p>@example</p>
+
+<pre><code>expect(1..10).to     cover(5)
+expect(1..10).to     cover(4, 6)
+expect(1..10).to     cover(4, 6, 11) # fails
+expect(1..10).not_to cover(11)
+expect(1..10).not_to cover(5)        # fails
+</code></pre>
+<dl class="rdoc-list note-list"><dt>### Warning
+<dd>
+<p>Ruby &gt;= 1.9 only</p>
+</dd></dl>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-cover_source')" id="l_method-i-cover_source">show</a>
+                
+              </p>
+              <div id="method-i-cover_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 528</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cover</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">values</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Cover</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">values</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-end_with">
+            
+              <b>end_with</b>(*expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-end_with" name="method-i-end_with" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Matches if the actual value ends with the expected value(s). In the case of a string, matches against the last `expected.length` characters of the actual string. In the case of an array, matches against the last `expected.length` elements of the actual array.</p>
+
+<p>@example</p>
+
+<pre><code>expect(&quot;this string&quot;).to   end_with &quot;string&quot;
+expect([0, 1, 2, 3, 4]).to end_with 4
+expect([0, 2, 3, 4, 4]).to end_with 3, 4
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-end_with_source')" id="l_method-i-end_with_source">show</a>
+                
+              </p>
+              <div id="method-i-end_with_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 543</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">EndWith</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eq">
+            
+              <b>eq</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-eq" name="method-i-eq" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if <code>actual == expected</code>.</p>
+
+<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">www.ruby-doc.org/core/classes/Object.html#M001057</a> for more information about equality in Ruby.</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to     eq(5)
+expect(5).not_to eq(3)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-eq_source')" id="l_method-i-eq_source">show</a>
+                
+              </p>
+              <div id="method-i-eq_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 558</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eq</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Eq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-eql">
+            
+              <b>eql</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-eql" name="method-i-eql" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if `actual.eql?(expected)`</p>
+
+<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">www.ruby-doc.org/core/classes/Object.html#M001057</a> for more information about equality in Ruby.</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to     eql(5)
+expect(5).not_to eql(3)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-eql_source')" id="l_method-i-eql_source">show</a>
+                
+              </p>
+              <div id="method-i-eql_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 572</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">eql</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Eql</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-equal">
+            
+              <b>equal</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-equal" name="method-i-equal" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if <code>actual.equal?(expected)</code> (object identity).</p>
+
+<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">www.ruby-doc.org/core/classes/Object.html#M001057</a> for more information about equality in Ruby.</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to       equal(5)   # Integers are equal
+expect(&quot;5&quot;).not_to equal(&quot;5&quot;) # Strings that look the same are not the same object
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-equal_source')" id="l_method-i-equal_source">show</a>
+                
+              </p>
+              <div id="method-i-equal_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 586</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">equal</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Equal</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exist">
+            
+              <b>exist</b>(*args)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-exist" name="method-i-exist" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if `actual.exist?` or `actual.exists?`</p>
+
+<p>@example</p>
+
+<pre><code>expect(File).to exist(&quot;path/to/file&quot;)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-exist_source')" id="l_method-i-exist_source">show</a>
+                
+              </p>
+              <div id="method-i-exist_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 596</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exist</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Exist</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-have_attributes">
+            
+              <b>have_attributes</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-have_attributes" name="method-i-have_attributes" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual&#39;s attribute values match the expected attributes hash. This works no matter how you define your attribute readers.</p>
+
+<p>@example</p>
+
+<pre><code>Person = Struct.new(:name, :age)
+person = Person.new(&quot;Bob&quot;, 32)
+
+expect(person).to have_attributes(:name =&gt; &quot;Bob&quot;, :age =&gt; 32)
+expect(person).to have_attributes(:name =&gt; a_string_starting_with(&quot;B&quot;), :age =&gt; (a_value &gt; 30) )
+</code></pre>
+
+<p>@note It will fail if actual doesn&#39;t respond to any of the expected attributes.</p>
+
+<p>@example</p>
+
+<pre><code>expect(person).to have_attributes(:color =&gt; &quot;red&quot;)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-have_attributes_source')" id="l_method-i-have_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-have_attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 616</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">have_attributes</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">HaveAttributes</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-include">
+            
+              <b>include</b>(*expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-include" name="method-i-include" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if actual includes expected. This works for collections and Strings. You can also pass in multiple args and it will only pass if all args are found in collection.</p>
+
+<p>@example</p>
+
+<pre><code>expect([1,2,3]).to      include(3)
+expect([1,2,3]).to      include(2,3)
+expect([1,2,3]).to      include(2,3,4) # fails
+expect([1,2,3]).not_to  include(4)
+expect(&quot;spread&quot;).to     include(&quot;read&quot;)
+expect(&quot;spread&quot;).not_to include(&quot;red&quot;)
+expect(:a =&gt; 1, :b =&gt; 2).to include(:a)
+expect(:a =&gt; 1, :b =&gt; 2).to include(:a, :b)
+expect(:a =&gt; 1, :b =&gt; 2).to include(:a =&gt; 1)
+expect(:a =&gt; 1, :b =&gt; 2).to include(:b =&gt; 2, :a =&gt; 1)
+expect(:a =&gt; 1, :b =&gt; 2).to include(:c) # fails
+expect(:a =&gt; 1, :b =&gt; 2).not_to include(:a =&gt; 2)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-include_source')" id="l_method-i-include_source">show</a>
+                
+              </p>
+              <div id="method-i-include_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 639</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">include</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Include</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-match">
+            
+              <b>match</b>(expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-match" name="method-i-match" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Given a `Regexp` or `String`, passes if `actual.match(pattern)` Given an arbitrary nested data structure (e.g. arrays and hashes), matches if `expected === actual` || `actual == expected` for each pair of elements.</p>
+
+<p>@example</p>
+
+<pre><code>expect(email).to match(/^([^\s]+)((?:[-a-z0-9]+\.)+[a-z]{2,})$/i)
+expect(email).to match(&quot;@example.com&quot;)
+</code></pre>
+
+<p>@example</p>
+
+<pre><code>hash = {
+  :a =&gt; {
+    :b =&gt; [&quot;foo&quot;, 5],
+    :c =&gt; { :d =&gt; 2.05 }
+  }
+}
+
+expect(hash).to match(
+  :a =&gt; {
+    :b =&gt; a_collection_containing_exactly(
+      a_string_starting_with(&quot;f&quot;),
+      an_instance_of(Integer)
+    ),
+    :c =&gt; { :d =&gt; (a_value &lt; 3) }
+  }
+)
+</code></pre>
+
+<p>@note The `match_regex` alias is deprecated and is not recommended for use.</p>
+
+<pre><code>It was added in 2.12.1 to facilitate its use from within custom
+matchers (due to how the custom matcher DSL was evaluated in 2.x,
+`match` could not be used there), but is no longer needed in 3.x.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-match_source')" id="l_method-i-match_source">show</a>
+                
+              </p>
+              <div id="method-i-match_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 697</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">match</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Match</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-match_array">
+            
+              <b>match_array</b>(items)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-match_array" name="method-i-match_array" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>An alternate form of `contain_exactly` that accepts the expected contents as a single array arg rather that splatted out as individual items.</p>
+
+<p>@example</p>
+
+<pre><code>expect(results).to contain_exactly(1, 2)
+# is identical to:
+expect(results).to match_array([1, 2])
+</code></pre>
+
+<p>@see <a href="Matchers.html#method-i-contain_exactly"><code>contain_exactly</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-match_array_source')" id="l_method-i-match_array_source">show</a>
+                
+              </p>
+              <div id="method-i-match_array_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 715</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">match_array</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-identifier">contain_exactly</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">items</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output">
+            
+              <b>output</b>(expected=nil)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-output" name="method-i-output" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>With no arg, passes if the block outputs `to_stdout` or `to_stderr`. With a string, passes if the block outputs that specific string `to_stdout` or `to_stderr`. With a regexp or matcher, passes if the block outputs a string `to_stdout` or `to_stderr` that matches.</p>
+
+<p>To capture output from any spawned subprocess as well, use `to_stdout_from_any_process` or `to_stderr_from_any_process`. Output from any process that inherits the main process&#39;s corresponding standard stream will be captured.</p>
+
+<p>@example</p>
+
+<pre><code>expect { print &#39;foo&#39; }.to output.to_stdout
+expect { print &#39;foo&#39; }.to output(&#39;foo&#39;).to_stdout
+expect { print &#39;foo&#39; }.to output(/foo/).to_stdout
+
+expect { do_something }.to_not output.to_stdout
+
+expect { warn(&#39;foo&#39;) }.to output.to_stderr
+expect { warn(&#39;foo&#39;) }.to output(&#39;foo&#39;).to_stderr
+expect { warn(&#39;foo&#39;) }.to output(/foo/).to_stderr
+
+expect { do_something }.to_not output.to_stderr
+
+expect { system(&#39;echo foo&#39;) }.to output(&quot;foo\n&quot;).to_stdout_from_any_process
+expect { system(&#39;echo foo&#39;, out: :err) }.to output(&quot;foo\n&quot;).to_stderr_from_any_process
+</code></pre>
+
+<p>@note `to_stdout` and `to_stderr` work by temporarily replacing `$stdout` or `$stderr`,</p>
+
+<pre><code>so they&#39;re not able to intercept stream output that explicitly uses `STDOUT`/`STDERR`
+or that uses a reference to `$stdout`/`$stderr` that was stored before the
+matcher was used.
+</code></pre>
+
+<p>@note `to_stdout_from_any_process` and `to_stderr_from_any_process` use Tempfiles, and</p>
+
+<pre><code>are thus significantly (~30x) slower than `to_stdout` and `to_stderr`.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-output_source')" id="l_method-i-output_source">show</a>
+                
+              </p>
+              <div id="method-i-output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 749</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">output</span>(<span class="ruby-identifier">expected</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Output</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_error">
+            
+              <b>raise_error</b>(error=nil, message=nil, &amp;block)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-raise_error" name="method-i-raise_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>With no args, matches if any error is raised. With a named error, matches only if that specific error is raised. With a named error and messsage specified as a <a href="../String.html"><code>String</code></a>, matches only if both match. With a named error and messsage specified as a Regexp, matches only if both match. Pass an optional block to perform extra verifications on the exception matched</p>
+
+<p>@example</p>
+
+<pre><code>expect { do_something_risky }.to raise_error
+expect { do_something_risky }.to raise_error(PoorRiskDecisionError)
+expect { do_something_risky }.to raise_error(PoorRiskDecisionError) { |error| expect(error.data).to eq 42 }
+expect { do_something_risky }.to raise_error(PoorRiskDecisionError, &quot;that was too risky&quot;)
+expect { do_something_risky }.to raise_error(PoorRiskDecisionError, /oo ri/)
+
+expect { do_something_risky }.not_to raise_error
+</code></pre>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Matchers.html#method-i-raise_exception">raise_exception</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_error_source')" id="l_method-i-raise_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 768</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_error</span>(<span class="ruby-identifier">error</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">RaiseError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">error</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_exception">
+            
+              <b>raise_exception</b>(error=nil, message=nil, &amp;block)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-raise_exception" name="method-i-raise_exception" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Matchers.html#method-i-raise_error">raise_error</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-respond_to">
+            
+              <b>respond_to</b>(*names)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-respond_to" name="method-i-respond_to" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Matches if the target object responds to all of the names provided. Names can be Strings or Symbols.</p>
+
+<p>@example</p>
+
+<pre><code>expect(&quot;string&quot;).to respond_to(:length)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-respond_to_source')" id="l_method-i-respond_to_source">show</a>
+                
+              </p>
+              <div id="method-i-respond_to_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 787</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">RespondTo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-satisfy">
+            
+              <b>satisfy</b>(description=nil, &amp;block)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-satisfy" name="method-i-satisfy" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if the submitted block returns true. Yields target to the block.</p>
+
+<p>Generally speaking, this should be thought of as a last resort when you can&#39;t find any other way to specify the behaviour you wish to specify.</p>
+
+<p>If you do find yourself in such a situation, you could always write a custom matcher, which would likely make your specs more expressive.</p>
+
+<p>@param description [String] optional description to be used for this matcher.</p>
+
+<p>@example</p>
+
+<pre><code>expect(5).to satisfy { |n| n &gt; 3 }
+expect(5).to satisfy(&quot;be greater than 3&quot;) { |n| n &gt; 3 }
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-satisfy_source')" id="l_method-i-satisfy_source">show</a>
+                
+              </p>
+              <div id="method-i-satisfy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 808</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">satisfy</span>(<span class="ruby-identifier">description</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">Satisfy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">description</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_with">
+            
+              <b>start_with</b>(*expected)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-start_with" name="method-i-start_with" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Matches if the actual value starts with the expected value(s). In the case of a string, matches against the first `expected.length` characters of the actual string. In the case of an array, matches against the first `expected.length` elements of the actual array.</p>
+
+<p>@example</p>
+
+<pre><code>expect(&quot;this string&quot;).to   start_with &quot;this s&quot;
+expect([0, 1, 2, 3, 4]).to start_with 0
+expect([0, 2, 3, 4, 4]).to start_with 0, 1
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-start_with_source')" id="l_method-i-start_with_source">show</a>
+                
+              </p>
+              <div id="method-i-start_with_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 823</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">StartWith</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-throw_symbol">
+            
+              <b>throw_symbol</b>(expected_symbol=nil, expected_arg=nil)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-throw_symbol" name="method-i-throw_symbol" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Given no argument, matches if a proc throws any Symbol.</p>
+
+<p>Given a Symbol, matches if the given proc throws the specified Symbol.</p>
+
+<p>Given a Symbol and an arg, matches if the given proc throws the specified Symbol with the specified arg.</p>
+
+<p>@example</p>
+
+<pre><code>expect { do_something_risky }.to throw_symbol
+expect { do_something_risky }.to throw_symbol(:that_was_risky)
+expect { do_something_risky }.to throw_symbol(:that_was_risky, &#39;culprit&#39;)
+
+expect { do_something_risky }.not_to throw_symbol
+expect { do_something_risky }.not_to throw_symbol(:that_was_risky)
+expect { do_something_risky }.not_to throw_symbol(:that_was_risky, &#39;culprit&#39;)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-throw_symbol_source')" id="l_method-i-throw_symbol_source">show</a>
+                
+              </p>
+              <div id="method-i-throw_symbol_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 845</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">throw_symbol</span>(<span class="ruby-identifier">expected_symbol</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">expected_arg</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">ThrowSymbol</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected_symbol</span>, <span class="ruby-identifier">expected_arg</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yield_control">
+            
+              <b>yield_control</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-yield_control" name="method-i-yield_control" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if the method called in the expect block yields, regardless of whether or not arguments are yielded.</p>
+
+<p>@example</p>
+
+<pre><code>expect { |b| 5.tap(&amp;b) }.to yield_control
+expect { |b| &quot;a&quot;.to_sym(&amp;b) }.not_to yield_control
+</code></pre>
+
+<p>@note Your expect block must accept a parameter and pass it on to</p>
+
+<pre><code>the method-under-test as a block.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-yield_control_source')" id="l_method-i-yield_control_source">show</a>
+                
+              </p>
+              <div id="method-i-yield_control_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 866</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yield_control</span>
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">YieldControl</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yield_successive_args">
+            
+              <b>yield_successive_args</b>(*args)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-yield_successive_args" name="method-i-yield_successive_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Designed for use with methods that repeatedly yield (such as iterators). Passes if the method called in the expect block yields multiple times with arguments matching those given.</p>
+
+<p>Argument matching is done using `===` (the case match operator) and `==`. If the expected and actual arguments match with either operator, the matcher will pass.</p>
+
+<p>@example</p>
+
+<pre><code>expect { |b| [1, 2, 3].each(&amp;b) }.to yield_successive_args(1, 2, 3)
+expect { |b| { :a =&gt; 1, :b =&gt; 2 }.each(&amp;b) }.to yield_successive_args([:a, 1], [:b, 2])
+expect { |b| [1, 2, 3].each(&amp;b) }.not_to yield_successive_args(1, 2)
+</code></pre>
+
+<p>@note Your expect block must accept a parameter and pass it on to</p>
+
+<pre><code>the method-under-test as a block.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-yield_successive_args_source')" id="l_method-i-yield_successive_args_source">show</a>
+                
+              </p>
+              <div id="method-i-yield_successive_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 935</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yield_successive_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">YieldSuccessiveArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yield_with_args">
+            
+              <b>yield_with_args</b>(*args)
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-yield_with_args" name="method-i-yield_with_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Given no arguments, matches if the method called in the expect block yields with arguments (regardless of what they are or how many there are).</p>
+
+<p>Given arguments, matches if the method called in the expect block yields with arguments that match the given arguments.</p>
+
+<p>Argument matching is done using `===` (the case match operator) and `==`. If the expected and actual arguments match with either operator, the matcher will pass.</p>
+
+<p>@example</p>
+
+<pre><code>expect { |b| 5.tap(&amp;b) }.to yield_with_args # because #tap yields an arg
+expect { |b| 5.tap(&amp;b) }.to yield_with_args(5) # because 5 == 5
+expect { |b| 5.tap(&amp;b) }.to yield_with_args(Integer) # because Integer === 5
+expect { |b| File.open(&quot;f.txt&quot;, &amp;b) }.to yield_with_args(/txt/) # because /txt/ === &quot;f.txt&quot;
+
+expect { |b| User.transaction(&amp;b) }.not_to yield_with_args # because it yields no args
+expect { |b| 5.tap(&amp;b) }.not_to yield_with_args(1, 2, 3)
+</code></pre>
+
+<p>@note Your expect block must accept a parameter and pass it on to</p>
+
+<pre><code>the method-under-test as a block.
+</code></pre>
+
+<p>@note This matcher is not designed for use with methods that yield</p>
+
+<pre><code>multiple times.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-yield_with_args_source')" id="l_method-i-yield_with_args_source">show</a>
+                
+              </p>
+              <div id="method-i-yield_with_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 914</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yield_with_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">YieldWithArgs</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-yield_with_no_args">
+            
+              <b>yield_with_no_args</b>()
+            
+            <a href="../../classes/RSpec/Matchers.html#method-i-yield_with_no_args" name="method-i-yield_with_no_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Passes if the method called in the expect block yields with no arguments. Fails if it does not yield, or yields with arguments.</p>
+
+<p>@example</p>
+
+<pre><code>expect { |b| User.transaction(&amp;b) }.to yield_with_no_args
+expect { |b| 5.tap(&amp;b) }.not_to yield_with_no_args # because it yields with `5`
+expect { |b| &quot;a&quot;.to_sym(&amp;b) }.not_to yield_with_no_args # because it does not yield
+</code></pre>
+
+<p>@note Your expect block must accept a parameter and pass it on to</p>
+
+<pre><code>the method-under-test as a block.
+</code></pre>
+
+<p>@note This matcher is not designed for use with methods that yield</p>
+
+<pre><code>multiple times.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-yield_with_no_args_source')" id="l_method-i-yield_with_no_args_source">show</a>
+                
+              </p>
+              <div id="method-i-yield_with_no_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb, line 884</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">yield_with_no_args</span>
+  <span class="ruby-constant">BuiltIn</span><span class="ruby-operator">::</span><span class="ruby-constant">YieldWithNoArgs</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

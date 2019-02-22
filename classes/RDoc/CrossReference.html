@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::CrossReference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::CrossReference">
+
+  
+    
+    <meta name="description" content="RDoc::CrossReference is a reusable way to create cross references for names.">
+    <meta property="og:description" content="RDoc::CrossReference is a reusable way to create cross references for names.">
+  
+
+    <meta name="keywords" content="RDoc::CrossReference class">
+  
+    <meta name="keywords" content="new, resolve">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::CrossReference
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/cross_reference_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/cross_reference.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markup/to_html_snippet_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_html_snippet.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markup/to_label_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_label.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="CrossReference.html"><code>RDoc::CrossReference</code></a> is a reusable way to create cross references for names.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-resolve">resolve</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">CLASS_REGEXP_STR</td>
+            <td>=</td>
+            <td class="attr-value">&#39;\\\\?((?:\:{2})?[A-Z]\w*(?:\:\:\w+)*)&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Regular expression to match class references</p>
+<ol><li>
+<p>There can be a &#39;\&#39; in front of text to suppress the cross-reference</p>
+</li><li>
+<p>There can be a &#39;::&#39; in front of class names to reference from the top-level namespace.</p>
+</li><li>
+<p>The method can be followed by parenthesis (not recommended)</p>
+</li></ol></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">METHOD_REGEXP_STR</td>
+            <td>=</td>
+            <td class="attr-value">&#39;([a-z]\w*[!?=]?|%|===|\[\]=?|&lt;&lt;|&gt;&gt;|-|\+|\*)(?:\([\w.+*/=&lt;&gt;-]*\))?&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Regular expression to match method references.</p>
+
+<p>See <a href="CrossReference.html#CLASS_REGEXP_STR"><code>CLASS_REGEXP_STR</code></a></p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CROSSREF_REGEXP</td>
+            <td>=</td>
+            <td class="attr-value">/(?:^|\s)
+(
+(?:
+# A::B::C.meth
+#{CLASS_REGEXP_STR}(?:[.#]|::)#{METHOD_REGEXP_STR}
+
+# Stand-alone method (preceded by a #)
+| \\?\##{METHOD_REGEXP_STR}
+
+# Stand-alone method (preceded by ::)
+| ::#{METHOD_REGEXP_STR}
+
+# A::B::C
+# The stuff after CLASS_REGEXP_STR is a
+# nasty hack.  CLASS_REGEXP_STR unfortunately matches
+# words like dog and cat (these are legal &quot;class&quot;
+# names in Fortran 95).  When a word is flagged as a
+# potential cross-reference, limitations in the markup
+# engine suppress other processing, such as typesetting.
+# This is particularly noticeable for contractions.
+# In order that words like &quot;can&#39;t&quot; not
+# be flagged as potential cross-references, only
+# flag potential class cross-references if the character
+# after the cross-reference is a space, sentence
+# punctuation, tag start character, or attribute
+# marker.
+| #{CLASS_REGEXP_STR}(?=[@\s).?!,;&lt;\000]|\z)
+
+# Things that look like filenames
+# The key thing is that there must be at least
+# one special character (period, slash, or
+# underscore).
+| (?:\.\.\/)*[-\/\w]+[_\/.][-\w\/.]+
+
+# Things that have markup suppressed
+# Don&#39;t process things like &#39;\&lt;&#39; in \&lt;tt&gt;, though.
+# TODO: including &lt; is a hack, not very satisfying.
+| \\[^\s&lt;]
+)
+
+# labels for headings
+(?:@[\w+%-]+(?:\.[\w|%-]+)?)?
+)/x</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Regular expressions matching text that should potentially have cross-reference links generated are passed to add_regexp_handling. Note that these expressions are meant to pick up text for which cross-references have been suppressed, since the suppression characters are removed by the code that is triggered.</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ALL_CROSSREF_REGEXP</td>
+            <td>=</td>
+            <td class="attr-value">/
+(?:^|\s)
+(
+(?:
+# A::B::C.meth
+#{CLASS_REGEXP_STR}(?:[.#]|::)#{METHOD_REGEXP_STR}
+
+# Stand-alone method
+| \\?#{METHOD_REGEXP_STR}
+
+# A::B::C
+| #{CLASS_REGEXP_STR}(?=[@\s).?!,;&lt;\000]|\z)
+
+# Things that look like filenames
+| (?:\.\.\/)*[-\/\w]+[_\/.][-\w\/.]+
+
+# Things that have markup suppressed
+| \\[^\s&lt;]
+)
+
+# labels for headings
+(?:@[\w+%-]+)?
+)/x</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Version of <a href="CrossReference.html#CROSSREF_REGEXP"><code>CROSSREF_REGEXP</code></a> used when <code>--hyperlink-all</code> is specified.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>seen</td>
+            <td class='attr-desc'><p>Hash of references that have been looked-up to their replacements</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(context)
+            
+            <a href="../../classes/RDoc/CrossReference.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Allows cross-references to be created based on the given <code>context</code> (RDoc::Context).</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/cross_reference.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">context</span>
+  <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">context</span>
+  <span class="ruby-ivar">@store</span>   = <span class="ruby-identifier">context</span>.<span class="ruby-identifier">store</span>
+
+  <span class="ruby-ivar">@seen</span> = {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-resolve">
+            
+              <b>resolve</b>(name, text)
+            
+            <a href="../../classes/RDoc/CrossReference.html#method-i-resolve" name="method-i-resolve" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a reference to <code>name</code>.</p>
+
+<p>If the reference is found and <code>name</code> is not documented <code>text</code> will be returned.  If <code>name</code> is escaped <code>name</code> is returned.  If <code>name</code> is not found <code>text</code> is returned.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-resolve_source')" id="l_method-i-resolve_source">show</a>
+                
+              </p>
+              <div id="method-i-resolve_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/cross_reference.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resolve</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@seen</span>[<span class="ruby-identifier">name</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@seen</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-regexp">/#{CLASS_REGEXP_STR}([.#]|::)#{METHOD_REGEXP_STR}/o</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-node">$2</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">type</span> <span class="ruby-comment"># will find either #method or ::method</span>
+      <span class="ruby-identifier">method</span> = <span class="ruby-node">$3</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">method</span> = <span class="ruby-node">&quot;#{type}#{$3}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">container</span> = <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">find_symbol_module</span>(<span class="ruby-node">$1</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-regexp">/^([.#]|::)#{METHOD_REGEXP_STR}/o</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">type</span>
+      <span class="ruby-identifier">method</span> = <span class="ruby-node">$2</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">method</span> = <span class="ruby-node">&quot;#{type}#{$2}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">container</span> = <span class="ruby-ivar">@context</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">type</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">container</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">container</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">TopLevel</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">container</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">type</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-string">&#39;new&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">method</span> <span class="ruby-keyword">then</span> <span class="ruby-comment"># AnyClassName.new will be class method</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_local_symbol</span> <span class="ruby-identifier">method</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_ancestor_local_symbol</span> <span class="ruby-identifier">method</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_local_symbol</span> <span class="ruby-node">&quot;::#{method}&quot;</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_ancestor_local_symbol</span> <span class="ruby-node">&quot;::#{method}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_local_symbol</span> <span class="ruby-node">&quot;##{method}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span>
+          <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_ancestor_local_symbol</span> <span class="ruby-node">&quot;##{method}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_local_symbol</span> <span class="ruby-identifier">method</span>
+        <span class="ruby-identifier">ref</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">find_ancestor_local_symbol</span> <span class="ruby-identifier">method</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ref</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^\\(#{CLASS_REGEXP_STR})$/o</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">find_symbol</span> <span class="ruby-node">$1</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">find_symbol</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">end</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span>
+
+  <span class="ruby-comment"># Try a page name</span>
+  <span class="ruby-identifier">ref</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">page</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">ref</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\w+$/</span>
+
+  <span class="ruby-identifier">ref</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Alias</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">ref</span> <span class="ruby-comment"># external alias, can&#39;t link to it</span>
+
+  <span class="ruby-identifier">out</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;\\&#39;</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\\/</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-comment"># we remove the \ only in front of what we know:</span>
+          <span class="ruby-comment"># other backslashes are treated later, only outside of &lt;tt&gt;</span>
+          <span class="ruby-identifier">ref</span> <span class="ruby-operator">?</span> <span class="ruby-node">$&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ref</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">ref</span>.<span class="ruby-identifier">display?</span> <span class="ruby-keyword">then</span>
+            <span class="ruby-identifier">ref</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">text</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">text</span>
+        <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@seen</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">out</span>
+
+  <span class="ruby-identifier">out</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

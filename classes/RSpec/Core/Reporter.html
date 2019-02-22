@@ -1,0 +1,1286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Reporter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Reporter">
+
+  
+    
+    <meta name="description" content="A reporter will send notifications to listeners, usually formatters for the spec suite run.">
+    <meta property="og:description" content="A reporter will send notifications to listeners, usually formatters for the spec suite run.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Reporter class">
+  
+    <meta name="keywords" content="new, register_listener, prepare_default, registered_listeners, report, start, message, publish, example_group_started, example_group_finished, example_started, example_finished, example_passed, example_failed, example_pending, deprecation, notify_non_example_exception, finish, close_after, stop, notify, abort_with, fail_fast_limit_met?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Reporter
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/reporter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A reporter will send notifications to listeners, usually formatters for the spec suite run.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-abort_with">abort_with</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-close_after">close_after</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-deprecation">deprecation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-example_failed">example_failed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_finished">example_finished</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_group_finished">example_group_finished</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_group_started">example_group_started</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_passed">example_passed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_pending">example_pending</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_started">example_started</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-fail_fast_limit_met-3F">fail_fast_limit_met?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-finish">finish</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message">message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-notify">notify</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-notify_non_example_exception">notify_non_example_exception</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prepare_default">prepare_default</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-publish">publish</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-register_listener">register_listener</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-registered_listeners">registered_listeners</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-report">report</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-start">start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stop">stop</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">RSPEC_NOTIFICATIONS</td>
+            <td>=</td>
+            <td class="attr-value">Set.new(
+[
+:close, :deprecation, :deprecation_summary, :dump_failures, :dump_pending,
+:dump_profile, :dump_summary, :example_failed, :example_group_finished,
+:example_group_started, :example_passed, :example_pending, :example_started,
+:message, :seed, :start, :start_dump, :stop, :example_finished
+])</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>examples</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>failed_examples</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>pending_examples</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(configuration)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">configuration</span>)
+  <span class="ruby-ivar">@configuration</span> = <span class="ruby-identifier">configuration</span>
+  <span class="ruby-ivar">@listeners</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span> }
+  <span class="ruby-ivar">@examples</span> = []
+  <span class="ruby-ivar">@failed_examples</span> = []
+  <span class="ruby-ivar">@pending_examples</span> = []
+  <span class="ruby-ivar">@duration</span> = <span class="ruby-ivar">@start</span> = <span class="ruby-ivar">@load_time</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@non_example_exception_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@setup_default</span> = <span class="ruby-identifier">lambda</span> {}
+  <span class="ruby-ivar">@setup</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@profiler</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-abort_with">
+            
+              <b>abort_with</b>(msg, exit_status)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-abort_with" name="method-i-abort_with" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-abort_with_source')" id="l_method-i-abort_with_source">show</a>
+                
+              </p>
+              <div id="method-i-abort_with_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">abort_with</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">exit_status</span>)
+  <span class="ruby-identifier">message</span>(<span class="ruby-identifier">msg</span>)
+  <span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">exit!</span>(<span class="ruby-identifier">exit_status</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-close_after">
+            
+              <b>close_after</b>()
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-close_after" name="method-i-close_after" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-close_after_source')" id="l_method-i-close_after_source">show</a>
+                
+              </p>
+              <div id="method-i-close_after_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close_after</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">close</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-deprecation">
+            
+              <b>deprecation</b>(hash)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-deprecation" name="method-i-deprecation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-deprecation_source')" id="l_method-i-deprecation_source">show</a>
+                
+              </p>
+              <div id="method-i-deprecation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deprecation</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:deprecation</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">DeprecationNotification</span>.<span class="ruby-identifier">from_hash</span>(<span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_failed">
+            
+              <b>example_failed</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_failed" name="method-i-example_failed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_failed_source')" id="l_method-i-example_failed_source">show</a>
+                
+              </p>
+              <div id="method-i-example_failed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_failed</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-ivar">@failed_examples</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">example</span>
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_failed</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleNotification</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_finished">
+            
+              <b>example_finished</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_finished" name="method-i-example_finished" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_finished_source')" id="l_method-i-example_finished_source">show</a>
+                
+              </p>
+              <div id="method-i-example_finished_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_finished</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_finished</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleNotification</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_group_finished">
+            
+              <b>example_group_finished</b>(group)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_group_finished" name="method-i-example_group_finished" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_group_finished_source')" id="l_method-i-example_group_finished_source">show</a>
+                
+              </p>
+              <div id="method-i-example_group_finished_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_group_finished</span>(<span class="ruby-identifier">group</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_group_finished</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">GroupNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">group</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">descendant_filtered_examples</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_group_started">
+            
+              <b>example_group_started</b>(group)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_group_started" name="method-i-example_group_started" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_group_started_source')" id="l_method-i-example_group_started_source">show</a>
+                
+              </p>
+              <div id="method-i-example_group_started_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_group_started</span>(<span class="ruby-identifier">group</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_group_started</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">GroupNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">group</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">descendant_filtered_examples</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_passed">
+            
+              <b>example_passed</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_passed" name="method-i-example_passed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_passed_source')" id="l_method-i-example_passed_source">show</a>
+                
+              </p>
+              <div id="method-i-example_passed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_passed</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_passed</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleNotification</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_pending">
+            
+              <b>example_pending</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_pending" name="method-i-example_pending" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_pending_source')" id="l_method-i-example_pending_source">show</a>
+                
+              </p>
+              <div id="method-i-example_pending_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_pending</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-ivar">@pending_examples</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">example</span>
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_pending</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleNotification</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_started">
+            
+              <b>example_started</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-example_started" name="method-i-example_started" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_started_source')" id="l_method-i-example_started_source">show</a>
+                
+              </p>
+              <div id="method-i-example_started_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_started</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-ivar">@examples</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">example</span>
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:example_started</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleNotification</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-fail_fast_limit_met-3F">
+            
+              <b>fail_fast_limit_met?</b>()
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-fail_fast_limit_met-3F" name="method-i-fail_fast_limit_met-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-fail_fast_limit_met-3F_source')" id="l_method-i-fail_fast_limit_met-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-fail_fast_limit_met-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fail_fast_limit_met?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">fail_fast</span> = <span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">fail_fast</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">fail_fast</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@failed_examples</span>.<span class="ruby-identifier">any?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fail_fast</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-ivar">@failed_examples</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-finish">
+            
+              <b>finish</b>()
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-finish" name="method-i-finish" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-finish_source')" id="l_method-i-finish_source">show</a>
+                
+              </p>
+              <div id="method-i-finish_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finish</span>
+  <span class="ruby-identifier">close_after</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">stop</span>
+    <span class="ruby-identifier">notify</span> <span class="ruby-value">:start_dump</span>,    <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">NullNotification</span>
+    <span class="ruby-identifier">notify</span> <span class="ruby-value">:dump_pending</span>,  <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExamplesNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">notify</span> <span class="ruby-value">:dump_failures</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExamplesNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">notify</span> <span class="ruby-value">:deprecation_summary</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">NullNotification</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mute_profile_output?</span>
+      <span class="ruby-identifier">notify</span> <span class="ruby-value">:dump_profile</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ProfileNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@duration</span>, <span class="ruby-ivar">@examples</span>,
+                                                                   <span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">profile_examples</span>,
+                                                                   <span class="ruby-ivar">@profiler</span>.<span class="ruby-identifier">example_groups</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">notify</span> <span class="ruby-value">:dump_summary</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">SummaryNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@duration</span>, <span class="ruby-ivar">@examples</span>, <span class="ruby-ivar">@failed_examples</span>,
+                                                                 <span class="ruby-ivar">@pending_examples</span>, <span class="ruby-ivar">@load_time</span>,
+                                                                 <span class="ruby-ivar">@non_example_exception_count</span>)
+    <span class="ruby-identifier">notify</span> <span class="ruby-value">:seed</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">SeedNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">seed</span>, <span class="ruby-identifier">seed_used?</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-message">
+            
+              <b>message</b>(message)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-message" name="method-i-message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@param message [#to_s] A message object to send to formatters</p>
+
+<p>Send a custom message to supporting formatters.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_source')" id="l_method-i-message_source">show</a>
+                
+              </p>
+              <div id="method-i-message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:message</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-notify">
+            
+              <b>notify</b>(event, notification)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-notify" name="method-i-notify" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-notify_source')" id="l_method-i-notify_source">show</a>
+                
+              </p>
+              <div id="method-i-notify_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">notify</span>(<span class="ruby-identifier">event</span>, <span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">ensure_listeners_ready</span>
+  <span class="ruby-identifier">registered_listeners</span>(<span class="ruby-identifier">event</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">formatter</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">event</span>, <span class="ruby-identifier">notification</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-notify_non_example_exception">
+            
+              <b>notify_non_example_exception</b>(exception, context_description)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-notify_non_example_exception" name="method-i-notify_non_example_exception" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private Provides a way to notify of an exception that is not tied to any particular example (such as an exception encountered in a :suite hook). Exceptions will be formatted the same way they normally are.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-notify_non_example_exception_source')" id="l_method-i-notify_non_example_exception_source">show</a>
+                
+              </p>
+              <div id="method-i-notify_non_example_exception_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">notify_non_example_exception</span>(<span class="ruby-identifier">exception</span>, <span class="ruby-identifier">context_description</span>)
+  <span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">world</span>.<span class="ruby-identifier">non_example_failure</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@non_example_exception_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">example</span> = <span class="ruby-constant">Example</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">AnonymousExampleGroup</span>, <span class="ruby-identifier">context_description</span>, {})
+  <span class="ruby-identifier">presenter</span> = <span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">ExceptionPresenter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">exception</span>, <span class="ruby-identifier">example</span>, <span class="ruby-value">:indentation</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">message</span> <span class="ruby-identifier">presenter</span>.<span class="ruby-identifier">fully_formatted</span>(<span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepare_default">
+            
+              <b>prepare_default</b>(loader, output_stream, deprecation_stream)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-prepare_default" name="method-i-prepare_default" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prepare_default_source')" id="l_method-i-prepare_default_source">show</a>
+                
+              </p>
+              <div id="method-i-prepare_default_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepare_default</span>(<span class="ruby-identifier">loader</span>, <span class="ruby-identifier">output_stream</span>, <span class="ruby-identifier">deprecation_stream</span>)
+  <span class="ruby-ivar">@setup_default</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">loader</span>.<span class="ruby-identifier">setup_default</span> <span class="ruby-identifier">output_stream</span>, <span class="ruby-identifier">deprecation_stream</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-publish">
+            
+              <b>publish</b>(event, options={})
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-publish" name="method-i-publish" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@param event [Symbol] Name of the custom event to trigger on formatters @param options [Hash] Hash of arguments to provide via `CustomNotification`</p>
+
+<p>Publish a custom event to supporting registered formatters. @see <a href="Notifications/CustomNotification.html"><code>RSpec::Core::Notifications::CustomNotification</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-publish_source')" id="l_method-i-publish_source">show</a>
+                
+              </p>
+              <div id="method-i-publish_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">publish</span>(<span class="ruby-identifier">event</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RSPEC_NOTIFICATIONS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">event</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;RSpec::Core::Reporter#publish is intended for sending custom &quot;</span> \
+          <span class="ruby-string">&quot;events not internal RSpec ones, please rename your custom event.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">notify</span> <span class="ruby-identifier">event</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">CustomNotification</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-register_listener">
+            
+              <b>register_listener</b>(listener, *notifications)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-register_listener" name="method-i-register_listener" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Registers a listener to a list of notifications. The reporter will send notification of events to all registered listeners.</p>
+
+<p>@param listener [Object] An obect that wishes to be notified of reporter</p>
+
+<pre><code>events
+</code></pre>
+
+<p>@param notifications [Array] <a href="../../Array.html"><code>Array</code></a> of symbols represents the events a</p>
+
+<pre><code>listener wishes to subscribe too
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-register_listener_source')" id="l_method-i-register_listener_source">show</a>
+                
+              </p>
+              <div id="method-i-register_listener_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register_listener</span>(<span class="ruby-identifier">listener</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">notifications</span>)
+  <span class="ruby-identifier">notifications</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">notification</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@listeners</span>[<span class="ruby-identifier">notification</span>.<span class="ruby-identifier">to_sym</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">listener</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-registered_listeners">
+            
+              <b>registered_listeners</b>(notification)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-registered_listeners" name="method-i-registered_listeners" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-registered_listeners_source')" id="l_method-i-registered_listeners_source">show</a>
+                
+              </p>
+              <div id="method-i-registered_listeners_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">registered_listeners</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-ivar">@listeners</span>[<span class="ruby-identifier">notification</span>].<span class="ruby-identifier">to_a</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-report">
+            
+              <b>report</b>(expected_example_count)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-report" name="method-i-report" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload report(count, &amp;block) @overload report(count, &amp;block) @param expected_example_count [Integer] the number of examples being run @yield [Block] block yields itself for further reporting.</p>
+
+<p>Initializes the report run and yields itself for further reporting. The block is required, so that the reporter can manage cleaning up after the run.</p>
+
+<p>@example</p>
+
+<pre><code>reporter.report(group.examples.size) do |r|
+  example_groups.map {|g| g.run(r) }
+end
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-report_source')" id="l_method-i-report_source">show</a>
+                
+              </p>
+              <div id="method-i-report_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report</span>(<span class="ruby-identifier">expected_example_count</span>)
+  <span class="ruby-identifier">start</span>(<span class="ruby-identifier">expected_example_count</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">finish</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start">
+            
+              <b>start</b>(expected_example_count, time=RSpec::Core::Time.now)
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-start" name="method-i-start" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-start_source')" id="l_method-i-start_source">show</a>
+                
+              </p>
+              <div id="method-i-start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start</span>(<span class="ruby-identifier">expected_example_count</span>, <span class="ruby-identifier">time</span>=<span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+  <span class="ruby-ivar">@start</span> = <span class="ruby-identifier">time</span>
+  <span class="ruby-ivar">@load_time</span> = (<span class="ruby-ivar">@start</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">start_time</span>).<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:seed</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">SeedNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@configuration</span>.<span class="ruby-identifier">seed</span>, <span class="ruby-identifier">seed_used?</span>)
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:start</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">StartNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">expected_example_count</span>, <span class="ruby-ivar">@load_time</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stop">
+            
+              <b>stop</b>()
+            
+            <a href="../../../classes/RSpec/Core/Reporter.html#method-i-stop" name="method-i-stop" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-stop_source')" id="l_method-i-stop_source">show</a>
+                
+              </p>
+              <div id="method-i-stop_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stop</span>
+  <span class="ruby-ivar">@duration</span> = (<span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@start</span>).<span class="ruby-identifier">to_f</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@start</span>
+  <span class="ruby-identifier">notify</span> <span class="ruby-value">:stop</span>, <span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">ExamplesNotification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

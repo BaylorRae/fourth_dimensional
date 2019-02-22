@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>rake-0.7.2.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            rake-0.7.2.rdoc
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/doc/release_notes/rake-0.7.2.rdoc</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-Rake+0.7.2+Released">Rake 0.7.2 Released</h1>
+
+<p>Version 0.7.2 supplies a bug fix and a few minor enhancements.  In particular, the new version fixes an incompatibility with the soon to be released Ruby 1.8.6.  We strongly recommend upgrading to Rake 0.7.2 in order to be compatible with the new version of Ruby.</p>
+
+<h2 id="label-Changes">Changes</h2>
+
+<h3 id="label-Bug+Fixes+in+0.7.2">Bug Fixes in 0.7.2</h3>
+
+<p>There are quite a number of bug fixes in the new 0.7.2 version of Rake:</p>
+<ul><li>
+<p>Removed dependency on internal fu_xxx functions from <a href="../../../../../../../../../classes/FileUtils.html"><code>FileUtils</code></a>.</p>
+</li><li>
+<p>Error messages are now send to stderr rather than stdout (from Payton Quackenbush).</p>
+</li><li>
+<p>Better error handling on invalid command line arguments (from Payton Quackenbush).</p>
+</li><li>
+<p>Fixed some bugs where the application object was going to the global appliation instead of using its own data.</p>
+</li><li>
+<p>Fixed the method name leak from <a href="../../../../../../../../../classes/FileUtils.html"><code>FileUtils</code></a> (bug found by Glenn Vanderburg).</p>
+</li><li>
+<p>Added test for noop, bad_option and verbose flags to sh command.</p>
+</li><li>
+<p>Added a description to the gem task in GemPackageTask.</p>
+</li><li>
+<p>Fixed a bug when rules have multiple prerequisites (patch by Joel VanderWerf)</p>
+</li><li>
+<p>Added the handful of RakeFileUtils to the private method as well.</p>
+</li></ul>
+
+<h3 id="label-New+Features+in+0.7.2">New Features in 0.7.2</h3>
+
+<p>The following new features are available in Rake version 0.7.2:</p>
+<ul><li>
+<p>Added square and curly bracket patterns to FileList#include (Tilman Sauerbeck).</p>
+</li><li>
+<p>FileLists can now pass a block to FileList#exclude to exclude files based on calculated values.</p>
+</li><li>
+<p>Added plain filename support to rule dependents (suggested by Nobu Nakada).</p>
+</li><li>
+<p>Added pathmap support to rule dependents.  In other words, if a pathmap format (beginning with a &#39;%&#39;) is given as a Rake rule dependent, then the name of the depend will be the name of the target with the pathmap format applied.</p>
+</li><li>
+<p>Added a &#39;tasks&#39; method to a namespace to get a list of tasks associated with the namespace.</p>
+</li><li>
+<p>Added tar_command and zip_command options to the Package task.</p>
+</li><li>
+<p>The clean task will no longer delete &#39;core&#39; if it is a directory.</p>
+</li></ul>
+
+<h3 id="label-Internal+Rake+Improvements">Internal Rake Improvements</h3>
+
+<p>The following changes will are mainly internal improvements and refactorings and have little effect on the end user.  But they may be of interest to the general public.</p>
+<ul><li>
+<p>Added rcov task and updated unit testing for better code coverage.</p>
+</li><li>
+<p>Added a &#39;shame&#39; task to the <a href="../../../../../../../../Rakefile.html">Rakefile</a>.</p>
+</li><li>
+<p>Added rake_extension to handle detection of extension collisions.</p>
+</li><li>
+<p>Added a protected &#39;require “rubygems”&#39; to test/test_application to unbreak cruisecontrol.rb.</p>
+</li><li>
+<p>Removed rake_dup.  Now we just simply rescue a bad dup.</p>
+</li><li>
+<p>Refactored the FileList reject logic to remove duplication.</p>
+</li><li>
+<p>Removed if __FILE__ at the end of the rake.rb file.</p>
+</li></ul>
+
+<h2 id="label-What+is+Rake">What is Rake</h2>
+
+<p>Rake is a build tool similar to the make program in many ways.  But instead of cryptic make recipes, Rake uses standard Ruby code to declare tasks and dependencies.  You have the full power of a modern scripting language built right into your build tool.</p>
+
+<h2 id="label-Availability">Availability</h2>
+
+<p>The easiest way to get and install rake is via RubyGems …</p>
+
+<pre><code>gem install rake    (you may need root/admin privileges)
+</code></pre>
+
+<p>Otherwise, you can get it from the more traditional places:</p>
+<dl class="rdoc-list note-list"><dt>Home Page
+<dd>
+<p><a href="http://rake.rubyforge.org">rake.rubyforge.org</a>/</p>
+</dd><dt>Download
+<dd>
+<p><a href="http://rubyforge.org/project/showfiles.php?group_id=50">rubyforge.org/project/showfiles.php?group_id=50</a></p>
+</dd></dl>
+
+<h2 id="label-Thanks">Thanks</h2>
+
+<p>As usual, it was input from users that drove a alot of these changes. The following people either contributed patches, made suggestions or made otherwise helpful comments.  Thanks to …</p>
+<ul><li>
+<p>Payton Quackenbush – For several error handling improvements.</p>
+</li><li>
+<p>Glenn Vanderburg – For finding and fixing the method name leak from <a href="../../../../../../../../../classes/FileUtils.html"><code>FileUtils</code></a>.</p>
+</li><li>
+<p>Joel VanderWerf – for finding and fixing a bug in the handling of multiple prerequisites.</p>
+</li><li>
+<p>Tilman Sauerbeck – For some enhancing FileList to support more advanced file globbing.</p>
+</li><li>
+<p>Nobu Nakada – For suggesting plain file name support to rule dependents.</p>
+</li></ul>
+
+<p>– Jim Weirich</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

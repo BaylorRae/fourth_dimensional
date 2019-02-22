@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::BuiltIn::Compound</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::BuiltIn::Compound">
+
+  
+    
+    <meta name="description" content="@api private Base class for `and` and `or` compound matchers.">
+    <meta property="og:description" content="@api private Base class for `and` and `or` compound matchers.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::BuiltIn::Compound class">
+  
+    <meta name="keywords" content="new, does_not_match?, description, supports_block_expectations?, expects_call_stack_jump?, diffable?, expected, diffable_matcher_list">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::BuiltIn::Compound
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseMatcher.html">RSpec::Matchers::BuiltIn::BaseMatcher</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/compound_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb</a></li>
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/composable_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/composable.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private Base class for `and` and `or` compound matchers.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Compound/And.html">RSpec::Matchers::BuiltIn::Compound::And</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Compound/NestedEvaluator.html">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Compound/Or.html">RSpec::Matchers::BuiltIn::Compound::Or</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Compound/SequentialEvaluator.html">RSpec::Matchers::BuiltIn::Compound::SequentialEvaluator</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-diffable-3F">diffable?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-diffable_matcher_list">diffable_matcher_list</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-does_not_match-3F">does_not_match?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expected">expected</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-expects_call_stack_jump-3F">expects_call_stack_jump?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-supports_block_expectations-3F">supports_block_expectations?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>evaluator</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>matcher_1</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>matcher_2</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(matcher_1, matcher_2)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">matcher_1</span>, <span class="ruby-identifier">matcher_2</span>)
+  <span class="ruby-ivar">@matcher_1</span> = <span class="ruby-identifier">matcher_1</span>
+  <span class="ruby-ivar">@matcher_2</span> = <span class="ruby-identifier">matcher_2</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-node">&quot;#{matcher_1.description} #{conjunction} #{matcher_2.description}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-diffable-3F">
+            
+              <b>diffable?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-diffable-3F" name="method-i-diffable-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [Boolean]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-diffable-3F_source')" id="l_method-i-diffable-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-diffable-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">diffable?</span>
+  <span class="ruby-identifier">matcher_is_diffable?</span>(<span class="ruby-identifier">matcher_1</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">matcher_is_diffable?</span>(<span class="ruby-identifier">matcher_2</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-does_not_match-3F">
+            
+              <b>does_not_match?</b>(_actual)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-does_not_match-3F" name="method-i-does_not_match-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-does_not_match-3F_source')" id="l_method-i-does_not_match-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-does_not_match-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">does_not_match?</span>(<span class="ruby-identifier">_actual</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;`expect(...).not_to matcher.#{conjunction} matcher` &quot;</span> \
+    <span class="ruby-string">&quot;is not supported, since it creates a bit of an ambiguity. Instead, define negated versions &quot;</span> \
+    <span class="ruby-string">&quot;of whatever matchers you wish to negate with `RSpec::Matchers.define_negated_matcher` and &quot;</span> \
+    <span class="ruby-node">&quot;use `expect(...).to matcher.#{conjunction} matcher`.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expected">
+            
+              <b>expected</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-expected" name="method-i-expected" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [RSpec::Matchers::ExpectedsForMultipleDiffs]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expected_source')" id="l_method-i-expected_source">show</a>
+                
+              </p>
+              <div id="method-i-expected_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expected</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">evaluator</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Matchers</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectedsForMultipleDiffs</span>.<span class="ruby-identifier">for_many_matchers</span>(<span class="ruby-identifier">diffable_matcher_list</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expects_call_stack_jump-3F">
+            
+              <b>expects_call_stack_jump?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-expects_call_stack_jump-3F" name="method-i-expects_call_stack_jump-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expects_call_stack_jump-3F_source')" id="l_method-i-expects_call_stack_jump-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-expects_call_stack_jump-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expects_call_stack_jump?</span>
+  <span class="ruby-constant">NestedEvaluator</span>.<span class="ruby-identifier">matcher_expects_call_stack_jump?</span>(<span class="ruby-identifier">matcher_1</span>) <span class="ruby-operator">||</span>
+  <span class="ruby-constant">NestedEvaluator</span>.<span class="ruby-identifier">matcher_expects_call_stack_jump?</span>(<span class="ruby-identifier">matcher_2</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-supports_block_expectations-3F">
+            
+              <b>supports_block_expectations?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-supports_block_expectations-3F" name="method-i-supports_block_expectations-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-supports_block_expectations-3F_source')" id="l_method-i-supports_block_expectations-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-supports_block_expectations-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">supports_block_expectations?</span>
+  <span class="ruby-identifier">matcher_supports_block_expectations?</span>(<span class="ruby-identifier">matcher_1</span>) <span class="ruby-operator">&amp;&amp;</span>
+  <span class="ruby-identifier">matcher_supports_block_expectations?</span>(<span class="ruby-identifier">matcher_2</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+      <div class="sectiontitle">Instance Protected methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-diffable_matcher_list">
+            
+              <b>diffable_matcher_list</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Compound.html#method-i-diffable_matcher_list" name="method-i-diffable_matcher_list" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-diffable_matcher_list_source')" id="l_method-i-diffable_matcher_list_source">show</a>
+                
+              </p>
+              <div id="method-i-diffable_matcher_list_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">diffable_matcher_list</span>
+  <span class="ruby-identifier">list</span> = []
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">diffable_matcher_list_for</span>(<span class="ruby-identifier">matcher_1</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matcher_1_matches?</span>
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">diffable_matcher_list_for</span>(<span class="ruby-identifier">matcher_2</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matcher_2_matches?</span>
+  <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

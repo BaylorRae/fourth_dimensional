@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::ExpectedsForMultipleDiffs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::ExpectedsForMultipleDiffs">
+
+  
+    
+    <meta name="description" content="@api private Handles list of expected values when there is a need to render multiple diffs. Also can handle one value.">
+    <meta property="og:description" content="@api private Handles list of expected values when there is a need to render multiple diffs. Also can handle one value.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::ExpectedsForMultipleDiffs class">
+  
+    <meta name="keywords" content="new, from, for_many_matchers, message_with_diff">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::ExpectedsForMultipleDiffs
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/expecteds_for_multiple_diffs_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private Handles list of expected values when there is a need to render multiple diffs. Also can handle one value.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-for_many_matchers">for_many_matchers</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-from">from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message_with_diff">message_with_diff</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">DEFAULT_DIFF_LABEL</td>
+            <td>=</td>
+            <td class="attr-value">&quot;Diff:&quot;.freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private Default diff label when there is only one matcher in diff output</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DESCRIPTION_MAX_LENGTH</td>
+            <td>=</td>
+            <td class="attr-value">65</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private Maximum readable matcher description length</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-for_many_matchers">
+            
+              <b>for_many_matchers</b>(matchers)
+            
+            <a href="../../../classes/RSpec/Matchers/ExpectedsForMultipleDiffs.html#method-c-for_many_matchers" name="method-c-for_many_matchers" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Wraps provided matcher list in instance of ExpectedForMultipleDiffs. @param [Array&lt;Any&gt;] matchers list of matchers to wrap @return [RSpec::Matchers::ExpectedsForMultipleDiffs]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-for_many_matchers_source')" id="l_method-c-for_many_matchers_source">show</a>
+                
+              </p>
+              <div id="method-c-for_many_matchers_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">for_many_matchers</span>(<span class="ruby-identifier">matchers</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">matchers</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">m</span>.<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">diff_label_for</span>(<span class="ruby-identifier">m</span>)] })
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-from">
+            
+              <b>from</b>(expected)
+            
+            <a href="../../../classes/RSpec/Matchers/ExpectedsForMultipleDiffs.html#method-c-from" name="method-c-from" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Wraps provided expected value in instance of ExpectedForMultipleDiffs. If provided value is already an ExpectedForMultipleDiffs then it just returns it. @param [Any] expected value to be wrapped @return [RSpec::Matchers::ExpectedsForMultipleDiffs]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-from_source')" id="l_method-c-from_source">show</a>
+                
+              </p>
+              <div id="method-c-from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">from</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">expected</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">expected</span>
+  <span class="ruby-identifier">new</span>([[<span class="ruby-identifier">expected</span>, <span class="ruby-constant">DEFAULT_DIFF_LABEL</span>]])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(expected_list)
+            
+            <a href="../../../classes/RSpec/Matchers/ExpectedsForMultipleDiffs.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">expected_list</span>)
+  <span class="ruby-ivar">@expected_list</span> = <span class="ruby-identifier">expected_list</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-message_with_diff">
+            
+              <b>message_with_diff</b>(message, differ, actual)
+            
+            <a href="../../../classes/RSpec/Matchers/ExpectedsForMultipleDiffs.html#method-i-message_with_diff" name="method-i-message_with_diff" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Returns message with diff(s) appended for provided differ factory and actual value if there are any @param [String] message original failure message @param [Proc] differ @param [Any] actual value @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_with_diff_source')" id="l_method-i-message_with_diff_source">show</a>
+                
+              </p>
+              <div id="method-i-message_with_diff_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message_with_diff</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">differ</span>, <span class="ruby-identifier">actual</span>)
+  <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">diffs</span>(<span class="ruby-identifier">differ</span>, <span class="ruby-identifier">actual</span>)
+  <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{message}\n#{diff}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">diff</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

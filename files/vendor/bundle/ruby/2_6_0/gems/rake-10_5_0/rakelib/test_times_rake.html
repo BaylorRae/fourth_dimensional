@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>test_times.rake</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            test_times.rake
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/rakelib/test_times.rake</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>module TestTimes</p>
+
+<pre><code>def self.run(test_results, limit=0)
+  limit = limit.nonzero? || 10
+  tests = []
+  test_results.split(/\n/).each do |line|
+    if line =~ /^(.+?#[^:]+): ([0-9.]+) s: \.$/
+      tests &lt;&lt; [$1, $2.to_f, line]
+    end
+  end
+
+  puts &quot;#{limit} Slowest tests&quot;
+  puts tests.sort_by { |item|
+    item[1]
+  }.reverse[0...limit].map { |item|
+    &quot;%6.3f: %-s\n&quot; % [item[1], item[0]]
+  }
+end
+</code></pre>
+
+<p>end</p>
+
+<p>namespace :test do</p>
+
+<pre><code>desc &quot;Find the slowest unit tests&quot;
+task :times, [:limit] do |t, args|
+  TestTimes.run `rake test:units TESTOPTS=&#39;--verbose&#39;`, args.limit.to_i
+end
+</code></pre>
+
+<p>end</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

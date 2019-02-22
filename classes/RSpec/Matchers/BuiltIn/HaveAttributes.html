@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::BuiltIn::HaveAttributes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::BuiltIn::HaveAttributes">
+
+  
+    
+    <meta name="description" content="@api private Provides the implementation for `have_attributes`. Not intended to be instantiated directly.">
+    <meta property="og:description" content="@api private Provides the implementation for `have_attributes`. Not intended to be instantiated directly.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::BuiltIn::HaveAttributes class">
+  
+    <meta name="keywords" content="new, actual, matches?, does_not_match?, description, diffable?, failure_message, failure_message_when_negated">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::BuiltIn::HaveAttributes
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseMatcher.html">RSpec::Matchers::BuiltIn::BaseMatcher</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/have_attributes_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private Provides the implementation for `have_attributes`. Not intended to be instantiated directly.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-actual">actual</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-diffable-3F">diffable?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-does_not_match-3F">does_not_match?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-failure_message">failure_message</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-failure_message_when_negated">failure_message_when_negated</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-matches-3F">matches?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>respond_to_failed</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(expected)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-ivar">@expected</span> = <span class="ruby-identifier">expected</span>
+  <span class="ruby-ivar">@values</span> = {}
+  <span class="ruby-ivar">@respond_to_failed</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@negated</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-actual">
+            
+              <b>actual</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-actual" name="method-i-actual" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-actual_source')" id="l_method-i-actual_source">show</a>
+                
+              </p>
+              <div id="method-i-actual_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">actual</span>
+  <span class="ruby-ivar">@values</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-identifier">described_items</span> = <span class="ruby-identifier">surface_descriptions_in</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-identifier">improve_hash_formatting</span> <span class="ruby-node">&quot;have attributes #{RSpec::Support::ObjectFormatter.format(described_items)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-diffable-3F">
+            
+              <b>diffable?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-diffable-3F" name="method-i-diffable-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [Boolean]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-diffable-3F_source')" id="l_method-i-diffable-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-diffable-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">diffable?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@respond_to_failed</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@negated</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-does_not_match-3F">
+            
+              <b>does_not_match?</b>(actual)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-does_not_match-3F" name="method-i-does_not_match-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [Boolean]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-does_not_match-3F_source')" id="l_method-i-does_not_match-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-does_not_match-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">does_not_match?</span>(<span class="ruby-identifier">actual</span>)
+  <span class="ruby-ivar">@actual</span> = <span class="ruby-identifier">actual</span>
+  <span class="ruby-ivar">@negated</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">respond_to_attributes?</span>
+  <span class="ruby-identifier">perform_match</span>(<span class="ruby-value">:none?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message">
+            
+              <b>failure_message</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-failure_message" name="method-i-failure_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_source')" id="l_method-i-failure_message_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message</span>
+  <span class="ruby-identifier">respond_to_failure_message_or</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-node">&quot;expected #{actual_formatted} to #{description} but had attributes #{ formatted_values }&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message_when_negated">
+            
+              <b>failure_message_when_negated</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-failure_message_when_negated" name="method-i-failure_message_when_negated" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_when_negated_source')" id="l_method-i-failure_message_when_negated_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_when_negated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message_when_negated</span>
+  <span class="ruby-identifier">respond_to_failure_message_or</span> { <span class="ruby-node">&quot;expected #{actual_formatted} not to #{description}&quot;</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matches-3F">
+            
+              <b>matches?</b>(actual)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-matches-3F" name="method-i-matches-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [Boolean]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-matches-3F_source')" id="l_method-i-matches-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-matches-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">matches?</span>(<span class="ruby-identifier">actual</span>)
+  <span class="ruby-ivar">@actual</span> = <span class="ruby-identifier">actual</span>
+  <span class="ruby-ivar">@negated</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">respond_to_attributes?</span>
+  <span class="ruby-identifier">perform_match</span>(<span class="ruby-value">:all?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

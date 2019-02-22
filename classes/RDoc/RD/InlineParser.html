@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::RD::InlineParser</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::RD::InlineParser">
+
+  
+    
+    <meta name="description" content="RD format parser for inline markup such as emphasis, links, footnotes, etc.">
+    <meta property="og:description" content="RD format parser for inline markup such as emphasis, links, footnotes, etc.">
+  
+
+    <meta name="keywords" content="RDoc::RD::InlineParser class">
+  
+    <meta name="keywords" content="new, parse, next_token, on_error, prev_words_on_error, next_words_on_error, inline">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::RD::InlineParser
+            
+                <span class="parent">&lt;
+                    
+                    Racc::Parser
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/rd/inline_parser_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../RD.html"><code>RD</code></a> format parser for inline markup such as emphasis, links, footnotes, etc.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inline">inline</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-next_token">next_token</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-next_words_on_error">next_words_on_error</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-on_error">on_error</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse">parse</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-prev_words_on_error">prev_words_on_error</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(block_parser)
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new parser for inline markup in the rd format.  The <code>block_parser</code> is used to for footnotes and labels in the inline text.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">block_parser</span>
+  <span class="ruby-ivar">@block_parser</span> = <span class="ruby-identifier">block_parser</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-inline">
+            
+              <b>inline</b>(rdoc, reference = rdoc)
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-i-inline" name="method-i-inline" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new <a href="Inline.html"><code>RDoc::RD::Inline</code></a> for the <code>rdoc</code> markup and the raw <code>reference</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inline_source')" id="l_method-i-inline_source">show</a>
+                
+              </p>
+              <div id="method-i-inline_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inline</span> <span class="ruby-identifier">rdoc</span>, <span class="ruby-identifier">reference</span> = <span class="ruby-identifier">rdoc</span>
+  <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">RD</span><span class="ruby-operator">::</span><span class="ruby-constant">Inline</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rdoc</span>, <span class="ruby-identifier">reference</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-next_token">
+            
+              <b>next_token</b>()
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-i-next_token" name="method-i-next_token" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns the next token from the inline text</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-next_token_source')" id="l_method-i-next_token_source">show</a>
+                
+              </p>
+              <div id="method-i-next_token_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next_token</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">eos?</span>
+<span class="ruby-comment">#  p @src.rest if @yydebug</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">EM_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:EM_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">EM_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:EM_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">CODE_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:CODE_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">CODE_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:CODE_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">VAR_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:VAR_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">VAR_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:VAR_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">KBD_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:KBD_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">KBD_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:KBD_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">INDEX_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:INDEX_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">INDEX_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:INDEX_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">REF_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:REF_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">REF_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:REF_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">FOOTNOTE_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:FOOTNOTE_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">FOOTNOTE_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:FOOTNOTE_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">VERB_OPEN_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:VERB_OPEN</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">VERB_CLOSE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:VERB_CLOSE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">BAR_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:BAR</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">QUOTE_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:QUOTE</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">SLASH_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:SLASH</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">BACK_SLASH_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:BACK_SLASH</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">URL_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:URL</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">OTHER_RE</span>)
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    [<span class="ruby-value">:OTHER</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ret</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">rest</span>
+    <span class="ruby-ivar">@pre</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ret</span>
+    <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">terminate</span>
+    [<span class="ruby-value">:OTHER</span>, <span class="ruby-identifier">ret</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-next_words_on_error">
+            
+              <b>next_words_on_error</b>()
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-i-next_words_on_error" name="method-i-next_words_on_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns words following an error</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-next_words_on_error_source')" id="l_method-i-next_words_on_error_source">show</a>
+                
+              </p>
+              <div id="method-i-next_words_on_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">next_words_on_error</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">rest</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">rest</span>[<span class="ruby-value">0</span> <span class="ruby-operator">..</span> (<span class="ruby-identifier">n</span><span class="ruby-value">-1</span>)]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">rest</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-on_error">
+            
+              <b>on_error</b>(et, ev, values)
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-i-on_error" name="method-i-on_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Raises a ParseError when invalid formatting is found</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-on_error_source')" id="l_method-i-on_error_source">show</a>
+                
+              </p>
+              <div id="method-i-on_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_error</span>(<span class="ruby-identifier">et</span>, <span class="ruby-identifier">ev</span>, <span class="ruby-identifier">values</span>)
+  <span class="ruby-identifier">lines_of_rest</span> = <span class="ruby-ivar">@src</span>.<span class="ruby-identifier">rest</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">prev_words</span> = <span class="ruby-identifier">prev_words_on_error</span>(<span class="ruby-identifier">ev</span>)
+  <span class="ruby-identifier">at</span> = <span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">prev_words</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-identifier">message</span> = <span class="ruby-identifier">&lt;&lt;-MSG</span>
+<span class="ruby-value">RD syntax error: line #{@block_parser.line_index - lines_of_rest}:
+...#{prev_words} #{(ev||&#39;&#39;)} #{next_words_on_error()} ...
+</span><span class="ruby-identifier">  MSG</span>
+
+  <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot; &quot;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">at</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;^&quot;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">ev</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ev</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseError</span>, <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse">
+            
+              <b>parse</b>(inline)
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-i-parse" name="method-i-parse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Parses the <code>inline</code> text from <a href="../RD.html"><code>RD</code></a> format into <a href="../../RDoc.html"><code>RDoc</code></a> format.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-parse_source')" id="l_method-i-parse_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse</span> <span class="ruby-identifier">inline</span>
+  <span class="ruby-ivar">@inline</span> = <span class="ruby-identifier">inline</span>
+  <span class="ruby-ivar">@src</span> = <span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">inline</span>
+  <span class="ruby-ivar">@pre</span> = <span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@yydebug</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">do_parse</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prev_words_on_error">
+            
+              <b>prev_words_on_error</b>(ev)
+            
+            <a href="../../../classes/RDoc/RD/InlineParser.html#method-i-prev_words_on_error" name="method-i-prev_words_on_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns words before the error</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prev_words_on_error_source')" id="l_method-i-prev_words_on_error_source">show</a>
+                
+              </p>
+              <div id="method-i-prev_words_on_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prev_words_on_error</span>(<span class="ruby-identifier">ev</span>)
+  <span class="ruby-identifier">pre</span> = <span class="ruby-ivar">@pre</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ev</span> <span class="ruby-keyword">and</span> <span class="ruby-regexp">/#{Regexp.quote(ev)}$/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">pre</span>
+    <span class="ruby-identifier">pre</span> = <span class="ruby-node">$`</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">last_line</span>(<span class="ruby-identifier">pre</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

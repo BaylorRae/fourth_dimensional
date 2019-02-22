@@ -1,0 +1,1693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakeFileUtils</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakeFileUtils">
+
+  
+
+    <meta name="keywords" content="TestRakeFileUtils class">
+  
+    <meta name="keywords" content="setup, teardown, test_rm_one_file, test_rm_two_files, test_rm_filelist, test_ln, test_safe_ln_failover_to_cp_on_standard_error, test_safe_ln_failover_to_cp_on_not_implemented_error, test_safe_ln_fails_on_script_error, test_verbose, test_nowrite, test_file_utils_methods_are_available_at_top_level, test_fileutils_methods_dont_leak, test_sh, test_sh_with_a_single_string_argument, test_sh_with_multiple_arguments, test_sh_failure, test_sh_special_handling, test_sh_noop, test_sh_bad_option, test_sh_verbose, test_sh_verbose_false, test_sh_verbose_flag_nil, test_ruby_with_a_single_string_argument, test_ruby_with_multiple_arguments, test_split_all, command, check_no_expansion, check_expansion, replace_ruby, shellcommand, env_var, windows?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakeFileUtils
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_file_utils_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="TestRakeFileUtils/BadLink.html">TestRakeFileUtils::BadLink</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-check_expansion">check_expansion</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-check_no_expansion">check_no_expansion</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-command">command</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-env_var">env_var</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-replace_ruby">replace_ruby</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-shellcommand">shellcommand</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-teardown">teardown</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_file_utils_methods_are_available_at_top_level">test_file_utils_methods_are_available_at_top_level</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_fileutils_methods_dont_leak">test_fileutils_methods_dont_leak</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_ln">test_ln</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_nowrite">test_nowrite</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rm_filelist">test_rm_filelist</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rm_one_file">test_rm_one_file</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rm_two_files">test_rm_two_files</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_ruby_with_a_single_string_argument">test_ruby_with_a_single_string_argument</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_ruby_with_multiple_arguments">test_ruby_with_multiple_arguments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_safe_ln_failover_to_cp_on_not_implemented_error">test_safe_ln_failover_to_cp_on_not_implemented_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_safe_ln_failover_to_cp_on_standard_error">test_safe_ln_failover_to_cp_on_standard_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_safe_ln_fails_on_script_error">test_safe_ln_fails_on_script_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh">test_sh</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_bad_option">test_sh_bad_option</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_failure">test_sh_failure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_noop">test_sh_noop</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_special_handling">test_sh_special_handling</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_verbose">test_sh_verbose</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_verbose_false">test_sh_verbose_false</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_verbose_flag_nil">test_sh_verbose_flag_nil</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_with_a_single_string_argument">test_sh_with_a_single_string_argument</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_sh_with_multiple_arguments">test_sh_with_multiple_arguments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_split_all">test_split_all</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_verbose">test_verbose</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-windows-3F">windows?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-check_expansion">
+            
+              <b>check_expansion</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-check_expansion" name="method-i-check_expansion" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-check_expansion_source')" id="l_method-i-check_expansion_source">show</a>
+                
+              </p>
+              <div id="method-i-check_expansion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 278</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_expansion</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-string">&#39;check_expansion.rb&#39;</span>, <span class="ruby-identifier">&lt;&lt;-CHECK_EXPANSION</span>
+<span class="ruby-value">if ARGV[0] != ARGV[1]
+  exit 1
+else
+  exit 0
+end
+</span><span class="ruby-identifier">    CHECK_EXPANSION</span>
+  <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-check_no_expansion">
+            
+              <b>check_no_expansion</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-check_no_expansion" name="method-i-check_no_expansion" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-check_no_expansion_source')" id="l_method-i-check_no_expansion_source">show</a>
+                
+              </p>
+              <div id="method-i-check_no_expansion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 268</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">check_no_expansion</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-string">&#39;check_no_expansion.rb&#39;</span>, <span class="ruby-identifier">&lt;&lt;-CHECK_EXPANSION</span>
+<span class="ruby-value">if ARGV[0] != ARGV[1]
+  exit 0
+else
+  exit 1
+end
+</span><span class="ruby-identifier">    CHECK_EXPANSION</span>
+  <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-command">
+            
+              <b>command</b>(name, text)
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-command" name="method-i-command" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-command_source')" id="l_method-i-command_source">show</a>
+                
+              </p>
+              <div id="method-i-command_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">command</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">open</span> <span class="ruby-identifier">name</span>, <span class="ruby-string">&#39;w&#39;</span>, <span class="ruby-value">0750</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">io</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-env_var">
+            
+              <b>env_var</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-env_var" name="method-i-env_var" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-env_var_source')" id="l_method-i-env_var_source">show</a>
+                
+              </p>
+              <div id="method-i-env_var_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">env_var</span>
+  <span class="ruby-identifier">windows?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;%RAKE_TEST_SH%&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;$RAKE_TEST_SH&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-replace_ruby">
+            
+              <b>replace_ruby</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-replace_ruby" name="method-i-replace_ruby" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-replace_ruby_source')" id="l_method-i-replace_ruby_source">show</a>
+                
+              </p>
+              <div id="method-i-replace_ruby_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">replace_ruby</span>
+  <span class="ruby-identifier">ruby</span> = <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">RUBY</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:remove_const</span>, <span class="ruby-value">:RUBY</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">const_set</span> <span class="ruby-value">:RUBY</span>, <span class="ruby-constant">RUBY</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:remove_const</span>, <span class="ruby-value">:RUBY</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">const_set</span><span class="ruby-value">:RUBY</span>, <span class="ruby-identifier">ruby</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@rake_test_sh</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-shellcommand">
+            
+              <b>shellcommand</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-shellcommand" name="method-i-shellcommand" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-shellcommand_source')" id="l_method-i-shellcommand_source">show</a>
+                
+              </p>
+              <div id="method-i-shellcommand_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 298</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shellcommand</span>
+    <span class="ruby-identifier">command</span> <span class="ruby-string">&#39;shellcommand.rb&#39;</span>, <span class="ruby-identifier">&lt;&lt;-SHELLCOMMAND</span>
+<span class="ruby-value">#!/usr/bin/env ruby
+
+exit((ARGV[0] || &quot;0&quot;).to_i)
+</span><span class="ruby-identifier">    SHELLCOMMAND</span>
+  <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-teardown">
+            
+              <b>teardown</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-teardown" name="method-i-teardown" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-teardown_source')" id="l_method-i-teardown_source">show</a>
+                
+              </p>
+              <div id="method-i-teardown_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">teardown</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-constant">RakeFileUtils</span>.<span class="ruby-identifier">verbose_flag</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-ivar">@rake_test_sh</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_file_utils_methods_are_available_at_top_level">
+            
+              <b>test_file_utils_methods_are_available_at_top_level</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_file_utils_methods_are_available_at_top_level" name="method-i-test_file_utils_methods_are_available_at_top_level" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_file_utils_methods_are_available_at_top_level_source')" id="l_method-i-test_file_utils_methods_are_available_at_top_level_source">show</a>
+                
+              </p>
+              <div id="method-i-test_file_utils_methods_are_available_at_top_level_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_utils_methods_are_available_at_top_level</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a&quot;</span>)
+
+  <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">rm_rf</span> <span class="ruby-string">&quot;a&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_fileutils_methods_dont_leak">
+            
+              <b>test_fileutils_methods_dont_leak</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_fileutils_methods_dont_leak" name="method-i-test_fileutils_methods_dont_leak" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_fileutils_methods_dont_leak_source')" id="l_method-i-test_fileutils_methods_dont_leak_source">show</a>
+                
+              </p>
+              <div id="method-i-test_fileutils_methods_dont_leak_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_fileutils_methods_dont_leak</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">NoMethodError</span>) { <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">copy</span> } <span class="ruby-comment"># from FileUtils</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">NoMethodError</span>) { <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">ruby</span> <span class="ruby-string">&quot;-v&quot;</span> } <span class="ruby-comment"># from RubyFileUtils</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_ln">
+            
+              <b>test_ln</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_ln" name="method-i-test_ln" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_ln_source')" id="l_method-i-test_ln_source">show</a>
+                
+              </p>
+              <div id="method-i-test_ln_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ln</span>
+  <span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;TEST_LN&quot;</span> }
+
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">safe_ln</span>(<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-value">:verbose</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;TEST_LN\n&quot;</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;b&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_nowrite">
+            
+              <b>test_nowrite</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_nowrite" name="method-i-test_nowrite" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_nowrite_source')" id="l_method-i-test_nowrite_source">show</a>
+                
+              </p>
+              <div id="method-i-test_nowrite_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_nowrite</span>
+  <span class="ruby-identifier">nowrite</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">nowrite</span>
+  <span class="ruby-identifier">nowrite</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">nowrite</span>
+  <span class="ruby-identifier">nowrite</span>(<span class="ruby-keyword">true</span>) {
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">nowrite</span>
+  }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">nowrite</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rm_filelist">
+            
+              <b>test_rm_filelist</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_rm_filelist" name="method-i-test_rm_filelist" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rm_filelist_source')" id="l_method-i-test_rm_filelist_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rm_filelist_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rm_filelist</span>
+  <span class="ruby-identifier">list</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;a&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">create_file</span>(<span class="ruby-identifier">fn</span>) }
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;b&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rm_one_file">
+            
+              <b>test_rm_one_file</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_rm_one_file" name="method-i-test_rm_one_file" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rm_one_file_source')" id="l_method-i-test_rm_one_file_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rm_one_file_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rm_one_file</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-string">&quot;a&quot;</span>
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rm_two_files">
+            
+              <b>test_rm_two_files</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_rm_two_files" name="method-i-test_rm_two_files" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rm_two_files_source')" id="l_method-i-test_rm_two_files_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rm_two_files_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rm_two_files</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;b&quot;</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> [<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>]
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;a&quot;</span>)
+  <span class="ruby-identifier">refute</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-string">&quot;b&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_ruby_with_a_single_string_argument">
+            
+              <b>test_ruby_with_a_single_string_argument</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_ruby_with_a_single_string_argument" name="method-i-test_ruby_with_a_single_string_argument" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_ruby_with_a_single_string_argument_source')" id="l_method-i-test_ruby_with_a_single_string_argument_source">show</a>
+                
+              </p>
+              <div id="method-i-test_ruby_with_a_single_string_argument_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ruby_with_a_single_string_argument</span>
+  <span class="ruby-identifier">check_expansion</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">replace_ruby</span> {
+      <span class="ruby-identifier">ruby</span> <span class="ruby-node">%{check_expansion.rb #{env_var} someval}</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_ruby_with_multiple_arguments">
+            
+              <b>test_ruby_with_multiple_arguments</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_ruby_with_multiple_arguments" name="method-i-test_ruby_with_multiple_arguments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_ruby_with_multiple_arguments_source')" id="l_method-i-test_ruby_with_multiple_arguments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_ruby_with_multiple_arguments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_ruby_with_multiple_arguments</span>
+  <span class="ruby-identifier">check_no_expansion</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">replace_ruby</span> {
+      <span class="ruby-identifier">ruby</span> <span class="ruby-string">&#39;check_no_expansion.rb&#39;</span>, <span class="ruby-identifier">env_var</span>, <span class="ruby-string">&#39;someval&#39;</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_safe_ln_failover_to_cp_on_not_implemented_error">
+            
+              <b>test_safe_ln_failover_to_cp_on_not_implemented_error</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_safe_ln_failover_to_cp_on_not_implemented_error" name="method-i-test_safe_ln_failover_to_cp_on_not_implemented_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_safe_ln_failover_to_cp_on_not_implemented_error_source')" id="l_method-i-test_safe_ln_failover_to_cp_on_not_implemented_error_source">show</a>
+                
+              </p>
+              <div id="method-i-test_safe_ln_failover_to_cp_on_not_implemented_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_safe_ln_failover_to_cp_on_not_implemented_error</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">BadLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">NotImplementedError</span>)
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cp_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_safe_ln_failover_to_cp_on_standard_error">
+            
+              <b>test_safe_ln_failover_to_cp_on_standard_error</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_safe_ln_failover_to_cp_on_standard_error" name="method-i-test_safe_ln_failover_to_cp_on_standard_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_safe_ln_failover_to_cp_on_standard_error_source')" id="l_method-i-test_safe_ln_failover_to_cp_on_standard_error_source">show</a>
+                
+              </p>
+              <div id="method-i-test_safe_ln_failover_to_cp_on_standard_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_safe_ln_failover_to_cp_on_standard_error</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">BadLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">StandardError</span>)
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cp_args</span>
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;x&quot;</span>, <span class="ruby-string">&quot;y&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-string">&#39;y&#39;</span>], <span class="ruby-identifier">c</span>.<span class="ruby-identifier">cp_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_safe_ln_fails_on_script_error">
+            
+              <b>test_safe_ln_fails_on_script_error</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_safe_ln_fails_on_script_error" name="method-i-test_safe_ln_fails_on_script_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_safe_ln_fails_on_script_error_source')" id="l_method-i-test_safe_ln_fails_on_script_error_source">show</a>
+                
+              </p>
+              <div id="method-i-test_safe_ln_fails_on_script_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_safe_ln_fails_on_script_error</span>
+  <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">LN_SUPPORTED</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">BadLink</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">ScriptError</span>)
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ScriptError</span>) <span class="ruby-keyword">do</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">safe_ln</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh">
+            
+              <b>test_sh</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh" name="method-i-test_sh" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_source')" id="l_method-i-test_sh_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-node">%{#{Rake::TestCase::RUBY} shellcommand.rb}</span> }
+  <span class="ruby-identifier">assert</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;should not fail&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_bad_option">
+            
+              <b>test_sh_bad_option</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_bad_option" name="method-i-test_sh_bad_option" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_bad_option_source')" id="l_method-i-test_sh_bad_option_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_bad_option_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_bad_option</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) {
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:bad_option</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span> }
+  }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/bad_option/</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_failure">
+            
+              <b>test_sh_failure</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_failure" name="method-i-test_sh_failure" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_failure_source')" id="l_method-i-test_sh_failure_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_failure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_failure</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) {
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-node">%{#{RUBY} shellcommand.rb 1}</span> }
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_noop">
+            
+              <b>test_sh_noop</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_noop" name="method-i-test_sh_noop" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_noop_source')" id="l_method-i-test_sh_noop_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_noop_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_noop</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) { <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb 1}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span> }
+  <span class="ruby-identifier">assert</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;should not fail&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_special_handling">
+            
+              <b>test_sh_special_handling</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_special_handling" name="method-i-test_sh_special_handling" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_special_handling_source')" id="l_method-i-test_sh_special_handling_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_special_handling_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_special_handling</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">sh</span>(<span class="ruby-node">%{#{RUBY} shellcommand.rb}</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ok</span>, <span class="ruby-identifier">res</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">ok</span>)
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">res</span>.<span class="ruby-identifier">exitstatus</span>
+      <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">sh</span>(<span class="ruby-node">%{#{RUBY} shellcommand.rb 1}</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ok</span>, <span class="ruby-identifier">res</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span><span class="ruby-identifier">ok</span>)
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">res</span>.<span class="ruby-identifier">exitstatus</span>
+      <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">count</span>, <span class="ruby-string">&quot;Block count should be 2&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_verbose">
+            
+              <b>test_sh_verbose</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_verbose" name="method-i-test_sh_verbose" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_verbose_source')" id="l_method-i-test_sh_verbose_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_verbose_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_verbose</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">true</span>) {
+      <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;shellcommand.rb\n&quot;</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_verbose_false">
+            
+              <b>test_sh_verbose_false</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_verbose_false" name="method-i-test_sh_verbose_false" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_verbose_false_source')" id="l_method-i-test_sh_verbose_false_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_verbose_false_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_verbose_false</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+      <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span>
+    }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">err</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_verbose_flag_nil">
+            
+              <b>test_sh_verbose_flag_nil</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_verbose_flag_nil" name="method-i-test_sh_verbose_flag_nil" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_verbose_flag_nil_source')" id="l_method-i-test_sh_verbose_flag_nil_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_verbose_flag_nil_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_verbose_flag_nil</span>
+  <span class="ruby-identifier">shellcommand</span>
+
+  <span class="ruby-constant">RakeFileUtils</span>.<span class="ruby-identifier">verbose_flag</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">assert_silent</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">sh</span> <span class="ruby-string">%{shellcommand.rb}</span>, <span class="ruby-value">:noop</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_with_a_single_string_argument">
+            
+              <b>test_sh_with_a_single_string_argument</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_with_a_single_string_argument" name="method-i-test_sh_with_a_single_string_argument" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_with_a_single_string_argument_source')" id="l_method-i-test_sh_with_a_single_string_argument_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_with_a_single_string_argument_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_with_a_single_string_argument</span>
+  <span class="ruby-identifier">check_expansion</span>
+
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">sh</span> <span class="ruby-node">%{#{RUBY} check_expansion.rb #{env_var} someval}</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_sh_with_multiple_arguments">
+            
+              <b>test_sh_with_multiple_arguments</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_sh_with_multiple_arguments" name="method-i-test_sh_with_multiple_arguments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_sh_with_multiple_arguments_source')" id="l_method-i-test_sh_with_multiple_arguments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_sh_with_multiple_arguments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_sh_with_multiple_arguments</span>
+  <span class="ruby-identifier">check_no_expansion</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAKE_TEST_SH&#39;</span>] = <span class="ruby-string">&#39;someval&#39;</span>
+
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) {
+    <span class="ruby-identifier">sh</span> <span class="ruby-constant">RUBY</span>, <span class="ruby-string">&#39;check_no_expansion.rb&#39;</span>, <span class="ruby-identifier">env_var</span>, <span class="ruby-string">&#39;someval&#39;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_split_all">
+            
+              <b>test_split_all</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_split_all" name="method-i-test_split_all" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_split_all_source')" id="l_method-i-test_split_all_source">show</a>
+                
+              </p>
+              <div id="method-i-test_split_all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_split_all</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;a&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;..&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;..&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;/&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;a/b&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;/a/b&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;..&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FileUtilsExt</span>.<span class="ruby-identifier">split_all</span>(<span class="ruby-string">&#39;../a/b&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_verbose">
+            
+              <b>test_verbose</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-test_verbose" name="method-i-test_verbose" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_verbose_source')" id="l_method-i-test_verbose_source">show</a>
+                
+              </p>
+              <div id="method-i-test_verbose_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_verbose</span>
+  <span class="ruby-identifier">verbose</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">verbose</span>
+  <span class="ruby-identifier">verbose</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">verbose</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">true</span>) {
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">verbose</span>
+  }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">verbose</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-windows-3F">
+            
+              <b>windows?</b>()
+            
+            <a href="../classes/TestRakeFileUtils.html#method-i-windows-3F" name="method-i-windows-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-windows-3F_source')" id="l_method-i-windows-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-windows-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_file_utils.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">windows?</span>
+  <span class="ruby-operator">!</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

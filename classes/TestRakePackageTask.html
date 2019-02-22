@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakePackageTask</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakePackageTask">
+
+  
+
+    <meta name="keywords" content="TestRakePackageTask class">
+  
+    <meta name="keywords" content="test_initialize, test_initialize_no_version, test_initialize_noversion, test_clone, test_package_name, test_package_name_noversion">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakePackageTask
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_package_task_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_clone">test_clone</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_initialize">test_initialize</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_initialize_no_version">test_initialize_no_version</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_initialize_noversion">test_initialize_noversion</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_package_name">test_package_name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_package_name_noversion">test_package_name_noversion</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-test_clone">
+            
+              <b>test_clone</b>()
+            
+            <a href="../classes/TestRakePackageTask.html#method-i-test_clone" name="method-i-test_clone" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_clone_source')" id="l_method-i-test_clone_source">show</a>
+                
+              </p>
+              <div id="method-i-test_clone_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clone</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;x&quot;</span>, <span class="ruby-value">:noversion</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;y&quot;</span>
+  <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">package_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;x&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;y&quot;</span>], <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_files</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x&quot;</span>], <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">package_files</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_initialize">
+            
+              <b>test_initialize</b>()
+            
+            <a href="../classes/TestRakePackageTask.html#method-i-test_initialize" name="method-i-test_initialize" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_initialize_source')" id="l_method-i-test_initialize_source">show</a>
+                
+              </p>
+              <div id="method-i-test_initialize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_initialize</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;install.rb&#39;</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;a.c&#39;</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;b.c&#39;</span>
+  <span class="ruby-identifier">mkdir</span> <span class="ruby-string">&#39;CVS&#39;</span>
+  <span class="ruby-identifier">touch</span> <span class="ruby-string">&#39;a.rb~&#39;</span>
+
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;pkgr&quot;</span>, <span class="ruby-string">&quot;1.2.3&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;install.rb&quot;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span>.<span class="ruby-identifier">include</span> <span class="ruby-string">&#39;*.c&#39;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">/\bCVS\b/</span>)
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_files</span>.<span class="ruby-identifier">exclude</span>(<span class="ruby-regexp">/~$/</span>)
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">package_dir</span> = <span class="ruby-string">&#39;pkg&#39;</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_tar</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_tar_gz</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_tar_bz2</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">p</span>.<span class="ruby-identifier">need_zip</span> = <span class="ruby-keyword">true</span>
+  }
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;pkg&quot;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_dir</span>
+
+  <span class="ruby-identifier">assert_includes</span> <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_files</span>, <span class="ruby-string">&#39;a.c&#39;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;pkgr&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;1.2.3&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">version</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value">:package</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.tgz&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.tar.gz&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.tar.bz2&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3.zip&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;pkg/pkgr-1.2.3&#39;</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value">:clobber_package</span>]
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">Task</span>[<span class="ruby-value">:repackage</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_initialize_no_version">
+            
+              <b>test_initialize_no_version</b>()
+            
+            <a href="../classes/TestRakePackageTask.html#method-i-test_initialize_no_version" name="method-i-test_initialize_no_version" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_initialize_no_version_source')" id="l_method-i-test_initialize_no_version_source">show</a>
+                
+              </p>
+              <div id="method-i-test_initialize_no_version_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_initialize_no_version</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;pkgr&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;Version required (or :noversion)&#39;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_initialize_noversion">
+            
+              <b>test_initialize_noversion</b>()
+            
+            <a href="../classes/TestRakePackageTask.html#method-i-test_initialize_noversion" name="method-i-test_initialize_noversion" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_initialize_noversion_source')" id="l_method-i-test_initialize_noversion_source">show</a>
+                
+              </p>
+              <div id="method-i-test_initialize_noversion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_initialize_noversion</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;pkgr&#39;</span>, <span class="ruby-value">:noversion</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;pkg&#39;</span>,  <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_dir</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;pkgr&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>,    <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">version</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_package_name">
+            
+              <b>test_package_name</b>()
+            
+            <a href="../classes/TestRakePackageTask.html#method-i-test_package_name" name="method-i-test_package_name" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_package_name_source')" id="l_method-i-test_package_name_source">show</a>
+                
+              </p>
+              <div id="method-i-test_package_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_package_name</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;1&#39;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a-1&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_package_name_noversion">
+            
+              <b>test_package_name_noversion</b>()
+            
+            <a href="../classes/TestRakePackageTask.html#method-i-test_package_name_noversion" name="method-i-test_package_name_noversion" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_package_name_noversion_source')" id="l_method-i-test_package_name_noversion_source">show</a>
+                
+              </p>
+              <div id="method-i-test_package_name_noversion_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_package_task.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_package_name_noversion</span>
+  <span class="ruby-identifier">pkg</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">PackageTask</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-value">:noversion</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-identifier">pkg</span>.<span class="ruby-identifier">package_name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

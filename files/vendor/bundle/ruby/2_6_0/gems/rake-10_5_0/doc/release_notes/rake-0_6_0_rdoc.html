@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>rake-0.6.0.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            rake-0.6.0.rdoc
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/doc/release_notes/rake-0.6.0.rdoc</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-Rake+0.6.0+Released">Rake 0.6.0 Released</h1>
+
+<p>Its time for some long requested enhancements and lots of bug fixes … And a whole new web page.</p>
+
+<h2 id="label-New+Web+Page">New Web Page</h2>
+
+<p>The primary documentation for rake has moved from the RubyForge based wiki to its own Hieraki based web site.  Constant spam on the wiki made it a difficult to keep clean.  The new site will be easier to update and organize.</p>
+
+<p>Check out the new documentation at: <a href="http://docs.rubyrake.org">docs.rubyrake.org</a></p>
+
+<p>We will be adding new documentation to the site as time goes on.</p>
+
+<p>In addition to the new docs page, make sure you check out Martin Fowlers article on rake at <a href="http://martinfowler.com/articles/rake.html">martinfowler.com/articles/rake.html</a></p>
+
+<h2 id="label-Changes">Changes</h2>
+
+<h3 id="label-New+Features">New Features</h3>
+<ul><li>
+<p>Multiple prerequisites on Rake rules now allowed.  However, keep the following in mind:</p>
+<ol><li>
+<p>All the prerequisites of a rule must be available before a rule is triggered, where “enabled” means (a) an existing file, (b) a defined rule, or © another rule which also must be trigger-able.</p>
+</li><li>
+<p>Rules are checked in order of definition, so it is important to order your rules properly.  If a file can be created by two different rules, put the more specific rule first (otherwise the more general rule will trigger first and the specific one will never be triggered).</p>
+</li><li>
+<p>The <code>source</code> method now returns the name of the first prerequisite listed in the rule.  <code>sources</code> returns the names of all the rule prerequisites, ordered as they are defined in the rule.  If the task has other prerequisites not defined in the rule (but defined in an explicit task definition), then they will <em>not</em> be included in the sources list.</p>
+</li></ol>
+</li><li>
+<p>FileLists may now use the egrep command.  This popular enhancement is now a core part of the FileList object.  If you want to get a list of all your to-dos, fixmes and TBD comments, add the following to your <a href="../../../../../../../../Rakefile.html">Rakefile</a>.</p>
+
+<pre><code>desc &quot;Look for TODO and FIXME tags in the code&quot;
+task :todo do
+  FileList[&#39;**/*.rb&#39;].egrep /#.*(FIXME|TODO|TBD)/
+end
+</code></pre>
+</li><li>
+<p>The <code>investigation</code> method was added to task object to dump out some important values.  This makes it a bit easier to debug Rake tasks.</p>
+
+<p>For example, if you are having problems with a particular task, just print it out:</p>
+
+<pre><code>task :huh do
+  puts Rake::Task[&#39;huh&#39;].investigation
+end
+</code></pre>
+</li><li>
+<p>The <a href="../../../../../../../../../classes/Rake/TestTask.html"><code>Rake::TestTask</code></a> class now supports a “ruby_opts” option to pass arbitrary ruby options to a test subprocess.</p>
+</li></ul>
+
+<h3 id="label-Some+Incompatibilities">Some Incompatibilities</h3>
+<ul><li>
+<p>When using the <code>ruby</code> command to start a Ruby subprocess, the Ruby interpreter that is currently running rake is used by default. This makes it easier to use rake in an environment with multiple ruby installation.  (Previously, the first ruby command found in the PATH was used).</p>
+
+<p>If you wish to chose a different Ruby interpreter, you can explicitly choose the interpreter via the <code>sh</code> command.</p>
+</li><li>
+<p>The major rake classes (Task, FileTask, FileCreationTask, RakeApp) have been moved out of the toplevel scope and are now accessible as <a href="../../../../../../../../../classes/Rake/Task.html"><code>Rake::Task</code></a>, <a href="../../../../../../../../../classes/Rake/FileTask.html"><code>Rake::FileTask</code></a>, <a href="../../../../../../../../../classes/Rake/FileCreationTask.html"><code>Rake::FileCreationTask</code></a> and <a href="../../../../../../../../../classes/Rake/Application.html"><code>Rake::Application</code></a>.  If your <a href="../../../../../../../../Rakefile.html">Rakefile</a> directly references any one of these tasks, you may:</p>
+<ol><li>
+<p>Update your <a href="../../../../../../../../Rakefile.html">Rakefile</a> to use the new classnames</p>
+</li><li>
+<p>Use the –classic-namespace option on the rake command to get the old behavior,</p>
+</li><li>
+<p>Add <code>require &#39;rake/classic_namespace&#39;</code> to the <a href="../../../../../../../../Rakefile.html">Rakefile</a> to get the old behavior.</p>
+</li></ol>
+
+<p><code>rake</code> will print a rather annoying warning whenever a deprecated class name is referenced without enabling classic namespace.</p>
+</li></ul>
+
+<h3 id="label-Bug+Fixes">Bug Fixes</h3>
+<ul><li>
+<p>Several unit tests and functional tests were fixed to run better under windows.</p>
+</li><li>
+<p>Directory tasks are now a specialized version of a File task.  A directory task will only be triggered if it doesn&#39;t exist.  It will not be triggered if it is out of date w.r.t. any of its prerequisites.</p>
+</li><li>
+<p>Fixed a bug in the Rake::GemPackageTask class so that the gem now properly contains the platform name.</p>
+</li><li>
+<p>Fixed a bug where a prerequisite on a <code>file</code> task would cause an exception if the prerequisite did not exist.</p>
+</li></ul>
+
+<h2 id="label-What+is+Rake">What is Rake</h2>
+
+<p>Rake is a build tool similar to the make program in many ways.  But instead of cryptic make recipes, Rake uses standard Ruby code to declare tasks and dependencies.  You have the full power of a modern scripting language built right into your build tool.</p>
+
+<h2 id="label-Availability">Availability</h2>
+
+<p>The easiest way to get and install rake is via RubyGems …</p>
+
+<pre><code>gem install rake    (you may need root/admin privileges)
+</code></pre>
+
+<p>Otherwise, you can get it from the more traditional places:</p>
+<dl class="rdoc-list note-list"><dt>Home Page
+<dd>
+<p><a href="http://rake.rubyforge.org">rake.rubyforge.org</a>/</p>
+</dd><dt>Download
+<dd>
+<p><a href="http://rubyforge.org/project/showfiles.php?group_id=50">rubyforge.org/project/showfiles.php?group_id=50</a></p>
+</dd></dl>
+
+<h2 id="label-Thanks">Thanks</h2>
+
+<p>As usual, it was input from users that drove a alot of these changes. The following people either contributed patches, made suggestions or made otherwise helpful comments.  Thanks to …</p>
+<ul><li>
+<p>Greg Fast (better ruby_opt test options)</p>
+</li><li>
+<p>Kelly Felkins (requested by better namespace support)</p>
+</li><li>
+<p>Martin Fowler (suggested Task.investigation)</p>
+</li><li>
+<p>Stuart Jansen (send initial patch for multiple prerequisites).</p>
+</li><li>
+<p>Masao Mutch (better support for non-ruby Gem platforms)</p>
+</li><li>
+<p>Philipp Neubeck (patch for file task exception fix)</p>
+</li></ul>
+
+<p>– Jim Weirich</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

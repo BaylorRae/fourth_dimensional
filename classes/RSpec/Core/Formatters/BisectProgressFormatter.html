@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Formatters::BisectProgressFormatter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Formatters::BisectProgressFormatter">
+
+  
+    
+    <meta name="description" content="@private Produces progress output while bisecting.">
+    <meta property="og:description" content="@private Produces progress output while bisecting.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Formatters::BisectProgressFormatter class">
+  
+    <meta name="keywords" content="new, bisect_starting, bisect_original_run_complete, bisect_dependency_check_started, bisect_dependency_check_passed, bisect_dependency_check_failed, bisect_round_started, bisect_round_ignoring_ids, bisect_round_detected_multiple_culprits, bisect_individual_run_complete, bisect_complete, bisect_repro_command, bisect_failed, bisect_aborted">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Formatters::BisectProgressFormatter
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseTextFormatter.html">RSpec::Core::Formatters::BaseTextFormatter</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/bisect_progress_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private Produces progress output while bisecting.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-bisect_aborted">bisect_aborted</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_complete">bisect_complete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_dependency_check_failed">bisect_dependency_check_failed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_dependency_check_passed">bisect_dependency_check_passed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_dependency_check_started">bisect_dependency_check_started</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_failed">bisect_failed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_individual_run_complete">bisect_individual_run_complete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_original_run_complete">bisect_original_run_complete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_repro_command">bisect_repro_command</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_round_detected_multiple_culprits">bisect_round_detected_multiple_culprits</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_round_ignoring_ids">bisect_round_ignoring_ids</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_round_started">bisect_round_started</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-bisect_starting">bisect_starting</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(output, bisect_runner)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">output</span>, <span class="ruby-identifier">bisect_runner</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-ivar">@bisect_runner</span> = <span class="ruby-identifier">bisect_runner</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_aborted">
+            
+              <b>bisect_aborted</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_aborted" name="method-i-bisect_aborted" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_aborted_source')" id="l_method-i-bisect_aborted_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_aborted_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_aborted</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\nBisect aborted!&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nThe most minimal reproduction command discovered so far is:\n  #{notification.repro}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_complete">
+            
+              <b>bisect_complete</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_complete" name="method-i-bisect_complete" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_complete_source')" id="l_method-i-bisect_complete_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_complete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_complete</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nBisect complete! Reduced necessary non-failing examples &quot;</span> \
+              <span class="ruby-node">&quot;from #{notification.original_non_failing_count} to &quot;</span> \
+              <span class="ruby-node">&quot;#{notification.remaining_count} in &quot;</span> \
+              <span class="ruby-node">&quot;#{Helpers.format_duration(notification.duration)}.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_dependency_check_failed">
+            
+              <b>bisect_dependency_check_failed</b>(_notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_dependency_check_failed" name="method-i-bisect_dependency_check_failed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_dependency_check_failed_source')" id="l_method-i-bisect_dependency_check_failed_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_dependency_check_failed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_dependency_check_failed</span>(<span class="ruby-identifier">_notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot; failure(s) do not require any non-failures to run first&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bisect_runner</span> <span class="ruby-operator">==</span> <span class="ruby-value">:fork</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-value">80</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;NOTE: this bisect run used `config.bisect_runner = :fork`, which generally&quot;</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;provides significantly faster bisection runs than the old shell-based runner,&quot;</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;but may inaccurately report that no non-failures are required. If this result&quot;</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;is unexpected, consider setting `config.bisect_runner = :shell` and trying again.&quot;</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-value">80</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_dependency_check_passed">
+            
+              <b>bisect_dependency_check_passed</b>(_notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_dependency_check_passed" name="method-i-bisect_dependency_check_passed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_dependency_check_passed_source')" id="l_method-i-bisect_dependency_check_passed_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_dependency_check_passed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_dependency_check_passed</span>(<span class="ruby-identifier">_notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot; failure appears to be order-dependent&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_dependency_check_started">
+            
+              <b>bisect_dependency_check_started</b>(_notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_dependency_check_started" name="method-i-bisect_dependency_check_started" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_dependency_check_started_source')" id="l_method-i-bisect_dependency_check_started_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_dependency_check_started_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_dependency_check_started</span>(<span class="ruby-identifier">_notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Checking that failure(s) are order-dependent..&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_failed">
+            
+              <b>bisect_failed</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_failed" name="method-i-bisect_failed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_failed_source')" id="l_method-i-bisect_failed_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_failed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_failed</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nBisect failed! #{notification.failure_explanation}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_individual_run_complete">
+            
+              <b>bisect_individual_run_complete</b>(_)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_individual_run_complete" name="method-i-bisect_individual_run_complete" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_individual_run_complete_source')" id="l_method-i-bisect_individual_run_complete_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_individual_run_complete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_individual_run_complete</span>(<span class="ruby-identifier">_</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&#39;.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_original_run_complete">
+            
+              <b>bisect_original_run_complete</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_original_run_complete" name="method-i-bisect_original_run_complete" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_original_run_complete_source')" id="l_method-i-bisect_original_run_complete_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_original_run_complete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_original_run_complete</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">failures</span>     = <span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">pluralize</span>(<span class="ruby-identifier">notification</span>.<span class="ruby-identifier">failed_example_ids</span>.<span class="ruby-identifier">size</span>, <span class="ruby-string">&quot;failing example&quot;</span>)
+  <span class="ruby-identifier">non_failures</span> = <span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">pluralize</span>(<span class="ruby-identifier">notification</span>.<span class="ruby-identifier">non_failing_example_ids</span>.<span class="ruby-identifier">size</span>, <span class="ruby-string">&quot;non-failing example&quot;</span>)
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot; (#{Helpers.format_duration(notification.duration)})&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Starting bisect with #{failures} and #{non_failures}.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_repro_command">
+            
+              <b>bisect_repro_command</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_repro_command" name="method-i-bisect_repro_command" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_repro_command_source')" id="l_method-i-bisect_repro_command_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_repro_command_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_repro_command</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nThe minimal reproduction command is:\n  #{notification.repro}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_round_detected_multiple_culprits">
+            
+              <b>bisect_round_detected_multiple_culprits</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_round_detected_multiple_culprits" name="method-i-bisect_round_detected_multiple_culprits" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_round_detected_multiple_culprits_source')" id="l_method-i-bisect_round_detected_multiple_culprits_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_round_detected_multiple_culprits_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_round_detected_multiple_culprits</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&quot; multiple culprits detected - splitting candidates&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot; (#{Helpers.format_duration(notification.duration)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_round_ignoring_ids">
+            
+              <b>bisect_round_ignoring_ids</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_round_ignoring_ids" name="method-i-bisect_round_ignoring_ids" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_round_ignoring_ids_source')" id="l_method-i-bisect_round_ignoring_ids_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_round_ignoring_ids_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_round_ignoring_ids</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">range_desc</span> = <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">ignore_range</span>.<span class="ruby-identifier">description</span>
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot; ignoring #{range_desc}&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot; (#{Helpers.format_duration(notification.duration)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_round_started">
+            
+              <b>bisect_round_started</b>(notification, include_trailing_space=true)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_round_started" name="method-i-bisect_round_started" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_round_started_source')" id="l_method-i-bisect_round_started_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_round_started_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_round_started</span>(<span class="ruby-identifier">notification</span>, <span class="ruby-identifier">include_trailing_space</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@round_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">range_desc</span> = <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">candidate_range</span>.<span class="ruby-identifier">description</span>
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-node">&quot;\nRound #{@round_count}: bisecting over non-failing #{range_desc}&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&quot; &quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_trailing_space</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_starting">
+            
+              <b>bisect_starting</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BisectProgressFormatter.html#method-i-bisect_starting" name="method-i-bisect_starting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_starting_source')" id="l_method-i-bisect_starting_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_starting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_starting</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-ivar">@round_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">bisect_started_message</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Running suite to find failures...&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

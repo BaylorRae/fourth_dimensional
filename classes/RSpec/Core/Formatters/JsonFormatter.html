@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Formatters::JsonFormatter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Formatters::JsonFormatter">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Formatters::JsonFormatter class">
+  
+    <meta name="keywords" content="new, message, dump_summary, stop, seed, close, dump_profile, dump_profile_slowest_examples, dump_profile_slowest_example_groups">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Formatters::JsonFormatter
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseFormatter.html">RSpec::Core::Formatters::BaseFormatter</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/json_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-close">close</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-dump_profile">dump_profile</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dump_profile_slowest_example_groups">dump_profile_slowest_example_groups</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dump_profile_slowest_examples">dump_profile_slowest_examples</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dump_summary">dump_summary</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message">message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-seed">seed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stop">stop</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>output_hash</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(output)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@output_hash</span> = {
+    <span class="ruby-value">:version</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span><span class="ruby-operator">::</span><span class="ruby-constant">STRING</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-close">
+            
+              <b>close</b>(_notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-close" name="method-i-close" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-close_source')" id="l_method-i-close_source">show</a>
+                
+              </p>
+              <div id="method-i-close_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close</span>(<span class="ruby-identifier">_notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">write</span> <span class="ruby-ivar">@output_hash</span>.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dump_profile">
+            
+              <b>dump_profile</b>(profile)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-dump_profile" name="method-i-dump_profile" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-dump_profile_source')" id="l_method-i-dump_profile_source">show</a>
+                
+              </p>
+              <div id="method-i-dump_profile_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dump_profile</span>(<span class="ruby-identifier">profile</span>)
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>] = {}
+  <span class="ruby-identifier">dump_profile_slowest_examples</span>(<span class="ruby-identifier">profile</span>)
+  <span class="ruby-identifier">dump_profile_slowest_example_groups</span>(<span class="ruby-identifier">profile</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dump_profile_slowest_example_groups">
+            
+              <b>dump_profile_slowest_example_groups</b>(profile)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-dump_profile_slowest_example_groups" name="method-i-dump_profile_slowest_example_groups" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-dump_profile_slowest_example_groups_source')" id="l_method-i-dump_profile_slowest_example_groups_source">show</a>
+                
+              </p>
+              <div id="method-i-dump_profile_slowest_example_groups_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dump_profile_slowest_example_groups</span>(<span class="ruby-identifier">profile</span>)
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>] <span class="ruby-operator">||=</span> {}
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>][<span class="ruby-value">:groups</span>] = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">slowest_groups</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">loc</span>, <span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">:location</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">loc</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dump_profile_slowest_examples">
+            
+              <b>dump_profile_slowest_examples</b>(profile)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-dump_profile_slowest_examples" name="method-i-dump_profile_slowest_examples" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-dump_profile_slowest_examples_source')" id="l_method-i-dump_profile_slowest_examples_source">show</a>
+                
+              </p>
+              <div id="method-i-dump_profile_slowest_examples_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dump_profile_slowest_examples</span>(<span class="ruby-identifier">profile</span>)
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>] = {}
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>][<span class="ruby-value">:examples</span>] = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">slowest_examples</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">example</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format_example</span>(<span class="ruby-identifier">example</span>).<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">hash</span>[<span class="ruby-value">:run_time</span>] = <span class="ruby-identifier">example</span>.<span class="ruby-identifier">execution_result</span>.<span class="ruby-identifier">run_time</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>][<span class="ruby-value">:slowest</span>] = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">slow_duration</span>
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:profile</span>][<span class="ruby-value">:total</span>] = <span class="ruby-identifier">profile</span>.<span class="ruby-identifier">duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dump_summary">
+            
+              <b>dump_summary</b>(summary)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-dump_summary" name="method-i-dump_summary" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-dump_summary_source')" id="l_method-i-dump_summary_source">show</a>
+                
+              </p>
+              <div id="method-i-dump_summary_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dump_summary</span>(<span class="ruby-identifier">summary</span>)
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:summary</span>] = {
+    <span class="ruby-value">:duration</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">duration</span>,
+    <span class="ruby-value">:example_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">example_count</span>,
+    <span class="ruby-value">:failure_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">failure_count</span>,
+    <span class="ruby-value">:pending_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">pending_count</span>,
+    <span class="ruby-value">:errors_outside_of_examples_count</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">errors_outside_of_examples_count</span>
+  }
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:summary_line</span>] = <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">totals_line</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-message">
+            
+              <b>message</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-message" name="method-i-message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_source')" id="l_method-i-message_source">show</a>
+                
+              </p>
+              <div id="method-i-message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message</span>(<span class="ruby-identifier">notification</span>)
+  (<span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:messages</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-seed">
+            
+              <b>seed</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-seed" name="method-i-seed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-seed_source')" id="l_method-i-seed_source">show</a>
+                
+              </p>
+              <div id="method-i-seed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">seed</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">seed_used?</span>
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:seed</span>] = <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">seed</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stop">
+            
+              <b>stop</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/JsonFormatter.html#method-i-stop" name="method-i-stop" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-stop_source')" id="l_method-i-stop_source">show</a>
+                
+              </p>
+              <div id="method-i-stop_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stop</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-ivar">@output_hash</span>[<span class="ruby-value">:examples</span>] = <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">examples</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">example</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format_example</span>(<span class="ruby-identifier">example</span>).<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">e</span> = <span class="ruby-identifier">example</span>.<span class="ruby-identifier">exception</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">hash</span>[<span class="ruby-value">:exception</span>] =  {
+          <span class="ruby-value">:class</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+          <span class="ruby-value">:message</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>,
+          <span class="ruby-value">:backtrace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>,
+        }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

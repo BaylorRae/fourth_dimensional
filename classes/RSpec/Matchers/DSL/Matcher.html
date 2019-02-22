@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::DSL::Matcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::DSL::Matcher">
+
+  
+    
+    <meta name="description" content="The class used for custom matchers. The block passed to `RSpec::Matchers.">
+    <meta property="og:description" content="The class used for custom matchers. The block passed to `RSpec::Matchers.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::DSL::Matcher class">
+  
+    <meta name="keywords" content="new, expected, inspect, respond_to_missing?, respond_to?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::DSL::Matcher
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/dsl_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>The class used for custom matchers. The block passed to `RSpec::Matchers.define` will be evaluated in the context of the singleton class of an instance, and will have the {RSpec::Matchers::DSL::Macros Macros} methods available.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expected">expected</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-respond_to-3F">respond_to?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-respond_to_missing-3F">respond_to_missing?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="DefaultImplementations.html">
+              RSpec::Matchers::DSL::DefaultImplementations
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../../Matchers.html">
+              RSpec::Matchers
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../Composable.html">
+              RSpec::Matchers::Composable
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>actual</td>
+            <td class='attr-desc'><p>Exposes the value being matched against – generally the object object wrapped by `expect`.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>block_arg</td>
+            <td class='attr-desc'><p>The block parameter used in the expectation</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>expected_as_array</td>
+            <td class='attr-desc'><p>Returns the expected value as an an array. This exists primarily to aid in upgrading from <a href="../../../RSpec.html"><code>RSpec</code></a> 2.x, since in <a href="../../../RSpec.html"><code>RSpec</code></a> 2, `expected` always returned an array. @see <a href="Matcher.html#method-i-expected"><code>expected</code></a></p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'><p>The name of the matcher.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rescued_exception</td>
+            <td class='attr-desc'><p>Exposes the exception raised during the matching by `match_unless_raises`. Could be useful to extract details for a failure message.</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(name, declarations, matcher_execution_context, *expected, &amp;block_arg)
+            
+            <a href="../../../../classes/RSpec/Matchers/DSL/Matcher.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 448</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">declarations</span>, <span class="ruby-identifier">matcher_execution_context</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block_arg</span>)
+  <span class="ruby-ivar">@name</span>     = <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@actual</span>   = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@expected_as_array</span> = <span class="ruby-identifier">expected</span>
+  <span class="ruby-ivar">@matcher_execution_context</span> = <span class="ruby-identifier">matcher_execution_context</span>
+  <span class="ruby-ivar">@chained_method_clauses</span> = []
+  <span class="ruby-ivar">@block_arg</span> = <span class="ruby-identifier">block_arg</span>
+
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-comment"># See `Macros#define_user_override` above, for an explanation.</span>
+    <span class="ruby-identifier">include</span>(<span class="ruby-ivar">@user_method_defs</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>)
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">class_exec</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">declarations</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-expected">
+            
+              <b>expected</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/DSL/Matcher.html#method-i-expected" name="method-i-expected" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Provides the expected value. This will return an array if multiple arguments were passed to the matcher; otherwise it will return a single value. @see <a href="Matcher.html#attribute-i-expected_as_array"><code>expected_as_array</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expected_source')" id="l_method-i-expected_source">show</a>
+                
+              </p>
+              <div id="method-i-expected_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expected</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">expected_as_array</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">expected_as_array</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">expected_as_array</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/DSL/Matcher.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds the name (rather than a cryptic hex number) so we can identify an instance of the matcher in error messages (e.g. for `NoMethodError`)</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 484</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-node">&quot;#&lt;#{self.class.name} #{name}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-respond_to-3F">
+            
+              <b>respond_to?</b>(method, include_private=false)
+            
+            <a href="../../../../classes/RSpec/Matchers/DSL/Matcher.html#method-i-respond_to-3F" name="method-i-respond_to-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>:nocov:  Indicates that this matcher responds to messages from the `@matcher_execution_context` as well.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-respond_to-3F_source')" id="l_method-i-respond_to-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-respond_to-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 499</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">super</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@matcher_execution_context</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-respond_to_missing-3F">
+            
+              <b>respond_to_missing?</b>(method, include_private=false)
+            
+            <a href="../../../../classes/RSpec/Matchers/DSL/Matcher.html#method-i-respond_to_missing-3F" name="method-i-respond_to_missing-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Indicates that this matcher responds to messages from the `@matcher_execution_context` as well. Also, supports getting a method object for such methods.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-respond_to_missing-3F_source')" id="l_method-i-respond_to_missing-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-respond_to_missing-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 492</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to_missing?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">super</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@matcher_execution_context</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">include_private</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

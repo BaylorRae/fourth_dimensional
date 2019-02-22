@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakePathMapExplode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakePathMapExplode">
+
+  
+
+    <meta name="keywords" content="TestRakePathMapExplode class">
+  
+    <meta name="keywords" content="setup, teardown, test_explode">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakePathMapExplode
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_path_map_explode_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map_explode.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-teardown">teardown</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_explode">test_explode</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakePathMapExplode.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map_explode.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">String</span>.<span class="ruby-identifier">class_eval</span> { <span class="ruby-identifier">public</span> <span class="ruby-value">:pathmap_explode</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-teardown">
+            
+              <b>teardown</b>()
+            
+            <a href="../classes/TestRakePathMapExplode.html#method-i-teardown" name="method-i-teardown" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-teardown_source')" id="l_method-i-teardown_source">show</a>
+                
+              </p>
+              <div id="method-i-teardown_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map_explode.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">teardown</span>
+  <span class="ruby-constant">String</span>.<span class="ruby-identifier">class_eval</span> { <span class="ruby-identifier">protected</span> <span class="ruby-value">:pathmap_explode</span> }
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_explode">
+            
+              <b>test_explode</b>()
+            
+            <a href="../classes/TestRakePathMapExplode.html#method-i-test_explode" name="method-i-test_explode" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_explode_source')" id="l_method-i-test_explode_source">show</a>
+                
+              </p>
+              <div id="method-i-test_explode_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_path_map_explode.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_explode</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-string">&#39;a&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-string">&#39;a/b&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-string">&#39;a/b/c&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-string">&#39;/a&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-string">&#39;/a/b&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-string">&#39;/a/b/c&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">ALT_SEPARATOR</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;c:.&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-string">&#39;c:a&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;c:.&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-string">&#39;c:a/b&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;c:.&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-string">&#39;c:a/b/c&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;c:/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>], <span class="ruby-string">&#39;c:/a&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;c:/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-string">&#39;c:/a/b&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;c:/&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-string">&#39;c:/a/b/c&#39;</span>.<span class="ruby-identifier">pathmap_explode</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

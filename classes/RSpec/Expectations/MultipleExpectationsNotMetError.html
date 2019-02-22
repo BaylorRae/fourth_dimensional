@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Expectations::MultipleExpectationsNotMetError</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Expectations::MultipleExpectationsNotMetError">
+
+  
+    
+    <meta name="description" content="Exception raised from `aggregate_failures` when multiple expectations fail.">
+    <meta property="og:description" content="Exception raised from `aggregate_failures` when multiple expectations fail.">
+  
+
+    <meta name="keywords" content="RSpec::Expectations::MultipleExpectationsNotMetError class">
+  
+    <meta name="keywords" content="message, failures, other_errors, aggregation_block_label, aggregation_metadata, summary, exception_count_description, new">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Expectations::MultipleExpectationsNotMetError
+            
+                <span class="parent">&lt;
+                    
+                    <a href="ExpectationNotMetError.html">RSpec::Expectations::ExpectationNotMetError</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations.rb</a></li>
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/failure_aggregator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Exception raised from `aggregate_failures` when multiple expectations fail.</p>
+
+<p>@note The constant is defined here but the extensive logic of this class</p>
+
+<pre><code>is lazily defined when `FailureAggregator` is autoloaded, since we do
+not need to waste time defining that functionality unless
+`aggregate_failures` is used.
+</code></pre>
+
+<p>Exception raised from `aggregate_failures` when multiple expectations fail.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-aggregation_block_label">aggregation_block_label</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-aggregation_metadata">aggregation_metadata</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-exception_count_description">exception_count_description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-failures">failures</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message">message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-other_errors">other_errors</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-summary">summary</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>all_exceptions</td>
+            <td class='attr-desc'><p>@return [Array&lt;Exception&gt;] The list of expectation failures and other exceptions, combined.</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(failure_aggregator)
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">failure_aggregator</span>)
+  <span class="ruby-ivar">@failure_aggregator</span> = <span class="ruby-identifier">failure_aggregator</span>
+  <span class="ruby-ivar">@all_exceptions</span> = <span class="ruby-identifier">failures</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">other_errors</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-aggregation_block_label">
+            
+              <b>aggregation_block_label</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-aggregation_block_label" name="method-i-aggregation_block_label" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [String] The user-assigned label for the aggregation block.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-aggregation_block_label_source')" id="l_method-i-aggregation_block_label_source">show</a>
+                
+              </p>
+              <div id="method-i-aggregation_block_label_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">aggregation_block_label</span>
+  <span class="ruby-ivar">@failure_aggregator</span>.<span class="ruby-identifier">block_label</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-aggregation_metadata">
+            
+              <b>aggregation_metadata</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-aggregation_metadata" name="method-i-aggregation_metadata" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Hash] The metadata hash passed to `aggregate_failures`.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-aggregation_metadata_source')" id="l_method-i-aggregation_metadata_source">show</a>
+                
+              </p>
+              <div id="method-i-aggregation_metadata_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">aggregation_metadata</span>
+  <span class="ruby-ivar">@failure_aggregator</span>.<span class="ruby-identifier">metadata</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exception_count_description">
+            
+              <b>exception_count_description</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-exception_count_description" name="method-i-exception_count_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>return [String] A description of the failure/error counts.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-exception_count_description_source')" id="l_method-i-exception_count_description_source">show</a>
+                
+              </p>
+              <div id="method-i-exception_count_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exception_count_description</span>
+  <span class="ruby-identifier">failure_count</span> = <span class="ruby-identifier">pluralize</span>(<span class="ruby-string">&quot;failure&quot;</span>, <span class="ruby-identifier">failures</span>.<span class="ruby-identifier">size</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">failure_count</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">other_errors</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">error_count</span> = <span class="ruby-identifier">pluralize</span>(<span class="ruby-string">&quot;other error&quot;</span>, <span class="ruby-identifier">other_errors</span>.<span class="ruby-identifier">size</span>)
+  <span class="ruby-node">&quot;#{failure_count} and #{error_count}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failures">
+            
+              <b>failures</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-failures" name="method-i-failures" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Array&lt;RSpec::Expectations::ExpectationNotMetError&gt;] The list of expectation failures.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failures_source')" id="l_method-i-failures_source">show</a>
+                
+              </p>
+              <div id="method-i-failures_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failures</span>
+  <span class="ruby-ivar">@failure_aggregator</span>.<span class="ruby-identifier">failures</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-message">
+            
+              <b>message</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-message" name="method-i-message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [String] The fully formatted exception message.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_source')" id="l_method-i-message_source">show</a>
+                
+              </p>
+              <div id="method-i-message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message</span>
+  <span class="ruby-ivar">@message</span> <span class="ruby-operator">||=</span> ([<span class="ruby-node">&quot;#{summary}:&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">enumerated_failures</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">enumerated_errors</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-other_errors">
+            
+              <b>other_errors</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-other_errors" name="method-i-other_errors" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Array&lt;Exception&gt;] The list of other exceptions.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-other_errors_source')" id="l_method-i-other_errors_source">show</a>
+                
+              </p>
+              <div id="method-i-other_errors_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">other_errors</span>
+  <span class="ruby-ivar">@failure_aggregator</span>.<span class="ruby-identifier">other_errors</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-summary">
+            
+              <b>summary</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/MultipleExpectationsNotMetError.html#method-i-summary" name="method-i-summary" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [String] A summary of the failure, including the block label and a count of failures.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-summary_source')" id="l_method-i-summary_source">show</a>
+                
+              </p>
+              <div id="method-i-summary_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summary</span>
+  <span class="ruby-node">&quot;Got #{exception_count_description} from failure aggregation &quot;</span> \
+  <span class="ruby-node">&quot;block#{block_description}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

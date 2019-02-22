@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::Source</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::Source">
+
+  
+    
+    <meta name="description" content="@private Represents a Ruby source file and provides access to AST and tokens.">
+    <meta property="og:description" content="@private Represents a Ruby source file and provides access to AST and tokens.">
+  
+
+    <meta name="keywords" content="RSpec::Support::Source class">
+  
+    <meta name="keywords" content="from_file, new, lines, inspect, ast, tokens, nodes_by_line_number, tokens_by_line_number">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Support::Source
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb</a></li>
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/location_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/location.rb</a></li>
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/node_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/node.rb</a></li>
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/token_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private Represents a <a href="Ruby.html"><code>Ruby</code></a> source file and provides access to AST and tokens.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Source/ExpressionSequenceNode.html">RSpec::Support::Source::ExpressionSequenceNode</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Source/Node.html">RSpec::Support::Source::Node</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Source/Token.html">RSpec::Support::Source::Token</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ast">ast</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-from_file">from_file</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-lines">lines</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-nodes_by_line_number">nodes_by_line_number</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tokens">tokens</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tokens_by_line_number">tokens_by_line_number</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">Location</td>
+            <td>=</td>
+            <td class="attr-value">Struct.new(:line, :column) do
+include Comparable
+
+def self.location?(array)
+array.is_a?(Array) &amp;&amp; array.size == 2 &amp;&amp; array.all? { |e| e.is_a?(Integer) }
+end
+
+def &lt;=&gt;(other)
+line_comparison = (line &lt;=&gt; other.line)
+return line_comparison unless line_comparison == 0
+column &lt;=&gt; other.column
+end
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private Represents a source location of node or token.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>path</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>source</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-from_file">
+            
+              <b>from_file</b>(path)
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-c-from_file" name="method-c-from_file" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-from_file_source')" id="l_method-c-from_file_source">show</a>
+                
+              </p>
+              <div id="method-c-from_file_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">from_file</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">source</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(source_string, path=nil)
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">source_string</span>, <span class="ruby-identifier">path</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@source</span> = <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">EncodedString</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source_string</span>, <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>)
+  <span class="ruby-ivar">@path</span> = <span class="ruby-identifier">path</span> <span class="ruby-operator">?</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>) <span class="ruby-operator">:</span> <span class="ruby-string">&#39;(string)&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-ast">
+            
+              <b>ast</b>()
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-i-ast" name="method-i-ast" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-ast_source')" id="l_method-i-ast_source">show</a>
+                
+              </p>
+              <div id="method-i-ast_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ast</span>
+  <span class="ruby-ivar">@ast</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;ripper&#39;</span>
+    <span class="ruby-identifier">sexp</span> = <span class="ruby-constant">Ripper</span>.<span class="ruby-identifier">sexp</span>(<span class="ruby-identifier">source</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">SyntaxError</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sexp</span>
+    <span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">sexp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-node">&quot;#&lt;#{self.class} #{path}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lines">
+            
+              <b>lines</b>()
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-i-lines" name="method-i-lines" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-lines_source')" id="l_method-i-lines_source">show</a>
+                
+              </p>
+              <div id="method-i-lines_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lines</span>
+  <span class="ruby-ivar">@lines</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-nodes_by_line_number">
+            
+              <b>nodes_by_line_number</b>()
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-i-nodes_by_line_number" name="method-i-nodes_by_line_number" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-nodes_by_line_number_source')" id="l_method-i-nodes_by_line_number_source">show</a>
+                
+              </p>
+              <div id="method-i-nodes_by_line_number_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nodes_by_line_number</span>
+  <span class="ruby-ivar">@nodes_by_line_number</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">nodes_by_line_number</span> = <span class="ruby-identifier">ast</span>.<span class="ruby-identifier">select</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:location</span>).<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">line</span> }
+    <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = [] }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">nodes_by_line_number</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tokens">
+            
+              <b>tokens</b>()
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-i-tokens" name="method-i-tokens" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-tokens_source')" id="l_method-i-tokens_source">show</a>
+                
+              </p>
+              <div id="method-i-tokens_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tokens</span>
+  <span class="ruby-ivar">@tokens</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;ripper&#39;</span>
+    <span class="ruby-identifier">tokens</span> = <span class="ruby-constant">Ripper</span>.<span class="ruby-identifier">lex</span>(<span class="ruby-identifier">source</span>)
+    <span class="ruby-constant">Token</span>.<span class="ruby-identifier">tokens_from_ripper_tokens</span>(<span class="ruby-identifier">tokens</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tokens_by_line_number">
+            
+              <b>tokens_by_line_number</b>()
+            
+            <a href="../../../classes/RSpec/Support/Source.html#method-i-tokens_by_line_number" name="method-i-tokens_by_line_number" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-tokens_by_line_number_source')" id="l_method-i-tokens_by_line_number_source">show</a>
+                
+              </p>
+              <div id="method-i-tokens_by_line_number_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tokens_by_line_number</span>
+  <span class="ruby-ivar">@tokens_by_line_number</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">nodes_by_line_number</span> = <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">token</span><span class="ruby-operator">|</span> <span class="ruby-identifier">token</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">line</span> }
+    <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = [] }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">nodes_by_line_number</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

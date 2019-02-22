@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::DSL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::DSL">
+
+  
+    
+    <meta name="description" content="Defines the custom matcher DSL.">
+    <meta property="og:description" content="Defines the custom matcher DSL.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::DSL class">
+  
+    <meta name="keywords" content="alias_matcher, define_negated_matcher, define, matcher">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Matchers::DSL
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/dsl_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Defines the custom matcher <a href="DSL.html"><code>DSL</code></a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="DSL/DefaultImplementations.html">RSpec::Matchers::DSL::DefaultImplementations</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="DSL/Macros.html">RSpec::Matchers::DSL::Macros</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="DSL/Matcher.html">RSpec::Matchers::DSL::Matcher</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-alias_matcher">alias_matcher</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-define">define</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-define_negated_matcher">define_negated_matcher</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-matcher">matcher</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-alias_matcher">
+            
+              <b>alias_matcher</b>(new_name, old_name, options={}, &amp;description_override)
+            
+            <a href="../../../classes/RSpec/Matchers/DSL.html#method-i-alias_matcher" name="method-i-alias_matcher" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Defines a matcher alias. The returned matcher&#39;s `description` will be overriden to reflect the phrasing of the new name, which will be used in failure messages when passed as an argument to another matcher in a composed matcher expression.</p>
+
+<p>@example</p>
+
+<pre><code>RSpec::Matchers.alias_matcher :a_list_that_sums_to, :sum_to
+sum_to(3).description # =&gt; &quot;sum to 3&quot;
+a_list_that_sums_to(3).description # =&gt; &quot;a list that sums to 3&quot;
+</code></pre>
+
+<p>@example</p>
+
+<pre><code>RSpec::Matchers.alias_matcher :a_list_sorted_by, :be_sorted_by do |description|
+  description.sub(&quot;be sorted by&quot;, &quot;a list sorted by&quot;)
+end
+
+be_sorted_by(:age).description # =&gt; &quot;be sorted by age&quot;
+a_list_sorted_by(:age).description # =&gt; &quot;a list sorted by age&quot;
+</code></pre>
+
+<p>@param new_name [Symbol] the new name for the matcher @param old_name [Symbol] the original name for the matcher @param options  [Hash] options for the aliased matcher @option options [Class] :klass the ruby class to use as the decorator. (Not normally used). @yield [String] optional block that, when given, is used to define the overriden</p>
+
+<pre><code>logic. The yielded arg is the original description or failure message. If no
+block is provided, a default override is used based on the old and new names.
+</code></pre>
+
+<p>@see <a href="../Matchers.html"><code>RSpec::Matchers</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-alias_matcher_source')" id="l_method-i-alias_matcher_source">show</a>
+                
+              </p>
+              <div id="method-i-alias_matcher_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">alias_matcher</span>(<span class="ruby-identifier">new_name</span>, <span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">description_override</span>)
+  <span class="ruby-identifier">description_override</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">old_desc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">old_desc</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">EnglishPhrasing</span>.<span class="ruby-identifier">split_words</span>(<span class="ruby-identifier">old_name</span>), <span class="ruby-constant">EnglishPhrasing</span>.<span class="ruby-identifier">split_words</span>(<span class="ruby-identifier">new_name</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:klass</span>) { <span class="ruby-constant">AliasedMatcher</span> }
+
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">new_name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">matcher</span> = <span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">old_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">matcher</span>.<span class="ruby-identifier">matcher_name</span> = <span class="ruby-identifier">new_name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">matcher</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:matcher_name=</span>)
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">description_override</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-define">
+            
+              <b>define</b>(name, &amp;declarations)
+            
+            <a href="../../../classes/RSpec/Matchers/DSL.html#method-i-define" name="method-i-define" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Defines a custom matcher.</p>
+
+<p>@param name [Symbol] the name for the matcher @yield [Object] block that is used to define the matcher.</p>
+
+<pre><code>The block is evaluated in the context of your custom matcher class.
+When args are passed to your matcher, they will be yielded here,
+usually representing the expected value(s).
+</code></pre>
+
+<p>@see <a href="../Matchers.html"><code>RSpec::Matchers</code></a></p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="DSL.html#method-i-matcher">matcher</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-define_source')" id="l_method-i-define_source">show</a>
+                
+              </p>
+              <div id="method-i-define_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">define</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">declarations</span>)
+  <span class="ruby-identifier">warn_about_block_args</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">declarations</span>)
+  <span class="ruby-identifier">define_method</span> <span class="ruby-identifier">name</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block_arg</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Matchers</span><span class="ruby-operator">::</span><span class="ruby-constant">DSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Matcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">declarations</span>, <span class="ruby-keyword">self</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">expected</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block_arg</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-define_negated_matcher">
+            
+              <b>define_negated_matcher</b>(negated_name, base_name, &amp;description_override)
+            
+            <a href="../../../classes/RSpec/Matchers/DSL.html#method-i-define_negated_matcher" name="method-i-define_negated_matcher" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Defines a negated matcher. The returned matcher&#39;s `description` and `failure_message` will be overriden to reflect the phrasing of the new name, and the match logic will be based on the original matcher but negated.</p>
+
+<p>@example</p>
+
+<pre><code>RSpec::Matchers.define_negated_matcher :exclude, :include
+include(1, 2).description # =&gt; &quot;include 1 and 2&quot;
+exclude(1, 2).description # =&gt; &quot;exclude 1 and 2&quot;
+</code></pre>
+
+<p>@param negated_name [Symbol] the name for the negated matcher @param base_name [Symbol] the name of the original matcher that will be negated @yield [String] optional block that, when given, is used to define the overriden</p>
+
+<pre><code>logic. The yielded arg is the original description or failure message. If no
+block is provided, a default override is used based on the old and new names.
+</code></pre>
+
+<p>@see <a href="../Matchers.html"><code>RSpec::Matchers</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-define_negated_matcher_source')" id="l_method-i-define_negated_matcher_source">show</a>
+                
+              </p>
+              <div id="method-i-define_negated_matcher_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">define_negated_matcher</span>(<span class="ruby-identifier">negated_name</span>, <span class="ruby-identifier">base_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">description_override</span>)
+  <span class="ruby-identifier">alias_matcher</span>(<span class="ruby-identifier">negated_name</span>, <span class="ruby-identifier">base_name</span>, <span class="ruby-value">:klass</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">AliasedNegatedMatcher</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">description_override</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matcher">
+            
+              <b>matcher</b>(name, &amp;declarations)
+            
+            <a href="../../../classes/RSpec/Matchers/DSL.html#method-i-matcher" name="method-i-matcher" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="DSL.html#method-i-define">define</a>
+            </div>
+          
+
+          
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

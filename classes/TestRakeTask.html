@@ -1,0 +1,2183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakeTask</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakeTask">
+
+  
+
+    <meta name="keywords" content="TestRakeTask class">
+  
+    <meta name="keywords" content="setup, teardown, test_create, test_inspect, test_invoke, test_invoke_with_circular_dependencies, test_dry_run_prevents_actions, test_tasks_can_be_traced, test_no_double_invoke, test_can_double_invoke_with_reenable, test_clear, test_clear_prerequisites, test_clear_actions, test_clear_comments, test_find, test_defined, test_multi_invocations, test_task_list, test_task_gives_name_on_to_s, test_symbols_can_be_prerequisites, test_strings_can_be_prerequisites, test_arrays_can_be_prerequisites, test_filelists_can_be_prerequisites, test_prerequisite_tasks_returns_tasks_not_strings, test_prerequisite_tasks_fails_if_prerequisites_are_undefined, test_prerequisite_tasks_honors_namespaces, test_all_prerequisite_tasks_includes_all_prerequisites, test_all_prerequisite_tasks_does_not_include_duplicates, test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies, test_timestamp_returns_now_if_all_prereqs_have_no_times, test_timestamp_returns_latest_prereq_timestamp, test_always_multitask, test_investigation_output, test_comment_setting, test_comments_with_sentences, test_comments_with_tabbed_sentences, test_comments_with_decimal_points, test_comments_do_not_set, test_comments_is_nil, test_extended_comments, test_multiple_comments, test_duplicate_comments, test_interspersed_duplicate_comments, test_source_is_first_prerequisite">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakeTask
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_task_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-teardown">teardown</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_all_prerequisite_tasks_does_not_include_duplicates">test_all_prerequisite_tasks_does_not_include_duplicates</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_all_prerequisite_tasks_includes_all_prerequisites">test_all_prerequisite_tasks_includes_all_prerequisites</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies">test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_always_multitask">test_always_multitask</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_arrays_can_be_prerequisites">test_arrays_can_be_prerequisites</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_can_double_invoke_with_reenable">test_can_double_invoke_with_reenable</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_clear">test_clear</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_clear_actions">test_clear_actions</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_clear_comments">test_clear_comments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_clear_prerequisites">test_clear_prerequisites</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_comment_setting">test_comment_setting</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_comments_do_not_set">test_comments_do_not_set</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_comments_is_nil">test_comments_is_nil</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_comments_with_decimal_points">test_comments_with_decimal_points</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_comments_with_sentences">test_comments_with_sentences</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_comments_with_tabbed_sentences">test_comments_with_tabbed_sentences</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_create">test_create</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_defined">test_defined</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_dry_run_prevents_actions">test_dry_run_prevents_actions</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_duplicate_comments">test_duplicate_comments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_extended_comments">test_extended_comments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_filelists_can_be_prerequisites">test_filelists_can_be_prerequisites</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_find">test_find</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_inspect">test_inspect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_interspersed_duplicate_comments">test_interspersed_duplicate_comments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_investigation_output">test_investigation_output</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_invoke">test_invoke</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_invoke_with_circular_dependencies">test_invoke_with_circular_dependencies</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_multi_invocations">test_multi_invocations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_multiple_comments">test_multiple_comments</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_no_double_invoke">test_no_double_invoke</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined">test_prerequisite_tasks_fails_if_prerequisites_are_undefined</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_prerequisite_tasks_honors_namespaces">test_prerequisite_tasks_honors_namespaces</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_prerequisite_tasks_returns_tasks_not_strings">test_prerequisite_tasks_returns_tasks_not_strings</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_source_is_first_prerequisite">test_source_is_first_prerequisite</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_strings_can_be_prerequisites">test_strings_can_be_prerequisites</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_symbols_can_be_prerequisites">test_symbols_can_be_prerequisites</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_task_gives_name_on_to_s">test_task_gives_name_on_to_s</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_task_list">test_task_list</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_tasks_can_be_traced">test_tasks_can_be_traced</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_timestamp_returns_latest_prereq_timestamp">test_timestamp_returns_latest_prereq_timestamp</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times">test_timestamp_returns_now_if_all_prereqs_have_no_times</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Rake.html">
+              Rake
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">Task</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskManager</span>.<span class="ruby-identifier">record_task_metadata</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-teardown">
+            
+              <b>teardown</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-teardown" name="method-i-teardown" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-teardown_source')" id="l_method-i-teardown_source">show</a>
+                
+              </p>
+              <div id="method-i-teardown_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">teardown</span>
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">TaskManager</span>.<span class="ruby-identifier">record_task_metadata</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">thread_pool</span>.<span class="ruby-identifier">join</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_all_prerequisite_tasks_does_not_include_duplicates">
+            
+              <b>test_all_prerequisite_tasks_does_not_include_duplicates</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_all_prerequisite_tasks_does_not_include_duplicates" name="method-i-test_all_prerequisite_tasks_does_not_include_duplicates" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_all_prerequisite_tasks_does_not_include_duplicates_source')" id="l_method-i-test_all_prerequisite_tasks_does_not_include_duplicates_source">show</a>
+                
+              </p>
+              <div id="method-i-test_all_prerequisite_tasks_does_not_include_duplicates_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_all_prerequisite_tasks_does_not_include_duplicates</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;c&quot;</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">all_prerequisite_tasks</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_all_prerequisite_tasks_includes_all_prerequisites">
+            
+              <b>test_all_prerequisite_tasks_includes_all_prerequisites</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_all_prerequisite_tasks_includes_all_prerequisites" name="method-i-test_all_prerequisite_tasks_includes_all_prerequisites" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_all_prerequisite_tasks_includes_all_prerequisites_source')" id="l_method-i-test_all_prerequisite_tasks_includes_all_prerequisites_source">show</a>
+                
+              </p>
+              <div id="method-i-test_all_prerequisite_tasks_includes_all_prerequisites_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_all_prerequisite_tasks_includes_all_prerequisites</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;c&quot;</span>, <span class="ruby-string">&quot;d&quot;</span>]
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;e&quot;</span>
+  <span class="ruby-identifier">d</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:d</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:e</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>, <span class="ruby-identifier">d</span>, <span class="ruby-identifier">e</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">all_prerequisite_tasks</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies">
+            
+              <b>test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies" name="method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies_source')" id="l_method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies_source">show</a>
+                
+              </p>
+              <div id="method-i-test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_all_prerequisite_tasks_includes_self_on_cyclic_dependencies</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;a&quot;</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">all_prerequisite_tasks</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_always_multitask">
+            
+              <b>test_always_multitask</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_always_multitask" name="method-i-test_always_multitask" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_always_multitask_source')" id="l_method-i-test_always_multitask_source">show</a>
+                
+              </p>
+              <div id="method-i-test_always_multitask_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_always_multitask</span>
+  <span class="ruby-identifier">mx</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">result</span> = []
+
+  <span class="ruby-identifier">t_a</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:a</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.2</span>
+    <span class="ruby-identifier">mx</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">t_b</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:b</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mx</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">t_c</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:c</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:a</span>, <span class="ruby-value">:b</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mx</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">t_c</span>.<span class="ruby-identifier">invoke</span>
+
+  <span class="ruby-comment"># task should always run in order</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">result</span>
+
+  [<span class="ruby-identifier">t_a</span>, <span class="ruby-identifier">t_b</span>, <span class="ruby-identifier">t_c</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">reenable</span> }
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">always_multitask</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">t_c</span>.<span class="ruby-identifier">invoke</span>
+
+  <span class="ruby-comment"># with multitask, task &#39;b&#39; should grab the mutex first</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>], <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_arrays_can_be_prerequisites">
+            
+              <b>test_arrays_can_be_prerequisites</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_arrays_can_be_prerequisites" name="method-i-test_arrays_can_be_prerequisites" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_arrays_can_be_prerequisites_source')" id="l_method-i-test_arrays_can_be_prerequisites_source">show</a>
+                
+              </p>
+              <div id="method-i-test_arrays_can_be_prerequisites_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_arrays_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_can_double_invoke_with_reenable">
+            
+              <b>test_can_double_invoke_with_reenable</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_can_double_invoke_with_reenable" name="method-i-test_can_double_invoke_with_reenable" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_can_double_invoke_with_reenable_source')" id="l_method-i-test_can_double_invoke_with_reenable_source">show</a>
+                
+              </p>
+              <div id="method-i-test_can_double_invoke_with_reenable_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_can_double_invoke_with_reenable</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">reenable</span>
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>, <span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_clear">
+            
+              <b>test_clear</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_clear" name="method-i-test_clear" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_clear_source')" id="l_method-i-test_clear_source">show</a>
+                
+              </p>
+              <div id="method-i-test_clear_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;a task&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-string">&quot;t&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;a&quot;</span>) { }
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>.<span class="ruby-identifier">empty?</span>, <span class="ruby-string">&quot;prerequisites should be empty&quot;</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">actions</span>.<span class="ruby-identifier">empty?</span>, <span class="ruby-string">&quot;actions should be empty&quot;</span>
+  <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>, <span class="ruby-string">&quot;comments should be empty&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_clear_actions">
+            
+              <b>test_clear_actions</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_clear_actions" name="method-i-test_clear_actions" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_clear_actions_source')" id="l_method-i-test_clear_actions_source">show</a>
+                
+              </p>
+              <div id="method-i-test_clear_actions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_actions</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-string">&quot;t&quot;</span>) { }
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">clear_actions</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">actions</span>.<span class="ruby-identifier">empty?</span>, <span class="ruby-string">&quot;actions should be empty&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_clear_comments">
+            
+              <b>test_clear_comments</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_clear_comments" name="method-i-test_clear_comments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_clear_comments_source')" id="l_method-i-test_clear_comments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_clear_comments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;the original foo&quot;</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:foo</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:x</span>] <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Dummy action</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">clear_comments</span>
+
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;a slightly different foo&quot;</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:foo</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a slightly different foo&quot;</span>, <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">comment</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;x&quot;</span>], <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span>).<span class="ruby-identifier">actions</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_clear_prerequisites">
+            
+              <b>test_clear_prerequisites</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_clear_prerequisites" name="method-i-test_clear_prerequisites" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_clear_prerequisites_source')" id="l_method-i-test_clear_prerequisites_source">show</a>
+                
+              </p>
+              <div id="method-i-test_clear_prerequisites_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_clear_prerequisites</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-string">&quot;t&quot;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-string">&quot;b&quot;</span>])
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">clear_prerequisites</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_comment_setting">
+            
+              <b>test_comment_setting</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_comment_setting" name="method-i-test_comment_setting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>NOTE: Rail-ties uses comment=.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_comment_setting_source')" id="l_method-i-test_comment_setting_source">show</a>
+                
+              </p>
+              <div id="method-i-test_comment_setting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comment_setting</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-string">&quot;A Comment&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;A Comment&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_comments_do_not_set">
+            
+              <b>test_comments_do_not_set</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_comments_do_not_set" name="method-i-test_comments_do_not_set" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_comments_do_not_set_source')" id="l_method-i-test_comments_do_not_set_source">show</a>
+                
+              </p>
+              <div id="method-i-test_comments_do_not_set_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_do_not_set</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_comments_is_nil">
+            
+              <b>test_comments_is_nil</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_comments_is_nil" name="method-i-test_comments_is_nil" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_comments_is_nil_source')" id="l_method-i-test_comments_is_nil_source">show</a>
+                
+              </p>
+              <div id="method-i-test_comments_is_nil_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_is_nil</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_comments_with_decimal_points">
+            
+              <b>test_comments_with_decimal_points</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_comments_with_decimal_points" name="method-i-test_comments_with_decimal_points" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_comments_with_decimal_points_source')" id="l_method-i-test_comments_with_decimal_points_source">show</a>
+                
+              </p>
+              <div id="method-i-test_comments_with_decimal_points_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_with_decimal_points</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Revision 1.2.3.&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Revision 1.2.3&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_comments_with_sentences">
+            
+              <b>test_comments_with_sentences</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_comments_with_sentences" name="method-i-test_comments_with_sentences" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_comments_with_sentences_source')" id="l_method-i-test_comments_with_sentences_source">show</a>
+                
+              </p>
+              <div id="method-i-test_comments_with_sentences_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_with_sentences</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Comment 1. Comment 2.&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Comment 1&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_comments_with_tabbed_sentences">
+            
+              <b>test_comments_with_tabbed_sentences</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_comments_with_tabbed_sentences" name="method-i-test_comments_with_tabbed_sentences" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_comments_with_tabbed_sentences_source')" id="l_method-i-test_comments_with_tabbed_sentences_source">show</a>
+                
+              </p>
+              <div id="method-i-test_comments_with_tabbed_sentences_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_comments_with_tabbed_sentences</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Comment 1.\tComment 2.&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Comment 1&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_create">
+            
+              <b>test_create</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_create" name="method-i-test_create" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_create_source')" id="l_method-i-test_create_source">show</a>
+                
+              </p>
+              <div id="method-i-test_create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create</span>
+  <span class="ruby-identifier">arg</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:name</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span> <span class="ruby-identifier">arg</span> = <span class="ruby-identifier">task</span>; <span class="ruby-value">1234</span> }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;name&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">needed?</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">t</span>, <span class="ruby-identifier">arg</span>
+  <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">t</span>.<span class="ruby-identifier">sources</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">locations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/#{Regexp.quote(__FILE__)}/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">locations</span>.<span class="ruby-identifier">first</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_defined">
+            
+              <b>test_defined</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_defined" name="method-i-test_defined" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_defined_source')" id="l_method-i-test_defined_source">show</a>
+                
+              </p>
+              <div id="method-i-test_defined_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_defined</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-constant">Task</span>.<span class="ruby-identifier">task_defined?</span>(<span class="ruby-value">:a</span>)
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-constant">Task</span>.<span class="ruby-identifier">task_defined?</span>(<span class="ruby-value">:a</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_dry_run_prevents_actions">
+            
+              <b>test_dry_run_prevents_actions</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_dry_run_prevents_actions" name="method-i-test_dry_run_prevents_actions" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_dry_run_prevents_actions_source')" id="l_method-i-test_dry_run_prevents_actions_source">show</a>
+                
+              </p>
+              <div id="method-i-test_dry_run_prevents_actions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_dry_run_prevents_actions</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">dryrun</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> { <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span> }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/execute .*t1/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/dry run/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">refute_match</span>(<span class="ruby-regexp">/invoke/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">dryrun</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_duplicate_comments">
+            
+              <b>test_duplicate_comments</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_duplicate_comments" name="method-i-test_duplicate_comments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_duplicate_comments_source')" id="l_method-i-test_duplicate_comments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_duplicate_comments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_duplicate_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;line one&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_extended_comments">
+            
+              <b>test_extended_comments</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_extended_comments" name="method-i-test_extended_comments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_extended_comments_source')" id="l_method-i-test_extended_comments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_extended_comments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_extended_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">%{
+    This is a comment.
+
+    And this is the extended comment.
+    name -- Name of task to execute.
+    rev  -- Software revision to use.
+  }</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:rev</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;[name,rev]&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">arg_description</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;This is a comment&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^\s*name -- Name/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">full_comment</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^\s*rev  -- Software/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">full_comment</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/\A\s*This is a comment\.$/</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">full_comment</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_filelists_can_be_prerequisites">
+            
+              <b>test_filelists_can_be_prerequisites</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_filelists_can_be_prerequisites" name="method-i-test_filelists_can_be_prerequisites" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_filelists_can_be_prerequisites_source')" id="l_method-i-test_filelists_can_be_prerequisites_source">show</a>
+                
+              </p>
+              <div id="method-i-test_filelists_can_be_prerequisites_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_filelists_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">FileList</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">include</span>(<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_find">
+            
+              <b>test_find</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_find" name="method-i-test_find" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_find_source')" id="l_method-i-test_find_source">show</a>
+                
+              </p>
+              <div id="method-i-test_find_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_find</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:tfind</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;tfind&quot;</span>, <span class="ruby-constant">Task</span>[<span class="ruby-value">:tfind</span>].<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) { <span class="ruby-constant">Task</span>[<span class="ruby-value">:leaves</span>] }
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;Don&#39;t know how to build task &#39;leaves&#39; (see --tasks)&quot;</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_inspect">
+            
+              <b>test_inspect</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_inspect" name="method-i-test_inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_inspect_source')" id="l_method-i-test_inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-test_inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_inspect</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:foo</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:bar</span>, <span class="ruby-value">:baz</span>])
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&lt;Rake::Task foo =&gt; [bar, baz]&gt;&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_interspersed_duplicate_comments">
+            
+              <b>test_interspersed_duplicate_comments</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_interspersed_duplicate_comments" name="method-i-test_interspersed_duplicate_comments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_interspersed_duplicate_comments_source')" id="l_method-i-test_interspersed_duplicate_comments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_interspersed_duplicate_comments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_interspersed_duplicate_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line two&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;line one / line two&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_investigation_output">
+            
+              <b>test_investigation_output</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_investigation_output" name="method-i-test_investigation_output" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_investigation_output_source')" id="l_method-i-test_investigation_output_source">show</a>
+                
+              </p>
+              <div id="method-i-test_investigation_output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_investigation_output</span>
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span>)
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>)
+  <span class="ruby-identifier">out</span> = <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">investigation</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/class:\s*Rake::Task/</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/needed:\s*true/</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/pre-requisites:\s*--t[23]/</span>, <span class="ruby-identifier">out</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_invoke">
+            
+              <b>test_invoke</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_invoke" name="method-i-test_invoke" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_invoke_source')" id="l_method-i-test_invoke_source">show</a>
+                
+              </p>
+              <div id="method-i-test_invoke_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_invoke</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t3&quot;</span>], <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t3&quot;</span>, <span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_invoke_with_circular_dependencies">
+            
+              <b>test_invoke_with_circular_dependencies</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_invoke_with_circular_dependencies" name="method-i-test_invoke_with_circular_dependencies" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_invoke_with_circular_dependencies_source')" id="l_method-i-test_invoke_with_circular_dependencies_source">show</a>
+                
+              </p>
+              <div id="method-i-test_invoke_with_circular_dependencies_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_invoke_with_circular_dependencies</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">t2</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t1</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t2&quot;</span>], <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">t2</span>.<span class="ruby-identifier">prerequisites</span>
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/circular dependency/i</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/t1 =&gt; t2 =&gt; t1/</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multi_invocations">
+            
+              <b>test_multi_invocations</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_multi_invocations" name="method-i-test_multi_invocations" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multi_invocations_source')" id="l_method-i-test_multi_invocations_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multi_invocations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multi_invocations</span>
+  <span class="ruby-identifier">runs</span> = []
+  <span class="ruby-identifier">p</span> = <span class="ruby-identifier">proc</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">task</span>({ <span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>] }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">task</span>({ <span class="ruby-value">:t2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t3</span>] }, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">p</span>)
+  <span class="ruby-constant">Task</span>[<span class="ruby-value">:t1</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>, <span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t3&quot;</span>], <span class="ruby-identifier">runs</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multiple_comments">
+            
+              <b>test_multiple_comments</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_multiple_comments" name="method-i-test_multiple_comments" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multiple_comments_source')" id="l_method-i-test_multiple_comments_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multiple_comments_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 363</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_comments</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line one&quot;</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;line two&quot;</span>
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;line one / line two&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_no_double_invoke">
+            
+              <b>test_no_double_invoke</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_no_double_invoke" name="method-i-test_no_double_invoke" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_no_double_invoke_source')" id="l_method-i-test_no_double_invoke_source">show</a>
+                
+              </p>
+              <div id="method-i-test_no_double_invoke_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_no_double_invoke</span>
+  <span class="ruby-identifier">runlist</span> = []
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>, <span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>; <span class="ruby-value">3321</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t2</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t3</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">task</span>(<span class="ruby-value">:t3</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">runlist</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+  <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t3&quot;</span>, <span class="ruby-string">&quot;t2&quot;</span>, <span class="ruby-string">&quot;t1&quot;</span>], <span class="ruby-identifier">runlist</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined">
+            
+              <b>test_prerequisite_tasks_fails_if_prerequisites_are_undefined</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined" name="method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined_source')" id="l_method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined_source">show</a>
+                
+              </p>
+              <div id="method-i-test_prerequisite_tasks_fails_if_prerequisites_are_undefined_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_tasks_fails_if_prerequisites_are_undefined</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prerequisite_tasks</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_prerequisite_tasks_honors_namespaces">
+            
+              <b>test_prerequisite_tasks_honors_namespaces</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_prerequisite_tasks_honors_namespaces" name="method-i-test_prerequisite_tasks_honors_namespaces" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_prerequisite_tasks_honors_namespaces_source')" id="l_method-i-test_prerequisite_tasks_honors_namespaces_source">show</a>
+                
+              </p>
+              <div id="method-i-test_prerequisite_tasks_honors_namespaces_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_tasks_honors_namespaces</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">b</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">namespace</span> <span class="ruby-string">&quot;X&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+    <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prerequisite_tasks</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_prerequisite_tasks_returns_tasks_not_strings">
+            
+              <b>test_prerequisite_tasks_returns_tasks_not_strings</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_prerequisite_tasks_returns_tasks_not_strings" name="method-i-test_prerequisite_tasks_returns_tasks_not_strings" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_prerequisite_tasks_returns_tasks_not_strings_source')" id="l_method-i-test_prerequisite_tasks_returns_tasks_not_strings_source">show</a>
+                
+              </p>
+              <div id="method-i-test_prerequisite_tasks_returns_tasks_not_strings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_prerequisite_tasks_returns_tasks_not_strings</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span>], <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prerequisite_tasks</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_source_is_first_prerequisite">
+            
+              <b>test_source_is_first_prerequisite</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_source_is_first_prerequisite" name="method-i-test_source_is_first_prerequisite" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_source_is_first_prerequisite_source')" id="l_method-i-test_source_is_first_prerequisite_source">show</a>
+                
+              </p>
+              <div id="method-i-test_source_is_first_prerequisite_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_source_is_first_prerequisite</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:t</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-string">&quot;preqB&quot;</span>]
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;preqA&quot;</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_strings_can_be_prerequisites">
+            
+              <b>test_strings_can_be_prerequisites</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_strings_can_be_prerequisites" name="method-i-test_strings_can_be_prerequisites" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_strings_can_be_prerequisites_source')" id="l_method-i-test_strings_can_be_prerequisites_source">show</a>
+                
+              </p>
+              <div id="method-i-test_strings_can_be_prerequisites_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_strings_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;b&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_symbols_can_be_prerequisites">
+            
+              <b>test_symbols_can_be_prerequisites</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_symbols_can_be_prerequisites" name="method-i-test_symbols_can_be_prerequisites" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_symbols_can_be_prerequisites_source')" id="l_method-i-test_symbols_can_be_prerequisites_source">show</a>
+                
+              </p>
+              <div id="method-i-test_symbols_can_be_prerequisites_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_symbols_can_be_prerequisites</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;b&quot;</span>], <span class="ruby-constant">Task</span>[<span class="ruby-value">:a</span>].<span class="ruby-identifier">prerequisites</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_task_gives_name_on_to_s">
+            
+              <b>test_task_gives_name_on_to_s</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_task_gives_name_on_to_s" name="method-i-test_task_gives_name_on_to_s" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_task_gives_name_on_to_s_source')" id="l_method-i-test_task_gives_name_on_to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-test_task_gives_name_on_to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_task_gives_name_on_to_s</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:abc</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;abc&quot;</span>, <span class="ruby-constant">Task</span>[<span class="ruby-value">:abc</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_task_list">
+            
+              <b>test_task_list</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_task_list" name="method-i-test_task_list" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_task_list_source')" id="l_method-i-test_task_list_source">show</a>
+                
+              </p>
+              <div id="method-i-test_task_list_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_task_list</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:t2</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:t1</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:t2</span>]
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;t1&quot;</span>, <span class="ruby-string">&quot;t2&quot;</span>], <span class="ruby-constant">Task</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_tasks_can_be_traced">
+            
+              <b>test_tasks_can_be_traced</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_tasks_can_be_traced" name="method-i-test_tasks_can_be_traced" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_tasks_can_be_traced_source')" id="l_method-i-test_tasks_can_be_traced_source">show</a>
+                
+              </p>
+              <div id="method-i-test_tasks_can_be_traced_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_tasks_can_be_traced</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">trace</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">t1</span> = <span class="ruby-identifier">task</span>(<span class="ruby-value">:t1</span>)
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">capture_io</span> {
+    <span class="ruby-identifier">t1</span>.<span class="ruby-identifier">invoke</span>
+  }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/invoke t1/i</span>, <span class="ruby-identifier">err</span>)
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/execute t1/i</span>, <span class="ruby-identifier">err</span>)
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">trace</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_timestamp_returns_latest_prereq_timestamp">
+            
+              <b>test_timestamp_returns_latest_prereq_timestamp</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_timestamp_returns_latest_prereq_timestamp" name="method-i-test_timestamp_returns_latest_prereq_timestamp" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_timestamp_returns_latest_prereq_timestamp_source')" id="l_method-i-test_timestamp_returns_latest_prereq_timestamp_source">show</a>
+                
+              </p>
+              <div id="method-i-test_timestamp_returns_latest_prereq_timestamp_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_timestamp_returns_latest_prereq_timestamp</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">b</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">b</span>.<span class="ruby-identifier">timestamp</span>() <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-value">10</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">c</span>.<span class="ruby-identifier">timestamp</span>() <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_in_delta</span> <span class="ruby-identifier">now</span>, <span class="ruby-identifier">a</span>.<span class="ruby-identifier">timestamp</span>, <span class="ruby-value">0.1</span>, <span class="ruby-string">&#39;computer too slow?&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times">
+            
+              <b>test_timestamp_returns_now_if_all_prereqs_have_no_times</b>()
+            
+            <a href="../classes/TestRakeTask.html#method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times" name="method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times_source')" id="l_method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times_source">show</a>
+                
+              </p>
+              <div id="method-i-test_timestamp_returns_now_if_all_prereqs_have_no_times_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_task.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_timestamp_returns_now_if_all_prereqs_have_no_times</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-identifier">task</span> <span class="ruby-value">:a</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&quot;b&quot;</span>, <span class="ruby-string">&quot;c&quot;</span>]
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:b</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-value">:c</span>
+
+  <span class="ruby-identifier">assert_in_delta</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">a</span>.<span class="ruby-identifier">timestamp</span>, <span class="ruby-value">0.1</span>, <span class="ruby-string">&#39;computer too slow?&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

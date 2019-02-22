@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::RubyProject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::RubyProject">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::RubyProject class">
+  
+    <meta name="keywords" content="add_to_load_path, add_dir_to_load_path, root, determine_root, find_first_parent_containing, ascend_until">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Core::RubyProject
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/ruby_project_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-add_dir_to_load_path">add_dir_to_load_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-add_to_load_path">add_to_load_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-ascend_until">ascend_until</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-determine_root">determine_root</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-find_first_parent_containing">find_first_parent_containing</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-root">root</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-add_dir_to_load_path">
+            
+              <b>add_dir_to_load_path</b>(dir)
+            
+            <a href="../../../classes/RSpec/Core/RubyProject.html#method-c-add_dir_to_load_path" name="method-c-add_dir_to_load_path" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-add_dir_to_load_path_source')" id="l_method-c-add_dir_to_load_path_source">show</a>
+                
+              </p>
+              <div id="method-c-add_dir_to_load_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_dir_to_load_path</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">dir</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">dir</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-add_to_load_path">
+            
+              <b>add_to_load_path</b>(*dirs)
+            
+            <a href="../../../classes/RSpec/Core/RubyProject.html#method-c-add_to_load_path" name="method-c-add_to_load_path" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-add_to_load_path_source')" id="l_method-c-add_to_load_path_source">show</a>
+                
+              </p>
+              <div id="method-c-add_to_load_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_to_load_path</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">dirs</span>)
+  <span class="ruby-identifier">dirs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_dir_to_load_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">dir</span>)) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-ascend_until">
+            
+              <b>ascend_until</b>()
+            
+            <a href="../../../classes/RSpec/Core/RubyProject.html#method-c-ascend_until" name="method-c-ascend_until" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-ascend_until_source')" id="l_method-c-ascend_until_source">show</a>
+                
+              </p>
+              <div id="method-c-ascend_until_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ascend_until</span>
+  <span class="ruby-identifier">fs</span> = <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>
+  <span class="ruby-identifier">escaped_slash</span> = <span class="ruby-node">&quot;\\#{fs}&quot;</span>
+  <span class="ruby-identifier">special</span> = <span class="ruby-string">&quot;_RSPEC_ESCAPED_SLASH_&quot;</span>
+  <span class="ruby-identifier">project_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">project_path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">escaped_slash</span>, <span class="ruby-identifier">special</span>).<span class="ruby-identifier">squeeze</span>(<span class="ruby-identifier">fs</span>).<span class="ruby-identifier">split</span>(<span class="ruby-identifier">fs</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">x</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">special</span>, <span class="ruby-identifier">escaped_slash</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">fs</span>)
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">fs</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-determine_root">
+            
+              <b>determine_root</b>()
+            
+            <a href="../../../classes/RSpec/Core/RubyProject.html#method-c-determine_root" name="method-c-determine_root" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-determine_root_source')" id="l_method-c-determine_root_source">show</a>
+                
+              </p>
+              <div id="method-c-determine_root_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">determine_root</span>
+  <span class="ruby-identifier">find_first_parent_containing</span>(<span class="ruby-string">&#39;spec&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-find_first_parent_containing">
+            
+              <b>find_first_parent_containing</b>(dir)
+            
+            <a href="../../../classes/RSpec/Core/RubyProject.html#method-c-find_first_parent_containing" name="method-c-find_first_parent_containing" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-find_first_parent_containing_source')" id="l_method-c-find_first_parent_containing_source">show</a>
+                
+              </p>
+              <div id="method-c-find_first_parent_containing_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_first_parent_containing</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-identifier">ascend_until</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">dir</span>)) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-root">
+            
+              <b>root</b>()
+            
+            <a href="../../../classes/RSpec/Core/RubyProject.html#method-c-root" name="method-c-root" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-root_source')" id="l_method-c-root_source">show</a>
+                
+              </p>
+              <div id="method-c-root_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">root</span>
+  <span class="ruby-ivar">@project_root</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">determine_root</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

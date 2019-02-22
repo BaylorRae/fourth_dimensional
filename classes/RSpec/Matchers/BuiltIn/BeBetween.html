@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::BuiltIn::BeBetween</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::BuiltIn::BeBetween">
+
+  
+    
+    <meta name="description" content="@api private Provides the implementation for `be_between`. Not intended to be instantiated directly.">
+    <meta property="og:description" content="@api private Provides the implementation for `be_between`. Not intended to be instantiated directly.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::BuiltIn::BeBetween class">
+  
+    <meta name="keywords" content="new, inclusive, exclusive, matches?, failure_message, description">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::BuiltIn::BeBetween
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseMatcher.html">RSpec::Matchers::BuiltIn::BaseMatcher</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_between_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private Provides the implementation for `be_between`. Not intended to be instantiated directly.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-exclusive">exclusive</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-failure_message">failure_message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inclusive">inclusive</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-matches-3F">matches?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(min, max)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BeBetween.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-ivar">@min</span>, <span class="ruby-ivar">@max</span> = <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>
+  <span class="ruby-identifier">inclusive</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BeBetween.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-node">&quot;be between #{description_of @min} and #{description_of @max} (#{@mode})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exclusive">
+            
+              <b>exclusive</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BeBetween.html#method-i-exclusive" name="method-i-exclusive" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Makes the between comparison exclusive.</p>
+
+<p>@example</p>
+
+<pre><code>expect(3).to be_between(2, 4).exclusive
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-exclusive_source')" id="l_method-i-exclusive_source">show</a>
+                
+              </p>
+              <div id="method-i-exclusive_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exclusive</span>
+  <span class="ruby-ivar">@less_than_operator</span> = <span class="ruby-value">:&lt;</span>
+  <span class="ruby-ivar">@greater_than_operator</span> = <span class="ruby-value">:&gt;</span>
+  <span class="ruby-ivar">@mode</span> = <span class="ruby-value">:exclusive</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message">
+            
+              <b>failure_message</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BeBetween.html#method-i-failure_message" name="method-i-failure_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_source')" id="l_method-i-failure_message_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message</span>
+  <span class="ruby-node">&quot;#{super}#{not_comparable_clause}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inclusive">
+            
+              <b>inclusive</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BeBetween.html#method-i-inclusive" name="method-i-inclusive" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Makes the between comparison inclusive.</p>
+
+<p>@example</p>
+
+<pre><code>expect(3).to be_between(2, 3).inclusive
+</code></pre>
+
+<p>@note The matcher is inclusive by default; this simply provides</p>
+
+<pre><code>a way to be more explicit about it.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inclusive_source')" id="l_method-i-inclusive_source">show</a>
+                
+              </p>
+              <div id="method-i-inclusive_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inclusive</span>
+  <span class="ruby-ivar">@less_than_operator</span> = <span class="ruby-value">:&lt;=</span>
+  <span class="ruby-ivar">@greater_than_operator</span> = <span class="ruby-value">:&gt;=</span>
+  <span class="ruby-ivar">@mode</span> = <span class="ruby-value">:inclusive</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matches-3F">
+            
+              <b>matches?</b>(actual)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BeBetween.html#method-i-matches-3F" name="method-i-matches-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [Boolean]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-matches-3F_source')" id="l_method-i-matches-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-matches-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">matches?</span>(<span class="ruby-identifier">actual</span>)
+  <span class="ruby-ivar">@actual</span> = <span class="ruby-identifier">actual</span>
+  <span class="ruby-identifier">comparable?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">compare</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

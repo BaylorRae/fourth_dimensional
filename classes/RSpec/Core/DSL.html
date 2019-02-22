@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::DSL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::DSL">
+
+  
+    
+    <meta name="description" content="DSL defines methods to group examples, most notably `describe`, and exposes them as class methods of {RSpec}.">
+    <meta property="og:description" content="DSL defines methods to group examples, most notably `describe`, and exposes them as class methods of {RSpec}.">
+  
+
+    <meta name="keywords" content="RSpec::Core::DSL class">
+  
+    <meta name="keywords" content="example_group_aliases, exposed_globally?, expose_example_group_alias, expose_globally!, remove_globally!, expose_example_group_alias_globally, change_global_dsl">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Core::DSL
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/dsl_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="DSL.html"><code>DSL</code></a> defines methods to group examples, most notably `describe`, and exposes them as class methods of {RSpec}. They can also be exposed globally (on `main` and instances of `Module`) through the {Configuration} option `expose_dsl_globally`.</p>
+
+<p>By default the methods `describe`, `context` and `example_group` are exposed. These methods define a named context for one or more examples. The given block is evaluated in the context of a generated subclass of {RSpec::Core::ExampleGroup}.</p>
+
+<p>## Examples:</p>
+
+<pre><code>RSpec.describe &quot;something&quot; do
+  context &quot;when something is a certain way&quot; do
+    it &quot;does something&quot; do
+      # example code goes here
+    end
+  end
+end
+</code></pre>
+
+<p>@see <a href="ExampleGroup.html"><code>ExampleGroup</code></a> @see ExampleGroup.example_group</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="DSL/RSpec.html">RSpec::Core::DSL::RSpec</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-change_global_dsl">change_global_dsl</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-example_group_aliases">example_group_aliases</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-expose_example_group_alias">expose_example_group_alias</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-expose_example_group_alias_globally">expose_example_group_alias_globally</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-expose_globally-21">expose_globally!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-exposed_globally-3F">exposed_globally?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-remove_globally-21">remove_globally!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>top_level</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-change_global_dsl">
+            
+              <b>change_global_dsl</b>(&amp;changes)
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-change_global_dsl" name="method-c-change_global_dsl" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-change_global_dsl_source')" id="l_method-c-change_global_dsl_source">show</a>
+                
+              </p>
+              <div id="method-c-change_global_dsl_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">change_global_dsl</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">changes</span>)
+  (<span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">top_level</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>).<span class="ruby-identifier">class_exec</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">changes</span>)
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">class_exec</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">changes</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-example_group_aliases">
+            
+              <b>example_group_aliases</b>()
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-example_group_aliases" name="method-c-example_group_aliases" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-example_group_aliases_source')" id="l_method-c-example_group_aliases_source">show</a>
+                
+              </p>
+              <div id="method-c-example_group_aliases_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">example_group_aliases</span>
+  <span class="ruby-ivar">@example_group_aliases</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-expose_example_group_alias">
+            
+              <b>expose_example_group_alias</b>(name)
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-expose_example_group_alias" name="method-c-expose_example_group_alias" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-expose_example_group_alias_source')" id="l_method-c-expose_example_group_alias_source">show</a>
+                
+              </p>
+              <div id="method-c-expose_example_group_alias_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">expose_example_group_alias</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">example_group_aliases</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">example_group_aliases</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span>
+
+  (<span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RSpec</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>).<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:define_method</span>, <span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">example_group_block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">group</span> = <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleGroup</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">example_group_block</span>)
+    <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">world</span>.<span class="ruby-identifier">record</span>(<span class="ruby-identifier">group</span>)
+    <span class="ruby-identifier">group</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">expose_example_group_alias_globally</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">exposed_globally?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-expose_example_group_alias_globally">
+            
+              <b>expose_example_group_alias_globally</b>(method_name)
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-expose_example_group_alias_globally" name="method-c-expose_example_group_alias_globally" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-expose_example_group_alias_globally_source')" id="l_method-c-expose_example_group_alias_globally_source">show</a>
+                
+              </p>
+              <div id="method-c-expose_example_group_alias_globally_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">expose_example_group_alias_globally</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">change_global_dsl</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">remove_method</span>(<span class="ruby-identifier">method_name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">method_name</span>) { <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">a</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">a</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-expose_globally-21">
+            
+              <b>expose_globally!</b>()
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-expose_globally-21" name="method-c-expose_globally-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds the describe method to <a href="../../Module.html"><code>Module</code></a> and the top level binding. @api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-expose_globally-21_source')" id="l_method-c-expose_globally-21_source">show</a>
+                
+              </p>
+              <div id="method-c-expose_globally-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">expose_globally!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">exposed_globally?</span>
+
+  <span class="ruby-identifier">example_group_aliases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">expose_example_group_alias_globally</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@exposed_globally</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-exposed_globally-3F">
+            
+              <b>exposed_globally?</b>()
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-exposed_globally-3F" name="method-c-exposed_globally-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-exposed_globally-3F_source')" id="l_method-c-exposed_globally-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-exposed_globally-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">exposed_globally?</span>
+  <span class="ruby-ivar">@exposed_globally</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-remove_globally-21">
+            
+              <b>remove_globally!</b>()
+            
+            <a href="../../../classes/RSpec/Core/DSL.html#method-c-remove_globally-21" name="method-c-remove_globally-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes the describe method from <a href="../../Module.html"><code>Module</code></a> and the top level binding. @api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-remove_globally-21_source')" id="l_method-c-remove_globally-21_source">show</a>
+                
+              </p>
+              <div id="method-c-remove_globally-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">remove_globally!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exposed_globally?</span>
+
+  <span class="ruby-identifier">example_group_aliases</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">change_global_dsl</span> { <span class="ruby-identifier">undef_method</span> <span class="ruby-identifier">method_name</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@exposed_globally</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

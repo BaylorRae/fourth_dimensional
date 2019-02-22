@@ -1,0 +1,1869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakeRules</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakeRules">
+
+  
+
+    <meta name="keywords" content="TestRakeRules class">
+  
+    <meta name="keywords" content="setup, test_multiple_rules1, test_multiple_rules2, test_create_with_source, test_single_dependent, test_rule_can_be_created_by_string, test_rule_prereqs_can_be_created_by_string, test_plain_strings_as_dependents_refer_to_files, test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file, test_file_names_beginning_with_dot_can_be_wrapped_in_lambda, test_file_names_containing_percent_can_be_wrapped_in_lambda, test_non_extension_rule_name_refers_to_file, test_pathmap_automatically_applies_to_name, test_plain_strings_are_just_filenames, test_rule_runs_when_explicit_task_has_no_actions, test_close_matches_on_name_do_not_trigger_rule, test_rule_rebuilds_obj_when_source_is_newer, test_rule_with_two_sources_runs_if_both_sources_are_present, test_rule_with_two_sources_but_one_missing_does_not_run, test_rule_with_two_sources_builds_both_sources, test_second_rule_runs_when_first_rule_doesnt, test_second_rule_doest_run_if_first_triggers, test_second_rule_doest_run_if_first_triggers_with_reversed_rules, test_rule_with_proc_dependent_will_trigger, test_proc_returning_lists_are_flattened_into_prereqs, test_recursive_rules_will_work_as_long_as_they_terminate, test_recursive_rules_that_dont_terminate_will_overflow, test_rules_with_bad_dependents_will_fail, test_string_rule_with_args, test_regex_rule_with_args, test_string_rule_with_args_and_lambda_prereq, test_regex_rule_with_args_and_lambda_prereq, test_rule_with_method_prereq, test_rule_with_one_arg_method_prereq">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakeRules
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_rules_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_close_matches_on_name_do_not_trigger_rule">test_close_matches_on_name_do_not_trigger_rule</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_create_with_source">test_create_with_source</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file">test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda">test_file_names_beginning_with_dot_can_be_wrapped_in_lambda</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda">test_file_names_containing_percent_can_be_wrapped_in_lambda</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_multiple_rules1">test_multiple_rules1</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_multiple_rules2">test_multiple_rules2</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_non_extension_rule_name_refers_to_file">test_non_extension_rule_name_refers_to_file</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_pathmap_automatically_applies_to_name">test_pathmap_automatically_applies_to_name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_plain_strings_are_just_filenames">test_plain_strings_are_just_filenames</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_plain_strings_as_dependents_refer_to_files">test_plain_strings_as_dependents_refer_to_files</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_proc_returning_lists_are_flattened_into_prereqs">test_proc_returning_lists_are_flattened_into_prereqs</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_recursive_rules_that_dont_terminate_will_overflow">test_recursive_rules_that_dont_terminate_will_overflow</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_recursive_rules_will_work_as_long_as_they_terminate">test_recursive_rules_will_work_as_long_as_they_terminate</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_regex_rule_with_args">test_regex_rule_with_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_regex_rule_with_args_and_lambda_prereq">test_regex_rule_with_args_and_lambda_prereq</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_can_be_created_by_string">test_rule_can_be_created_by_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_prereqs_can_be_created_by_string">test_rule_prereqs_can_be_created_by_string</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_rebuilds_obj_when_source_is_newer">test_rule_rebuilds_obj_when_source_is_newer</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_runs_when_explicit_task_has_no_actions">test_rule_runs_when_explicit_task_has_no_actions</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_with_method_prereq">test_rule_with_method_prereq</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_with_one_arg_method_prereq">test_rule_with_one_arg_method_prereq</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_with_proc_dependent_will_trigger">test_rule_with_proc_dependent_will_trigger</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_with_two_sources_builds_both_sources">test_rule_with_two_sources_builds_both_sources</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_with_two_sources_but_one_missing_does_not_run">test_rule_with_two_sources_but_one_missing_does_not_run</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rule_with_two_sources_runs_if_both_sources_are_present">test_rule_with_two_sources_runs_if_both_sources_are_present</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_rules_with_bad_dependents_will_fail">test_rules_with_bad_dependents_will_fail</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_second_rule_doest_run_if_first_triggers">test_second_rule_doest_run_if_first_triggers</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules">test_second_rule_doest_run_if_first_triggers_with_reversed_rules</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_second_rule_runs_when_first_rule_doesnt">test_second_rule_runs_when_first_rule_doesnt</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_single_dependent">test_single_dependent</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_string_rule_with_args">test_string_rule_with_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_string_rule_with_args_and_lambda_prereq">test_string_rule_with_args_and_lambda_prereq</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Rake.html">
+              Rake
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">SRCFILE</td>
+            <td>=</td>
+            <td class="attr-value">&quot;abc.c&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SRCFILE2</td>
+            <td>=</td>
+            <td class="attr-value">&quot;xyz.c&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FTNFILE</td>
+            <td>=</td>
+            <td class="attr-value">&quot;abc.f&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">OBJFILE</td>
+            <td>=</td>
+            <td class="attr-value">&quot;abc.o&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FOOFILE</td>
+            <td>=</td>
+            <td class="attr-value">&quot;foo&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DOTFOOFILE</td>
+            <td>=</td>
+            <td class="attr-value">&quot;.foo&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">Task</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@runs</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_close_matches_on_name_do_not_trigger_rule">
+            
+              <b>test_close_matches_on_name_do_not_trigger_rule</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_close_matches_on_name_do_not_trigger_rule" name="method-i-test_close_matches_on_name_do_not_trigger_rule" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_close_matches_on_name_do_not_trigger_rule_source')" id="l_method-i-test_close_matches_on_name_do_not_trigger_rule_source">show</a>
+                
+              </p>
+              <div id="method-i-test_close_matches_on_name_do_not_trigger_rule_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_close_matches_on_name_do_not_trigger_rule</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;x.c&quot;</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.c&#39;</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) { <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;x.obj&#39;</span>].<span class="ruby-identifier">invoke</span> }
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) { <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;x.xyo&#39;</span>].<span class="ruby-identifier">invoke</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_create_with_source">
+            
+              <b>test_create_with_source</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_create_with_source" name="method-i-test_create_with_source" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_create_with_source_source')" id="l_method-i-test_create_with_source_source">show</a>
+                
+              </p>
+              <div id="method-i-test_create_with_source_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_create_with_source</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.c&#39;</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">OBJFILE</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">SRCFILE</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">OBJFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file">
+            
+              <b>test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file" name="method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file_source')" id="l_method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file_source">show</a>
+                
+              </p>
+              <div id="method-i-test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_names_beginning_with_dot_can_be_tricked_into_referring_to_file</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&#39;.foo&#39;</span>)
+    <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;./.foo&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">OBJFILE</span>], <span class="ruby-ivar">@runs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda">
+            
+              <b>test_file_names_beginning_with_dot_can_be_wrapped_in_lambda</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda" name="method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda_source')" id="l_method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda_source">show</a>
+                
+              </p>
+              <div id="method-i-test_file_names_beginning_with_dot_can_be_wrapped_in_lambda_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_names_beginning_with_dot_can_be_wrapped_in_lambda</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+
+    <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;.foo&quot;</span>)
+    <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-string">&quot;.foo&quot;</span> } <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{t.name} - #{t.source}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-node">&quot;#{OBJFILE} - .foo&quot;</span>], <span class="ruby-ivar">@runs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda">
+            
+              <b>test_file_names_containing_percent_can_be_wrapped_in_lambda</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda" name="method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda_source')" id="l_method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda_source">show</a>
+                
+              </p>
+              <div id="method-i-test_file_names_containing_percent_can_be_wrapped_in_lambda_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_file_names_containing_percent_can_be_wrapped_in_lambda</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;foo%x&quot;</span>)
+    <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-string">&quot;foo%x&quot;</span> } <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{t.name} - #{t.source}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-node">&quot;#{OBJFILE} - foo%x&quot;</span>], <span class="ruby-ivar">@runs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multiple_rules1">
+            
+              <b>test_multiple_rules1</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_multiple_rules1" name="method-i-test_multiple_rules1" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multiple_rules1_source')" id="l_method-i-test_multiple_rules1_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multiple_rules1_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_rules1</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">FTNFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.c&#39;</span>]) <span class="ruby-keyword">do</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:C</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.f&#39;</span>]) <span class="ruby-keyword">do</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:F</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>]
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">invoke</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:F</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_multiple_rules2">
+            
+              <b>test_multiple_rules2</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_multiple_rules2" name="method-i-test_multiple_rules2" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_multiple_rules2_source')" id="l_method-i-test_multiple_rules2_source">show</a>
+                
+              </p>
+              <div id="method-i-test_multiple_rules2_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_multiple_rules2</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">FTNFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.f&#39;</span>]) <span class="ruby-keyword">do</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:F</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.c&#39;</span>]) <span class="ruby-keyword">do</span> <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:C</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:F</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_non_extension_rule_name_refers_to_file">
+            
+              <b>test_non_extension_rule_name_refers_to_file</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_non_extension_rule_name_refers_to_file" name="method-i-test_non_extension_rule_name_refers_to_file" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_non_extension_rule_name_refers_to_file_source')" id="l_method-i-test_non_extension_rule_name_refers_to_file_source">show</a>
+                
+              </p>
+              <div id="method-i-test_non_extension_rule_name_refers_to_file_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_non_extension_rule_name_refers_to_file</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;abc.c&quot;</span>)
+    <span class="ruby-identifier">rule</span> <span class="ruby-string">&quot;abc&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.c&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-string">&quot;abc&quot;</span>].<span class="ruby-identifier">invoke</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;abc&quot;</span>], <span class="ruby-ivar">@runs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_pathmap_automatically_applies_to_name">
+            
+              <b>test_pathmap_automatically_applies_to_name</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_pathmap_automatically_applies_to_name" name="method-i-test_pathmap_automatically_applies_to_name" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_pathmap_automatically_applies_to_name_source')" id="l_method-i-test_pathmap_automatically_applies_to_name_source">show</a>
+                
+              </p>
+              <div id="method-i-test_pathmap_automatically_applies_to_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_pathmap_automatically_applies_to_name</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;zzabc.c&quot;</span>)
+    <span class="ruby-identifier">rule</span> <span class="ruby-string">&quot;.o&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;zz%{x,a}n.c&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{t.name} - #{t.source}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-string">&quot;xbc.o&quot;</span>].<span class="ruby-identifier">invoke</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;xbc.o - zzabc.c&quot;</span>], <span class="ruby-ivar">@runs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_plain_strings_are_just_filenames">
+            
+              <b>test_plain_strings_are_just_filenames</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_plain_strings_are_just_filenames" name="method-i-test_plain_strings_are_just_filenames" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_plain_strings_are_just_filenames_source')" id="l_method-i-test_plain_strings_are_just_filenames_source">show</a>
+                
+              </p>
+              <div id="method-i-test_plain_strings_are_just_filenames_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_plain_strings_are_just_filenames</span>
+  <span class="ruby-identifier">verbose</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;plainname&quot;</span>)
+    <span class="ruby-identifier">rule</span> <span class="ruby-string">&quot;.o&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;plainname&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{t.name} - #{t.source}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Task</span>[<span class="ruby-string">&quot;xbc.o&quot;</span>].<span class="ruby-identifier">invoke</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;xbc.o - plainname&quot;</span>], <span class="ruby-ivar">@runs</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_plain_strings_as_dependents_refer_to_files">
+            
+              <b>test_plain_strings_as_dependents_refer_to_files</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_plain_strings_as_dependents_refer_to_files" name="method-i-test_plain_strings_as_dependents_refer_to_files" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_plain_strings_as_dependents_refer_to_files_source')" id="l_method-i-test_plain_strings_as_dependents_refer_to_files_source">show</a>
+                
+              </p>
+              <div id="method-i-test_plain_strings_as_dependents_refer_to_files_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_plain_strings_as_dependents_refer_to_files</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">SRCFILE</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">OBJFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_proc_returning_lists_are_flattened_into_prereqs">
+            
+              <b>test_proc_returning_lists_are_flattened_into_prereqs</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_proc_returning_lists_are_flattened_into_prereqs" name="method-i-test_proc_returning_lists_are_flattened_into_prereqs" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_proc_returning_lists_are_flattened_into_prereqs_source')" id="l_method-i-test_proc_returning_lists_are_flattened_into_prereqs_source">show</a>
+                
+              </p>
+              <div id="method-i-test_proc_returning_lists_are_flattened_into_prereqs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_proc_returning_lists_are_flattened_into_prereqs</span>
+  <span class="ruby-identifier">ran</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">mkdir_p</span>(<span class="ruby-string">&quot;flatten&quot;</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;flatten/a.txt&quot;</span>)
+  <span class="ruby-identifier">task</span> <span class="ruby-string">&#39;flatten/b.data&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">ran</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">touch</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">:verbose</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.html&#39;</span> <span class="ruby-operator">=&gt;</span>
+    <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span>
+    [
+      <span class="ruby-identifier">fn</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;txt&quot;</span>),
+      <span class="ruby-string">&quot;flatten/b.data&quot;</span>
+    ]
+  } <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;flatten/a.html&#39;</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">ran</span>, <span class="ruby-string">&quot;Should have triggered flattened dependency&quot;</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">rm_r</span>(<span class="ruby-string">&quot;flatten&quot;</span>, <span class="ruby-value">:verbose</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_recursive_rules_that_dont_terminate_will_overflow">
+            
+              <b>test_recursive_rules_that_dont_terminate_will_overflow</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_recursive_rules_that_dont_terminate_will_overflow" name="method-i-test_recursive_rules_that_dont_terminate_will_overflow" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_recursive_rules_that_dont_terminate_will_overflow_source')" id="l_method-i-test_recursive_rules_that_dont_terminate_will_overflow_source">show</a>
+                
+              </p>
+              <div id="method-i-test_recursive_rules_that_dont_terminate_will_overflow_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 308</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_recursive_rules_that_dont_terminate_will_overflow</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;a.a&quot;</span>)
+  <span class="ruby-identifier">prev</span> = <span class="ruby-string">&#39;a&#39;</span>
+  (<span class="ruby-string">&#39;b&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;z&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">rule</span> <span class="ruby-node">&quot;.#{letter}&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-node">&quot;.#{prev}&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{t.name}&quot;</span> <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">prev</span> = <span class="ruby-identifier">letter</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ex</span> = <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">RuleRecursionOverflowError</span>) {
+    <span class="ruby-constant">Task</span>[<span class="ruby-string">&quot;a.z&quot;</span>].<span class="ruby-identifier">invoke</span>
+  }
+  <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/a\.z =&gt; a.y/</span>, <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_recursive_rules_will_work_as_long_as_they_terminate">
+            
+              <b>test_recursive_rules_will_work_as_long_as_they_terminate</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_recursive_rules_will_work_as_long_as_they_terminate" name="method-i-test_recursive_rules_will_work_as_long_as_they_terminate" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_recursive_rules_will_work_as_long_as_they_terminate_source')" id="l_method-i-test_recursive_rules_will_work_as_long_as_they_terminate_source">show</a>
+                
+              </p>
+              <div id="method-i-test_recursive_rules_will_work_as_long_as_they_terminate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_recursive_rules_will_work_as_long_as_they_terminate</span>
+  <span class="ruby-identifier">actions</span> = []
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;abc.xml&quot;</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.y&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.xml&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-identifier">actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;y&#39;</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.c&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.y&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-identifier">actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;c&#39;</span><span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.c&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-identifier">actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;o&#39;</span><span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.exe&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-identifier">actions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;exe&#39;</span><span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-string">&quot;abc.exe&quot;</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;y&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>, <span class="ruby-string">&#39;o&#39;</span>, <span class="ruby-string">&#39;exe&#39;</span>], <span class="ruby-identifier">actions</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_regex_rule_with_args">
+            
+              <b>test_regex_rule_with_args</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_regex_rule_with_args" name="method-i-test_regex_rule_with_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_regex_rule_with_args_source')" id="l_method-i-test_regex_rule_with_args_source">show</a>
+                
+              </p>
+              <div id="method-i-test_regex_rule_with_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_regex_rule_with_args</span>
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/.o$/</span>, [<span class="ruby-value">:a</span>] <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">SRCFILE</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;arg&#39;</span>, <span class="ruby-identifier">args</span>.<span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>(<span class="ruby-string">&#39;arg&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_regex_rule_with_args_and_lambda_prereq">
+            
+              <b>test_regex_rule_with_args_and_lambda_prereq</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_regex_rule_with_args_and_lambda_prereq" name="method-i-test_regex_rule_with_args_and_lambda_prereq" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_regex_rule_with_args_and_lambda_prereq_source')" id="l_method-i-test_regex_rule_with_args_and_lambda_prereq_source">show</a>
+                
+              </p>
+              <div id="method-i-test_regex_rule_with_args_and_lambda_prereq_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_regex_rule_with_args_and_lambda_prereq</span>
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/.o$/</span>, [<span class="ruby-value">:a</span>] <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span>{<span class="ruby-constant">SRCFILE</span>}]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;arg&#39;</span>, <span class="ruby-identifier">args</span>.<span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>(<span class="ruby-string">&#39;arg&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_can_be_created_by_string">
+            
+              <b>test_rule_can_be_created_by_string</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_can_be_created_by_string" name="method-i-test_rule_can_be_created_by_string" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_can_be_created_by_string_source')" id="l_method-i-test_rule_can_be_created_by_string_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_can_be_created_by_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_can_be_created_by_string</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.c&#39;</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">OBJFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_prereqs_can_be_created_by_string">
+            
+              <b>test_rule_prereqs_can_be_created_by_string</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_prereqs_can_be_created_by_string" name="method-i-test_rule_prereqs_can_be_created_by_string" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_prereqs_can_be_created_by_string_source')" id="l_method-i-test_rule_prereqs_can_be_created_by_string_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_prereqs_can_be_created_by_string_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_prereqs_can_be_created_by_string</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.c&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">OBJFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_rebuilds_obj_when_source_is_newer">
+            
+              <b>test_rule_rebuilds_obj_when_source_is_newer</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_rebuilds_obj_when_source_is_newer" name="method-i-test_rule_rebuilds_obj_when_source_is_newer" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_rebuilds_obj_when_source_is_newer_source')" id="l_method-i-test_rule_rebuilds_obj_when_source_is_newer_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_rebuilds_obj_when_source_is_newer_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_rebuilds_obj_when_source_is_newer</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OBJFILE</span>, <span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.c&#39;</span>]) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:RULE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_runs_when_explicit_task_has_no_actions">
+            
+              <b>test_rule_runs_when_explicit_task_has_no_actions</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_runs_when_explicit_task_has_no_actions" name="method-i-test_rule_runs_when_explicit_task_has_no_actions" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_runs_when_explicit_task_has_no_actions_source')" id="l_method-i-test_rule_runs_when_explicit_task_has_no_actions_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_runs_when_explicit_task_has_no_actions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_runs_when_explicit_task_has_no_actions</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE2</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.c&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">source</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">file</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-constant">SRCFILE2</span>]
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">SRCFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_with_method_prereq">
+            
+              <b>test_rule_with_method_prereq</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_with_method_prereq" name="method-i-test_rule_with_method_prereq" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_with_method_prereq_source')" id="l_method-i-test_rule_with_method_prereq_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_with_method_prereq_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_with_method_prereq</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;.foo&quot;</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">obj</span>.<span class="ruby-identifier">find_prereq</span>
+    <span class="ruby-string">&quot;.foo&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:find_prereq</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{t.name} - #{t.source}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-node">&quot;#{OBJFILE} - .foo&quot;</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_with_one_arg_method_prereq">
+            
+              <b>test_rule_with_one_arg_method_prereq</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_with_one_arg_method_prereq" name="method-i-test_rule_with_one_arg_method_prereq" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_with_one_arg_method_prereq_source')" id="l_method-i-test_rule_with_one_arg_method_prereq_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_with_one_arg_method_prereq_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_with_one_arg_method_prereq</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">obj</span>.<span class="ruby-identifier">find_prereq</span>(<span class="ruby-identifier">task_name</span>)
+    <span class="ruby-identifier">task_name</span>.<span class="ruby-identifier">ext</span>(<span class="ruby-string">&quot;.c&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:find_prereq</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{t.name} - #{t.source}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-node">&quot;#{OBJFILE} - abc.c&quot;</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_with_proc_dependent_will_trigger">
+            
+              <b>test_rule_with_proc_dependent_will_trigger</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_with_proc_dependent_will_trigger" name="method-i-test_rule_with_proc_dependent_will_trigger" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_with_proc_dependent_will_trigger_source')" id="l_method-i-test_rule_with_proc_dependent_will_trigger_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_with_proc_dependent_will_trigger_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_with_proc_dependent_will_trigger</span>
+  <span class="ruby-identifier">mkdir_p</span>(<span class="ruby-string">&quot;src/jw&quot;</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-string">&quot;src/jw/X.java&quot;</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-regexp">%r(classes/.*\.class)</span> <span class="ruby-operator">=&gt;</span> [
+    <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">fn</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fn</span>.<span class="ruby-identifier">pathmap</span>(<span class="ruby-string">&quot;%{classes,src}d/%n.java&quot;</span>) }
+  ] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">name</span>, <span class="ruby-string">&#39;classes/jw/X.class&#39;</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">source</span>, <span class="ruby-string">&#39;src/jw/X.java&#39;</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;classes/jw/X.class&#39;</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:RULE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">rm_r</span>(<span class="ruby-string">&quot;src&quot;</span>, <span class="ruby-value">:verbose</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_with_two_sources_builds_both_sources">
+            
+              <b>test_rule_with_two_sources_builds_both_sources</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_with_two_sources_builds_both_sources" name="method-i-test_rule_with_two_sources_builds_both_sources" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_with_two_sources_builds_both_sources_source')" id="l_method-i-test_rule_with_two_sources_builds_both_sources_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_with_two_sources_builds_both_sources_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_with_two_sources_builds_both_sources</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-string">&#39;x.aa&#39;</span>
+  <span class="ruby-identifier">task</span> <span class="ruby-string">&#39;x.bb&#39;</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.a&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.aa&#39;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;A&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.b&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.bb&#39;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;B&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&quot;.c&quot;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-string">&#39;.a&#39;</span>, <span class="ruby-string">&#39;.b&#39;</span>] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;C&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-string">&quot;x.c&quot;</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&quot;A&quot;</span>, <span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-string">&quot;C&quot;</span>], <span class="ruby-ivar">@runs</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_with_two_sources_but_one_missing_does_not_run">
+            
+              <b>test_rule_with_two_sources_but_one_missing_does_not_run</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_with_two_sources_but_one_missing_does_not_run" name="method-i-test_rule_with_two_sources_but_one_missing_does_not_run" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_with_two_sources_but_one_missing_does_not_run_source')" id="l_method-i-test_rule_with_two_sources_but_one_missing_does_not_run_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_with_two_sources_but_one_missing_does_not_run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_with_two_sources_but_one_missing_does_not_run</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OBJFILE</span>, <span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">SRCFILE2</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }, <span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE2</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rule_with_two_sources_runs_if_both_sources_are_present">
+            
+              <b>test_rule_with_two_sources_runs_if_both_sources_are_present</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rule_with_two_sources_runs_if_both_sources_are_present" name="method-i-test_rule_with_two_sources_runs_if_both_sources_are_present" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rule_with_two_sources_runs_if_both_sources_are_present_source')" id="l_method-i-test_rule_with_two_sources_runs_if_both_sources_are_present_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rule_with_two_sources_runs_if_both_sources_are_present_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rule_with_two_sources_runs_if_both_sources_are_present</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OBJFILE</span>, <span class="ruby-constant">SRCFILE</span>, <span class="ruby-constant">SRCFILE2</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }, <span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE2</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:RULE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_rules_with_bad_dependents_will_fail">
+            
+              <b>test_rules_with_bad_dependents_will_fail</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_rules_with_bad_dependents_will_fail" name="method-i-test_rules_with_bad_dependents_will_fail" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_rules_with_bad_dependents_will_fail_source')" id="l_method-i-test_rules_with_bad_dependents_will_fail_source">show</a>
+                
+              </p>
+              <div id="method-i-test_rules_with_bad_dependents_will_fail_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_rules_with_bad_dependents_will_fail</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&quot;a&quot;</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">1</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">RuntimeError</span>) <span class="ruby-keyword">do</span> <span class="ruby-constant">Task</span>[<span class="ruby-string">&#39;a&#39;</span>].<span class="ruby-identifier">invoke</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_second_rule_doest_run_if_first_triggers">
+            
+              <b>test_second_rule_doest_run_if_first_triggers</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_second_rule_doest_run_if_first_triggers" name="method-i-test_second_rule_doest_run_if_first_triggers" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_second_rule_doest_run_if_first_triggers_source')" id="l_method-i-test_second_rule_doest_run_if_first_triggers_source">show</a>
+                
+              </p>
+              <div id="method-i-test_second_rule_doest_run_if_first_triggers_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_second_rule_doest_run_if_first_triggers</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OBJFILE</span>, <span class="ruby-constant">SRCFILE</span>, <span class="ruby-constant">SRCFILE2</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }, <span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE2</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE2</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:RULE1</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules">
+            
+              <b>test_second_rule_doest_run_if_first_triggers_with_reversed_rules</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules" name="method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules_source')" id="l_method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules_source">show</a>
+                
+              </p>
+              <div id="method-i-test_second_rule_doest_run_if_first_triggers_with_reversed_rules_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_second_rule_doest_run_if_first_triggers_with_reversed_rules</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OBJFILE</span>, <span class="ruby-constant">SRCFILE</span>, <span class="ruby-constant">SRCFILE2</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }, <span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE2</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE2</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:RULE1</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_second_rule_runs_when_first_rule_doesnt">
+            
+              <b>test_second_rule_runs_when_first_rule_doesnt</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_second_rule_runs_when_first_rule_doesnt" name="method-i-test_second_rule_runs_when_first_rule_doesnt" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_second_rule_runs_when_first_rule_doesnt_source')" id="l_method-i-test_second_rule_runs_when_first_rule_doesnt_source">show</a>
+                
+              </p>
+              <div id="method-i-test_second_rule_runs_when_first_rule_doesnt_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_second_rule_runs_when_first_rule_doesnt</span>
+  <span class="ruby-identifier">create_timed_files</span>(<span class="ruby-constant">OBJFILE</span>, <span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">SRCFILE2</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }, <span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE2</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rule</span> <span class="ruby-constant">OBJFILE</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span> { <span class="ruby-constant">SRCFILE</span> }] <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:RULE2</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-value">:RULE2</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_single_dependent">
+            
+              <b>test_single_dependent</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_single_dependent" name="method-i-test_single_dependent" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_single_dependent_source')" id="l_method-i-test_single_dependent_source">show</a>
+                
+              </p>
+              <div id="method-i-test_single_dependent_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_single_dependent</span>
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span>(<span class="ruby-regexp">/\.o$/</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&#39;.c&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@runs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-constant">OBJFILE</span>], <span class="ruby-ivar">@runs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_string_rule_with_args">
+            
+              <b>test_string_rule_with_args</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_string_rule_with_args" name="method-i-test_string_rule_with_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_string_rule_with_args_source')" id="l_method-i-test_string_rule_with_args_source">show</a>
+                
+              </p>
+              <div id="method-i-test_string_rule_with_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 326</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_string_rule_with_args</span>
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span>, [<span class="ruby-value">:a</span>] <span class="ruby-operator">=&gt;</span> <span class="ruby-constant">SRCFILE</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;arg&#39;</span>, <span class="ruby-identifier">args</span>.<span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>(<span class="ruby-string">&#39;arg&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_string_rule_with_args_and_lambda_prereq">
+            
+              <b>test_string_rule_with_args_and_lambda_prereq</b>()
+            
+            <a href="../classes/TestRakeRules.html#method-i-test_string_rule_with_args_and_lambda_prereq" name="method-i-test_string_rule_with_args_and_lambda_prereq" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_string_rule_with_args_and_lambda_prereq_source')" id="l_method-i-test_string_rule_with_args_and_lambda_prereq_source">show</a>
+                
+              </p>
+              <div id="method-i-test_string_rule_with_args_and_lambda_prereq_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_rules.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_string_rule_with_args_and_lambda_prereq</span>
+  <span class="ruby-identifier">delete_file</span>(<span class="ruby-constant">OBJFILE</span>)
+  <span class="ruby-identifier">create_file</span>(<span class="ruby-constant">SRCFILE</span>)
+  <span class="ruby-identifier">rule</span> <span class="ruby-string">&#39;.o&#39;</span>, [<span class="ruby-value">:a</span>] <span class="ruby-operator">=&gt;</span> [<span class="ruby-identifier">lambda</span>{<span class="ruby-constant">SRCFILE</span>}]<span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;arg&#39;</span>, <span class="ruby-identifier">args</span>.<span class="ruby-identifier">a</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Task</span>[<span class="ruby-constant">OBJFILE</span>].<span class="ruby-identifier">invoke</span>(<span class="ruby-string">&#39;arg&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

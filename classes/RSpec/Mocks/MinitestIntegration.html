@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::MinitestIntegration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::MinitestIntegration">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::MinitestIntegration class">
+  
+    <meta name="keywords" content="before_setup, after_teardown">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Mocks::MinitestIntegration
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/minitest_integration_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/minitest_integration.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-after_teardown">after_teardown</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-before_setup">before_setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="ExampleMethods.html">
+              RSpec::Mocks::ExampleMethods
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-after_teardown">
+            
+              <b>after_teardown</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MinitestIntegration.html#method-i-after_teardown" name="method-i-after_teardown" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-after_teardown_source')" id="l_method-i-after_teardown_source">show</a>
+                
+              </p>
+              <div id="method-i-after_teardown_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/minitest_integration.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_teardown</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-comment"># Only verify if there&#39;s not already an error. Otherwise</span>
+  <span class="ruby-comment"># we risk getting the same failure twice, since negative</span>
+  <span class="ruby-comment"># expectation violations raise both when the message is</span>
+  <span class="ruby-comment"># unexpectedly received, and also during `verify` (in case</span>
+  <span class="ruby-comment"># the first failure was caught by user code via a</span>
+  <span class="ruby-comment"># `rescue Exception`).</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">verify</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">failures</span>.<span class="ruby-identifier">any?</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">teardown</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-before_setup">
+            
+              <b>before_setup</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MinitestIntegration.html#method-i-before_setup" name="method-i-before_setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-before_setup_source')" id="l_method-i-before_setup_source">show</a>
+                
+              </p>
+              <div id="method-i-before_setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/minitest_integration.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">before_setup</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

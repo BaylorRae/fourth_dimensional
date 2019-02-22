@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Invocations::Bisect</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Invocations::Bisect">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Invocations::Bisect class">
+  
+    <meta name="keywords" content="call">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Invocations::Bisect
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/invocations_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/invocations.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-call">call</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-call">
+            
+              <b>call</b>(options, err, out)
+            
+            <a href="../../../../classes/RSpec/Core/Invocations/Bisect.html#method-i-call" name="method-i-call" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-call_source')" id="l_method-i-call_source">show</a>
+                
+              </p>
+              <div id="method-i-call_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/invocations.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">err</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span>.<span class="ruby-identifier">require_rspec_core</span> <span class="ruby-string">&quot;bisect/coordinator&quot;</span>
+  <span class="ruby-identifier">runner</span> = <span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">err</span>, <span class="ruby-identifier">out</span>) }
+  <span class="ruby-identifier">formatter</span> = <span class="ruby-identifier">bisect_formatter_klass_for</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:bisect</span>]).<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">out</span>, <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">bisect_runner</span>
+  )
+
+  <span class="ruby-identifier">success</span> = <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Bisect</span><span class="ruby-operator">::</span><span class="ruby-constant">Coordinator</span>.<span class="ruby-identifier">bisect_with</span>(
+    <span class="ruby-identifier">runner</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">args</span>, <span class="ruby-identifier">formatter</span>
+  )
+
+  <span class="ruby-identifier">success</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

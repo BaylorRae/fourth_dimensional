@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::PartialDoubleProxy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::PartialDoubleProxy">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::PartialDoubleProxy class">
+  
+    <meta name="keywords" content="original_method_handle_for, add_simple_expectation, add_simple_stub, visibility_for, reset, message_received">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::PartialDoubleProxy
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Proxy.html">RSpec::Mocks::Proxy</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/proxy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_simple_expectation">add_simple_expectation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_simple_stub">add_simple_stub</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message_received">message_received</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-original_method_handle_for">original_method_handle_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reset">reset</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-visibility_for">visibility_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_simple_expectation">
+            
+              <b>add_simple_expectation</b>(method_name, response, location)
+            
+            <a href="../../../classes/RSpec/Mocks/PartialDoubleProxy.html#method-i-add_simple_expectation" name="method-i-add_simple_expectation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_simple_expectation_source')" id="l_method-i-add_simple_expectation_source">show</a>
+                
+              </p>
+              <div id="method-i-add_simple_expectation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 300</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_simple_expectation</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">response</span>, <span class="ruby-identifier">location</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">configure_method</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_simple_stub">
+            
+              <b>add_simple_stub</b>(method_name, response)
+            
+            <a href="../../../classes/RSpec/Mocks/PartialDoubleProxy.html#method-i-add_simple_stub" name="method-i-add_simple_stub" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_simple_stub_source')" id="l_method-i-add_simple_stub_source">show</a>
+                
+              </p>
+              <div id="method-i-add_simple_stub_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_simple_stub</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">configure_method</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-message_received">
+            
+              <b>message_received</b>(message, *args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/PartialDoubleProxy.html#method-i-message_received" name="method-i-message_received" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_received_source')" id="l_method-i-message_received_source">show</a>
+                
+              </p>
+              <div id="method-i-message_received_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message_received</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.<span class="ruby-identifier">any_instance_recorders_from_ancestry_of</span>(<span class="ruby-identifier">object</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subscriber</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">subscriber</span>.<span class="ruby-identifier">notify_received_message</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_method_handle_for">
+            
+              <b>original_method_handle_for</b>(message)
+            
+            <a href="../../../classes/RSpec/Mocks/PartialDoubleProxy.html#method-i-original_method_handle_for" name="method-i-original_method_handle_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-original_method_handle_for_source')" id="l_method-i-original_method_handle_for_source">show</a>
+                
+              </p>
+              <div id="method-i-original_method_handle_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">original_method_handle_for</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">any_instance_class_recorder_observing_method?</span>(<span class="ruby-ivar">@object</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">message</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.
+      <span class="ruby-identifier">any_instance_recorder_for</span>(<span class="ruby-ivar">@object</span>.<span class="ruby-identifier">class</span>).
+      <span class="ruby-identifier">build_alias_method_name</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span>.<span class="ruby-identifier">method_handle_for</span>(<span class="ruby-ivar">@object</span>, <span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reset">
+            
+              <b>reset</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/PartialDoubleProxy.html#method-i-reset" name="method-i-reset" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-reset_source')" id="l_method-i-reset_source">show</a>
+                
+              </p>
+              <div id="method-i-reset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reset</span>
+  <span class="ruby-ivar">@method_doubles</span>.<span class="ruby-identifier">each_value</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">reset</span> }
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-visibility_for">
+            
+              <b>visibility_for</b>(method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/PartialDoubleProxy.html#method-i-visibility_for" name="method-i-visibility_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-visibility_for_source')" id="l_method-i-visibility_for_source">show</a>
+                
+              </p>
+              <div id="method-i-visibility_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visibility_for</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-comment"># We fall back to :public because by default we allow undefined methods</span>
+  <span class="ruby-comment"># to be stubbed, and when we do so, we make them public.</span>
+  <span class="ruby-constant">MethodReference</span>.<span class="ruby-identifier">method_visibility_for</span>(<span class="ruby-ivar">@object</span>, <span class="ruby-identifier">method_name</span>) <span class="ruby-operator">||</span> <span class="ruby-value">:public</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

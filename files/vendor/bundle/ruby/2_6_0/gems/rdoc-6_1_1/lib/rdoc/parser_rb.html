@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>parser.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            parser.rb
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser.rb</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A parser is simple a class that subclasses <a href="../../../../../../../../../classes/RDoc/Parser.html"><code>RDoc::Parser</code></a> and implements scan to fill in an <a href="../../../../../../../../../classes/RDoc/TopLevel.html"><code>RDoc::TopLevel</code></a> with parsed data.</p>
+
+<p>The initialize method takes an <a href="../../../../../../../../../classes/RDoc/TopLevel.html"><code>RDoc::TopLevel</code></a> to fill with parsed content, the name of the file to be parsed, the content of the file, an <a href="../../../../../../../../../classes/RDoc/Options.html"><code>RDoc::Options</code></a> object and an <a href="../../../../../../../../../classes/RDoc/Stats.html"><code>RDoc::Stats</code></a> object to inform the user of parsed items.  The scan method is then called to parse the file and must return the <a href="../../../../../../../../../classes/RDoc/TopLevel.html"><code>RDoc::TopLevel</code></a> object.  By calling super these items will be set for you.</p>
+
+<p>In order to be used by <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> the parser needs to register the file extensions it can parse.  Use ::parse_files_matching to register extensions.</p>
+
+<pre><code>require &#39;rdoc&#39;
+
+class RDoc::Parser::Xyz &lt; RDoc::Parser
+  parse_files_matching /\.xyz$/
+
+  def initialize top_level, file_name, content, options, stats
+    super
+
+    # extra initialization if needed
+  end
+
+  def scan
+    # parse file and fill in @top_level
+  end
+end
+</code></pre>
+
+    </div>
+  
+
+
+  
+    <!-- File only: requires -->
+    <div class="sectiontitle">Required Files</div>
+    <ul>
+      
+        <li>rdoc/parser/simple</li>
+      
+        <li>rdoc/parser/c</li>
+      
+        <li>rdoc/parser/changelog</li>
+      
+        <li>rdoc/parser/markdown</li>
+      
+        <li>rdoc/parser/rd</li>
+      
+        <li>rdoc/parser/ruby</li>
+      
+    </ul>
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="../../../../../../../../../classes/RDoc.html">RDoc</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../../../../../../../classes/RDoc/Markup.html">RDoc::Markup</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../../../../../../../classes/RDoc/Parser.html">RDoc::Parser</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::Spec</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::Spec">
+
+  
+
+    <meta name="keywords" content="RSpec::Support::Spec class">
+  
+    <meta name="keywords" content="setup_simplecov">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Support::Spec
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-setup_simplecov">setup_simplecov</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-setup_simplecov">
+            
+              <b>setup_simplecov</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Support/Spec.html#method-c-setup_simplecov" name="method-c-setup_simplecov" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-setup_simplecov_source')" id="l_method-c-setup_simplecov_source">show</a>
+                
+              </p>
+              <div id="method-c-setup_simplecov_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">setup_simplecov</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># Simplecov emits some ruby warnings when loaded, so silence them.</span>
+  <span class="ruby-identifier">old_verbose</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-keyword">false</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;NO_COVERAGE&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&lt;</span> <span class="ruby-string">&#39;1.9.3&#39;</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_ENGINE</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;ruby&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">OS</span>.<span class="ruby-identifier">windows?</span>
+
+  <span class="ruby-comment"># Don&#39;t load it when we&#39;re running a single isolated</span>
+  <span class="ruby-comment"># test file rather than the whole suite.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">files_to_run</span>.<span class="ruby-identifier">one?</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;simplecov&#39;</span>
+  <span class="ruby-identifier">start_simplecov</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Simplecov could not be loaded&quot;</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">old_verbose</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

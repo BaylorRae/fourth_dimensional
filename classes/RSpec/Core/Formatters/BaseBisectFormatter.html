@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Formatters::BaseBisectFormatter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Formatters::BaseBisectFormatter">
+
+  
+    
+    <meta name="description" content="Contains common logic for formatters used by `–bisect` to communicate results back to the bisect runner.  Subclasses must define a `notify_results(all_example_ids, failed_example_ids)` method.">
+    <meta property="og:description" content="Contains common logic for formatters used by `–bisect` to communicate results back to the bisect runner.  Subclasses must define a `notify_results(all_example_ids, failed_example_ids)` method.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Formatters::BaseBisectFormatter class">
+  
+    <meta name="keywords" content="inherited, new, example_failed, example_finished, start_dump">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Formatters::BaseBisectFormatter
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/base_bisect_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Contains common logic for formatters used by `–bisect` to communicate results back to the bisect runner.</p>
+
+<p>Subclasses must define a `notify_results(all_example_ids, failed_example_ids)` method. @private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-example_failed">example_failed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_finished">example_finished</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-inherited">inherited</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-start_dump">start_dump</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-inherited">
+            
+              <b>inherited</b>(formatter)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BaseBisectFormatter.html#method-c-inherited" name="method-c-inherited" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-inherited_source')" id="l_method-c-inherited_source">show</a>
+                
+              </p>
+              <div id="method-c-inherited_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">inherited</span>(<span class="ruby-identifier">formatter</span>)
+  <span class="ruby-constant">Formatters</span>.<span class="ruby-identifier">register</span> <span class="ruby-identifier">formatter</span>, <span class="ruby-value">:start_dump</span>, <span class="ruby-value">:example_failed</span>, <span class="ruby-value">:example_finished</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(expected_failures)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BaseBisectFormatter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">expected_failures</span>)
+  <span class="ruby-ivar">@all_example_ids</span> = []
+  <span class="ruby-ivar">@failed_example_ids</span> = []
+  <span class="ruby-ivar">@remaining_failures</span> = <span class="ruby-identifier">expected_failures</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-example_failed">
+            
+              <b>example_failed</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BaseBisectFormatter.html#method-i-example_failed" name="method-i-example_failed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_failed_source')" id="l_method-i-example_failed_source">show</a>
+                
+              </p>
+              <div id="method-i-example_failed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_failed</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-ivar">@failed_example_ids</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">example</span>.<span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_finished">
+            
+              <b>example_finished</b>(notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BaseBisectFormatter.html#method-i-example_finished" name="method-i-example_finished" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_finished_source')" id="l_method-i-example_finished_source">show</a>
+                
+              </p>
+              <div id="method-i-example_finished_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_finished</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-ivar">@all_example_ids</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">example</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@remaining_failures</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">notification</span>.<span class="ruby-identifier">example</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-ivar">@remaining_failures</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">notification</span>.<span class="ruby-identifier">example</span>.<span class="ruby-identifier">id</span>)
+
+  <span class="ruby-identifier">status</span> = <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">example</span>.<span class="ruby-identifier">execution_result</span>.<span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:failed</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@remaining_failures</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">world</span>.<span class="ruby-identifier">wants_to_quit</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_dump">
+            
+              <b>start_dump</b>(_notification)
+            
+            <a href="../../../../classes/RSpec/Core/Formatters/BaseBisectFormatter.html#method-i-start_dump" name="method-i-start_dump" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-start_dump_source')" id="l_method-i-start_dump_source">show</a>
+                
+              </p>
+              <div id="method-i-start_dump_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_dump</span>(<span class="ruby-identifier">_notification</span>)
+  <span class="ruby-comment"># `notify_results` is defined in the subclass</span>
+  <span class="ruby-identifier">notify_results</span>(<span class="ruby-constant">Bisect</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleSetDescriptor</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-ivar">@all_example_ids</span>, <span class="ruby-ivar">@failed_example_ids</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

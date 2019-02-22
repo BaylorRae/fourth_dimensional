@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Bisect::ShellCommand</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Bisect::ShellCommand">
+
+  
+    
+    <meta name="description" content="Provides an API to generate shell commands to run the suite for a set of locations, using the given bisect server to capture the results.">
+    <meta property="og:description" content="Provides an API to generate shell commands to run the suite for a set of locations, using the given bisect server to capture the results.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Bisect::ShellCommand class">
+  
+    <meta name="keywords" content="new, command_for, repro_command_from, original_locations, bisect_environment_hash, spec_opts_without_bisect">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Bisect::ShellCommand
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/shell_command_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Provides an API to generate shell commands to run the suite for a set of locations, using the given bisect server to capture the results. @private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-bisect_environment_hash">bisect_environment_hash</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-command_for">command_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-original_locations">original_locations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-repro_command_from">repro_command_from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-spec_opts_without_bisect">spec_opts_without_bisect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../ShellEscape.html">
+              RSpec::Core::ShellEscape
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">RUBY</td>
+            <td>=</td>
+            <td class="attr-value">File.join(
+RbConfig::CONFIG[&#39;bindir&#39;],
+RbConfig::CONFIG[&#39;ruby_install_name&#39;] + RbConfig::CONFIG[&#39;EXEEXT&#39;]).
+sub(/.*\s.*/m, &#39;&quot;\&amp;&quot;&#39;)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Path to the currently running Ruby executable, borrowed from Rake: <a href="https://github.com/ruby/rake/blob/v10.4.2/lib/rake/file_utils.rb#L8-L12">github.com/ruby/rake/blob/v10.4.2/lib/rake/file_utils.rb#L8-L12</a> Note that we skip `<a href="'RUBY'">ENV</a>` because we don&#39;t have to deal with running <a href="../../../RSpec.html"><code>RSpec</code></a> from within a MRI source repository: <a href="https://github.com/ruby/rake/commit/968682759b3b65e42748cd2befb2ff3e982272d9">github.com/ruby/rake/commit/968682759b3b65e42748cd2befb2ff3e982272d9</a></p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>original_cli_args</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(original_cli_args)
+            
+            <a href="../../../../classes/RSpec/Core/Bisect/ShellCommand.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">original_cli_args</span>)
+  <span class="ruby-ivar">@original_cli_args</span> = <span class="ruby-identifier">original_cli_args</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;--bisect&quot;</span>) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-bisect_environment_hash">
+            
+              <b>bisect_environment_hash</b>()
+            
+            <a href="../../../../classes/RSpec/Core/Bisect/ShellCommand.html#method-i-bisect_environment_hash" name="method-i-bisect_environment_hash" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-bisect_environment_hash_source')" id="l_method-i-bisect_environment_hash_source">show</a>
+                
+              </p>
+              <div id="method-i-bisect_environment_hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bisect_environment_hash</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;SPEC_OPTS&#39;</span>)
+    { <span class="ruby-string">&#39;SPEC_OPTS&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">spec_opts_without_bisect</span> }
+  <span class="ruby-keyword">else</span>
+    {}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-command_for">
+            
+              <b>command_for</b>(locations, server)
+            
+            <a href="../../../../classes/RSpec/Core/Bisect/ShellCommand.html#method-i-command_for" name="method-i-command_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-command_for_source')" id="l_method-i-command_for_source">show</a>
+                
+              </p>
+              <div id="method-i-command_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">command_for</span>(<span class="ruby-identifier">locations</span>, <span class="ruby-identifier">server</span>)
+  <span class="ruby-identifier">parts</span> = []
+
+  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RUBY</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">load_path</span>
+  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">open3_safe_escape</span>(<span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span>.<span class="ruby-identifier">path_to_executable</span>)
+
+  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--format&quot;</span>   <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;bisect-drb&quot;</span>
+  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--drb-port&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">drb_port</span>
+
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">reusable_cli_options</span>)
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">locations</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">open3_safe_escape</span>(<span class="ruby-identifier">l</span>) })
+
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_locations">
+            
+              <b>original_locations</b>()
+            
+            <a href="../../../../classes/RSpec/Core/Bisect/ShellCommand.html#method-i-original_locations" name="method-i-original_locations" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-original_locations_source')" id="l_method-i-original_locations_source">show</a>
+                
+              </p>
+              <div id="method-i-original_locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">original_locations</span>
+  <span class="ruby-identifier">parsed_original_cli_options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:files_or_directories_to_run</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-repro_command_from">
+            
+              <b>repro_command_from</b>(locations)
+            
+            <a href="../../../../classes/RSpec/Core/Bisect/ShellCommand.html#method-i-repro_command_from" name="method-i-repro_command_from" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-repro_command_from_source')" id="l_method-i-repro_command_from_source">show</a>
+                
+              </p>
+              <div id="method-i-repro_command_from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">repro_command_from</span>(<span class="ruby-identifier">locations</span>)
+  <span class="ruby-identifier">parts</span> = []
+
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">environment_repro_parts</span>
+  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;rspec&quot;</span>
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">concat</span> <span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">organize_ids</span>(<span class="ruby-identifier">locations</span>)
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">original_cli_args_without_locations</span>
+
+  <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-spec_opts_without_bisect">
+            
+              <b>spec_opts_without_bisect</b>()
+            
+            <a href="../../../../classes/RSpec/Core/Bisect/ShellCommand.html#method-i-spec_opts_without_bisect" name="method-i-spec_opts_without_bisect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-spec_opts_without_bisect_source')" id="l_method-i-spec_opts_without_bisect_source">show</a>
+                
+              </p>
+              <div id="method-i-spec_opts_without_bisect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">spec_opts_without_bisect</span>
+  <span class="ruby-constant">Shellwords</span>.<span class="ruby-identifier">join</span>(
+    <span class="ruby-constant">Shellwords</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">ENV</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;SPEC_OPTS&#39;</span>, <span class="ruby-string">&#39;&#39;</span>)).<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">arg</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^--bisect/</span>
+    <span class="ruby-keyword">end</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

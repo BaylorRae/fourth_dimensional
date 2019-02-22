@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Example::ExecutionResult</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Example::ExecutionResult">
+
+  
+    
+    <meta name="description" content="Represents the result of executing an example. Behaves like a hash for backwards compatibility.">
+    <meta property="og:description" content="Represents the result of executing an example. Behaves like a hash for backwards compatibility.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Example::ExecutionResult class">
+  
+    <meta name="keywords" content="example_skipped?, record_finished, ensure_timing_set">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Example::ExecutionResult
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/example_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Represents the result of executing an example. Behaves like a hash for backwards compatibility.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ensure_timing_set">ensure_timing_set</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-example_skipped-3F">example_skipped?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-record_finished">record_finished</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../HashImitatable.html">
+              RSpec::Core::HashImitatable
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>exception</td>
+            <td class='attr-desc'><p>@return [Exception, nil] The failure, if there was one.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>finished_at</td>
+            <td class='attr-desc'><p>@return [Time] When the example finished.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>pending_exception</td>
+            <td class='attr-desc'><p>@return [Exception, nil] The exception triggered while</p>
+
+<pre><code>executing the pending example. If no exception was triggered
+it would no longer get a status of `:pending` unless it was
+tagged with `:skip`.
+</code></pre></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>pending_fixed</td>
+            <td class='attr-desc'><p>@return [Boolean] For examples tagged with `:pending`,</p>
+
+<pre><code>this indicates whether or not it now passes.
+</code></pre></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>pending_fixed?</td>
+            <td class='attr-desc'><p>@return [Boolean] For examples tagged with `:pending`,</p>
+
+<pre><code>this indicates whether or not it now passes.
+</code></pre></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>pending_message</td>
+            <td class='attr-desc'><p>@return [String, nil] The reason the example was pending,</p>
+
+<pre><code>or nil if the example was not pending.
+</code></pre></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>run_time</td>
+            <td class='attr-desc'><p>@return [Float] How long the example took in seconds.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>started_at</td>
+            <td class='attr-desc'><p>@return [Time] When the example started.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>status</td>
+            <td class='attr-desc'><p>@return [Symbol] `:passed`, `:failed` or `:pending`.</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-ensure_timing_set">
+            
+              <b>ensure_timing_set</b>(clock)
+            
+            <a href="../../../../classes/RSpec/Core/Example/ExecutionResult.html#method-i-ensure_timing_set" name="method-i-ensure_timing_set" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Populates <a href="ExecutionResult.html#attribute-i-finished_at"><code>finished_at</code></a> and <a href="ExecutionResult.html#attribute-i-run_time"><code>run_time</code></a> if it has not yet been set</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-ensure_timing_set_source')" id="l_method-i-ensure_timing_set_source">show</a>
+                
+              </p>
+              <div id="method-i-ensure_timing_set_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example.rb, line 597</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ensure_timing_set</span>(<span class="ruby-identifier">clock</span>)
+  <span class="ruby-identifier">calculate_run_time</span>(<span class="ruby-identifier">clock</span>.<span class="ruby-identifier">now</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">finished_at</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-example_skipped-3F">
+            
+              <b>example_skipped?</b>()
+            
+            <a href="../../../../classes/RSpec/Core/Example/ExecutionResult.html#method-i-example_skipped-3F" name="method-i-example_skipped-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Boolean] Indicates if the example was completely skipped</p>
+
+<pre><code>(typically done via `:skip` metadata or the `skip` method). Skipped examples
+will have a `:pending` result. A `:pending` result can also come from examples
+that were marked as `:pending`, which causes them to be run, and produces a
+`:failed` result if the example passes.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-example_skipped-3F_source')" id="l_method-i-example_skipped-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-example_skipped-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example.rb, line 584</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">example_skipped?</span>
+  <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">:pending</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">pending_exception</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-record_finished">
+            
+              <b>record_finished</b>(status, finished_at)
+            
+            <a href="../../../../classes/RSpec/Core/Example/ExecutionResult.html#method-i-record_finished" name="method-i-record_finished" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Records the finished status of the example.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-record_finished_source')" id="l_method-i-record_finished_source">show</a>
+                
+              </p>
+              <div id="method-i-record_finished_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example.rb, line 590</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">record_finished</span>(<span class="ruby-identifier">status</span>, <span class="ruby-identifier">finished_at</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">status</span> = <span class="ruby-identifier">status</span>
+  <span class="ruby-identifier">calculate_run_time</span>(<span class="ruby-identifier">finished_at</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

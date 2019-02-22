@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::BuiltIn::BaseMatcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::BuiltIn::BaseMatcher">
+
+  
+    
+    <meta name="description" content="@api private  Used internally as a base class for matchers that ship with rspec-expectations and rspec-rails.  ### Warning:  This class is for internal use, and subject to change without notice.">
+    <meta property="og:description" content="@api private  Used internally as a base class for matchers that ship with rspec-expectations and rspec-rails.  ### Warning:  This class is for internal use, and subject to change without notice.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::BuiltIn::BaseMatcher class">
+  
+    <meta name="keywords" content="new, matches?, match_unless_raises, description, diffable?, supports_block_expectations?, expects_call_stack_jump?, expected_formatted, actual_formatted, matcher_name, matcher_name">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::BuiltIn::BaseMatcher
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/base_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private</p>
+
+<p>Used <em>internally</em> as a base class for matchers that ship with rspec-expectations and rspec-rails.</p>
+
+<p>### Warning:</p>
+
+<p>This class is for internal use, and subject to change without notice. We strongly recommend that you do not base your custom matchers on this class. If/when this changes, we will announce it and remove this warning.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="BaseMatcher/DefaultFailureMessages.html">RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="BaseMatcher/HashFormatting.html">RSpec::Matchers::BuiltIn::BaseMatcher::HashFormatting</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-actual_formatted">actual_formatted</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-diffable-3F">diffable?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expected_formatted">expected_formatted</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-expects_call_stack_jump-3F">expects_call_stack_jump?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-match_unless_raises">match_unless_raises</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-matcher_name">matcher_name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-matcher_name">matcher_name</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-matches-3F">matches?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-supports_block_expectations-3F">supports_block_expectations?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../Composable.html">
+              RSpec::Matchers::Composable
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="BaseMatcher/HashFormatting.html">
+              RSpec::Matchers::BuiltIn::BaseMatcher::HashFormatting
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="BaseMatcher/DefaultFailureMessages.html">
+              RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">UNDEFINED</td>
+            <td>=</td>
+            <td class="attr-value">Object.new.freeze</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@api private Used to detect when no arg is passed to `initialize`. `nil` cannot be used because it&#39;s a valid value to pass.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>actual</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>expected</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>matcher_name</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rescued_exception</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-matcher_name">
+            
+              <b>matcher_name</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-c-matcher_name" name="method-c-matcher_name" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-matcher_name_source')" id="l_method-c-matcher_name_source">show</a>
+                
+              </p>
+              <div id="method-c-matcher_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">matcher_name</span>
+  <span class="ruby-ivar">@matcher_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>).<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(expected=UNDEFINED)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">expected</span>=<span class="ruby-constant">UNDEFINED</span>)
+  <span class="ruby-ivar">@expected</span> = <span class="ruby-identifier">expected</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">UNDEFINED</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-actual_formatted">
+            
+              <b>actual_formatted</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-actual_formatted" name="method-i-actual_formatted" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-actual_formatted_source')" id="l_method-i-actual_formatted_source">show</a>
+                
+              </p>
+              <div id="method-i-actual_formatted_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">actual_formatted</span>
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">ObjectFormatter</span>.<span class="ruby-identifier">format</span>(<span class="ruby-ivar">@actual</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Generates a description using {EnglishPhrasing}. @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-identifier">desc</span> = <span class="ruby-constant">EnglishPhrasing</span>.<span class="ruby-identifier">split_words</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">matcher_name</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">EnglishPhrasing</span>.<span class="ruby-identifier">list</span>(<span class="ruby-ivar">@expected</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@expected</span>)
+  <span class="ruby-identifier">desc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-diffable-3F">
+            
+              <b>diffable?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-diffable-3F" name="method-i-diffable-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private <a href="../../Matchers.html"><code>Matchers</code></a> are not diffable by default. Override this to make your subclass diffable.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-diffable-3F_source')" id="l_method-i-diffable-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-diffable-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">diffable?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expected_formatted">
+            
+              <b>expected_formatted</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-expected_formatted" name="method-i-expected_formatted" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expected_formatted_source')" id="l_method-i-expected_formatted_source">show</a>
+                
+              </p>
+              <div id="method-i-expected_formatted_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expected_formatted</span>
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">ObjectFormatter</span>.<span class="ruby-identifier">format</span>(<span class="ruby-ivar">@expected</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expects_call_stack_jump-3F">
+            
+              <b>expects_call_stack_jump?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-expects_call_stack_jump-3F" name="method-i-expects_call_stack_jump-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expects_call_stack_jump-3F_source')" id="l_method-i-expects_call_stack_jump-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-expects_call_stack_jump-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expects_call_stack_jump?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-match_unless_raises">
+            
+              <b>match_unless_raises</b>(*exceptions)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-match_unless_raises" name="method-i-match_unless_raises" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Used to wrap a block of code that will indicate failure by raising one of the named exceptions.</p>
+
+<p>This is used by rspec-rails for some of its matchers that wrap rails&#39; assertions.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-match_unless_raises_source')" id="l_method-i-match_unless_raises_source">show</a>
+                
+              </p>
+              <div id="method-i-match_unless_raises_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">match_unless_raises</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">exceptions</span>)
+  <span class="ruby-identifier">exceptions</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-constant">Exception</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">exceptions</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-operator">*</span><span class="ruby-identifier">exceptions</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@rescued_exception</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matcher_name">
+            
+              <b>matcher_name</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-matcher_name" name="method-i-matcher_name" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-matcher_name_source')" id="l_method-i-matcher_name_source">show</a>
+                
+              </p>
+              <div id="method-i-matcher_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">matcher_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@matcher_name</span>)
+    <span class="ruby-ivar">@matcher_name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">matcher_name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matches-3F">
+            
+              <b>matches?</b>(actual)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-matches-3F" name="method-i-matches-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Indicates if the match is successful. Delegates to `match`, which should be defined on a subclass. Takes care of consistently initializing the `actual` attribute.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-matches-3F_source')" id="l_method-i-matches-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-matches-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">matches?</span>(<span class="ruby-identifier">actual</span>)
+  <span class="ruby-ivar">@actual</span> = <span class="ruby-identifier">actual</span>
+  <span class="ruby-identifier">match</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">actual</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-supports_block_expectations-3F">
+            
+              <b>supports_block_expectations?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-supports_block_expectations-3F" name="method-i-supports_block_expectations-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Most matchers are value matchers (i.e. meant to work with `expect(value)`) rather than block matchers (i.e. meant to work with `expect { }`), so this defaults to false. Block matchers must override this to return true.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-supports_block_expectations-3F_source')" id="l_method-i-supports_block_expectations-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-supports_block_expectations-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">supports_block_expectations?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

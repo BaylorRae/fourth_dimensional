@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Pathname</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="Pathname">
+
+  
+
+    <meta name="keywords" content="Pathname class">
+  
+    <meta name="keywords" content="ext, pathmap">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Pathname
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/lib/rake/ext/pathname_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/ext/pathname.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ext">ext</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-pathmap">pathmap</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-ext">
+            
+              <b>ext</b>(newext=&#39;&#39;)
+            
+            <a href="../classes/Pathname.html#method-i-ext" name="method-i-ext" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Return a new <a href="Pathname.html"><code>Pathname</code></a> with <code>String#ext</code> applied to it.</p>
+
+<p>This <a href="Pathname.html"><code>Pathname</code></a> extension comes from Rake</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-ext_source')" id="l_method-i-ext_source">show</a>
+                
+              </p>
+              <div id="method-i-ext_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/ext/pathname.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ext</span>(<span class="ruby-identifier">newext</span>=<span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rake</span>.<span class="ruby-identifier">from_pathname</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">ext</span>(<span class="ruby-identifier">newext</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-pathmap">
+            
+              <b>pathmap</b>(spec=nil, &amp;block)
+            
+            <a href="../classes/Pathname.html#method-i-pathmap" name="method-i-pathmap" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Apply the pathmap spec to the <a href="Pathname.html"><code>Pathname</code></a>, returning a new <a href="Pathname.html"><code>Pathname</code></a> with the modified paths.  (See <a href="String.html#method-i-pathmap"><code>String#pathmap</code></a> for details.)</p>
+
+<p>This <a href="Pathname.html"><code>Pathname</code></a> extension comes from Rake</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-pathmap_source')" id="l_method-i-pathmap_source">show</a>
+                
+              </p>
+              <div id="method-i-pathmap_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/lib/rake/ext/pathname.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pathmap</span>(<span class="ruby-identifier">spec</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rake</span>.<span class="ruby-identifier">from_pathname</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">pathmap</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

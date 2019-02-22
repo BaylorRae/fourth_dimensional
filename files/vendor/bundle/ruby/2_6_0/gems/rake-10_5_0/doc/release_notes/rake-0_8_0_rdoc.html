@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>rake-0.8.0.rdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            rake-0.8.0.rdoc
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/doc/release_notes/rake-0.8.0.rdoc</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-Rake+0.8.0-2F0.8.1+Released">Rake 0.8.0/0.8.1 Released</h1>
+
+<p>Rake version 0.8.0 is a new release of rake that includes serveral new features.</p>
+
+<h2 id="label-Changes">Changes</h2>
+
+<h3 id="label-New+Features+in+Version+0.8.0">New Features in Version 0.8.0</h3>
+<ul><li>
+<p>Tasks can now receive command line parameters.  See the examples below for more details.</p>
+</li><li>
+<p>Comments are limited to 80 columns on output, but full comments can be seen by using the -D parameter. (feature suggested by Jamis Buck).</p>
+</li><li>
+<p>Explicit exit(n) calls will now set the exit status to n. (patch provided by Stephen Touset).</p>
+</li><li>
+<p>Rake is now compatible with Ruby 1.9.</p>
+</li></ul>
+
+<p>Version 0.8.1 is a minor update that includes additional Ruby 1.9 compatibility fixes.</p>
+
+<h2 id="label-What+is+Rake">What is Rake</h2>
+
+<p>Rake is a build tool similar to the make program in many ways. But instead of cryptic make recipes, Rake uses standard Ruby code to declare tasks and dependencies. You have the full power of a modern scripting language built right into your build tool.</p>
+
+<h2 id="label-Availability">Availability</h2>
+
+<p>The easiest way to get and install rake is via RubyGems …</p>
+
+<pre><code>gem install rake    (you may need root/admin privileges)
+</code></pre>
+
+<p>Otherwise, you can get it from the more traditional places:</p>
+<dl class="rdoc-list note-list"><dt>Home Page
+<dd>
+<p><a href="http://rake.rubyforge.org">rake.rubyforge.org</a>/</p>
+</dd><dt>Download
+<dd>
+<p><a href="http://rubyforge.org/project/showfiles.php?group_id=50">rubyforge.org/project/showfiles.php?group_id=50</a></p>
+</dd></dl>
+
+<h2 id="label-Task+Argument+Examples">Task Argument Examples</h2>
+
+<p>Prior to version 0.8.0, rake was only able to handle command line arguments of the form NAME=VALUE that were passed into Rake via the ENV hash.  Many folks had asked for some kind of simple command line arguments, perhaps using “–” to separate regular task names from argument values on the command line.  The problem is that there was no easy way to associate positional arguments on the command line with different tasks.  Suppose both tasks :a and :b expect a command line argument: does the first value go with :a?  What if :b is run first? Should it then get the first command line argument.</p>
+
+<p>Rake 0.8.0 solves this problem by explicitly passing values directly to the tasks that need them.  For example, if I had a release task that required a version number, I could say:</p>
+
+<pre><code>rake release[0.8.0]
+</code></pre>
+
+<p>And the string “0.8.0” will be passed to the :release task.  Multiple arguments can be passed by separating them with a comma, for example:</p>
+
+<pre><code>rake name[john,doe]
+</code></pre>
+
+<p>Just a few words of caution.  The rake task name and its arguments need to be a single command line argument to rake.  This generally means no spaces.  If spaces are needed, then the entire rake + argument string should be quoted.  Something like this:</p>
+
+<pre><code>rake &quot;name[billy bob, smith]&quot;
+</code></pre>
+
+<p>(Quoting rules vary between operating systems and shells, so make sure you consult the proper docs for your OS/shell).</p>
+
+<h3 id="label-Tasks+that+Expect+Parameters">Tasks that Expect Parameters</h3>
+
+<p>Parameters are only given to tasks that are setup to expect them.  In order to handle named parameters, the task declaration syntax for tasks has been extended slightly.</p>
+
+<p>For example, a task that needs a first name and last name might be declared as:</p>
+
+<pre><code>task :name, :first_name, :last_name
+</code></pre>
+
+<p>The first argument is still the name of the task (:name in this case). The next to argumements are the names of the parameters expected by :name (:first_name and :last_name in the example).</p>
+
+<p>To access the values of the paramters, the block defining the task behaviour can now accept a second parameter:</p>
+
+<pre><code>task :name, :first_name, :last_name do |t, args|
+  puts &quot;First name is #{args.first_name}&quot;
+  puts &quot;Last  name is #{args.last_name}&quot;
+end
+</code></pre>
+
+<p>The first argument of the block “t” is always bound to the current task object.  The second argument “args” is an open-struct like object that allows access to the task arguments.  Extra command line arguments to a task are ignored.  Missing command line arguments are given the nil value.</p>
+
+<h2 id="label-Thanks">Thanks</h2>
+
+<p>As usual, it was input from users that drove a alot of these changes. The following people either contributed patches, made suggestions or made otherwise helpful comments.  Thanks to …</p>
+<ul><li>
+<p>Jamis Buck (for comment formatting suggestions)</p>
+</li><li>
+<p>Stephen Touset (for exit status patch).</p>
+</li></ul>
+
+<p>– Jim Weirich</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

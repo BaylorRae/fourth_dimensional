@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::ShellOut</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::ShellOut">
+
+  
+
+    <meta name="keywords" content="RSpec::Support::ShellOut class">
+  
+    <meta name="keywords" content="with_env, shell_out, run_ruby_with_current_load_path, strip_known_warnings">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Support::ShellOut
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/shell_out_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/shell_out.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run_ruby_with_current_load_path">run_ruby_with_current_load_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-shell_out">shell_out</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-strip_known_warnings">strip_known_warnings</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-with_env">with_env</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">FakeProcessStatus</td>
+            <td>=</td>
+            <td class="attr-value">Struct.new(:exitstatus)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>popen3 doesn&#39;t provide the exit status so we fake it out.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-run_ruby_with_current_load_path">
+            
+              <b>run_ruby_with_current_load_path</b>(ruby_command, *flags)
+            
+            <a href="../../../classes/RSpec/Support/ShellOut.html#method-i-run_ruby_with_current_load_path" name="method-i-run_ruby_with_current_load_path" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-run_ruby_with_current_load_path_source')" id="l_method-i-run_ruby_with_current_load_path_source">show</a>
+                
+              </p>
+              <div id="method-i-run_ruby_with_current_load_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/shell_out.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">run_ruby_with_current_load_path</span>(<span class="ruby-identifier">ruby_command</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">flags</span>)
+  <span class="ruby-identifier">command</span> = [
+    <span class="ruby-constant">FileUtils</span><span class="ruby-operator">::</span><span class="ruby-constant">RUBY</span>,
+    <span class="ruby-node">&quot;-I#{$LOAD_PATH.map(&amp;:shellescape).join(File::PATH_SEPARATOR)}&quot;</span>,
+    <span class="ruby-string">&quot;-e&quot;</span>, <span class="ruby-identifier">ruby_command</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">flags</span>
+  ]
+
+  <span class="ruby-comment"># Unset these env vars because `ruby -w` will issue warnings whenever</span>
+  <span class="ruby-comment"># they are set to non-default values.</span>
+  <span class="ruby-identifier">with_env</span> <span class="ruby-string">&#39;RUBY_GC_HEAP_FREE_SLOTS&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;RUBY_GC_MALLOC_LIMIT&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>,
+           <span class="ruby-string">&#39;RUBY_FREE_MIN&#39;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">shell_out</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-shell_out">
+            
+              <b>shell_out</b>(*command)
+            
+            <a href="../../../classes/RSpec/Support/ShellOut.html#method-i-shell_out" name="method-i-shell_out" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-shell_out_source')" id="l_method-i-shell_out_source">show</a>
+                
+              </p>
+              <div id="method-i-shell_out_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/shell_out.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shell_out</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">stderr</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Open3</span>.<span class="ruby-identifier">capture3</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">stdout</span>, <span class="ruby-identifier">filter</span>(<span class="ruby-identifier">stderr</span>), <span class="ruby-identifier">status</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-strip_known_warnings">
+            
+              <b>strip_known_warnings</b>(input)
+            
+            <a href="../../../classes/RSpec/Support/ShellOut.html#method-i-strip_known_warnings" name="method-i-strip_known_warnings" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-strip_known_warnings_source')" id="l_method-i-strip_known_warnings_source">show</a>
+                
+              </p>
+              <div id="method-i-strip_known_warnings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/shell_out.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">strip_known_warnings</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">input</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Ignore bundler warning.</span>
+    <span class="ruby-identifier">l</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{bundler/source/rubygems}</span> <span class="ruby-operator">||</span>
+    <span class="ruby-comment"># Ignore bundler + rubygems warning.</span>
+    <span class="ruby-identifier">l</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{site_ruby/\d\.\d\.\d/rubygems}</span> <span class="ruby-operator">||</span>
+    <span class="ruby-comment"># This is required for windows for some reason</span>
+    <span class="ruby-identifier">l</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{lib/bundler/rubygems}</span> <span class="ruby-operator">||</span>
+    <span class="ruby-comment"># This is a JRuby file that generates warnings on 9.0.3.0</span>
+    <span class="ruby-identifier">l</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{lib/ruby/stdlib/jar}</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-with_env">
+            
+              <b>with_env</b>(vars)
+            
+            <a href="../../../classes/RSpec/Support/ShellOut.html#method-i-with_env" name="method-i-with_env" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-with_env_source')" id="l_method-i-with_env_source">show</a>
+                
+              </p>
+              <div id="method-i-with_env_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/shell_out.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with_env</span>(<span class="ruby-identifier">vars</span>)
+  <span class="ruby-identifier">original</span> = <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">vars</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span> }
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">original</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

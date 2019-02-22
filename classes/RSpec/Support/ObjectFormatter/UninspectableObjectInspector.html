@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::ObjectFormatter::UninspectableObjectInspector</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::ObjectFormatter::UninspectableObjectInspector">
+
+  
+
+    <meta name="keywords" content="RSpec::Support::ObjectFormatter::UninspectableObjectInspector class">
+  
+    <meta name="keywords" content="can_inspect?, inspect, klass, native_object_id">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Support::ObjectFormatter::UninspectableObjectInspector
+            
+                <span class="parent">&lt;
+                    
+                    BaseInspector
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/object_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-can_inspect-3F">can_inspect?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>K</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-klass">klass</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-native_object_id">native_object_id</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">OBJECT_ID_FORMAT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;%#016x&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-can_inspect-3F">
+            
+              <b>can_inspect?</b>(object)
+            
+            <a href="../../../../classes/RSpec/Support/ObjectFormatter/UninspectableObjectInspector.html#method-c-can_inspect-3F" name="method-c-can_inspect-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-can_inspect-3F_source')" id="l_method-c-can_inspect-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-can_inspect-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">can_inspect?</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">object</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../../../classes/RSpec/Support/ObjectFormatter/UninspectableObjectInspector.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-node">&quot;#&lt;#{klass}:#{native_object_id}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-klass">
+            
+              <b>klass</b>()
+            
+            <a href="../../../../classes/RSpec/Support/ObjectFormatter/UninspectableObjectInspector.html#method-i-klass" name="method-i-klass" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-klass_source')" id="l_method-i-klass_source">show</a>
+                
+              </p>
+              <div id="method-i-klass_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">klass</span>
+  <span class="ruby-constant">Support</span>.<span class="ruby-identifier">class_of</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-native_object_id">
+            
+              <b>native_object_id</b>()
+            
+            <a href="../../../../classes/RSpec/Support/ObjectFormatter/UninspectableObjectInspector.html#method-i-native_object_id" name="method-i-native_object_id" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p><a href="http://stackoverflow.com/a/2818916">stackoverflow.com/a/2818916</a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-native_object_id_source')" id="l_method-i-native_object_id_source">show</a>
+                
+              </p>
+              <div id="method-i-native_object_id_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">native_object_id</span>
+  <span class="ruby-constant">OBJECT_ID_FORMAT</span> <span class="ruby-operator">%</span> (<span class="ruby-identifier">object</span>.<span class="ruby-identifier">__id__</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>
+  <span class="ruby-comment"># In Ruby 1.9.2, BasicObject responds to none of #__id__, #object_id, #id...</span>
+  <span class="ruby-string">&#39;-&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>TestRakeFtpFile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="TestRakeFtpFile">
+
+  
+
+    <meta name="keywords" content="TestRakeFtpFile class">
+  
+    <meta name="keywords" content="setup, test_general, test_far_date, test_close_date, test_directory, test_symlink">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            TestRakeFtpFile
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Rake/TestCase.html">Rake::TestCase</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rake-10_5_0/test/test_rake_ftp_file_rb.html">vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-test_close_date">test_close_date</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_directory">test_directory</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_far_date">test_far_date</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_general">test_general</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-test_symlink">test_symlink</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../classes/TestRakeFtpFile.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FtpFile</span>.<span class="ruby-identifier">class_eval</span> {
+    <span class="ruby-ivar">@date_class</span> = <span class="ruby-constant">FakeDate</span>
+    <span class="ruby-ivar">@time_class</span> = <span class="ruby-constant">FakeDate</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_close_date">
+            
+              <b>test_close_date</b>()
+            
+            <a href="../classes/TestRakeFtpFile.html#method-i-test_close_date" name="method-i-test_close_date" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_close_date_source')" id="l_method-i-test_close_date_source">show</a>
+                
+              </p>
+              <div id="method-i-test_close_date_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_close_date</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FtpFile</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&quot;.&quot;</span>,
+    <span class="ruby-string">&quot;drwxr-xr-x   3 a279376  develop     4096 Nov 26 15:35 vss&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">mktime</span>(<span class="ruby-value">2002</span>, <span class="ruby-value">11</span>, <span class="ruby-value">26</span>, <span class="ruby-value">15</span>, <span class="ruby-value">35</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>), <span class="ruby-identifier">file</span>.<span class="ruby-identifier">time</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_directory">
+            
+              <b>test_directory</b>()
+            
+            <a href="../classes/TestRakeFtpFile.html#method-i-test_directory" name="method-i-test_directory" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_directory_source')" id="l_method-i-test_directory_source">show</a>
+                
+              </p>
+              <div id="method-i-test_directory_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_directory</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FtpFile</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&quot;.&quot;</span>,
+    <span class="ruby-string">&quot;drwxrwxr-x   9 a279376  develop     4096 Mar 13 14:32 working&quot;</span>)
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">directory?</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">file</span>.<span class="ruby-identifier">symlink?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_far_date">
+            
+              <b>test_far_date</b>()
+            
+            <a href="../classes/TestRakeFtpFile.html#method-i-test_far_date" name="method-i-test_far_date" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_far_date_source')" id="l_method-i-test_far_date_source">show</a>
+                
+              </p>
+              <div id="method-i-test_far_date_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_far_date</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FtpFile</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&quot;.&quot;</span>,
+    <span class="ruby-string">&quot;drwxr-xr-x   3 a279376  develop     4096 Nov 26  2001 vss&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">mktime</span>(<span class="ruby-value">2001</span>, <span class="ruby-value">11</span>, <span class="ruby-value">26</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>), <span class="ruby-identifier">file</span>.<span class="ruby-identifier">time</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_general">
+            
+              <b>test_general</b>()
+            
+            <a href="../classes/TestRakeFtpFile.html#method-i-test_general" name="method-i-test_general" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_general_source')" id="l_method-i-test_general_source">show</a>
+                
+              </p>
+              <div id="method-i-test_general_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_general</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FtpFile</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&quot;here&quot;</span>,
+    <span class="ruby-string">&quot;-rw-r--r--   1 a279376  develop   121770 Mar  6 14:50 wiki.pl&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;wiki.pl&quot;</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;here/wiki.pl&quot;</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;a279376&quot;</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">owner</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;develop&quot;</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">group</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0644</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">mode</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">121_770</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">mktime</span>(<span class="ruby-value">2003</span>, <span class="ruby-value">3</span>, <span class="ruby-value">6</span>, <span class="ruby-value">14</span>, <span class="ruby-value">50</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>), <span class="ruby-identifier">file</span>.<span class="ruby-identifier">time</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">directory?</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">symlink?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-test_symlink">
+            
+              <b>test_symlink</b>()
+            
+            <a href="../classes/TestRakeFtpFile.html#method-i-test_symlink" name="method-i-test_symlink" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-test_symlink_source')" id="l_method-i-test_symlink_source">show</a>
+                
+              </p>
+              <div id="method-i-test_symlink_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rake-10.5.0/test/test_rake_ftp_file.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">test_symlink</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Rake</span><span class="ruby-operator">::</span><span class="ruby-constant">FtpFile</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&quot;.&quot;</span>,
+    <span class="ruby-string">&quot;lrwxrwxrwx   1 a279376  develop       64 Mar 26  2002 &quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-string">&quot;xtrac -&gt; /home/a279376/working/ics/development/java/&quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-string">&quot;com/fmr/fwp/ics/xtrac&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;xtrac&#39;</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">symlink?</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">file</span>.<span class="ruby-identifier">directory?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

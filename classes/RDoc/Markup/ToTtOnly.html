@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Markup::ToTtOnly</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Markup::ToTtOnly">
+
+  
+    
+    <meta name="description" content="Extracts sections of text enclosed in plus, tt or code.  Used to discover undocumented parameters.">
+    <meta property="og:description" content="Extracts sections of text enclosed in plus, tt or code.  Used to discover undocumented parameters.">
+  
+
+    <meta name="keywords" content="RDoc::Markup::ToTtOnly class">
+  
+    <meta name="keywords" content="new, accept_block_quote, accept_list_end, accept_list_start, accept_list_item_start, accept_paragraph, do_nothing, accept_blank_line, accept_heading, accept_list_item_end, accept_raw, accept_rule, accept_verbatim, tt_sections, end_accepting, start_accepting">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Markup::ToTtOnly
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Formatter.html">RDoc::Markup::Formatter</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markup/to_tt_only_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Extracts sections of text enclosed in plus, tt or code.  Used to discover undocumented parameters.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-accept_blank_line">accept_blank_line</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_block_quote">accept_block_quote</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_heading">accept_heading</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_end">accept_list_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_item_end">accept_list_item_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_item_start">accept_list_item_start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_start">accept_list_start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_paragraph">accept_paragraph</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_raw">accept_raw</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_rule">accept_rule</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_verbatim">accept_verbatim</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-do_nothing">do_nothing</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-end_accepting">end_accepting</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-start_accepting">start_accepting</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tt_sections">tt_sections</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>list_type</td>
+            <td class='attr-desc'><p>Stack of list types</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>res</td>
+            <td class='attr-desc'><p>Output accumulator</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(markup = nil)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new tt-only formatter.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">markup</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">markup</span>
+
+  <span class="ruby-identifier">add_tag</span> <span class="ruby-value">:TT</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_blank_line">
+            
+              <b>accept_blank_line</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_blank_line" name="method-i-accept_blank_line" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="ToTtOnly.html#method-i-do_nothing">do_nothing</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_block_quote">
+            
+              <b>accept_block_quote</b>(block_quote)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_block_quote" name="method-i-accept_block_quote" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds tts from <code>block_quote</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_block_quote_source')" id="l_method-i-accept_block_quote_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_block_quote_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_block_quote</span> <span class="ruby-identifier">block_quote</span>
+  <span class="ruby-identifier">tt_sections</span> <span class="ruby-identifier">block_quote</span>.<span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_heading">
+            
+              <b>accept_heading</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_heading" name="method-i-accept_heading" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="ToTtOnly.html#method-i-do_nothing">do_nothing</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_end">
+            
+              <b>accept_list_end</b>(list)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_list_end" name="method-i-accept_list_end" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Pops the list type for <code>list</code> from <a href="ToTtOnly.html#attribute-i-list_type"><code>list_type</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_end_source')" id="l_method-i-accept_list_end_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_end_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_end</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@list_type</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_item_end">
+            
+              <b>accept_list_item_end</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_list_item_end" name="method-i-accept_list_item_end" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="ToTtOnly.html#method-i-do_nothing">do_nothing</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_item_start">
+            
+              <b>accept_list_item_start</b>(list_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_list_item_start" name="method-i-accept_list_item_start" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the visitor for consuming <code>list_item</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_item_start_source')" id="l_method-i-accept_list_item_start_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_item_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_item_start</span> <span class="ruby-identifier">list_item</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@list_type</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:NOTE</span>, <span class="ruby-value">:LABEL</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-constant">Array</span>(<span class="ruby-identifier">list_item</span>.<span class="ruby-identifier">label</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">tt_sections</span> <span class="ruby-identifier">label</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_start">
+            
+              <b>accept_list_start</b>(list)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_list_start" name="method-i-accept_list_start" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Pushes the list type for <code>list</code> onto <a href="ToTtOnly.html#attribute-i-list_type"><code>list_type</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_start_source')" id="l_method-i-accept_list_start_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_start</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@list_type</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_paragraph">
+            
+              <b>accept_paragraph</b>(paragraph)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_paragraph" name="method-i-accept_paragraph" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>paragraph</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_paragraph_source')" id="l_method-i-accept_paragraph_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_paragraph_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_paragraph</span> <span class="ruby-identifier">paragraph</span>
+  <span class="ruby-identifier">tt_sections</span>(<span class="ruby-identifier">paragraph</span>.<span class="ruby-identifier">text</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_raw">
+            
+              <b>accept_raw</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_raw" name="method-i-accept_raw" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="ToTtOnly.html#method-i-do_nothing">do_nothing</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_rule">
+            
+              <b>accept_rule</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_rule" name="method-i-accept_rule" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="ToTtOnly.html#method-i-do_nothing">do_nothing</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_verbatim">
+            
+              <b>accept_verbatim</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-accept_verbatim" name="method-i-accept_verbatim" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="ToTtOnly.html#method-i-do_nothing">do_nothing</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-do_nothing">
+            
+              <b>do_nothing</b>(markup_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-do_nothing" name="method-i-do_nothing" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Does nothing to <code>markup_item</code> because it doesn&#39;t have any user-built content</p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="ToTtOnly.html#method-i-accept_blank_line">accept_blank_line</a>, <a href="ToTtOnly.html#method-i-accept_heading">accept_heading</a>, <a href="ToTtOnly.html#method-i-accept_list_item_end">accept_list_item_end</a>, <a href="ToTtOnly.html#method-i-accept_raw">accept_raw</a>, <a href="ToTtOnly.html#method-i-accept_rule">accept_rule</a>, <a href="ToTtOnly.html#method-i-accept_verbatim">accept_verbatim</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-do_nothing_source')" id="l_method-i-do_nothing_source">show</a>
+                
+              </p>
+              <div id="method-i-do_nothing_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">do_nothing</span> <span class="ruby-identifier">markup_item</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-end_accepting">
+            
+              <b>end_accepting</b>()
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-end_accepting" name="method-i-end_accepting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns an <a href="../../Array.html"><code>Array</code></a> of items that were wrapped in plus, tt or code.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-end_accepting_source')" id="l_method-i-end_accepting_source">show</a>
+                
+              </p>
+              <div id="method-i-end_accepting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_accepting</span>
+  <span class="ruby-ivar">@res</span>.<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_accepting">
+            
+              <b>start_accepting</b>()
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-start_accepting" name="method-i-start_accepting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the visitor for gathering tt sections</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-start_accepting_source')" id="l_method-i-start_accepting_source">show</a>
+                
+              </p>
+              <div id="method-i-start_accepting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_accepting</span>
+  <span class="ruby-ivar">@res</span> = []
+
+  <span class="ruby-ivar">@list_type</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tt_sections">
+            
+              <b>tt_sections</b>(text)
+            
+            <a href="../../../classes/RDoc/Markup/ToTtOnly.html#method-i-tt_sections" name="method-i-tt_sections" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Extracts tt sections from <code>text</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-tt_sections_source')" id="l_method-i-tt_sections_source">show</a>
+                
+              </p>
+              <div id="method-i-tt_sections_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_tt_only.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tt_sections</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-identifier">flow</span> = <span class="ruby-ivar">@am</span>.<span class="ruby-identifier">flow</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-identifier">flow</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">item</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">in_tt?</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">AttrChanger</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">off_tags</span> <span class="ruby-identifier">res</span>, <span class="ruby-identifier">item</span>
+      <span class="ruby-identifier">on_tags</span> <span class="ruby-identifier">res</span>, <span class="ruby-identifier">item</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">RegexpHandling</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">convert_regexp_handling</span>(<span class="ruby-identifier">item</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">in_tt?</span> <span class="ruby-comment"># TODO can this happen?</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unknown flow element: #{item.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

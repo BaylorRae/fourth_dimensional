@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Constant</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Constant">
+
+  
+    
+    <meta name="description" content="A constant.">
+    <meta property="og:description" content="A constant.">
+  
+
+    <meta name="keywords" content="RDoc::Constant class">
+  
+    <meta name="keywords" content="new, <=>, ==, documented?, full_name, is_alias_for, marshal_dump, marshal_load, path, store=">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Constant
+            
+                <span class="parent">&lt;
+                    
+                    <a href="CodeObject.html">RDoc::CodeObject</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/constant_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A constant</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-3C-3D-3E">&lt;=&gt;</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-3D-3D">==</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-documented-3F">documented?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-full_name">full_name</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-is_alias_for">is_alias_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-marshal_dump">marshal_dump</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-marshal_load">marshal_load</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-path">path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store-3D">store=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>is_alias_for</td>
+            <td class='attr-desc'><p>Sets the module or class this is constant is an alias for.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'><p>The constant&#39;s name</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>value</td>
+            <td class='attr-desc'><p>The constant&#39;s value</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>visibility</td>
+            <td class='attr-desc'><p>The constant&#39;s visibility</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(name, value, comment)
+            
+            <a href="../../classes/RDoc/Constant.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new constant with <code>name</code>, <code>value</code> and <code>comment</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">comment</span>)
+  <span class="ruby-keyword">super</span>()
+
+  <span class="ruby-ivar">@name</span>  = <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>
+
+  <span class="ruby-ivar">@is_alias_for</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@visibility</span>   = <span class="ruby-value">:public</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-identifier">comment</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-3C-3D-3E">
+            
+              <b>&lt;=&gt;</b>(other)
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-3C-3D-3E" name="method-i-3C-3D-3E" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Constants are ordered by name</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-3C-3D-3E_source')" id="l_method-i-3C-3D-3E_source">show</a>
+                
+              </p>
+              <div id="method-i-3C-3D-3E_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">other</span>
+
+  [<span class="ruby-identifier">parent_name</span>, <span class="ruby-identifier">name</span>] <span class="ruby-operator">&lt;=&gt;</span> [<span class="ruby-identifier">other</span>.<span class="ruby-identifier">parent_name</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">name</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-3D-3D">
+            
+              <b>==</b>(other)
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-3D-3D" name="method-i-3D-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Constants are equal when their <a href="CodeObject.html#method-i-parent"><code>parent</code></a> and <a href="Constant.html#attribute-i-name"><code>name</code></a> is the same</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-3D-3D_source')" id="l_method-i-3D-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-3D-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">==</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-keyword">and</span>
+    <span class="ruby-ivar">@parent</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">parent</span> <span class="ruby-keyword">and</span>
+    <span class="ruby-ivar">@name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-documented-3F">
+            
+              <b>documented?</b>()
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-documented-3F" name="method-i-documented-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>A constant is documented if it has a comment, or is an alias for a documented class or module.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-documented-3F_source')" id="l_method-i-documented-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-documented-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">documented?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@is_alias_for</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@is_alias_for</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">find_class_or_module</span> <span class="ruby-ivar">@is_alias_for</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">found</span>
+    <span class="ruby-ivar">@is_alias_for</span> = <span class="ruby-identifier">found</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@is_alias_for</span>.<span class="ruby-identifier">documented?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-full_name">
+            
+              <b>full_name</b>()
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-full_name" name="method-i-full_name" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Full constant name including namespace</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-full_name_source')" id="l_method-i-full_name_source">show</a>
+                
+              </p>
+              <div id="method-i-full_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">full_name</span>
+  <span class="ruby-ivar">@full_name</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{parent_name}::#{@name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-is_alias_for">
+            
+              <b>is_alias_for</b>()
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-is_alias_for" name="method-i-is_alias_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>The module or class this constant is an alias for</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-is_alias_for_source')" id="l_method-i-is_alias_for_source">show</a>
+                
+              </p>
+              <div id="method-i-is_alias_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">is_alias_for</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@is_alias_for</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">find_class_or_module</span> <span class="ruby-ivar">@is_alias_for</span>
+    <span class="ruby-ivar">@is_alias_for</span> = <span class="ruby-identifier">found</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+    <span class="ruby-ivar">@is_alias_for</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@is_alias_for</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-marshal_dump">
+            
+              <b>marshal_dump</b>()
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-marshal_dump" name="method-i-marshal_dump" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Dumps this <a href="Constant.html"><code>Constant</code></a> for use by ri.  See also <a href="Constant.html#method-i-marshal_load"><code>marshal_load</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-marshal_dump_source')" id="l_method-i-marshal_dump_source">show</a>
+                
+              </p>
+              <div id="method-i-marshal_dump_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">marshal_dump</span>
+  <span class="ruby-identifier">alias_name</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">found</span> = <span class="ruby-identifier">is_alias_for</span>
+               <span class="ruby-keyword">when</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">CodeObject</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">found</span>.<span class="ruby-identifier">full_name</span>
+               <span class="ruby-keyword">else</span>                       <span class="ruby-identifier">found</span>
+               <span class="ruby-keyword">end</span>
+
+  [ <span class="ruby-constant">MARSHAL_VERSION</span>,
+    <span class="ruby-ivar">@name</span>,
+    <span class="ruby-identifier">full_name</span>,
+    <span class="ruby-ivar">@visibility</span>,
+    <span class="ruby-identifier">alias_name</span>,
+    <span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@comment</span>),
+    <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">relative_name</span>,
+    <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">name</span>,
+    <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">class</span>,
+    <span class="ruby-identifier">section</span>.<span class="ruby-identifier">title</span>,
+  ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-marshal_load">
+            
+              <b>marshal_load</b>(array)
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-marshal_load" name="method-i-marshal_load" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Loads this <a href="Constant.html"><code>Constant</code></a> from <code>array</code>.  For a loaded <a href="Constant.html"><code>Constant</code></a> the following methods will return cached values:</p>
+<ul><li>
+<p><a href="Constant.html#method-i-full_name"><code>full_name</code></a></p>
+</li><li>
+<p><a href="CodeObject.html#method-i-parent_name"><code>parent_name</code></a></p>
+</li></ul>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-marshal_load_source')" id="l_method-i-marshal_load_source">show</a>
+                
+              </p>
+              <div id="method-i-marshal_load_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">marshal_load</span> <span class="ruby-identifier">array</span>
+  <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">array</span>[<span class="ruby-value">1</span>], <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">array</span>[<span class="ruby-value">5</span>]
+
+  <span class="ruby-ivar">@full_name</span>     = <span class="ruby-identifier">array</span>[<span class="ruby-value">2</span>]
+  <span class="ruby-ivar">@visibility</span>    = <span class="ruby-identifier">array</span>[<span class="ruby-value">3</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:public</span>
+  <span class="ruby-ivar">@is_alias_for</span>  = <span class="ruby-identifier">array</span>[<span class="ruby-value">4</span>]
+  <span class="ruby-comment">#                      5 handled above</span>
+  <span class="ruby-comment">#                      6 handled below</span>
+  <span class="ruby-ivar">@parent_name</span>   = <span class="ruby-identifier">array</span>[<span class="ruby-value">7</span>]
+  <span class="ruby-ivar">@parent_class</span>  = <span class="ruby-identifier">array</span>[<span class="ruby-value">8</span>]
+  <span class="ruby-ivar">@section_title</span> = <span class="ruby-identifier">array</span>[<span class="ruby-value">9</span>]
+
+  <span class="ruby-ivar">@file</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">TopLevel</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">array</span>[<span class="ruby-value">6</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-path">
+            
+              <b>path</b>()
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-path" name="method-i-path" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Path to this constant for use with HTML generator output.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-path_source')" id="l_method-i-path_source">show</a>
+                
+              </p>
+              <div id="method-i-path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">path</span>
+  <span class="ruby-node">&quot;#{@parent.path}##{@name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store-3D">
+            
+              <b>store=</b>(store)
+            
+            <a href="../../classes/RDoc/Constant.html#method-i-store-3D" name="method-i-store-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Sets the store for this class or module and its contained code objects.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-store-3D_source')" id="l_method-i-store-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-store-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/constant.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">store=</span> <span class="ruby-identifier">store</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-ivar">@file</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">add_file</span> <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">full_name</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@file</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

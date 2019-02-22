@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::AnyInstance::ErrorGenerator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::AnyInstance::ErrorGenerator">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::AnyInstance::ErrorGenerator class">
+  
+    <meta name="keywords" content="raise_second_instance_received_message_error, raise_does_not_implement_error, raise_message_already_received_by_other_instance_error, raise_not_supported_with_prepend_error">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::AnyInstance::ErrorGenerator
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../ErrorGenerator.html">RSpec::Mocks::ErrorGenerator</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/error_generator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/error_generator.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-raise_does_not_implement_error">raise_does_not_implement_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_message_already_received_by_other_instance_error">raise_message_already_received_by_other_instance_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_not_supported_with_prepend_error">raise_not_supported_with_prepend_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_second_instance_received_message_error">raise_second_instance_received_message_error</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_does_not_implement_error">
+            
+              <b>raise_does_not_implement_error</b>(klass, method_name)
+            
+            <a href="../../../../classes/RSpec/Mocks/AnyInstance/ErrorGenerator.html#method-i-raise_does_not_implement_error" name="method-i-raise_does_not_implement_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_does_not_implement_error_source')" id="l_method-i-raise_does_not_implement_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_does_not_implement_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/error_generator.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_does_not_implement_error</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{klass} does not implement ##{method_name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_message_already_received_by_other_instance_error">
+            
+              <b>raise_message_already_received_by_other_instance_error</b>(method_name, object_inspect, invoked_instance)
+            
+            <a href="../../../../classes/RSpec/Mocks/AnyInstance/ErrorGenerator.html#method-i-raise_message_already_received_by_other_instance_error" name="method-i-raise_message_already_received_by_other_instance_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_message_already_received_by_other_instance_error_source')" id="l_method-i-raise_message_already_received_by_other_instance_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_message_already_received_by_other_instance_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/error_generator.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_message_already_received_by_other_instance_error</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">object_inspect</span>, <span class="ruby-identifier">invoked_instance</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;The message &#39;#{method_name}&#39; was received by #{object_inspect} &quot;</span> \
+          <span class="ruby-node">&quot;but has already been received by #{invoked_instance}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_not_supported_with_prepend_error">
+            
+              <b>raise_not_supported_with_prepend_error</b>(method_name, problem_mod)
+            
+            <a href="../../../../classes/RSpec/Mocks/AnyInstance/ErrorGenerator.html#method-i-raise_not_supported_with_prepend_error" name="method-i-raise_not_supported_with_prepend_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_not_supported_with_prepend_error_source')" id="l_method-i-raise_not_supported_with_prepend_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_not_supported_with_prepend_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/error_generator.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_not_supported_with_prepend_error</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">problem_mod</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;Using `any_instance` to stub a method (#{method_name}) that has been &quot;</span> \
+          <span class="ruby-node">&quot;defined on a prepended module (#{problem_mod}) is not supported.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_second_instance_received_message_error">
+            
+              <b>raise_second_instance_received_message_error</b>(unfulfilled_expectations)
+            
+            <a href="../../../../classes/RSpec/Mocks/AnyInstance/ErrorGenerator.html#method-i-raise_second_instance_received_message_error" name="method-i-raise_second_instance_received_message_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_second_instance_received_message_error_source')" id="l_method-i-raise_second_instance_received_message_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_second_instance_received_message_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/error_generator.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_second_instance_received_message_error</span>(<span class="ruby-identifier">unfulfilled_expectations</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-string">&quot;Exactly one instance should have received the following &quot;</span> \
+          <span class="ruby-node">&quot;message(s) but didn&#39;t: #{unfulfilled_expectations.sort.join(&#39;, &#39;)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::RubygemsHook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::RubygemsHook">
+
+  
+    
+    <meta name="description" content="Gem::RDoc provides methods to generate RDoc and ri data for installed gems upon gem installation.  This file is automatically required by RubyGems 1.9 and newer.">
+    <meta property="og:description" content="Gem::RDoc provides methods to generate RDoc and ri data for installed gems upon gem installation.  This file is automatically required by RubyGems 1.9 and newer.">
+  
+
+    <meta name="keywords" content="RDoc::RubygemsHook class">
+  
+    <meta name="keywords" content="generation_hook, load_rdoc, new, delete_legacy_args, document, generate, rdoc_installed?, remove, ri_installed?, setup">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::RubygemsHook
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/rubygems_hook_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Gem::RDoc provides methods to generate <a href="../RDoc.html"><code>RDoc</code></a> and ri data for installed gems upon gem installation.</p>
+
+<p>This file is automatically required by RubyGems 1.9 and newer.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete_legacy_args">delete_legacy_args</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-document">document</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generate">generate</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-generation_hook">generation_hook</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-load_rdoc">load_rdoc</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-rdoc_installed-3F">rdoc_installed?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-remove">remove</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ri_installed-3F">ri_installed?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-setup">setup</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            Gem::UserInteraction
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rdoc_version</td>
+            <td class='attr-desc'><p>Loaded version of <a href="../RDoc.html"><code>RDoc</code></a>.  Set by <a href="RubygemsHook.html#method-c-load_rdoc"><code>::load_rdoc</code></a></p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>force</td>
+            <td class='attr-desc'><p>Force installation of documentation?</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>generate_rdoc</td>
+            <td class='attr-desc'><p>Generate rdoc?</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>generate_ri</td>
+            <td class='attr-desc'><p>Generate ri data?</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-generation_hook">
+            
+              <b>generation_hook</b>(installer, specs)
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-c-generation_hook" name="method-c-generation_hook" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Post installs hook that generates documentation for each specification in <code>specs</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-generation_hook_source')" id="l_method-c-generation_hook_source">show</a>
+                
+              </p>
+              <div id="method-c-generation_hook_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">generation_hook</span> <span class="ruby-identifier">installer</span>, <span class="ruby-identifier">specs</span>
+  <span class="ruby-identifier">start</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">types</span> = <span class="ruby-identifier">installer</span>.<span class="ruby-identifier">document</span>
+
+  <span class="ruby-identifier">generate_rdoc</span> = <span class="ruby-identifier">types</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&#39;rdoc&#39;</span>
+  <span class="ruby-identifier">generate_ri</span>   = <span class="ruby-identifier">types</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&#39;ri&#39;</span>
+
+  <span class="ruby-identifier">specs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">spec</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">spec</span>, <span class="ruby-identifier">generate_rdoc</span>, <span class="ruby-identifier">generate_ri</span>).<span class="ruby-identifier">generate</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">generate_rdoc</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">generate_ri</span>
+
+  <span class="ruby-identifier">duration</span> = (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">names</span>    = <span class="ruby-identifier">specs</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:name</span>).<span class="ruby-identifier">join</span> <span class="ruby-string">&#39;, &#39;</span>
+
+  <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;Done installing documentation for #{names} after #{duration} seconds&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-load_rdoc">
+            
+              <b>load_rdoc</b>()
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-c-load_rdoc" name="method-c-load_rdoc" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Loads the <a href="../RDoc.html"><code>RDoc</code></a> generator</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-load_rdoc_source')" id="l_method-c-load_rdoc_source">show</a>
+                
+              </p>
+              <div id="method-c-load_rdoc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">load_rdoc</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@rdoc_version</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rdoc/rdoc&#39;</span>
+
+  <span class="ruby-ivar">@rdoc_version</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span>.<span class="ruby-identifier">new</span> <span class="ruby-operator">::</span><span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(spec, generate_rdoc = false, generate_ri = true)
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new documentation generator for <code>spec</code>.  <a href="../RDoc.html"><code>RDoc</code></a> and ri data generation can be enabled or disabled through <code>generate_rdoc</code> and <code>generate_ri</code> respectively.</p>
+
+<p>Only <code>generate_ri</code> is enabled by default.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">spec</span>, <span class="ruby-identifier">generate_rdoc</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">generate_ri</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@doc_dir</span>   = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">doc_dir</span>
+  <span class="ruby-ivar">@force</span>     = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@rdoc</span>      = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@spec</span>      = <span class="ruby-identifier">spec</span>
+
+  <span class="ruby-ivar">@generate_rdoc</span> = <span class="ruby-identifier">generate_rdoc</span>
+  <span class="ruby-ivar">@generate_ri</span>   = <span class="ruby-identifier">generate_ri</span>
+
+  <span class="ruby-ivar">@rdoc_dir</span> = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">doc_dir</span> <span class="ruby-string">&#39;rdoc&#39;</span>
+  <span class="ruby-ivar">@ri_dir</span>   = <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">doc_dir</span> <span class="ruby-string">&#39;ri&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_legacy_args">
+            
+              <b>delete_legacy_args</b>(args)
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-delete_legacy_args" name="method-i-delete_legacy_args" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes legacy rdoc arguments from <code>args</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-delete_legacy_args_source')" id="l_method-i-delete_legacy_args_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_legacy_args_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_legacy_args</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;--inline-source&#39;</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;--promiscuous&#39;</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;-p&#39;</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;--one-file&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-document">
+            
+              <b>document</b>(generator, options, destination)
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-document" name="method-i-document" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Generates documentation using the named <code>generator</code> (“darkfish” or “ri”) and following the given <code>options</code>.</p>
+
+<p>Documentation will be generated into <code>destination</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-document_source')" id="l_method-i-document_source">show</a>
+                
+              </p>
+              <div id="method-i-document_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">document</span> <span class="ruby-identifier">generator</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">destination</span>
+  <span class="ruby-identifier">generator_name</span> = <span class="ruby-identifier">generator</span>
+
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">exclude</span> <span class="ruby-operator">||=</span> [] <span class="ruby-comment"># TODO maybe move to RDoc::Options#finish</span>
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">setup_generator</span> <span class="ruby-identifier">generator</span>
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">op_dir</span> = <span class="ruby-identifier">destination</span>
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">finish</span>
+
+  <span class="ruby-identifier">generator</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">generator</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">store</span>, <span class="ruby-identifier">options</span>
+
+  <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">generator</span> = <span class="ruby-identifier">generator</span>
+
+  <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;Installing #{generator_name} documentation for #{@spec.full_name}&quot;</span>
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">op_dir</span>
+
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">op_dir</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">current</span> = <span class="ruby-ivar">@rdoc</span>
+      <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">generator</span>.<span class="ruby-identifier">generate</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">current</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-generate">
+            
+              <b>generate</b>()
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-generate" name="method-i-generate" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Generates <a href="../RDoc.html"><code>RDoc</code></a> and ri data</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-generate_source')" id="l_method-i-generate_source">show</a>
+                
+              </p>
+              <div id="method-i-generate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">default_gem?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@generate_ri</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@generate_rdoc</span>
+
+  <span class="ruby-identifier">setup</span>
+
+  <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">args</span> = <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">rdoc_options</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">concat</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">source_paths</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">concat</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">extra_rdoc_files</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">config_args</span> = <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>[<span class="ruby-value">:rdoc</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">config_args</span>.<span class="ruby-identifier">split</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">config_args</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">delete_legacy_args</span> <span class="ruby-identifier">args</span>
+
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">full_gem_path</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">default_title</span> = <span class="ruby-node">&quot;#{@spec.full_name} Documentation&quot;</span>
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">quiet</span> = <span class="ruby-operator">!</span><span class="ruby-constant">Gem</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">really_verbose</span>
+
+  <span class="ruby-ivar">@rdoc</span> = <span class="ruby-identifier">new_rdoc</span>
+  <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+
+  <span class="ruby-identifier">store</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Store</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">encoding</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">dry_run</span>  = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dry_run</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">main</span>     = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">main_page</span>
+  <span class="ruby-identifier">store</span>.<span class="ruby-identifier">title</span>    = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">title</span>
+
+  <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">store</span> = <span class="ruby-identifier">store</span>
+
+  <span class="ruby-identifier">say</span> <span class="ruby-node">&quot;Parsing documentation for #{@spec.full_name}&quot;</span>
+
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span> <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">full_gem_path</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rdoc</span>.<span class="ruby-identifier">parse_files</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">files</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">document</span> <span class="ruby-string">&#39;ri&#39;</span>,       <span class="ruby-identifier">options</span>, <span class="ruby-ivar">@ri_dir</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-ivar">@generate_ri</span>   <span class="ruby-keyword">and</span> (<span class="ruby-ivar">@force</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-ivar">@ri_dir</span>)
+
+  <span class="ruby-identifier">document</span> <span class="ruby-string">&#39;darkfish&#39;</span>, <span class="ruby-identifier">options</span>, <span class="ruby-ivar">@rdoc_dir</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-ivar">@generate_rdoc</span> <span class="ruby-keyword">and</span> (<span class="ruby-ivar">@force</span> <span class="ruby-keyword">or</span> <span class="ruby-keyword">not</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-ivar">@rdoc_dir</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rdoc_installed-3F">
+            
+              <b>rdoc_installed?</b>()
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-rdoc_installed-3F" name="method-i-rdoc_installed-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Is rdoc documentation installed?</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-rdoc_installed-3F_source')" id="l_method-i-rdoc_installed-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-rdoc_installed-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rdoc_installed?</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-ivar">@rdoc_dir</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove">
+            
+              <b>remove</b>()
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-remove" name="method-i-remove" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes generated <a href="../RDoc.html"><code>RDoc</code></a> and ri data</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-remove_source')" id="l_method-i-remove_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove</span>
+  <span class="ruby-identifier">base_dir</span> = <span class="ruby-ivar">@spec</span>.<span class="ruby-identifier">base_dir</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">FilePermissionError</span>, <span class="ruby-identifier">base_dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">writable?</span> <span class="ruby-identifier">base_dir</span>
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-ivar">@rdoc_dir</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-ivar">@ri_dir</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ri_installed-3F">
+            
+              <b>ri_installed?</b>()
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-ri_installed-3F" name="method-i-ri_installed-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Is ri data installed?</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-ri_installed-3F_source')" id="l_method-i-ri_installed-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-ri_installed-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ri_installed?</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-ivar">@ri_dir</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-setup">
+            
+              <b>setup</b>()
+            
+            <a href="../../classes/RDoc/RubygemsHook.html#method-i-setup" name="method-i-setup" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the spec for documentation generation</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-setup_source')" id="l_method-i-setup_source">show</a>
+                
+              </p>
+              <div id="method-i-setup_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rubygems_hook.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">load_rdoc</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">FilePermissionError</span>, <span class="ruby-ivar">@doc_dir</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@doc_dir</span>) <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">writable?</span>(<span class="ruby-ivar">@doc_dir</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-ivar">@doc_dir</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-ivar">@doc_dir</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

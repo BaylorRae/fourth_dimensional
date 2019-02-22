@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Expectations::Syntax</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Expectations::Syntax">
+
+  
+    
+    <meta name="description" content="@api private Provides methods for enabling and disabling the available syntaxes provided by rspec-expectations.">
+    <meta property="og:description" content="@api private Provides methods for enabling and disabling the available syntaxes provided by rspec-expectations.">
+  
+
+    <meta name="keywords" content="RSpec::Expectations::Syntax class">
+  
+    <meta name="keywords" content="default_should_host, warn_about_should!, warn_about_should_unless_configured, enable_should, should, should_not, disable_should, enable_expect, expect, disable_expect, should_enabled?, expect_enabled?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Expectations::Syntax
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/syntax_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private Provides methods for enabling and disabling the available syntaxes provided by rspec-expectations.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-default_should_host">default_should_host</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-disable_expect">disable_expect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-disable_should">disable_should</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-enable_expect">enable_expect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-enable_should">enable_should</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-expect">expect</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-expect_enabled-3F">expect_enabled?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-should">should</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-should_enabled-3F">should_enabled?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-should_not">should_not</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-warn_about_should-21">warn_about_should!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-warn_about_should_unless_configured">warn_about_should_unless_configured</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-default_should_host">
+            
+              <b>default_should_host</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-default_should_host" name="method-i-default_should_host" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Determines where we add `should` and `should_not`.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-default_should_host_source')" id="l_method-i-default_should_host_source">show</a>
+                
+              </p>
+              <div id="method-i-default_should_host_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">default_should_host</span>
+  <span class="ruby-ivar">@default_should_host</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Object</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-disable_expect">
+            
+              <b>disable_expect</b>(syntax_host=::RSpec::Matchers)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-disable_expect" name="method-i-disable_expect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Disables the `expect` syntax.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-disable_expect_source')" id="l_method-i-disable_expect_source">show</a>
+                
+              </p>
+              <div id="method-i-disable_expect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disable_expect</span>(<span class="ruby-identifier">syntax_host</span>=<span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Matchers</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">expect_enabled?</span>(<span class="ruby-identifier">syntax_host</span>)
+
+  <span class="ruby-identifier">syntax_host</span>.<span class="ruby-identifier">module_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">undef</span> <span class="ruby-identifier">expect</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-disable_should">
+            
+              <b>disable_should</b>(syntax_host=default_should_host)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-disable_should" name="method-i-disable_should" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Disables the `should` syntax.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-disable_should_source')" id="l_method-i-disable_should_source">show</a>
+                
+              </p>
+              <div id="method-i-disable_should_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">disable_should</span>(<span class="ruby-identifier">syntax_host</span>=<span class="ruby-identifier">default_should_host</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">should_enabled?</span>(<span class="ruby-identifier">syntax_host</span>)
+
+  <span class="ruby-identifier">syntax_host</span>.<span class="ruby-identifier">module_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">undef</span> <span class="ruby-identifier">should</span>
+    <span class="ruby-keyword">undef</span> <span class="ruby-identifier">should_not</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-enable_expect">
+            
+              <b>enable_expect</b>(syntax_host=::RSpec::Matchers)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-enable_expect" name="method-i-enable_expect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Enables the `expect` syntax.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-enable_expect_source')" id="l_method-i-enable_expect_source">show</a>
+                
+              </p>
+              <div id="method-i-enable_expect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">enable_expect</span>(<span class="ruby-identifier">syntax_host</span>=<span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Matchers</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">expect_enabled?</span>(<span class="ruby-identifier">syntax_host</span>)
+
+  <span class="ruby-identifier">syntax_host</span>.<span class="ruby-identifier">module_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expect</span>(<span class="ruby-identifier">value</span>=<span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationTarget</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedValue</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationTarget</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-enable_should">
+            
+              <b>enable_should</b>(syntax_host=default_should_host)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-enable_should" name="method-i-enable_should" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Enables the `should` syntax.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-enable_should_source')" id="l_method-i-enable_should_source">show</a>
+                
+              </p>
+              <div id="method-i-enable_should_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">enable_should</span>(<span class="ruby-identifier">syntax_host</span>=<span class="ruby-identifier">default_should_host</span>)
+  <span class="ruby-ivar">@warn_about_should</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">syntax_host</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">default_should_host</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_enabled?</span>(<span class="ruby-identifier">syntax_host</span>)
+
+  <span class="ruby-identifier">syntax_host</span>.<span class="ruby-identifier">module_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">should</span>(<span class="ruby-identifier">matcher</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">Syntax</span>.<span class="ruby-identifier">warn_about_should_unless_configured</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">__method__</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">PositiveExpectationHandler</span>.<span class="ruby-identifier">handle_matcher</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">should_not</span>(<span class="ruby-identifier">matcher</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">Syntax</span>.<span class="ruby-identifier">warn_about_should_unless_configured</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">__method__</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">NegativeExpectationHandler</span>.<span class="ruby-identifier">handle_matcher</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expect">
+            
+              <b>expect</b>(value=::RSpec::Expectations::ExpectationTarget::UndefinedValue, &amp;block)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-expect" name="method-i-expect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expect_source')" id="l_method-i-expect_source">show</a>
+                
+              </p>
+              <div id="method-i-expect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expect</span>(<span class="ruby-identifier">value</span>=<span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationTarget</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedValue</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationTarget</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expect_enabled-3F">
+            
+              <b>expect_enabled?</b>(syntax_host=::RSpec::Matchers)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-expect_enabled-3F" name="method-i-expect_enabled-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Indicates whether or not the `expect` syntax is enabled.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expect_enabled-3F_source')" id="l_method-i-expect_enabled-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-expect_enabled-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expect_enabled?</span>(<span class="ruby-identifier">syntax_host</span>=<span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Matchers</span>)
+  <span class="ruby-identifier">syntax_host</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:expect</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-should">
+            
+              <b>should</b>(matcher=nil, message=nil, &amp;block)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-should" name="method-i-should" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-should_source')" id="l_method-i-should_source">show</a>
+                
+              </p>
+              <div id="method-i-should_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">should</span>(<span class="ruby-identifier">matcher</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">Syntax</span>.<span class="ruby-identifier">warn_about_should_unless_configured</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">PositiveExpectationHandler</span>.<span class="ruby-identifier">handle_matcher</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-should_enabled-3F">
+            
+              <b>should_enabled?</b>(syntax_host=default_should_host)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-should_enabled-3F" name="method-i-should_enabled-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Indicates whether or not the `should` syntax is enabled.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-should_enabled-3F_source')" id="l_method-i-should_enabled-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-should_enabled-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">should_enabled?</span>(<span class="ruby-identifier">syntax_host</span>=<span class="ruby-identifier">default_should_host</span>)
+  <span class="ruby-identifier">syntax_host</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:should</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-should_not">
+            
+              <b>should_not</b>(matcher=nil, message=nil, &amp;block)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-should_not" name="method-i-should_not" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-should_not_source')" id="l_method-i-should_not_source">show</a>
+                
+              </p>
+              <div id="method-i-should_not_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">should_not</span>(<span class="ruby-identifier">matcher</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">Syntax</span>.<span class="ruby-identifier">warn_about_should_unless_configured</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Expectations</span><span class="ruby-operator">::</span><span class="ruby-constant">NegativeExpectationHandler</span>.<span class="ruby-identifier">handle_matcher</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-warn_about_should-21">
+            
+              <b>warn_about_should!</b>()
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-warn_about_should-21" name="method-i-warn_about_should-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Instructs rspec-expectations to warn on first usage of `should` or `should_not`. Enabled by default. This is largely here to facilitate testing.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-warn_about_should-21_source')" id="l_method-i-warn_about_should-21_source">show</a>
+                
+              </p>
+              <div id="method-i-warn_about_should-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warn_about_should!</span>
+  <span class="ruby-ivar">@warn_about_should</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-warn_about_should_unless_configured">
+            
+              <b>warn_about_should_unless_configured</b>(method_name)
+            
+            <a href="../../../classes/RSpec/Expectations/Syntax.html#method-i-warn_about_should_unless_configured" name="method-i-warn_about_should_unless_configured" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private Generates a deprecation warning for the given method if no warning has already been issued.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-warn_about_should_unless_configured_source')" id="l_method-i-warn_about_should_unless_configured_source">show</a>
+                
+              </p>
+              <div id="method-i-warn_about_should_unless_configured_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">warn_about_should_unless_configured</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@warn_about_should</span>
+
+  <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">deprecate</span>(
+    <span class="ruby-node">&quot;Using `#{method_name}` from rspec-expectations&#39; old `:should` syntax without explicitly enabling the syntax&quot;</span>,
+    <span class="ruby-value">:replacement</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;the new `:expect` syntax or explicitly enable `:should` with `config.expect_with(:rspec) { |c| c.syntax = :should }`&quot;</span>
+  )
+
+  <span class="ruby-ivar">@warn_about_should</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

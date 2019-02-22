@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::Constant</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::Constant">
+
+  
+    
+    <meta name="description" content="Provides information about constants that may (or may not) have been mutated by rspec-mocks.">
+    <meta property="og:description" content="Provides information about constants that may (or may not) have been mutated by rspec-mocks.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::Constant class">
+  
+    <meta name="keywords" content="new, previously_defined?, mutated?, stubbed?, hidden?, valid_name?, to_s, inspect, unmutated, original">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::Constant
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/mutate_const_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Provides information about constants that may (or may not) have been mutated by rspec-mocks.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-hidden-3F">hidden?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mutated-3F">mutated?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-original">original</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-previously_defined-3F">previously_defined?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-stubbed-3F">stubbed?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-unmutated">unmutated</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-valid_name-3F">valid_name?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>hidden</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>name</td>
+            <td class='attr-desc'><p>@return [String] The fully qualified name of the constant.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>original_value</td>
+            <td class='attr-desc'><p>@return [Object, nil] The original value (e.g. before it</p>
+
+<pre><code>was mutated by rspec-mocks) of the constant, or
+nil if the constant was not previously defined.
+</code></pre></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>previously_defined</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>stubbed</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>valid_name</td>
+            <td class='attr-desc'><p>@private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(name)
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@previously_defined</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@stubbed</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@hidden</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@valid_name</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-original">
+            
+              <b>original</b>(name)
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-c-original" name="method-c-original" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Queries rspec-mocks to find out information about the named constant.</p>
+
+<p>@param [String] name the name of the constant @return [Constant] an object contaning information about the named</p>
+
+<pre><code>constant.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-original_source')" id="l_method-c-original_source">show</a>
+                
+              </p>
+              <div id="method-c-original_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">original</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">mutator</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.<span class="ruby-identifier">constant_mutator_for</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">mutator</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">mutator</span>.<span class="ruby-identifier">to_constant</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">unmutated</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-unmutated">
+            
+              <b>unmutated</b>(name)
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-c-unmutated" name="method-c-unmutated" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-unmutated_source')" id="l_method-c-unmutated_source">show</a>
+                
+              </p>
+              <div id="method-c-unmutated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">unmutated</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">previously_defined</span> = <span class="ruby-identifier">recursive_const_defined?</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">c</span>.<span class="ruby-identifier">valid_name</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">const</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">const</span>.<span class="ruby-identifier">previously_defined</span> = <span class="ruby-identifier">previously_defined</span>
+    <span class="ruby-identifier">const</span>.<span class="ruby-identifier">original_value</span> = <span class="ruby-identifier">recursive_const_get</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">previously_defined</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-hidden-3F">
+            
+              <b>hidden?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-hidden-3F" name="method-i-hidden-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Boolean] Whether or not rspec-mocks has hidden</p>
+
+<pre><code>this constant.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-hidden-3F_source')" id="l_method-i-hidden-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-hidden-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hidden?</span>
+  <span class="ruby-ivar">@hidden</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Constant.html#method-i-to_s">to_s</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mutated-3F">
+            
+              <b>mutated?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-mutated-3F" name="method-i-mutated-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Boolean] Whether or not rspec-mocks has mutated</p>
+
+<pre><code>(stubbed or hidden) this constant.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-mutated-3F_source')" id="l_method-i-mutated-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-mutated-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mutated?</span>
+  <span class="ruby-ivar">@stubbed</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@hidden</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-previously_defined-3F">
+            
+              <b>previously_defined?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-previously_defined-3F" name="method-i-previously_defined-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Boolean] Whether or not the constant was defined</p>
+
+<pre><code>before the current example.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-previously_defined-3F_source')" id="l_method-i-previously_defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-previously_defined-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">previously_defined?</span>
+  <span class="ruby-ivar">@previously_defined</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stubbed-3F">
+            
+              <b>stubbed?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-stubbed-3F" name="method-i-stubbed-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Boolean] Whether or not rspec-mocks has stubbed</p>
+
+<pre><code>this constant.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-stubbed-3F_source')" id="l_method-i-stubbed-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-stubbed-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stubbed?</span>
+  <span class="ruby-ivar">@stubbed</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>The default `to_s` isn&#39;t very useful, so a custom version is provided.</p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="Constant.html#method-i-inspect">inspect</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-node">&quot;#&lt;#{self.class.name} #{name}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-valid_name-3F">
+            
+              <b>valid_name?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/Constant.html#method-i-valid_name-3F" name="method-i-valid_name-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [Boolean] Whether or not the provided constant name</p>
+
+<pre><code>is a valid Ruby constant name.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-valid_name-3F_source')" id="l_method-i-valid_name-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-valid_name-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_name?</span>
+  <span class="ruby-ivar">@valid_name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

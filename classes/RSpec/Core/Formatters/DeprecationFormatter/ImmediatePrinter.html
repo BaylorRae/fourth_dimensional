@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::Formatters::DeprecationFormatter::ImmediatePrinter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::Formatters::DeprecationFormatter::ImmediatePrinter">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::Formatters::DeprecationFormatter::ImmediatePrinter class">
+  
+    <meta name="keywords" content="new, print_deprecation_message, deprecation_summary">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::Formatters::DeprecationFormatter::ImmediatePrinter
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/deprecation_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/deprecation_formatter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-deprecation_summary">deprecation_summary</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-print_deprecation_message">print_deprecation_message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>deprecation_formatter</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>deprecation_stream</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>summary_stream</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(deprecation_stream, summary_stream, deprecation_formatter)
+            
+            <a href="../../../../../classes/RSpec/Core/Formatters/DeprecationFormatter/ImmediatePrinter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/deprecation_formatter.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">deprecation_stream</span>, <span class="ruby-identifier">summary_stream</span>, <span class="ruby-identifier">deprecation_formatter</span>)
+  <span class="ruby-ivar">@deprecation_stream</span> = <span class="ruby-identifier">deprecation_stream</span>
+
+  <span class="ruby-ivar">@summary_stream</span> = <span class="ruby-identifier">summary_stream</span>
+  <span class="ruby-ivar">@deprecation_formatter</span> = <span class="ruby-identifier">deprecation_formatter</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-deprecation_summary">
+            
+              <b>deprecation_summary</b>()
+            
+            <a href="../../../../../classes/RSpec/Core/Formatters/DeprecationFormatter/ImmediatePrinter.html#method-i-deprecation_summary" name="method-i-deprecation_summary" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-deprecation_summary_source')" id="l_method-i-deprecation_summary_source">show</a>
+                
+              </p>
+              <div id="method-i-deprecation_summary_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/deprecation_formatter.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deprecation_summary</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">deprecation_formatter</span>.<span class="ruby-identifier">count</span>.<span class="ruby-identifier">zero?</span>
+  <span class="ruby-identifier">deprecation_stream</span>.<span class="ruby-identifier">summarize</span>(<span class="ruby-identifier">summary_stream</span>, <span class="ruby-identifier">deprecation_formatter</span>.<span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-print_deprecation_message">
+            
+              <b>print_deprecation_message</b>(data)
+            
+            <a href="../../../../../classes/RSpec/Core/Formatters/DeprecationFormatter/ImmediatePrinter.html#method-i-print_deprecation_message" name="method-i-print_deprecation_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-print_deprecation_message_source')" id="l_method-i-print_deprecation_message_source">show</a>
+                
+              </p>
+              <div id="method-i-print_deprecation_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/deprecation_formatter.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">print_deprecation_message</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">deprecation_message</span> = <span class="ruby-identifier">deprecation_formatter</span>.<span class="ruby-identifier">deprecation_message_for</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">deprecation_stream</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">deprecation_message</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

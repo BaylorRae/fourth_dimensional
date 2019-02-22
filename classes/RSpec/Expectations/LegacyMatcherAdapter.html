@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Expectations::LegacyMatcherAdapter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Expectations::LegacyMatcherAdapter">
+
+  
+    
+    <meta name="description" content="Wraps a matcher written against one of the legacy protocols in order to present the current protocol.">
+    <meta property="og:description" content="Wraps a matcher written against one of the legacy protocols in order to present the current protocol.">
+  
+
+    <meta name="keywords" content="RSpec::Expectations::LegacyMatcherAdapter class">
+  
+    <meta name="keywords" content="new, wrap">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Expectations::LegacyMatcherAdapter
+            
+                <span class="parent">&lt;
+                    
+                    Matchers::MatcherDelegator
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/handler_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/handler.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Wraps a matcher written against one of the legacy protocols in order to present the current protocol.</p>
+
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-wrap">wrap</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(matcher)
+            
+            <a href="../../../classes/RSpec/Expectations/LegacyMatcherAdapter.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/handler.rb, line 102</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">matcher</span>)
+        <span class="ruby-keyword">super</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">warn_deprecation</span>(<span class="ruby-identifier">&lt;&lt;-EOS</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^\s+\|/</span>, <span class="ruby-string">&#39;&#39;</span>), <span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;legacy_matcher&quot;</span>)
+<span class="ruby-value">          |#{matcher.class.name || matcher.inspect} implements a legacy RSpec matcher
+          |protocol. For the current protocol you should expose the failure messages
+          |via the `failure_message` and `failure_message_when_negated` methods.
+          |(Used from #{CallerFilter.first_non_rspec_line})
+</span><span class="ruby-identifier">        EOS</span>
+      <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-wrap">
+            
+              <b>wrap</b>(matcher)
+            
+            <a href="../../../classes/RSpec/Expectations/LegacyMatcherAdapter.html#method-c-wrap" name="method-c-wrap" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-wrap_source')" id="l_method-c-wrap_source">show</a>
+                
+              </p>
+              <div id="method-c-wrap_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/handler.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">wrap</span>(<span class="ruby-identifier">matcher</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">matcher</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">interface_matches?</span>(<span class="ruby-identifier">matcher</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

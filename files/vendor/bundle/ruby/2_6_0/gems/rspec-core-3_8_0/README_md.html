@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            README.md
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/README.md</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-rspec-core+rdoc-image-3Ahttps-3A-2F-2Fsecure.travis-ci.org-2Frspec-2Frspec-core.svg-3Fbranch-3Dmaster+rdoc-image-3Ahttps-3A-2F-2Fcodeclimate.com-2Fgithub-2Frspec-2Frspec-core.svg">rspec-core <a href="http://travis-ci.org/rspec/rspec-core"><img src="https://secure.travis-ci.org/rspec/rspec-core.svg?branch=master"></a> <a href="https://codeclimate.com/github/rspec/rspec-core"><img src="https://codeclimate.com/github/rspec/rspec-core.svg"></a></h1>
+
+<p>rspec-core provides the structure for writing executable examples of how your code should behave, and an <code>rspec</code> command with tools to constrain which examples get run and tailor the output.</p>
+
+<h2 id="label-Install">Install</h2>
+
+<pre><code>gem install rspec      # for rspec-core, rspec-expectations, rspec-mocks
+gem install rspec-core # for rspec-core only
+rspec --help
+</code></pre>
+
+<p>Want to run against the <code>master</code> branch? You&#39;ll need to include the dependent <a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> repos as well. Add the following to your <code>Gemfile</code>:</p>
+
+<pre><code>%w[rspec rspec-core rspec-expectations rspec-mocks rspec-support].each do |lib|
+  gem lib, :git =&gt; &quot;https://github.com/rspec/#{lib}.git&quot;, :branch =&gt; &#39;master&#39;
+end
+</code></pre>
+
+<h2 id="label-Contributing"><a href="../diff-lcs-1_3/Contributing_md.html">Contributing</a></h2>
+
+<p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the working directory of whichever repo you want to work in. From there you can run the specs and cucumber features, and make patches.</p>
+
+<p>NOTE: You do not need to use rspec-dev to work on a specific <a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> repo. You can treat each <a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> repo as an independent project.</p>
+<ul><li>
+<p><a href="BUILD_DETAIL.md">Build details</a></p>
+</li><li>
+<p><a href="CODE_OF_CONDUCT.md">Code of Conduct</a></p>
+</li><li>
+<p><a href="CONTRIBUTING.md">Detailed contributing guide</a></p>
+</li><li>
+<p><a href="DEVELOPMENT.md">Development setup guide</a></p>
+</li></ul>
+
+<h2 id="label-Basic+Structure">Basic Structure</h2>
+
+<p><a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> uses the words “describe” and “it” so we can express concepts like a conversation:</p>
+
+<pre><code>&quot;Describe an order.&quot;
+&quot;It sums the prices of its line items.&quot;
+</code></pre>
+
+<pre><code>RSpec.describe Order do
+  it &quot;sums the prices of its line items&quot; do
+    order = Order.new
+
+    order.add_entry(LineItem.new(:item =&gt; Item.new(
+      :price =&gt; Money.new(1.11, :USD)
+    )))
+    order.add_entry(LineItem.new(:item =&gt; Item.new(
+      :price =&gt; Money.new(2.22, :USD),
+      :quantity =&gt; 2
+    )))
+
+    expect(order.total).to eq(Money.new(5.55, :USD))
+  end
+end
+</code></pre>
+
+<p>The <code>describe</code> method creates an <a href="http://rubydoc.info/gems/rspec-core/RSpec/Core/ExampleGroup">ExampleGroup</a>. Within the block passed to <code>describe</code> you can declare examples using the <code>it</code> method.</p>
+
+<p>Under the hood, an example group is a class in which the block passed to <code>describe</code> is evaluated. The blocks passed to <code>it</code> are evaluated in the context of an <em>instance</em> of that class.</p>
+
+<h2 id="label-Nested+Groups">Nested Groups</h2>
+
+<p>You can also declare nested nested groups using the <code>describe</code> or <code>context</code> methods:</p>
+
+<pre><code>RSpec.describe Order do
+  context &quot;with no items&quot; do
+    it &quot;behaves one way&quot; do
+      # ...
+    end
+  end
+
+  context &quot;with one item&quot; do
+    it &quot;behaves another way&quot; do
+      # ...
+    end
+  end
+end
+</code></pre>
+
+<p>Nested groups are subclasses of the outer example group class, providing the inheritance semantics you&#39;d want for free.</p>
+
+<h2 id="label-Aliases">Aliases</h2>
+
+<p>You can declare example groups using either <code>describe</code> or <code>context</code>. For a top level example group, <code>describe</code> and <code>context</code> are available off of <code>RSpec</code>. For backwards compatibility, they are also available off of the <code>main</code> object and <code>Module</code> unless you disable monkey patching.</p>
+
+<p>You can declare examples within a group using any of <code>it</code>, <code>specify</code>, or <code>example</code>.</p>
+
+<h2 id="label-Shared+Examples+and+Contexts">Shared Examples and Contexts</h2>
+
+<p>Declare a shared example group using <code>shared_examples</code>, and then include it in any group using <code>include_examples</code>.</p>
+
+<pre><code>RSpec.shared_examples &quot;collections&quot; do |collection_class|
+  it &quot;is empty when first created&quot; do
+    expect(collection_class.new).to be_empty
+  end
+end
+
+RSpec.describe Array do
+  include_examples &quot;collections&quot;, Array
+end
+
+RSpec.describe Hash do
+  include_examples &quot;collections&quot;, Hash
+end
+</code></pre>
+
+<p>Nearly anything that can be declared within an example group can be declared within a shared example group. This includes <code>before</code>, <code>after</code>, and <code>around</code> hooks, <code>let</code> declarations, and nested groups/contexts.</p>
+
+<p>You can also use the names <code>shared_context</code> and <code>include_context</code>. These are pretty much the same as <code>shared_examples</code> and <code>include_examples</code>, providing more accurate naming when you share hooks, <code>let</code> declarations, helper methods, etc, but no examples.</p>
+
+<h2 id="label-Metadata">Metadata</h2>
+
+<p>rspec-core stores a metadata hash with every example and group, which contains their descriptions, the locations at which they were declared, etc, etc. This hash powers many of rspec-core&#39;s features, including output formatters (which access descriptions and locations), and filtering before and after hooks.</p>
+
+<p>Although you probably won&#39;t ever need this unless you are writing an extension, you can access it from an example like this:</p>
+
+<pre><code>it &quot;does something&quot; do |example|
+  expect(example.metadata[:description]).to eq(&quot;does something&quot;)
+end
+</code></pre>
+
+<h3 id="label-described_class"><code>described_class</code></h3>
+
+<p>When a class is passed to <code>describe</code>, you can access it from an example using the <code>described_class</code> method, which is a wrapper for <code>example.metadata[:described_class]</code>.</p>
+
+<pre><code>RSpec.describe Widget do
+  example do
+    expect(described_class).to equal(Widget)
+  end
+end
+</code></pre>
+
+<p>This is useful in extensions or shared example groups in which the specific class is unknown. Taking the collections shared example group from above, we can clean it up a bit using <code>described_class</code>:</p>
+
+<pre><code>RSpec.shared_examples &quot;collections&quot; do
+  it &quot;is empty when first created&quot; do
+    expect(described_class.new).to be_empty
+  end
+end
+
+RSpec.describe Array do
+  include_examples &quot;collections&quot;
+end
+
+RSpec.describe Hash do
+  include_examples &quot;collections&quot;
+end
+</code></pre>
+
+<h2 id="label-A+Word+on+Scope">A Word on Scope</h2>
+
+<p><a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> has two scopes:</p>
+<ul><li>
+<p><strong>Example Group</strong>: Example groups are defined by a <code>describe</code> or  <code>context</code> block, which is eagerly evaluated when the spec file is  loaded. The block is evaluated in the context of a subclass of  <code>RSpec::Core::ExampleGroup</code>, or a subclass of the parent example group  when you&#39;re nesting them.</p>
+</li><li>
+<p><strong>Example</strong>: Examples – typically defined by an <code>it</code> block – and any other  blocks with per-example semantics – such as a <code>before(:example)</code> hook – are  evaluated in the context of  an <em>instance</em> of the example group class to which the example belongs.  Examples are <em>not</em> executed when the spec file is loaded; instead,  <a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> waits to run any examples until all spec files have been loaded,  at which point it can apply filtering, randomization, etc.</p>
+</li></ul>
+
+<p>To make this more concrete, consider this code snippet:</p>
+
+<pre><code>RSpec.describe &quot;Using an array as a stack&quot; do
+  def build_stack
+    []
+  end
+
+  before(:example) do
+    @stack = build_stack
+  end
+
+  it &#39;is initially empty&#39; do
+    expect(@stack).to be_empty
+  end
+
+  context &quot;after an item has been pushed&quot; do
+    before(:example) do
+      @stack.push :item
+    end
+
+    it &#39;allows the pushed item to be popped&#39; do
+      expect(@stack.pop).to eq(:item)
+    end
+  end
+end
+</code></pre>
+
+<p>Under the covers, this is (roughly) equivalent to:</p>
+
+<pre><code>class UsingAnArrayAsAStack &lt; RSpec::Core::ExampleGroup
+  def build_stack
+    []
+  end
+
+  def before_example_1
+    @stack = build_stack
+  end
+
+  def it_is_initially_empty
+    expect(@stack).to be_empty
+  end
+
+  class AfterAnItemHasBeenPushed &lt; self
+    def before_example_2
+      @stack.push :item
+    end
+
+    def it_allows_the_pushed_item_to_be_popped
+      expect(@stack.pop).to eq(:item)
+    end
+  end
+end
+</code></pre>
+
+<p>To run these examples, <a href="../../../../../../../classes/RSpec.html"><code>RSpec</code></a> would (roughly) do the following:</p>
+
+<pre><code>example_1 = UsingAnArrayAsAStack.new
+example_1.before_example_1
+example_1.it_is_initially_empty
+
+example_2 = UsingAnArrayAsAStack::AfterAnItemHasBeenPushed.new
+example_2.before_example_1
+example_2.before_example_2
+example_2.it_allows_the_pushed_item_to_be_popped
+</code></pre>
+
+<h2 id="label-The+rspec+Command">The <code>rspec</code> Command</h2>
+
+<p>When you install the rspec-core gem, it installs the <code>rspec</code> executable, which you&#39;ll use to run rspec. The <code>rspec</code> command comes with many useful options. Run <code>rspec --help</code> to see the complete list.</p>
+
+<h2 id="label-Store+Command+Line+Options+.rspec">Store Command Line Options <code>.rspec</code></h2>
+
+<p>You can store command line options in a <code>.rspec</code> file in the project&#39;s root directory, and the <code>rspec</code> command will read them as though you typed them on the command line.</p>
+
+<h2 id="label-Get+Started">Get Started</h2>
+
+<p>Start with a simple example of behavior you expect from your system. Do this before you write any implementation code:</p>
+
+<pre><code># in spec/calculator_spec.rb
+RSpec.describe Calculator do
+  describe &#39;#add&#39; do
+    it &#39;returns the sum of its arguments&#39; do
+      expect(Calculator.new.add(1, 2)).to eq(3)
+    end
+  end
+end
+</code></pre>
+
+<p>Run this with the rspec command, and watch it fail:</p>
+
+<pre><code>$ rspec spec/calculator_spec.rb
+./spec/calculator_spec.rb:1: uninitialized constant Calculator
+</code></pre>
+
+<p>Address the failure by defining a skeleton of the <code>Calculator</code> class:</p>
+
+<pre><code># in lib/calculator.rb
+class Calculator
+  def add(a, b)
+  end
+end
+</code></pre>
+
+<p>Be sure to require the implementation file in the spec:</p>
+
+<pre><code># in spec/calculator_spec.rb
+# - RSpec adds ./lib to the $LOAD_PATH
+require &quot;calculator&quot;
+</code></pre>
+
+<p>Now run the spec again, and watch the expectation fail:</p>
+
+<pre><code>$ rspec spec/calculator_spec.rb
+F
+
+Failures:
+
+  1) Calculator#add returns the sum of its arguments
+     Failure/Error: expect(Calculator.new.add(1, 2)).to eq(3)
+
+       expected: 3
+            got: nil
+
+       (compared using ==)
+     # ./spec/calcalator_spec.rb:6:in `block (3 levels) in &lt;top (required)&gt;&#39;
+
+Finished in 0.00131 seconds (files took 0.10968 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/calcalator_spec.rb:5 # Calculator#add returns the sum of its arguments
+</code></pre>
+
+<p>Implement the simplest solution, by changing the definition of <code>Calculator#add</code> to:</p>
+
+<pre><code>def add(a, b)
+  a + b
+end
+</code></pre>
+
+<p>Now run the spec again, and watch it pass:</p>
+
+<pre><code>$ rspec spec/calculator_spec.rb
+.
+
+Finished in 0.000315 seconds
+1 example, 0 failures
+</code></pre>
+
+<p>Use the <code>documentation</code> formatter to see the resulting spec:</p>
+
+<pre><code>$ rspec spec/calculator_spec.rb --format doc
+Calculator
+  #add
+    returns the sum of its arguments
+
+Finished in 0.000379 seconds
+1 example, 0 failures
+</code></pre>
+
+<h2 id="label-Also+see">Also see</h2>
+<ul><li>
+<p><a href="https://github.com/rspec/rspec">github.com/rspec/rspec</a></p>
+</li><li>
+<p><a href="https://github.com/rspec/rspec-expectations">github.com/rspec/rspec-expectations</a></p>
+</li><li>
+<p><a href="https://github.com/rspec/rspec-mocks">github.com/rspec/rspec-mocks</a></p>
+</li><li>
+<p><a href="https://github.com/rspec/rspec-rails">github.com/rspec/rspec-rails</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

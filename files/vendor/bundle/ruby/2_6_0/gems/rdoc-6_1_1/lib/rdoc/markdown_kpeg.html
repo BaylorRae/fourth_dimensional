@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>markdown.kpeg</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            markdown.kpeg
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markdown.kpeg</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>%% name = <a href="../../../../../../../../../classes/RDoc/Markdown.html"><code>RDoc::Markdown</code></a></p>
+
+<p>%% header { # coding: UTF-8 # frozen_string_literal: true # :markup: markdown</p>
+
+<p>## # <a href="../../../../../../../../../classes/RDoc/Markdown.html"><code>RDoc::Markdown</code></a> as described by the [markdown <a href="syntax">syntax]</a>. # # To choose Markdown as your only default format see # <a href="../../../../../../../../../classes/RDoc/Options.html#label-Saved+Options">Saved Options at <code>RDoc::Options</code></a> for instructions on setting up a `.doc_options` # file to store your project default. # # ## Usage # # Here is a brief example of using this parse to read a markdown file by hand. # #     data = File.read(“README.md”) #     formatter = <a href="../../../../../../../../../classes/RDoc/Markup/ToHtml.html#method-c-new"><code>RDoc::Markup::ToHtml.new</code></a>(RDoc::Options.new, nil) #     html = <a href="../../../../../../../../../classes/RDoc/Markdown.html#method-c-parse"><code>RDoc::Markdown.parse(data)</code></a>.accept(formatter) # #     # do something with html # # ## Extensions # # The following markdown extensions are supported by the parser, but not all # are used in <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> output by default. # # ### <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> # # The <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> Markdown parser has the following built-in behaviors that cannot be # disabled. # # Underscores embedded in words are never interpreted as emphasis.  (While the # [markdown <a href="dingus">dingus]</a> emphasizes in-word underscores, neither the # Markdown syntax nor MarkdownTest mention this behavior.) # # For HTML output, <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> always auto-links bare URLs. # # ### Break on Newline # # The break_on_newline extension converts all newlines into hard line breaks # as in [Github Flavored <a href="GFM">Markdown]</a>.  This extension is disabled by # default. # # ### CSS # # The css extension enables CSS blocks to be included in the output, but they # are not used for any built-in <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> output format.  This extension is disabled # by default. # # Example: # #     &lt;style type=“text/css”&gt; #     h1 { font-size: 3em } #     &lt;/style&gt; # # ### Definition Lists # # The definition_lists extension allows definition lists using the [PHP # Markdown Extra <a href="PHPE">syntax]</a>, but only one label and definition are supported # at this time.  This extension is enabled by default. # # Example: # # “` # cat # :   A small furry mammal # that seems to sleep a lot # # ant # :   A little insect that is known # to enjoy picnics # # “` # # Produces: # # cat # :   A small furry mammal # that seems to sleep a lot # # ant # :   A little insect that is known # to enjoy picnics # # ### Strike # # Example: # # “` # This is ~~striked~~. # “` # # Produces: # # This is ~~striked~~. # # ### Github # # The github extension enables a partial set of [Github Flavored Markdown] # [GFM].  This extension is enabled by default. # # Supported github extensions include: # # #### Fenced code blocks # # Use ` “` ` around a block of code instead of indenting it four spaces. # # #### Syntax highlighting # # Use ` “` ruby ` as the start of a code fence to add syntax highlighting. # (Currently only `ruby` syntax is supported). # # ### HTML # # Enables raw HTML to be included in the output.  This extension is enabled by # default. # # Example: # #     &lt;table&gt; #     … #     &lt;/table&gt; # # ### Notes # # The notes extension enables footnote support.  This extension is enabled by # default. # # Example: # #     Here is some <a href="^1">text</a> including an inline footnote ^[for short footnotes] # #     … # #     [^1]: With the footnote text down at the bottom # # Produces: # # Here is some <a href="^1">text</a> including an inline footnote ^[for short footnotes] # # [^1]: With the footnote text down at the bottom # # ## Limitations # # * Link titles are not used # * Footnotes are collapsed into a single paragraph # # ## Author # # This markdown parser is a port to kpeg from [<a href="pegmarkdown">peg-markdown]</a> by # John MacFarlane. # # It is used under the MIT license: # # Permission is hereby granted, free of charge, to any person obtaining a copy # of this software and associated documentation files (the “Software”), to deal # in the Software without restriction, including without limitation the rights # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell # copies of the Software, and to permit persons to whom the Software is # furnished to do so, subject to the following conditions: # # The above copyright notice and this permission notice shall be included in # all copies or substantial portions of the Software. # # THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN # THE SOFTWARE. # # The port to kpeg was performed by Eric Hodel and Evan Phoenix # # [dingus]: <a href="http://daringfireball.net/projects/markdown/dingus">daringfireball.net/projects/markdown/dingus</a> # [GFM]: <a href="http://github.github.com/github-flavored-markdown">github.github.com/github-flavored-markdown</a>/ # [pegmarkdown]: <a href="https://github.com/jgm/peg-markdown">github.com/jgm/peg-markdown</a> # [PHPE]: <a href="http://michelf.com/projects/php-markdown/extra/#def-list">michelf.com/projects/php-markdown/extra/#def-list</a> # [syntax]: <a href="http://daringfireball.net/projects/markdown/syntax">daringfireball.net/projects/markdown/syntax</a> – # Last updated to jgm/peg-markdown commit 8f8fc22ef0</p>
+
+<p>}</p>
+
+<p>%% {</p>
+
+<pre><code>require &#39;rdoc&#39;
+require &#39;rdoc/markup/to_joined_paragraph&#39;
+require &#39;rdoc/markdown/entities&#39;
+
+require &#39;rdoc/markdown/literals&#39;
+
+##
+# Supported extensions
+
+EXTENSIONS = []
+
+##
+# Extensions enabled by default
+
+DEFAULT_EXTENSIONS = [
+  :definition_lists,
+  :github,
+  :html,
+  :notes,
+  :strike,
+]
+
+# :section: Extensions
+
+##
+# Creates extension methods for the `name` extension to enable and disable
+# the extension and to query if they are active.
+
+def self.extension name
+  EXTENSIONS &lt;&lt; name
+
+  define_method &quot;#{name}?&quot; do
+    extension? name
+  end
+
+  define_method &quot;#{name}=&quot; do |enable|
+    extension name, enable
+  end
+end
+
+##
+# Converts all newlines into hard breaks
+
+extension :break_on_newline
+
+##
+# Allow style blocks
+
+extension :css
+
+##
+# Allow PHP Markdown Extras style definition lists
+
+extension :definition_lists
+
+##
+# Allow Github Flavored Markdown
+
+extension :github
+
+##
+# Allow HTML
+
+extension :html
+
+##
+# Enables the notes extension
+
+extension :notes
+
+##
+# Enables the strike extension
+
+extension :strike
+
+# :section: 
+
+##
+# Parses the `markdown` document into an RDoc::Document using the default
+# extensions.
+
+def self.parse markdown
+  parser = new
+
+  parser.parse markdown
+end
+
+# TODO remove when kpeg 0.10 is released
+alias orig_initialize initialize # :nodoc:
+
+##
+# Creates a new markdown parser that enables the given +extensions+.
+
+def initialize extensions = DEFAULT_EXTENSIONS, debug = false
+  @debug      = debug
+  @formatter  = RDoc::Markup::ToJoinedParagraph.new
+  @extensions = extensions
+
+  @references          = nil
+  @unlinked_references = nil
+
+  @footnotes       = nil
+  @note_order      = nil
+end
+
+##
+# Wraps `text` in emphasis for rdoc inline formatting
+
+def emphasis text
+  if text =~ /\A[a-z\d.\/]+\z/i then
+    &quot;_#{text}_&quot;
+  else
+    &quot;&lt;em&gt;#{text}&lt;/em&gt;&quot;
+  end
+end
+
+##
+</code></pre>
+
+<p>#</p>
+
+<pre><code>#
+# Is the extension `name` enabled?
+
+def extension? name
+  @extensions.include? name
+end
+
+##
+</code></pre>
+
+<p>#</p>
+
+<pre><code>#
+# Enables or disables the extension with `name`
+
+def extension name, enable
+  if enable then
+    @extensions |= [name]
+  else
+    @extensions -= [name]
+  end
+end
+
+##
+# Parses `text` in a clone of this parser.  This is used for handling nested
+# lists the same way as markdown_parser.
+
+def inner_parse text # :nodoc:
+  parser = clone
+
+  parser.setup_parser text, @debug
+
+  parser.peg_parse
+
+  doc = parser.result
+
+  doc.accept @formatter
+
+  doc.parts
+end
+
+##
+# Finds a link reference for `label` and creates a new link to it with
+# `content` as the link text.  If `label` was not encountered in the
+# reference-gathering parser pass the label and content are reconstructed
+# with the linking `text` (usually whitespace).
+
+def link_to content, label = content, text = nil
+  raise ParseError, &#39;enable notes extension&#39; if
+    content.start_with? &#39;^&#39; and label.equal? content
+
+  if ref = @references[label] then
+    &quot;{#{content}}[#{ref}]&quot;
+  elsif label.equal? content then
+    &quot;[#{content}]#{text}&quot;
+  else
+    &quot;[#{content}]#{text}[#{label}]&quot;
+  end
+end
+
+##
+# Creates an RDoc::Markup::ListItem by parsing the `unparsed` content from
+# the first parsing pass.
+
+def list_item_from unparsed
+  parsed = inner_parse unparsed.join
+  RDoc::Markup::ListItem.new nil, *parsed
+end
+
+##
+# Stores `label` as a note and fills in previously unknown note references.
+
+def note label
+  #foottext = &quot;rdoc-label:foottext-#{label}:footmark-#{label}&quot;
+
+  #ref.replace foottext if ref = @unlinked_notes.delete(label)
+
+  @notes[label] = foottext
+
+  #&quot;{^1}[rdoc-label:footmark-#{label}:foottext-#{label}] &quot;
+end
+
+##
+# Creates a new link for the footnote `reference` and adds the reference to
+# the note order list for proper display at the end of the document.
+
+def note_for ref
+  @note_order &lt;&lt; ref
+
+  label = @note_order.length
+
+  &quot;{*#{label}}[rdoc-label:foottext-#{label}:footmark-#{label}]&quot;
+end
+
+##
+# The internal kpeg parse method
+
+alias peg_parse parse # :nodoc:
+
+##
+# Creates an RDoc::Markup::Paragraph from `parts` and including
+# extension-specific behavior
+
+def paragraph parts
+  parts = parts.map do |part|
+    if &quot;\n&quot; == part then
+      RDoc::Markup::HardBreak.new
+    else
+      part
+    end
+  end if break_on_newline?
+
+  RDoc::Markup::Paragraph.new(*parts)
+end
+
+##
+# Parses `markdown` into an RDoc::Document
+
+def parse markdown
+  @references          = {}
+  @unlinked_references = {}
+
+  markdown += &quot;\n\n&quot;
+
+  setup_parser markdown, @debug
+  peg_parse &#39;References&#39;
+
+  if notes? then
+    @footnotes       = {}
+
+    setup_parser markdown, @debug
+    peg_parse &#39;Notes&#39;
+
+    # using note_order on the first pass would be a bug
+    @note_order      = []
+  end
+
+  setup_parser markdown, @debug
+  peg_parse
+
+  doc = result
+
+  if notes? and not @footnotes.empty? then
+    doc &lt;&lt; RDoc::Markup::Rule.new(1)
+
+    @note_order.each_with_index do |ref, index|
+      label = index + 1
+      note = @footnotes[ref]
+
+      link = &quot;{^#{label}}[rdoc-label:footmark-#{label}:foottext-#{label}] &quot;
+      note.parts.unshift link
+
+      doc &lt;&lt; note
+    end
+  end
+
+  doc.accept @formatter
+
+  doc
+end
+
+##
+# Stores `label` as a reference to `link` and fills in previously unknown
+# link references.
+
+def reference label, link
+  if ref = @unlinked_references.delete(label) then
+    ref.replace link
+  end
+
+  @references[label] = link
+end
+
+##
+# Wraps `text` in strong markup for rdoc inline formatting
+
+def strong text
+  if text =~ /\A[a-z\d.\/-]+\z/i then
+    &quot;*#{text}*&quot;
+  else
+    &quot;&lt;b&gt;#{text}&lt;/b&gt;&quot;
+  end
+end
+
+##
+# Wraps `text` in strike markup for rdoc inline formatting
+
+def strike text
+  if text =~ /\A[a-z\d.\/-]+\z/i then
+    &quot;~#{text}~&quot;
+  else
+    &quot;&lt;s&gt;#{text}&lt;/s&gt;&quot;
+  end
+end
+</code></pre>
+
+<p>}</p>
+
+<p>root = Doc</p>
+
+<p>Doc =       BOM? Block*:a { <a href="../../../../../../../../../classes/RDoc/Markup/Document.html#method-c-new"><code>RDoc::Markup::Document.new(*a.compact)</code></a> }</p>
+
+<p>Block =     @BlankLine*</p>
+
+<pre><code>( BlockQuote
+| Verbatim
+| CodeFence
+| Note
+| Reference
+| HorizontalRule
+| Heading
+| OrderedList
+| BulletList
+| DefinitionList
+| HtmlBlock
+| StyleBlock
+| Para
+| Plain )
+</code></pre>
+
+<p>Para =      @NonindentSpace Inlines:a @BlankLine+</p>
+
+<pre><code>{ paragraph a }
+</code></pre>
+
+<p>Plain =     Inlines:a</p>
+
+<pre><code>{ paragraph a }
+</code></pre>
+
+<p>AtxInline = !@Newline !(@Sp /#*/ @Sp @Newline) Inline</p>
+
+<p>AtxStart =  &lt; /#{1,6}/ &gt;</p>
+
+<pre><code>{ text.length }
+</code></pre>
+
+<p>AtxHeading = AtxStart:s @Sp AtxInline+:a (@Sp /#*/ @Sp)?  @Newline</p>
+
+<pre><code>{ RDoc::Markup::Heading.new(s, a.join) }
+</code></pre>
+
+<p>SetextHeading = SetextHeading1 | SetextHeading2</p>
+
+<p>SetextBottom1 = /={1,}/ @Newline</p>
+
+<p>SetextBottom2 = /-{1,}/ @Newline</p>
+
+<p>SetextHeading1 =  &amp;(@RawLine SetextBottom1)</p>
+
+<pre><code>@StartList:a ( !@Endline Inline:b { a &lt;&lt; b } )+ @Sp @Newline
+SetextBottom1
+{ RDoc::Markup::Heading.new(1, a.join) }
+</code></pre>
+
+<p>SetextHeading2 =  &amp;(@RawLine SetextBottom2)</p>
+
+<pre><code>@StartList:a ( !@Endline Inline:b { a &lt;&lt; b })+ @Sp @Newline
+SetextBottom2
+{ RDoc::Markup::Heading.new(2, a.join) }
+</code></pre>
+
+<p>Heading = SetextHeading | AtxHeading</p>
+
+<p>BlockQuote = BlockQuoteRaw:a</p>
+
+<pre><code>{ RDoc::Markup::BlockQuote.new(*a) }
+</code></pre>
+
+<p>BlockQuoteRaw =  @StartList:a</p>
+
+<pre><code>(( &quot;&gt;&quot; &quot; &quot;? Line:l { a &lt;&lt; l } )
+ ( !&quot;&gt;&quot; !@BlankLine Line:c { a &lt;&lt; c } )*
+ ( @BlankLine:n { a &lt;&lt; n } )*
+)+
+{ inner_parse a.join }
+</code></pre>
+
+<p>NonblankIndentedLine = !@BlankLine IndentedLine</p>
+
+<p>VerbatimChunk = @BlankLine*:a</p>
+
+<pre><code>NonblankIndentedLine+:b
+{ a.concat b }
+</code></pre>
+
+<p>Verbatim =     VerbatimChunk+:a</p>
+
+<pre><code>{ RDoc::Markup::Verbatim.new(*a.flatten) }
+</code></pre>
+
+<p>HorizontalRule = @NonindentSpace</p>
+
+<pre><code>( &quot;*&quot; @Sp &quot;*&quot; @Sp &quot;*&quot; (@Sp &quot;*&quot;)*
+| &quot;-&quot; @Sp &quot;-&quot; @Sp &quot;-&quot; (@Sp &quot;-&quot;)*
+| &quot;_&quot; @Sp &quot;_&quot; @Sp &quot;_&quot; (@Sp &quot;_&quot;)*)
+@Sp @Newline @BlankLine+
+{ RDoc::Markup::Rule.new 1 }
+</code></pre>
+
+<p>Bullet = !HorizontalRule @NonindentSpace /[+*-]/ @Spacechar+</p>
+
+<p>BulletList = &amp;Bullet (ListTight | ListLoose):a</p>
+
+<pre><code>{ RDoc::Markup::List.new(:BULLET, *a) }
+</code></pre>
+
+<p>ListTight = ListItemTight+:a</p>
+
+<pre><code>@BlankLine* !(Bullet | Enumerator)
+{ a }
+</code></pre>
+
+<p>ListLoose = @StartList:a</p>
+
+<pre><code>( ListItem:b @BlankLine* { a &lt;&lt; b } )+
+{ a }
+</code></pre>
+
+<p>ListItem =  ( Bullet | Enumerator )</p>
+
+<pre><code>@StartList:a
+ListBlock:b { a &lt;&lt; b }
+( ListContinuationBlock:c { a.push(*c) } )*
+{ list_item_from a }
+</code></pre>
+
+<p>ListItemTight =</p>
+
+<pre><code>( Bullet | Enumerator )
+ListBlock:a
+( !@BlankLine
+  ListContinuationBlock:b { a.push(*b) } )*
+!ListContinuationBlock
+{ list_item_from a }
+</code></pre>
+
+<p>ListBlock = !@BlankLine Line:a</p>
+
+<pre><code>ListBlockLine*:c
+{ [a, *c] }
+</code></pre>
+
+<p>ListContinuationBlock = @StartList:a</p>
+
+<pre><code>( @BlankLine*
+  { a &lt;&lt; &quot;\n&quot; } )
+( Indent
+  ListBlock:b { a.concat b } )+
+{ a }
+</code></pre>
+
+<p>Enumerator = @NonindentSpace [0-9]+ “.” @Spacechar+</p>
+
+<p>OrderedList = &amp;Enumerator (ListTight | ListLoose):a</p>
+
+<pre><code>{ RDoc::Markup::List.new(:NUMBER, *a) }
+</code></pre>
+
+<p>ListBlockLine = !@BlankLine</p>
+
+<pre><code>!( Indent? (Bullet | Enumerator) )
+!HorizontalRule
+OptionallyIndentedLine
+</code></pre>
+
+<p># Parsers for different kinds of block-level HTML content. # This is repetitive due to constraints of PEG grammar.</p>
+
+<p>HtmlOpenAnchor = “&lt;” Spnl (“a” | “A”) Spnl HtmlAttribute* “&gt;” HtmlCloseAnchor = “&lt;” Spnl “/” (“a” | “A”) Spnl “&gt;” HtmlAnchor = HtmlOpenAnchor (HtmlAnchor | !HtmlCloseAnchor .)* HtmlCloseAnchor</p>
+
+<p>HtmlBlockOpenAddress = “&lt;” Spnl (“address” | “ADDRESS”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseAddress = “&lt;” Spnl “/” (“address” | “ADDRESS”) Spnl “&gt;” HtmlBlockAddress = HtmlBlockOpenAddress (HtmlBlockAddress | !HtmlBlockCloseAddress .)* HtmlBlockCloseAddress</p>
+
+<p>HtmlBlockOpenBlockquote = “&lt;” Spnl (“blockquote” | “BLOCKQUOTE”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseBlockquote = “&lt;” Spnl “/” (“blockquote” | “BLOCKQUOTE”) Spnl “&gt;” HtmlBlockBlockquote = HtmlBlockOpenBlockquote (HtmlBlockBlockquote | !HtmlBlockCloseBlockquote .)* HtmlBlockCloseBlockquote</p>
+
+<p>HtmlBlockOpenCenter = “&lt;” Spnl (“center” | “CENTER”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseCenter = “&lt;” Spnl “/” (“center” | “CENTER”) Spnl “&gt;” HtmlBlockCenter = HtmlBlockOpenCenter (HtmlBlockCenter | !HtmlBlockCloseCenter .)* HtmlBlockCloseCenter</p>
+
+<p>HtmlBlockOpenDir = “&lt;” Spnl (“dir” | “DIR”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseDir = “&lt;” Spnl “/” (“dir” | “DIR”) Spnl “&gt;” HtmlBlockDir = HtmlBlockOpenDir (HtmlBlockDir | !HtmlBlockCloseDir .)* HtmlBlockCloseDir</p>
+
+<p>HtmlBlockOpenDiv = “&lt;” Spnl (“div” | “DIV”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseDiv = “&lt;” Spnl “/” (“div” | “DIV”) Spnl “&gt;” HtmlBlockDiv = HtmlBlockOpenDiv (HtmlBlockDiv | !HtmlBlockCloseDiv .)* HtmlBlockCloseDiv</p>
+
+<p>HtmlBlockOpenDl = “&lt;” Spnl (“dl” | “DL”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseDl = “&lt;” Spnl “/” (“dl” | “DL”) Spnl “&gt;” HtmlBlockDl = HtmlBlockOpenDl (HtmlBlockDl | !HtmlBlockCloseDl .)* HtmlBlockCloseDl</p>
+
+<p>HtmlBlockOpenFieldset = “&lt;” Spnl (“fieldset” | “FIELDSET”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseFieldset = “&lt;” Spnl “/” (“fieldset” | “FIELDSET”) Spnl “&gt;” HtmlBlockFieldset = HtmlBlockOpenFieldset (HtmlBlockFieldset | !HtmlBlockCloseFieldset .)* HtmlBlockCloseFieldset</p>
+
+<p>HtmlBlockOpenForm = “&lt;” Spnl (“form” | “FORM”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseForm = “&lt;” Spnl “/” (“form” | “FORM”) Spnl “&gt;” HtmlBlockForm = HtmlBlockOpenForm (HtmlBlockForm | !HtmlBlockCloseForm .)* HtmlBlockCloseForm</p>
+
+<p>HtmlBlockOpenH1 = “&lt;” Spnl (“h1” | “H1”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseH1 = “&lt;” Spnl “/” (“h1” | “H1”) Spnl “&gt;” HtmlBlockH1 = HtmlBlockOpenH1 (HtmlBlockH1 | !HtmlBlockCloseH1 .)* HtmlBlockCloseH1</p>
+
+<p>HtmlBlockOpenH2 = “&lt;” Spnl (“h2” | “H2”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseH2 = “&lt;” Spnl “/” (“h2” | “H2”) Spnl “&gt;” HtmlBlockH2 = HtmlBlockOpenH2 (HtmlBlockH2 | !HtmlBlockCloseH2 .)* HtmlBlockCloseH2</p>
+
+<p>HtmlBlockOpenH3 = “&lt;” Spnl (“h3” | “H3”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseH3 = “&lt;” Spnl “/” (“h3” | “H3”) Spnl “&gt;” HtmlBlockH3 = HtmlBlockOpenH3 (HtmlBlockH3 | !HtmlBlockCloseH3 .)* HtmlBlockCloseH3</p>
+
+<p>HtmlBlockOpenH4 = “&lt;” Spnl (“h4” | “H4”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseH4 = “&lt;” Spnl “/” (“h4” | “H4”) Spnl “&gt;” HtmlBlockH4 = HtmlBlockOpenH4 (HtmlBlockH4 | !HtmlBlockCloseH4 .)* HtmlBlockCloseH4</p>
+
+<p>HtmlBlockOpenH5 = “&lt;” Spnl (“h5” | “H5”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseH5 = “&lt;” Spnl “/” (“h5” | “H5”) Spnl “&gt;” HtmlBlockH5 = HtmlBlockOpenH5 (HtmlBlockH5 | !HtmlBlockCloseH5 .)* HtmlBlockCloseH5</p>
+
+<p>HtmlBlockOpenH6 = “&lt;” Spnl (“h6” | “H6”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseH6 = “&lt;” Spnl “/” (“h6” | “H6”) Spnl “&gt;” HtmlBlockH6 = HtmlBlockOpenH6 (HtmlBlockH6 | !HtmlBlockCloseH6 .)* HtmlBlockCloseH6</p>
+
+<p>HtmlBlockOpenMenu = “&lt;” Spnl (“menu” | “MENU”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseMenu = “&lt;” Spnl “/” (“menu” | “MENU”) Spnl “&gt;” HtmlBlockMenu = HtmlBlockOpenMenu (HtmlBlockMenu | !HtmlBlockCloseMenu .)* HtmlBlockCloseMenu</p>
+
+<p>HtmlBlockOpenNoframes = “&lt;” Spnl (“noframes” | “NOFRAMES”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseNoframes = “&lt;” Spnl “/” (“noframes” | “NOFRAMES”) Spnl “&gt;” HtmlBlockNoframes = HtmlBlockOpenNoframes (HtmlBlockNoframes | !HtmlBlockCloseNoframes .)* HtmlBlockCloseNoframes</p>
+
+<p>HtmlBlockOpenNoscript = “&lt;” Spnl (“noscript” | “NOSCRIPT”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseNoscript = “&lt;” Spnl “/” (“noscript” | “NOSCRIPT”) Spnl “&gt;” HtmlBlockNoscript = HtmlBlockOpenNoscript (HtmlBlockNoscript | !HtmlBlockCloseNoscript .)* HtmlBlockCloseNoscript</p>
+
+<p>HtmlBlockOpenOl = “&lt;” Spnl (“ol” | “OL”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseOl = “&lt;” Spnl “/” (“ol” | “OL”) Spnl “&gt;” HtmlBlockOl = HtmlBlockOpenOl (HtmlBlockOl | !HtmlBlockCloseOl .)* HtmlBlockCloseOl</p>
+
+<p>HtmlBlockOpenP = “&lt;” Spnl (“p” | “P”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseP = “&lt;” Spnl “/” (“p” | “P”) Spnl “&gt;” HtmlBlockP = HtmlBlockOpenP (HtmlBlockP | !HtmlBlockCloseP .)* HtmlBlockCloseP</p>
+
+<p>HtmlBlockOpenPre = “&lt;” Spnl (“pre” | “PRE”) Spnl HtmlAttribute* “&gt;” HtmlBlockClosePre = “&lt;” Spnl “/” (“pre” | “PRE”) Spnl “&gt;” HtmlBlockPre = HtmlBlockOpenPre (HtmlBlockPre | !HtmlBlockClosePre .)* HtmlBlockClosePre</p>
+
+<p>HtmlBlockOpenTable = “&lt;” Spnl (“table” | “TABLE”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseTable = “&lt;” Spnl “/” (“table” | “TABLE”) Spnl “&gt;” HtmlBlockTable = HtmlBlockOpenTable (HtmlBlockTable | !HtmlBlockCloseTable .)* HtmlBlockCloseTable</p>
+
+<p>HtmlBlockOpenUl = “&lt;” Spnl (“ul” | “UL”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseUl = “&lt;” Spnl “/” (“ul” | “UL”) Spnl “&gt;” HtmlBlockUl = HtmlBlockOpenUl (HtmlBlockUl | !HtmlBlockCloseUl .)* HtmlBlockCloseUl</p>
+
+<p>HtmlBlockOpenDd = “&lt;” Spnl (“dd” | “DD”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseDd = “&lt;” Spnl “/” (“dd” | “DD”) Spnl “&gt;” HtmlBlockDd = HtmlBlockOpenDd (HtmlBlockDd | !HtmlBlockCloseDd .)* HtmlBlockCloseDd</p>
+
+<p>HtmlBlockOpenDt = “&lt;” Spnl (“dt” | “DT”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseDt = “&lt;” Spnl “/” (“dt” | “DT”) Spnl “&gt;” HtmlBlockDt = HtmlBlockOpenDt (HtmlBlockDt | !HtmlBlockCloseDt .)* HtmlBlockCloseDt</p>
+
+<p>HtmlBlockOpenFrameset = “&lt;” Spnl (“frameset” | “FRAMESET”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseFrameset = “&lt;” Spnl “/” (“frameset” | “FRAMESET”) Spnl “&gt;” HtmlBlockFrameset = HtmlBlockOpenFrameset (HtmlBlockFrameset | !HtmlBlockCloseFrameset .)* HtmlBlockCloseFrameset</p>
+
+<p>HtmlBlockOpenLi = “&lt;” Spnl (“li” | “LI”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseLi = “&lt;” Spnl “/” (“li” | “LI”) Spnl “&gt;” HtmlBlockLi = HtmlBlockOpenLi (HtmlBlockLi | !HtmlBlockCloseLi .)* HtmlBlockCloseLi</p>
+
+<p>HtmlBlockOpenTbody = “&lt;” Spnl (“tbody” | “TBODY”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseTbody = “&lt;” Spnl “/” (“tbody” | “TBODY”) Spnl “&gt;” HtmlBlockTbody = HtmlBlockOpenTbody (HtmlBlockTbody | !HtmlBlockCloseTbody .)* HtmlBlockCloseTbody</p>
+
+<p>HtmlBlockOpenTd = “&lt;” Spnl (“td” | “TD”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseTd = “&lt;” Spnl “/” (“td” | “TD”) Spnl “&gt;” HtmlBlockTd = HtmlBlockOpenTd (HtmlBlockTd | !HtmlBlockCloseTd .)* HtmlBlockCloseTd</p>
+
+<p>HtmlBlockOpenTfoot = “&lt;” Spnl (“tfoot” | “TFOOT”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseTfoot = “&lt;” Spnl “/” (“tfoot” | “TFOOT”) Spnl “&gt;” HtmlBlockTfoot = HtmlBlockOpenTfoot (HtmlBlockTfoot | !HtmlBlockCloseTfoot .)* HtmlBlockCloseTfoot</p>
+
+<p>HtmlBlockOpenTh = “&lt;” Spnl (“th” | “TH”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseTh = “&lt;” Spnl “/” (“th” | “TH”) Spnl “&gt;” HtmlBlockTh = HtmlBlockOpenTh (HtmlBlockTh | !HtmlBlockCloseTh .)* HtmlBlockCloseTh</p>
+
+<p>HtmlBlockOpenThead = “&lt;” Spnl (“thead” | “THEAD”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseThead = “&lt;” Spnl “/” (“thead” | “THEAD”) Spnl “&gt;” HtmlBlockThead = HtmlBlockOpenThead (HtmlBlockThead | !HtmlBlockCloseThead .)* HtmlBlockCloseThead</p>
+
+<p>HtmlBlockOpenTr = “&lt;” Spnl (“tr” | “TR”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseTr = “&lt;” Spnl “/” (“tr” | “TR”) Spnl “&gt;” HtmlBlockTr = HtmlBlockOpenTr (HtmlBlockTr | !HtmlBlockCloseTr .)* HtmlBlockCloseTr</p>
+
+<p>HtmlBlockOpenScript = “&lt;” Spnl (“script” | “SCRIPT”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseScript = “&lt;” Spnl “/” (“script” | “SCRIPT”) Spnl “&gt;” HtmlBlockScript = HtmlBlockOpenScript (!HtmlBlockCloseScript .)* HtmlBlockCloseScript</p>
+
+<p>HtmlBlockOpenHead = “&lt;” Spnl (“head” | “HEAD”) Spnl HtmlAttribute* “&gt;” HtmlBlockCloseHead = “&lt;” Spnl “/” (“head” | “HEAD”) Spnl “&gt;” HtmlBlockHead = HtmlBlockOpenHead (!HtmlBlockCloseHead .)* HtmlBlockCloseHead</p>
+
+<p>HtmlBlockInTags = HtmlAnchor</p>
+
+<pre><code>| HtmlBlockAddress
+| HtmlBlockBlockquote
+| HtmlBlockCenter
+| HtmlBlockDir
+| HtmlBlockDiv
+| HtmlBlockDl
+| HtmlBlockFieldset
+| HtmlBlockForm
+| HtmlBlockH1
+| HtmlBlockH2
+| HtmlBlockH3
+| HtmlBlockH4
+| HtmlBlockH5
+| HtmlBlockH6
+| HtmlBlockMenu
+| HtmlBlockNoframes
+| HtmlBlockNoscript
+| HtmlBlockOl
+| HtmlBlockP
+| HtmlBlockPre
+| HtmlBlockTable
+| HtmlBlockUl
+| HtmlBlockDd
+| HtmlBlockDt
+| HtmlBlockFrameset
+| HtmlBlockLi
+| HtmlBlockTbody
+| HtmlBlockTd
+| HtmlBlockTfoot
+| HtmlBlockTh
+| HtmlBlockThead
+| HtmlBlockTr
+| HtmlBlockScript
+| HtmlBlockHead
+</code></pre>
+
+<p>HtmlBlock = &lt; ( HtmlBlockInTags | HtmlComment | HtmlBlockSelfClosing | HtmlUnclosed) &gt;</p>
+
+<pre><code>@BlankLine+
+{ if html? then
+    RDoc::Markup::Raw.new text
+  end }
+</code></pre>
+
+<p>HtmlUnclosed = “&lt;” Spnl HtmlUnclosedType Spnl HtmlAttribute* Spnl “&gt;”</p>
+
+<p>HtmlUnclosedType = “HR” | “hr”</p>
+
+<p>HtmlBlockSelfClosing = “&lt;” Spnl HtmlBlockType Spnl HtmlAttribute* “/” Spnl “&gt;”</p>
+
+<p>HtmlBlockType = “ADDRESS” |</p>
+
+<pre><code>&quot;BLOCKQUOTE&quot; |
+&quot;CENTER&quot; |
+&quot;DD&quot; |
+&quot;DIR&quot; |
+&quot;DIV&quot; |
+&quot;DL&quot; |
+&quot;DT&quot; |
+&quot;FIELDSET&quot; |
+&quot;FORM&quot; |
+&quot;FRAMESET&quot; |
+&quot;H1&quot; |
+&quot;H2&quot; |
+&quot;H3&quot; |
+&quot;H4&quot; |
+&quot;H5&quot; |
+&quot;H6&quot; |
+&quot;HR&quot; |
+&quot;ISINDEX&quot; |
+&quot;LI&quot; |
+&quot;MENU&quot; |
+&quot;NOFRAMES&quot; |
+&quot;NOSCRIPT&quot; |
+&quot;OL&quot; |
+&quot;P&quot; |
+&quot;PRE&quot; |
+&quot;SCRIPT&quot; |
+&quot;TABLE&quot; |
+&quot;TBODY&quot; |
+&quot;TD&quot; |
+&quot;TFOOT&quot; |
+&quot;TH&quot; |
+&quot;THEAD&quot; |
+&quot;TR&quot; |
+&quot;UL&quot; |
+&quot;address&quot; |
+&quot;blockquote&quot; |
+&quot;center&quot; |
+&quot;dd&quot; |
+&quot;dir&quot; |
+&quot;div&quot; |
+&quot;dl&quot; |
+&quot;dt&quot; |
+&quot;fieldset&quot; |
+&quot;form&quot; |
+&quot;frameset&quot; |
+&quot;h1&quot; |
+&quot;h2&quot; |
+&quot;h3&quot; |
+&quot;h4&quot; |
+&quot;h5&quot; |
+&quot;h6&quot; |
+&quot;hr&quot; |
+&quot;isindex&quot; |
+&quot;li&quot; |
+&quot;menu&quot; |
+&quot;noframes&quot; |
+&quot;noscript&quot; |
+&quot;ol&quot; |
+&quot;p&quot; |
+&quot;pre&quot; |
+&quot;script&quot; |
+&quot;table&quot; |
+&quot;tbody&quot; |
+&quot;td&quot; |
+&quot;tfoot&quot; |
+&quot;th&quot; |
+&quot;thead&quot; |
+&quot;tr&quot; |
+&quot;ul&quot;
+</code></pre>
+
+<p>StyleOpen =     “&lt;” Spnl (“style” | “STYLE”) Spnl HtmlAttribute* “&gt;” StyleClose =    “&lt;” Spnl “/” (“style” | “STYLE”) Spnl “&gt;” InStyleTags =   StyleOpen (!StyleClose .)* StyleClose StyleBlock =    &lt; InStyleTags &gt;</p>
+
+<pre><code>@BlankLine*
+{ if css? then
+    RDoc::Markup::Raw.new text
+  end }
+</code></pre>
+
+<p>Inlines  =  ( !@Endline Inline:i { i }</p>
+
+<pre><code>| @Endline:c &amp;Inline { c } )+:chunks @Endline?
+{ chunks }
+</code></pre>
+
+<p>Inline  = Str</p>
+
+<pre><code>| @Endline
+| UlOrStarLine
+| @Space
+| Strong
+| Emph
+| Strike
+| Image
+| Link
+| NoteReference
+| InlineNote
+| Code
+| RawHtml
+| Entity
+| EscapedChar
+| Symbol
+</code></pre>
+
+<p>Space = @Spacechar+ { “ ” }</p>
+
+<p>Str = @StartList:a</p>
+
+<pre><code>&lt; @NormalChar+ &gt; { a = text }
+( StrChunk:c { a &lt;&lt; c } )* { a }
+</code></pre>
+
+<p>StrChunk = &lt; (@NormalChar | /_+/ &amp;Alphanumeric)+ &gt; { text }</p>
+
+<p>EscapedChar =   “\” !@Newline &lt; /[:\`|*_{}[]()#+.!&gt;&lt;-]/ &gt; { text }</p>
+
+<p>Entity =    ( HexEntity | DecEntity | CharEntity ):a { a }</p>
+
+<p>Endline =   @LineBreak | @TerminalEndline | @NormalEndline</p>
+
+<p>NormalEndline =   @Sp @Newline !@BlankLine !“&gt;” !AtxStart</p>
+
+<pre><code>!(Line /={1,}|-{1,}/ @Newline)
+{ &quot;\n&quot; }
+</code></pre>
+
+<p>TerminalEndline = @Sp @Newline @Eof</p>
+
+<p>LineBreak = “  ” @NormalEndline { <a href="../../../../../../../../../classes/RDoc/Markup/HardBreak.html#method-c-new"><code>RDoc::Markup::HardBreak.new</code></a> }</p>
+
+<p>Symbol = &lt; @SpecialChar &gt;</p>
+
+<pre><code>{ text }
+</code></pre>
+
+<p># This keeps the parser from getting bogged down on long strings of &#39;*&#39; or &#39;_&#39;, # or strings of &#39;*&#39; or &#39;_&#39; with space on each side: UlOrStarLine =  (UlLine | StarLine):a { a } StarLine = &lt; /*{4,}/ &gt; { text } |</p>
+
+<pre><code>&lt; @Spacechar /\*+/ &amp;@Spacechar &gt; { text }
+</code></pre>
+
+<p>UlLine   = &lt; /_{4,}/ &gt; { text } |</p>
+
+<pre><code>&lt; @Spacechar /_+/ &amp;@Spacechar &gt; { text }
+</code></pre>
+
+<p>Emph =      EmphStar | EmphUl</p>
+
+<p>Whitespace = @Spacechar | @Newline</p>
+
+<p>EmphStar =  “*” !@Whitespace</p>
+
+<pre><code>@StartList:a
+( !&quot;*&quot; Inline:b { a &lt;&lt; b }
+| StrongStar:b  { a &lt;&lt; b }
+)+
+&quot;*&quot;
+{ emphasis a.join }
+</code></pre>
+
+<p>EmphUl =    “_” !@Whitespace</p>
+
+<pre><code>@StartList:a
+( !&quot;_&quot; Inline:b { a &lt;&lt; b }
+| StrongUl:b  { a &lt;&lt; b }
+)+
+&quot;_&quot;
+{ emphasis a.join }
+</code></pre>
+
+<p>Strong = StrongStar | StrongUl</p>
+
+<p>StrongStar =    “**” !@Whitespace</p>
+
+<pre><code>@StartList:a
+( !&quot;**&quot; Inline:b { a &lt;&lt; b } )+
+&quot;**&quot;
+{ strong a.join }
+</code></pre>
+
+<p>StrongUl   =    “__” !@Whitespace</p>
+
+<pre><code>@StartList:a
+( !&quot;__&quot; Inline:b { a &lt;&lt; b } )+
+&quot;__&quot;
+{ strong a.join }
+</code></pre>
+
+<p>Strike = &amp;{ strike? }</p>
+
+<pre><code>&quot;~~&quot; !@Whitespace
+@StartList:a
+( !&quot;~~&quot; Inline:b { a &lt;&lt; b } )+
+&quot;~~&quot;
+{ strike a.join }
+</code></pre>
+
+<p># TODO alt text support Image = “!” ( ExplicitLink | ReferenceLink ):a</p>
+
+<pre><code>{ &quot;rdoc-image:#{a[/\[(.*)\]/, 1]}&quot; }
+</code></pre>
+
+<p>Link =  ExplicitLink | ReferenceLink | AutoLink</p>
+
+<p>ReferenceLink = ReferenceLinkDouble | ReferenceLinkSingle</p>
+
+<p>ReferenceLinkDouble = Label:content &lt; Spnl &gt; !“[]” Label:label</p>
+
+<pre><code>{ link_to content, label, text }
+</code></pre>
+
+<p>ReferenceLinkSingle = Label:content &lt; (Spnl “[]”)? &gt;</p>
+
+<pre><code>{ link_to content, content, text }
+</code></pre>
+
+<p>ExplicitLink =  Label:l “(” @Sp Source:s Spnl Title @Sp “)”</p>
+
+<pre><code>{ &quot;{#{l}}[#{s}]&quot; }
+</code></pre>
+
+<p>Source  = ( “&lt;” &lt; SourceContents &gt; “&gt;” | &lt; SourceContents &gt; )</p>
+
+<pre><code>{ text }
+</code></pre>
+
+<p>SourceContents = ( ( !“(” !“)” !“&gt;” Nonspacechar )+ | “(” SourceContents “)”)*</p>
+
+<p>Title = ( TitleSingle | TitleDouble | “” ):a</p>
+
+<pre><code>{ a }
+</code></pre>
+
+<p>TitleSingle = “&#39;” ( !( “&#39;” @Sp ( “)” | @Newline ) ) . )* “&#39;”</p>
+
+<p>TitleDouble = “&quot;” ( !( “&quot;” @Sp ( “)” | @Newline ) ) . )* “&quot;”</p>
+
+<p>AutoLink = AutoLinkUrl | AutoLinkEmail</p>
+
+<p>AutoLinkUrl =   “&lt;” &lt; /[A-Za-z]+/ “://” ( !@Newline !“&gt;” . )+ &gt; “&gt;”</p>
+
+<pre><code>{ text }
+</code></pre>
+
+<p>AutoLinkEmail = “&lt;” (“mailto:”)? &lt; /[w+./!%~$-]+/i “@” ( !@Newline !“&gt;” . )+ &gt; “&gt;”</p>
+
+<pre><code>{ &quot;mailto:#{text}&quot; }
+</code></pre>
+
+<p>Reference = @NonindentSpace !“[]”</p>
+
+<pre><code>  Label:label &quot;:&quot; Spnl RefSrc:link RefTitle @BlankLine+
+{ # TODO use title
+  reference label, link
+  nil
+}
+</code></pre>
+
+<p>Label = “[” ( !“^” &amp;{ notes? } | &amp;. &amp;{ !notes? } )</p>
+
+<pre><code>@StartList:a
+( !&quot;]&quot; Inline:l { a &lt;&lt; l } )*
+&quot;]&quot;
+{ a.join.gsub(/\s+/, &#39; &#39;) }
+</code></pre>
+
+<p>RefSrc = &lt; Nonspacechar+ &gt; { text }</p>
+
+<p>RefTitle = ( RefTitleSingle | RefTitleDouble | RefTitleParens | EmptyTitle )</p>
+
+<p>EmptyTitle = “”</p>
+
+<p>RefTitleSingle = Spnl “&#39;” &lt; ( !( “&#39;” @Sp @Newline | @Newline ) . )* &gt; “&#39;” { text }</p>
+
+<p>RefTitleDouble = Spnl “&quot;” &lt; ( !(“&quot;” @Sp @Newline | @Newline) . )* &gt; “&quot;” { text }</p>
+
+<p>RefTitleParens = Spnl “(” &lt; ( !(“)” @Sp @Newline | @Newline) . )* &gt; “)” { text }</p>
+
+<p>References = ( Reference | SkipBlock )*</p>
+
+<p>Ticks1 = “`” !“`” Ticks2 = ““” !“`” Ticks3 = ““`” !“`” Ticks4 = “““” !“`” Ticks5 = “““`” !“`”</p>
+
+<p>Code = ( Ticks1 @Sp &lt; (</p>
+
+<pre><code>    ( !&quot;`&quot; Nonspacechar )+ | !Ticks1 /`+/ |
+    !( @Sp Ticks1 ) ( @Spacechar | @Newline !@BlankLine )
+  )+ &gt; @Sp Ticks1 |
+  Ticks2 @Sp &lt; (
+    ( !&quot;`&quot; Nonspacechar )+ |
+    !Ticks2 /`+/ |
+    !( @Sp Ticks2 ) ( @Spacechar | @Newline !@BlankLine )
+  )+ &gt; @Sp Ticks2 |
+  Ticks3 @Sp &lt; (
+    ( !&quot;`&quot; Nonspacechar )+ |
+    !Ticks3 /`+/ |
+    !( @Sp Ticks3 ) ( @Spacechar | @Newline !@BlankLine )
+  )+ &gt; @Sp Ticks3 |
+  Ticks4 @Sp &lt; (
+    ( !&quot;`&quot; Nonspacechar )+ |
+    !Ticks4 /`+/ |
+    !( @Sp Ticks4 ) ( @Spacechar | @Newline !@BlankLine )
+  )+ &gt; @Sp Ticks4 |
+  Ticks5 @Sp &lt; (
+    ( !&quot;`&quot; Nonspacechar )+ |
+    !Ticks5 /`+/ |
+    !( @Sp Ticks5 ) ( @Spacechar | @Newline !@BlankLine )
+  )+ &gt; @Sp Ticks5
+)
+{ &quot;&lt;code&gt;#{text}&lt;/code&gt;&quot; }
+</code></pre>
+
+<p>RawHtml = &lt; (HtmlComment | HtmlBlockScript | HtmlTag) &gt;</p>
+
+<pre><code>{ if html? then text else &#39;&#39; end }
+</code></pre>
+
+<p>BlankLine =     @Sp @Newline { “n” }</p>
+
+<p>Quoted =        “&quot;” (!“&quot;” .)* “&quot;” | “&#39;” (!“&#39;” .)* “&#39;” HtmlAttribute = (AlphanumericAscii | “-”)+ Spnl (“=” Spnl (Quoted | (!“&gt;” Nonspacechar)+))? Spnl HtmlComment =   “&lt;!–” (!“–&gt;” .)* “–&gt;” HtmlTag =       “&lt;” Spnl “/”? AlphanumericAscii+ Spnl HtmlAttribute* “/”? Spnl “&gt;” Eof =           !. Nonspacechar =  !@Spacechar !@Newline . Sp =            @Spacechar* Spnl =          @Sp (@Newline @Sp)? SpecialChar =   /[~*<a href="\">_`&</a>()&lt;!#\&#39;“]/ | @ExtendedSpecialChar NormalChar =    !( @SpecialChar | @Spacechar | @Newline ) . Digit = [0-9]</p>
+
+<p>%literals         = <a href="../../../../../../../../../classes/RDoc/Markdown/Literals.html"><code>RDoc::Markdown::Literals</code></a> Alphanumeric      = %literals.Alphanumeric AlphanumericAscii = %literals.AlphanumericAscii BOM               = %literals.BOM Newline           = %literals.Newline Spacechar         = %literals.Spacechar</p>
+
+<p>HexEntity  = /&amp;#x/i &lt; /[0-9a-fA-F]+/ &gt; “;”</p>
+
+<pre><code>{ [text.to_i(16)].pack &#39;U&#39; }
+</code></pre>
+
+<p>DecEntity  = “&amp;#”   &lt; /[0-9]+/       &gt; “;”</p>
+
+<pre><code>{ [text.to_i].pack &#39;U&#39; }
+</code></pre>
+
+<p>CharEntity = “&amp;”    &lt;/[A-Za-z0-9]+/  &gt; “;”</p>
+
+<pre><code>{ if entity = HTML_ENTITIES[text] then
+    entity.pack &#39;U*&#39;
+  else
+    &quot;&amp;#{text};&quot;
+  end
+}
+</code></pre>
+
+<p>NonindentSpace =    / {0,3}/ Indent =            /t|    / IndentedLine =      Indent Line OptionallyIndentedLine = Indent? Line</p>
+
+<p># StartList starts a list data structure that can be added to with cons: StartList = &amp;.</p>
+
+<pre><code>{ [] }
+</code></pre>
+
+<p>Line =  @RawLine:a { a } RawLine = ( &lt; (!“r” !“n” .)* @Newline &gt;</p>
+
+<pre><code>| &lt; .+ &gt; @Eof ) { text }
+</code></pre>
+
+<p>SkipBlock = HtmlBlock</p>
+
+<pre><code>| ( !&quot;#&quot; !SetextBottom1 !SetextBottom2 !@BlankLine @RawLine )+
+  @BlankLine*
+| @BlankLine+
+| @RawLine
+</code></pre>
+
+<p># Syntax extensions</p>
+
+<p>ExtendedSpecialChar = &amp;{ notes? } ( “^” )</p>
+
+<p>NoteReference = &amp;{ notes? }</p>
+
+<pre><code>RawNoteReference:ref
+{ note_for ref }
+</code></pre>
+
+<p>RawNoteReference = “[^” &lt; ( !@Newline !“]” . )+ &gt; “]” { text }</p>
+
+<p># TODO multiple paragraphs for a footnote Note =          &amp;{ notes? }</p>
+
+<pre><code>@NonindentSpace RawNoteReference:ref &quot;:&quot; @Sp
+@StartList:a
+RawNoteBlock:i { a.concat i }
+( &amp;Indent RawNoteBlock:i { a.concat i } )*
+{ @footnotes[ref] = paragraph a
+
+  nil
+}
+</code></pre>
+
+<p>InlineNote = &amp;{ notes? }</p>
+
+<pre><code>&quot;^[&quot;
+@StartList:a
+( !&quot;]&quot; Inline:l { a &lt;&lt; l } )+
+&quot;]&quot;
+{ ref = [:inline, @note_order.length]
+  @footnotes[ref] = paragraph a
+
+  note_for ref
+}
+</code></pre>
+
+<p>Notes = ( Note | SkipBlock )*</p>
+
+<p>RawNoteBlock = @StartList:a</p>
+
+<pre><code>( !@BlankLine OptionallyIndentedLine:l { a &lt;&lt; l } )+
+( &lt; @BlankLine* &gt; { a &lt;&lt; text } )
+{ a }
+</code></pre>
+
+<p># Markdown extensions added by <a href="../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> follow</p>
+
+<p>CodeFence = &amp;{ github? }</p>
+
+<pre><code>Ticks3 (@Sp StrChunk:format)? Spnl &lt; (
+  ( !&quot;`&quot; Nonspacechar )+ |
+  !Ticks3 /`+/ |
+  Spacechar |
+  @Newline
+)+ &gt; Ticks3 @Sp @Newline*
+{ verbatim = RDoc::Markup::Verbatim.new text
+  verbatim.format = format.intern if format.instance_of?(String)
+  verbatim
+}
+</code></pre>
+
+<p>DefinitionList = &amp;{ definition_lists? }</p>
+
+<pre><code>( DefinitionListItem+:list )
+{ RDoc::Markup::List.new :NOTE, *list.flatten }
+</code></pre>
+
+<p>DefinitionListItem = ( DefinitionListLabel+ ):label</p>
+
+<pre><code>( DefinitionListDefinition+ ):defns
+{ list_items = []
+  list_items &lt;&lt;
+    RDoc::Markup::ListItem.new(label, defns.shift)
+
+  list_items.concat defns.map { |defn|
+    RDoc::Markup::ListItem.new nil, defn
+  } unless list_items.empty?
+
+  list_items
+}
+</code></pre>
+
+<p>DefinitionListLabel = StrChunk:label @Sp @Newline</p>
+
+<pre><code>{ label }
+</code></pre>
+
+<p>DefinitionListDefinition = @NonindentSpace “:” @Space Inlines:a @BlankLine+</p>
+
+<pre><code>{ paragraph a }
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+    <!-- Sections -->
+    <div class="sectiontitle">Sections</div>
+    <ul>
+      
+        <li><a href="#Extensions">Extensions</a></li>
+      
+    </ul>
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+
+    
+      <div class="contenttitle" id="Extensions">
+        Extensions
+      </div>
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

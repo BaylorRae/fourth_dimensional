@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::DRbOptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::DRbOptions">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::DRbOptions class">
+  
+    <meta name="keywords" content="new, options, add_failure_exit_code, add_full_description, add_filter, add_formatters, add_libs, add_requires">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::DRbOptions
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/drb_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_failure_exit_code">add_failure_exit_code</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_filter">add_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_formatters">add_formatters</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_full_description">add_full_description</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_libs">add_libs</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_requires">add_requires</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-options">options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">CONDITIONAL_FILTERS</td>
+            <td>=</td>
+            <td class="attr-value">[:if, :unless]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(submitted_options, filter_manager)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">submitted_options</span>, <span class="ruby-identifier">filter_manager</span>)
+  <span class="ruby-ivar">@submitted_options</span> = <span class="ruby-identifier">submitted_options</span>
+  <span class="ruby-ivar">@filter_manager</span> = <span class="ruby-identifier">filter_manager</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_failure_exit_code">
+            
+              <b>add_failure_exit_code</b>(argv)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-add_failure_exit_code" name="method-i-add_failure_exit_code" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_failure_exit_code_source')" id="l_method-i-add_failure_exit_code_source">show</a>
+                
+              </p>
+              <div id="method-i-add_failure_exit_code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_failure_exit_code</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:failure_exit_code</span>]
+
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--failure-exit-code&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:failure_exit_code</span>].<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_filter">
+            
+              <b>add_filter</b>(argv, name, hash)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-add_filter" name="method-i-add_filter" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_filter_source')" id="l_method-i-add_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-add_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_filter</span>(<span class="ruby-identifier">argv</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">CONDITIONAL_FILTERS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>)
+    <span class="ruby-identifier">tag</span> = <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:inclusion</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;~#{k}&quot;</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">tag</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;:#{v}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--tag&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tag</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_formatters">
+            
+              <b>add_formatters</b>(argv)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-add_formatters" name="method-i-add_formatters" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_formatters_source')" id="l_method-i-add_formatters_source">show</a>
+                
+              </p>
+              <div id="method-i-add_formatters_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_formatters</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:formatters</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--format&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pair</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--out&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pair</span>[<span class="ruby-value">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">pair</span>[<span class="ruby-value">1</span>]
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:formatters</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_full_description">
+            
+              <b>add_full_description</b>(argv)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-add_full_description" name="method-i-add_full_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_full_description_source')" id="l_method-i-add_full_description_source">show</a>
+                
+              </p>
+              <div id="method-i-add_full_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_full_description</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:full_description</span>]
+
+  <span class="ruby-comment"># The argument to --example is regexp-escaped before being stuffed</span>
+  <span class="ruby-comment"># into a regexp when received for the first time (see OptionParser).</span>
+  <span class="ruby-comment"># Hence, merely grabbing the source of this regexp will retain the</span>
+  <span class="ruby-comment"># backslashes, so we must remove them.</span>
+  <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:full_description</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">description</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--example&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">description</span>.<span class="ruby-identifier">source</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;\\&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_libs">
+            
+              <b>add_libs</b>(argv)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-add_libs" name="method-i-add_libs" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_libs_source')" id="l_method-i-add_libs_source">show</a>
+                
+              </p>
+              <div id="method-i-add_libs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_libs</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:libs</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;-I&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:libs</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_requires">
+            
+              <b>add_requires</b>(argv)
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-add_requires" name="method-i-add_requires" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_requires_source')" id="l_method-i-add_requires_source">show</a>
+                
+              </p>
+              <div id="method-i-add_requires_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_requires</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:requires</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--require&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:requires</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-options">
+            
+              <b>options</b>()
+            
+            <a href="../../../classes/RSpec/Core/DRbOptions.html#method-i-options" name="method-i-options" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-options_source')" id="l_method-i-options_source">show</a>
+                
+              </p>
+              <div id="method-i-options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">options</span>
+  <span class="ruby-identifier">argv</span> = []
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--color&quot;</span>        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:color</span>]
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--force-color&quot;</span>  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:color_mode</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:on</span>
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--no-color&quot;</span>     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:color_mode</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:off</span>
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--profile&quot;</span>      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:profile_examples</span>]
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--backtrace&quot;</span>    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:full_backtrace</span>]
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--tty&quot;</span>          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:tty</span>]
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--fail-fast&quot;</span>    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:fail_fast</span>]
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--options&quot;</span>      <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:custom_options_file</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:custom_options_file</span>]
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--order&quot;</span>        <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:order</span>]               <span class="ruby-keyword">if</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:order</span>]
+
+  <span class="ruby-identifier">add_failure_exit_code</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-identifier">add_full_description</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-identifier">add_filter</span>(<span class="ruby-identifier">argv</span>, <span class="ruby-value">:inclusion</span>, <span class="ruby-ivar">@filter_manager</span>.<span class="ruby-identifier">inclusions</span>)
+  <span class="ruby-identifier">add_filter</span>(<span class="ruby-identifier">argv</span>, <span class="ruby-value">:exclusion</span>, <span class="ruby-ivar">@filter_manager</span>.<span class="ruby-identifier">exclusions</span>)
+  <span class="ruby-identifier">add_formatters</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-identifier">add_libs</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-identifier">add_requires</span>(<span class="ruby-identifier">argv</span>)
+
+  <span class="ruby-identifier">argv</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@submitted_options</span>[<span class="ruby-value">:files_or_directories_to_run</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

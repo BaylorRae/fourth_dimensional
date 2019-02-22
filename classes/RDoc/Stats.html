@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Stats</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Stats">
+
+  
+    
+    <meta name="description" content="RDoc statistics collector which prints a summary and report of a project&#39;s documentation totals.">
+    <meta property="og:description" content="RDoc statistics collector which prints a summary and report of a project&#39;s documentation totals.">
+  
+
+    <meta name="keywords" content="RDoc::Stats class">
+  
+    <meta name="keywords" content="new, add_alias, add_attribute, add_class, add_constant, add_file, add_method, add_module, begin_adding, calculate, coverage_level=, doc_stats, done_adding, fully_documented?, great_job, percent_doc, report, report_attributes, report_class_module, report_constants, report_methods, summary, undoc_params">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Stats
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/stats_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/stats/normal_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats/normal.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/stats/quiet_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats/quiet.rb</a></li>
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/stats/verbose_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats/verbose.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../RDoc.html"><code>RDoc</code></a> statistics collector which prints a summary and report of a project&#39;s documentation totals.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Stats/Normal.html">RDoc::Stats::Normal</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Stats/Quiet.html">RDoc::Stats::Quiet</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Stats/Verbose.html">RDoc::Stats::Verbose</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_alias">add_alias</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_attribute">add_attribute</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_class">add_class</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_constant">add_constant</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_file">add_file</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_method">add_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_module">add_module</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-begin_adding">begin_adding</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-calculate">calculate</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-coverage_level-3D">coverage_level=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-doc_stats">doc_stats</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-done_adding">done_adding</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-fully_documented-3F">fully_documented?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-great_job">great_job</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-percent_doc">percent_doc</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-report">report</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-report_attributes">report_attributes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-report_class_module">report_class_module</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-report_constants">report_constants</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-report_methods">report_methods</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-summary">summary</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-undoc_params">undoc_params</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Text.html">
+              RDoc::Text
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>coverage_level</td>
+            <td class='attr-desc'><p>Output level for the coverage report</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>files_so_far</td>
+            <td class='attr-desc'><p>Count of files parsed during parsing</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>num_files</td>
+            <td class='attr-desc'><p>Total number of files found</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(store, num_files, verbosity = 1)
+            
+            <a href="../../classes/RDoc/Stats.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new <a href="Stats.html"><code>Stats</code></a> that will have <code>num_files</code>.  <code>verbosity</code> defaults to 1 which will create an <a href="Stats/Normal.html"><code>RDoc::Stats::Normal</code></a> outputter.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">store</span>, <span class="ruby-identifier">num_files</span>, <span class="ruby-identifier">verbosity</span> = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@num_files</span> = <span class="ruby-identifier">num_files</span>
+  <span class="ruby-ivar">@store</span>     = <span class="ruby-identifier">store</span>
+
+  <span class="ruby-ivar">@coverage_level</span>   = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@doc_items</span>        = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@files_so_far</span>     = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@fully_documented</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@num_params</span>       = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@percent_doc</span>      = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@start</span>            = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-ivar">@undoc_params</span>     = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@display</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">verbosity</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Quiet</span>.<span class="ruby-identifier">new</span>   <span class="ruby-identifier">num_files</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Normal</span>.<span class="ruby-identifier">new</span>  <span class="ruby-identifier">num_files</span>
+             <span class="ruby-keyword">else</span>        <span class="ruby-constant">Verbose</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">num_files</span>
+             <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_alias">
+            
+              <b>add_alias</b>(as)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_alias" name="method-i-add_alias" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of an alias <code>as</code>.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_alias_source')" id="l_method-i-add_alias_source">show</a>
+                
+              </p>
+              <div id="method-i-add_alias_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_alias</span> <span class="ruby-identifier">as</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_alias</span> <span class="ruby-identifier">as</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_attribute">
+            
+              <b>add_attribute</b>(attribute)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_attribute" name="method-i-add_attribute" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of an attribute <code>attribute</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_attribute_source')" id="l_method-i-add_attribute_source">show</a>
+                
+              </p>
+              <div id="method-i-add_attribute_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_attribute</span> <span class="ruby-identifier">attribute</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_attribute</span> <span class="ruby-identifier">attribute</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_class">
+            
+              <b>add_class</b>(klass)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_class" name="method-i-add_class" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of a class <code>klass</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_class_source')" id="l_method-i-add_class_source">show</a>
+                
+              </p>
+              <div id="method-i-add_class_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_class</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_class</span> <span class="ruby-identifier">klass</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_constant">
+            
+              <b>add_constant</b>(constant)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_constant" name="method-i-add_constant" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of <code>constant</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_constant_source')" id="l_method-i-add_constant_source">show</a>
+                
+              </p>
+              <div id="method-i-add_constant_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_constant</span> <span class="ruby-identifier">constant</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_constant</span> <span class="ruby-identifier">constant</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_file">
+            
+              <b>add_file</b>(file)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_file" name="method-i-add_file" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of <code>file</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_file_source')" id="l_method-i-add_file_source">show</a>
+                
+              </p>
+              <div id="method-i-add_file_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_file</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-ivar">@files_so_far</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_file</span> <span class="ruby-ivar">@files_so_far</span>, <span class="ruby-identifier">file</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_method">
+            
+              <b>add_method</b>(method)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_method" name="method-i-add_method" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of <code>method</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_method_source')" id="l_method-i-add_method_source">show</a>
+                
+              </p>
+              <div id="method-i-add_method_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_method</span> <span class="ruby-identifier">method</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_module">
+            
+              <b>add_module</b>(mod)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-add_module" name="method-i-add_module" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Records the parsing of a module <code>mod</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_module_source')" id="l_method-i-add_module_source">show</a>
+                
+              </p>
+              <div id="method-i-add_module_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_module</span>(<span class="ruby-identifier">mod</span>)
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">print_module</span> <span class="ruby-identifier">mod</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-begin_adding">
+            
+              <b>begin_adding</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-begin_adding" name="method-i-begin_adding" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Call this to mark the beginning of parsing for display purposes</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-begin_adding_source')" id="l_method-i-begin_adding_source">show</a>
+                
+              </p>
+              <div id="method-i-begin_adding_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">begin_adding</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">begin_adding</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-calculate">
+            
+              <b>calculate</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-calculate" name="method-i-calculate" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates documentation totals and percentages for classes, modules, constants, attributes and methods.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-calculate_source')" id="l_method-i-calculate_source">show</a>
+                
+              </p>
+              <div id="method-i-calculate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculate</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@doc_items</span>
+
+  <span class="ruby-identifier">ucm</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">unique_classes_and_modules</span>
+
+  <span class="ruby-identifier">classes</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">unique_classes</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cm</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">full_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Object&#39;</span> }
+
+  <span class="ruby-identifier">constants</span> = []
+  <span class="ruby-identifier">ucm</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cm</span><span class="ruby-operator">|</span> <span class="ruby-identifier">constants</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">constants</span> }
+
+  <span class="ruby-identifier">methods</span> = []
+  <span class="ruby-identifier">ucm</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cm</span><span class="ruby-operator">|</span> <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">method_list</span> }
+
+  <span class="ruby-identifier">attributes</span> = []
+  <span class="ruby-identifier">ucm</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cm</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">attributes</span> }
+
+  <span class="ruby-ivar">@num_attributes</span>, <span class="ruby-ivar">@undoc_attributes</span> = <span class="ruby-identifier">doc_stats</span> <span class="ruby-identifier">attributes</span>
+  <span class="ruby-ivar">@num_classes</span>,    <span class="ruby-ivar">@undoc_classes</span>    = <span class="ruby-identifier">doc_stats</span> <span class="ruby-identifier">classes</span>
+  <span class="ruby-ivar">@num_constants</span>,  <span class="ruby-ivar">@undoc_constants</span>  = <span class="ruby-identifier">doc_stats</span> <span class="ruby-identifier">constants</span>
+  <span class="ruby-ivar">@num_methods</span>,    <span class="ruby-ivar">@undoc_methods</span>    = <span class="ruby-identifier">doc_stats</span> <span class="ruby-identifier">methods</span>
+  <span class="ruby-ivar">@num_modules</span>,    <span class="ruby-ivar">@undoc_modules</span>    = <span class="ruby-identifier">doc_stats</span> <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">unique_modules</span>
+
+  <span class="ruby-ivar">@num_items</span> =
+    <span class="ruby-ivar">@num_attributes</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@num_classes</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@num_constants</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@num_methods</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@num_modules</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@num_params</span>
+
+  <span class="ruby-ivar">@undoc_items</span> =
+    <span class="ruby-ivar">@undoc_attributes</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@undoc_classes</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@undoc_constants</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@undoc_methods</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@undoc_modules</span> <span class="ruby-operator">+</span>
+    <span class="ruby-ivar">@undoc_params</span>
+
+  <span class="ruby-ivar">@doc_items</span> = <span class="ruby-ivar">@num_items</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@undoc_items</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-coverage_level-3D">
+            
+              <b>coverage_level=</b>(level)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-coverage_level-3D" name="method-i-coverage_level-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Sets coverage report level.  Accepted values are:</p>
+<dl class="rdoc-list note-list"><dt>false or nil
+<dd>
+<p>No report</p>
+</dd><dt>0
+<dd>
+<p>Classes, modules, constants, attributes, methods</p>
+</dd><dt>1
+<dd>
+<p>Level 0 + method parameters</p>
+</dd></dl>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-coverage_level-3D_source')" id="l_method-i-coverage_level-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-coverage_level-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">coverage_level=</span> <span class="ruby-identifier">level</span>
+  <span class="ruby-identifier">level</span> = <span class="ruby-value">-1</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">level</span>
+
+  <span class="ruby-ivar">@coverage_level</span> = <span class="ruby-identifier">level</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-doc_stats">
+            
+              <b>doc_stats</b>(collection)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-doc_stats" name="method-i-doc_stats" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns the length and number of undocumented items in <code>collection</code>.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-doc_stats_source')" id="l_method-i-doc_stats_source">show</a>
+                
+              </p>
+              <div id="method-i-doc_stats_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">doc_stats</span> <span class="ruby-identifier">collection</span>
+  <span class="ruby-identifier">visible</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">display?</span> }
+  [<span class="ruby-identifier">visible</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">visible</span>.<span class="ruby-identifier">count</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">documented?</span> }]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-done_adding">
+            
+              <b>done_adding</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-done_adding" name="method-i-done_adding" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Call this to mark the end of parsing for display purposes</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-done_adding_source')" id="l_method-i-done_adding_source">show</a>
+                
+              </p>
+              <div id="method-i-done_adding_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">done_adding</span>
+  <span class="ruby-ivar">@display</span>.<span class="ruby-identifier">done_adding</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-fully_documented-3F">
+            
+              <b>fully_documented?</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-fully_documented-3F" name="method-i-fully_documented-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>The documentation status of this project.  <code>true</code> when 100%, <code>false</code> when less than 100% and <code>nil</code> when unknown.</p>
+
+<p>Set by calling <a href="Stats.html#method-i-calculate"><code>calculate</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-fully_documented-3F_source')" id="l_method-i-fully_documented-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-fully_documented-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fully_documented?</span>
+  <span class="ruby-ivar">@fully_documented</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-great_job">
+            
+              <b>great_job</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-great_job" name="method-i-great_job" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>A report that says you did a great job!</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-great_job_source')" id="l_method-i-great_job_source">show</a>
+                
+              </p>
+              <div id="method-i-great_job_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">great_job</span>
+  <span class="ruby-identifier">report</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;100% documentation!&#39;</span>)
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Great Job!&#39;</span>)
+
+  <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-percent_doc">
+            
+              <b>percent_doc</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-percent_doc" name="method-i-percent_doc" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Calculates the percentage of items documented.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-percent_doc_source')" id="l_method-i-percent_doc_source">show</a>
+                
+              </p>
+              <div id="method-i-percent_doc_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">percent_doc</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@percent_doc</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@percent_doc</span>
+
+  <span class="ruby-ivar">@fully_documented</span> = (<span class="ruby-ivar">@num_items</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@doc_items</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@percent_doc</span> = <span class="ruby-ivar">@doc_items</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@num_items</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@num_items</span>.<span class="ruby-identifier">nonzero?</span>
+  <span class="ruby-ivar">@percent_doc</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@percent_doc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-report">
+            
+              <b>report</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-report" name="method-i-report" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a report on which items are not documented</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-report_source')" id="l_method-i-report_source">show</a>
+                
+              </p>
+              <div id="method-i-report_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coverage_level</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">extend</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coverage_level</span>.<span class="ruby-identifier">zero?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">calculate</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">great_job</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@num_items</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@doc_items</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ucm</span> = <span class="ruby-ivar">@store</span>.<span class="ruby-identifier">unique_classes_and_modules</span>
+
+  <span class="ruby-identifier">report</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;The following items are not documented:&#39;</span>)
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">BlankLine</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">ucm</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cm</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">body</span> = <span class="ruby-identifier">report_class_module</span>(<span class="ruby-identifier">cm</span>) {
+      [
+        <span class="ruby-identifier">report_constants</span>(<span class="ruby-identifier">cm</span>),
+        <span class="ruby-identifier">report_attributes</span>(<span class="ruby-identifier">cm</span>),
+        <span class="ruby-identifier">report_methods</span>(<span class="ruby-identifier">cm</span>),
+      ].<span class="ruby-identifier">compact</span>
+    }
+
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">body</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coverage_level</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">calculate</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">great_job</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@num_items</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@doc_items</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-report_attributes">
+            
+              <b>report_attributes</b>(cm)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-report_attributes" name="method-i-report_attributes" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a report on undocumented attributes in ClassModule <code>cm</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-report_attributes_source')" id="l_method-i-report_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-report_attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_attributes</span> <span class="ruby-identifier">cm</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">report</span> = []
+
+  <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">each_attribute</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">documented?</span>
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">attr</span>.<span class="ruby-identifier">line</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;:#{attr.line}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;  #{attr.definition} :#{attr.name} # in file #{attr.file.full_name}#{line}\n&quot;</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-report_class_module">
+            
+              <b>report_class_module</b>(cm)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-report_class_module" name="method-i-report_class_module" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a report on undocumented items in ClassModule <code>cm</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-report_class_module_source')" id="l_method-i-report_class_module_source">show</a>
+                
+              </p>
+              <div id="method-i-report_class_module_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_class_module</span> <span class="ruby-identifier">cm</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">fully_documented?</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@coverage_level</span>.<span class="ruby-identifier">zero?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">display?</span>
+
+  <span class="ruby-identifier">report</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">in_files</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{cm.definition} is referenced but empty.&quot;</span>)
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;It probably came from another project.  I&#39;m sorry I&#39;m holding it against you.&quot;</span>)
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">report</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">documented?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">documented</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">klass</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Verbatim</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{cm.definition} # is documented\n&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;In files:&#39;</span>)
+
+    <span class="ruby-identifier">list</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:BULLET</span>
+
+    <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">in_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">para</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">full_name</span>
+      <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">ListItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">para</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">BlankLine</span>.<span class="ruby-identifier">new</span>
+
+    <span class="ruby-identifier">klass</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Verbatim</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{cm.definition}\n&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">klass</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+  <span class="ruby-identifier">body</span> = <span class="ruby-keyword">yield</span>.<span class="ruby-identifier">flatten</span> <span class="ruby-comment"># HACK remove #flatten</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">documented</span>
+
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">klass</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;end\n&quot;</span>
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">klass</span>
+
+  <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-report_constants">
+            
+              <b>report_constants</b>(cm)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-report_constants" name="method-i-report_constants" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a report on undocumented constants in ClassModule <code>cm</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-report_constants_source')" id="l_method-i-report_constants_source">show</a>
+                
+              </p>
+              <div id="method-i-report_constants_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_constants</span> <span class="ruby-identifier">cm</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">report</span> = []
+
+  <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">each_constant</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">constant</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># TODO constant aliases are listed in the summary but not reported</span>
+    <span class="ruby-comment"># figure out what to do here</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">documented?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">is_alias_for</span>
+
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">line</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;:#{constant.line}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">line</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;  # in file #{constant.file.full_name}#{line}\n&quot;</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;  #{constant.name} = nil\n&quot;</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-report_methods">
+            
+              <b>report_methods</b>(cm)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-report_methods" name="method-i-report_methods" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a report on undocumented methods in ClassModule <code>cm</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-report_methods_source')" id="l_method-i-report_methods_source">show</a>
+                
+              </p>
+              <div id="method-i-report_methods_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 351</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">report_methods</span> <span class="ruby-identifier">cm</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">method_list</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">report</span> = []
+
+  <span class="ruby-identifier">cm</span>.<span class="ruby-identifier">each_method</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">documented?</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@coverage_level</span>.<span class="ruby-identifier">zero?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@coverage_level</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">params</span>, <span class="ruby-identifier">undoc</span> = <span class="ruby-identifier">undoc_params</span> <span class="ruby-identifier">method</span>
+
+      <span class="ruby-ivar">@num_params</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">params</span>
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">undoc</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-ivar">@undoc_params</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">undoc</span>.<span class="ruby-identifier">length</span>
+
+        <span class="ruby-identifier">undoc</span> = <span class="ruby-identifier">undoc</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;+#{param}+&quot;</span> <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">param_report</span> = <span class="ruby-node">&quot;  # #{undoc.join &#39;, &#39;} is not documented\n&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">documented?</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">param_report</span>
+
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">line</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;:#{method.line}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">scope</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">singleton</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;self.&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;  # in file #{method.file.full_name}#{line}\n&quot;</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">param_report</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">param_report</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;  def #{scope}#{method.name}#{method.params}; end\n&quot;</span>
+    <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-summary">
+            
+              <b>summary</b>()
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-summary" name="method-i-summary" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a summary of the collected statistics.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-summary_source')" id="l_method-i-summary_source">show</a>
+                
+              </p>
+              <div id="method-i-summary_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summary</span>
+  <span class="ruby-identifier">calculate</span>
+
+  <span class="ruby-identifier">num_width</span> = [<span class="ruby-ivar">@num_files</span>, <span class="ruby-ivar">@num_items</span>].<span class="ruby-identifier">max</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">undoc_width</span> = [
+    <span class="ruby-ivar">@undoc_attributes</span>,
+    <span class="ruby-ivar">@undoc_classes</span>,
+    <span class="ruby-ivar">@undoc_constants</span>,
+    <span class="ruby-ivar">@undoc_items</span>,
+    <span class="ruby-ivar">@undoc_methods</span>,
+    <span class="ruby-ivar">@undoc_modules</span>,
+    <span class="ruby-ivar">@undoc_params</span>,
+  ].<span class="ruby-identifier">max</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-identifier">report</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Verbatim</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Files:      %*d\n&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_files</span>]
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Classes:    %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_classes</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_classes</span>]
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Modules:    %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_modules</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_modules</span>]
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Constants:  %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_constants</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_constants</span>]
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Attributes: %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_attributes</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_attributes</span>]
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Methods:    %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_methods</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_methods</span>]
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Parameters: %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_params</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_params</span>] <span class="ruby-keyword">if</span>
+      <span class="ruby-ivar">@coverage_level</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Total:      %*d (%*d undocumented)\n&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">num_width</span>, <span class="ruby-ivar">@num_items</span>, <span class="ruby-identifier">undoc_width</span>, <span class="ruby-ivar">@undoc_items</span>]
+
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;%6.2f%% documented\n&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">percent_doc</span>
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">report</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Elapsed: %0.1fs\n&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@start</span>)
+
+  <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-undoc_params">
+            
+              <b>undoc_params</b>(method)
+            
+            <a href="../../classes/RDoc/Stats.html#method-i-undoc_params" name="method-i-undoc_params" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Determines which parameters in <code>method</code> were not documented.  Returns a total parameter count and an <a href="../Array.html"><code>Array</code></a> of undocumented methods.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-undoc_params_source')" id="l_method-i-undoc_params_source">show</a>
+                
+              </p>
+              <div id="method-i-undoc_params_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/stats.rb, line 439</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">undoc_params</span> <span class="ruby-identifier">method</span>
+  <span class="ruby-ivar">@formatter</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">ToTtOnly</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">param_list</span>
+
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span> <span class="ruby-identifier">param</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^\*\*?/</span>, <span class="ruby-string">&#39;&#39;</span>) }
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">0</span>, [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">document</span> = <span class="ruby-identifier">parse</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">comment</span>
+
+  <span class="ruby-identifier">tts</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">accept</span> <span class="ruby-ivar">@formatter</span>
+
+  <span class="ruby-identifier">undoc</span> = <span class="ruby-identifier">params</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">tts</span>
+
+  [<span class="ruby-identifier">params</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">undoc</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

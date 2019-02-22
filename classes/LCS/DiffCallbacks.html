@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>LCS::DiffCallbacks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="LCS::DiffCallbacks">
+
+  
+    
+    <meta name="description" content="This will produce a compound array of simple diff change objects.">
+    <meta property="og:description" content="This will produce a compound array of simple diff change objects.">
+  
+
+    <meta name="keywords" content="LCS::DiffCallbacks class">
+  
+    <meta name="keywords" content="new, finish, match, discard_a, discard_b">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            LCS::DiffCallbacks
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/diff-lcs-1_3/lib/diff/lcs/callbacks_rb.html">vendor/bundle/ruby/2.6.0/gems/diff-lcs-1.3/lib/diff/lcs/callbacks.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This will produce a compound array of simple diff change objects. Each element in the <a href="DiffCallbacks.html#attribute-i-diffs"><code>diffs</code></a> array is a <code>hunk</code> or <code>hunk</code> array, where each element in each <code>hunk</code> array is a single Change object representing the addition or removal of a single element from one of the two tested sequences. The <code>hunk</code> provides the full context for the changes.</p>
+
+<pre><code>diffs = Diff::LCS.diff(seq1, seq2)
+  # This example shows a simplified array format.
+  # [ [ [ &#39;-&#39;,  0, &#39;a&#39; ] ],   # 1
+  #   [ [ &#39;+&#39;,  2, &#39;d&#39; ] ],   # 2
+  #   [ [ &#39;-&#39;,  4, &#39;h&#39; ],     # 3
+  #     [ &#39;+&#39;,  4, &#39;f&#39; ] ],
+  #   [ [ &#39;+&#39;,  6, &#39;k&#39; ] ],   # 4
+  #   [ [ &#39;-&#39;,  8, &#39;n&#39; ],     # 5
+  #     [ &#39;-&#39;,  9, &#39;p&#39; ],
+  #     [ &#39;+&#39;,  9, &#39;r&#39; ],
+  #     [ &#39;+&#39;, 10, &#39;s&#39; ],
+  #     [ &#39;+&#39;, 11, &#39;t&#39; ] ] ]
+</code></pre>
+
+<p>There are five hunks here. The first hunk says that the <code>a</code> at position 0 of the first sequence should be deleted (<code>&#39;-&#39;</code>). The second hunk says that the <code>d</code> at position 2 of the second sequence should be inserted (<code>&#39;+&#39;</code>). The third hunk says that the <code>h</code> at position 4 of the first sequence should be removed and replaced with the <code>f</code> from position 4 of the second sequence. The other two hunks are described similarly.</p>
+
+<h3 id="class-LCS::DiffCallbacks-label-Use">Use</h3>
+
+<p>This callback object must be initialised and is used by the <a href="../LCS.html#method-i-diff"><code>Diff::LCS#diff</code></a> method.</p>
+
+<pre><code>cbo = Diff::LCS::DiffCallbacks.new
+Diff::LCS.LCS(seq1, seq2, cbo)
+cbo.finish
+</code></pre>
+
+<p>Note that the call to <a href="DiffCallbacks.html#method-i-finish"><code>finish</code></a> is absolutely necessary, or the last set of changes will not be visible. Alternatively, can be used as:</p>
+
+<pre><code>cbo = Diff::LCS::DiffCallbacks.new { |tcbo| Diff::LCS.LCS(seq1, seq2, tcbo) }
+</code></pre>
+
+<p>The necessary <a href="DiffCallbacks.html#method-i-finish"><code>finish</code></a> call will be made.</p>
+
+<h3 id="class-LCS::DiffCallbacks-label-Simplified+Array+Format">Simplified <a href="../Array.html"><code>Array</code></a> Format</h3>
+
+<p>The simplified array format used in the example above can be obtained with:</p>
+
+<pre><code>require &#39;pp&#39;
+pp diffs.map { |e| e.map { |f| f.to_a } }
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-discard_a">discard_a</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-discard_b">discard_b</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-finish">finish</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-match">match</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>diffs</td>
+            <td class='attr-desc'><p>Returns the difference set collected during the diff process.</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>()
+            
+            <a href="../../classes/LCS/DiffCallbacks.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/diff-lcs-1.3/lib/diff/lcs/callbacks.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-comment"># :yields self:</span>
+  <span class="ruby-ivar">@hunk</span> = []
+  <span class="ruby-ivar">@diffs</span> = []
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">finish</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-discard_a">
+            
+              <b>discard_a</b>(event)
+            
+            <a href="../../classes/LCS/DiffCallbacks.html#method-i-discard_a" name="method-i-discard_a" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-discard_a_source')" id="l_method-i-discard_a_source">show</a>
+                
+              </p>
+              <div id="method-i-discard_a_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/diff-lcs-1.3/lib/diff/lcs/callbacks.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">discard_a</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-ivar">@hunk</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-identifier">event</span>.<span class="ruby-identifier">old_position</span>, <span class="ruby-identifier">event</span>.<span class="ruby-identifier">old_element</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-discard_b">
+            
+              <b>discard_b</b>(event)
+            
+            <a href="../../classes/LCS/DiffCallbacks.html#method-i-discard_b" name="method-i-discard_b" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-discard_b_source')" id="l_method-i-discard_b_source">show</a>
+                
+              </p>
+              <div id="method-i-discard_b_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/diff-lcs-1.3/lib/diff/lcs/callbacks.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">discard_b</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-ivar">@hunk</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Diff</span><span class="ruby-operator">::</span><span class="ruby-constant">LCS</span><span class="ruby-operator">::</span><span class="ruby-constant">Change</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;+&#39;</span>, <span class="ruby-identifier">event</span>.<span class="ruby-identifier">new_position</span>, <span class="ruby-identifier">event</span>.<span class="ruby-identifier">new_element</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-finish">
+            
+              <b>finish</b>()
+            
+            <a href="../../classes/LCS/DiffCallbacks.html#method-i-finish" name="method-i-finish" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Finalizes the diff process. If an unprocessed hunk still exists, then it is appended to the diff list.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-finish_source')" id="l_method-i-finish_source">show</a>
+                
+              </p>
+              <div id="method-i-finish_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/diff-lcs-1.3/lib/diff/lcs/callbacks.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">finish</span>
+  <span class="ruby-identifier">finish_hunk</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-match">
+            
+              <b>match</b>(event)
+            
+            <a href="../../classes/LCS/DiffCallbacks.html#method-i-match" name="method-i-match" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-match_source')" id="l_method-i-match_source">show</a>
+                
+              </p>
+              <div id="method-i-match_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/diff-lcs-1.3/lib/diff/lcs/callbacks.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">match</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">finish_hunk</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

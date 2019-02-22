@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::MessageExpectation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::MessageExpectation">
+
+  
+    
+    <meta name="description" content="Represents an individual method stub or message expectation. The methods defined here can be used to configure how it behaves.">
+    <meta property="og:description" content="Represents an individual method stub or message expectation. The methods defined here can be used to configure how it behaves.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::MessageExpectation class">
+  
+    <meta name="keywords" content="and_return, and_call_original, and_wrap_original, and_raise, and_throw, and_yield, exactly, at_least, at_most, times, never, once, twice, thrice, with, ordered, to_s, inspect">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::MessageExpectation
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/message_expectation_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Represents an individual method stub or message expectation. The methods defined here can be used to configure how it behaves. The methods return `self` so that they can be chained together to form a fluent interface.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="MessageExpectation/ImplementationDetails.html">RSpec::Mocks::MessageExpectation::ImplementationDetails</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-and_call_original">and_call_original</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-and_raise">and_raise</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-and_return">and_return</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-and_throw">and_throw</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-and_wrap_original">and_wrap_original</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-and_yield">and_yield</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-at_least">at_least</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-at_most">at_most</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-exactly">exactly</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-never">never</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-once">once</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ordered">ordered</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-thrice">thrice</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-times">times</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-twice">twice</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-with">with</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="MessageExpectation/ImplementationDetails.html">
+              RSpec::Mocks::MessageExpectation::ImplementationDetails
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-and_call_original">
+            
+              <b>and_call_original</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-and_call_original" name="method-i-and_call_original" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Tells the object to delegate to the original unmodified method when it receives the message.</p>
+
+<p>@note This is only available on partial doubles.</p>
+
+<p>@return [nil] No further chaining is supported after this. @example</p>
+
+<pre><code>expect(counter).to receive(:increment).and_call_original
+original_count = counter.count
+counter.increment
+expect(counter.count).to eq(original_count + 1)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-and_call_original_source')" id="l_method-i-and_call_original_source">show</a>
+                
+              </p>
+              <div id="method-i-and_call_original_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">and_call_original</span>
+  <span class="ruby-identifier">wrap_original</span>(<span class="ruby-identifier">__method__</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">original</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">original</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-and_raise">
+            
+              <b>and_raise</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-and_raise" name="method-i-and_raise" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="MessageExpectation.html#method-i-and_raise"><code>and_raise</code></a> @overload <a href="MessageExpectation.html#method-i-and_raise"><code>and_raise</code></a>(ExceptionClass) @overload <a href="MessageExpectation.html#method-i-and_raise"><code>and_raise</code></a>(ExceptionClass, message) @overload <a href="MessageExpectation.html#method-i-and_raise"><code>and_raise</code></a>(exception_instance)</p>
+
+<p>Tells the object to raise an exception when the message is received.</p>
+
+<p>@return [nil] No further chaining is supported after this. @note</p>
+
+<pre><code>When you pass an exception class, the MessageExpectation will raise
+an instance of it, creating it with `exception` and passing `message`
+if specified.  If the exception class initializer requires more than
+one parameters, you must pass in an instance and not the class,
+otherwise this method will raise an ArgumentError exception.
+</code></pre>
+
+<p>@example</p>
+
+<pre><code>allow(car).to receive(:go).and_raise
+allow(car).to receive(:go).and_raise(OutOfGas)
+allow(car).to receive(:go).and_raise(OutOfGas, &quot;At least 2 oz of gas needed to drive&quot;)
+allow(car).to receive(:go).and_raise(OutOfGas.new(2, :oz))
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-and_raise_source')" id="l_method-i-and_raise_source">show</a>
+                
+              </p>
+              <div id="method-i-and_raise_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">and_raise</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">terminal_implementation_action</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">raise</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-and_return">
+            
+              <b>and_return</b>(first_value, *values)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-and_return" name="method-i-and_return" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="MessageExpectation.html#method-i-and_return"><code>and_return</code></a>(value) @overload <a href="MessageExpectation.html#method-i-and_return"><code>and_return</code></a>(first_value, second_value)</p>
+
+<p>Tells the object to return a value when it receives the message.  Given more than one value, the first value is returned the first time the message is received, the second value is returned the next time, etc, etc.</p>
+
+<p>If the message is received more times than there are values, the last value is received for every subsequent call.</p>
+
+<p>@return [nil] No further chaining is supported after this. @example</p>
+
+<pre><code>allow(counter).to receive(:count).and_return(1)
+counter.count # =&gt; 1
+counter.count # =&gt; 1
+
+allow(counter).to receive(:count).and_return(1,2,3)
+counter.count # =&gt; 1
+counter.count # =&gt; 2
+counter.count # =&gt; 3
+counter.count # =&gt; 3
+counter.count # =&gt; 3
+# etc
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-and_return_source')" id="l_method-i-and_return_source">show</a>
+                
+              </p>
+              <div id="method-i-and_return_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">and_return</span>(<span class="ruby-identifier">first_value</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">values</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">negative?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;`and_return` is not supported with negative message expectations&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Implementation blocks aren&#39;t supported with `and_return`&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">values</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">first_value</span>)
+  <span class="ruby-ivar">@expected_received_count</span> = [<span class="ruby-ivar">@expected_received_count</span>, <span class="ruby-identifier">values</span>.<span class="ruby-identifier">size</span>].<span class="ruby-identifier">max</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ignoring_args?</span> <span class="ruby-operator">||</span> (<span class="ruby-ivar">@expected_received_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@at_least</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">terminal_implementation_action</span> = <span class="ruby-constant">AndReturnImplementation</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">values</span>)
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-and_throw">
+            
+              <b>and_throw</b>(*args)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-and_throw" name="method-i-and_throw" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@overload <a href="MessageExpectation.html#method-i-and_throw"><code>and_throw</code></a>(symbol) @overload <a href="MessageExpectation.html#method-i-and_throw"><code>and_throw</code></a>(symbol, object)</p>
+
+<p>Tells the object to throw a symbol (with the object if that form is used) when the message is received.</p>
+
+<p>@return [nil] No further chaining is supported after this. @example</p>
+
+<pre><code>allow(car).to receive(:go).and_throw(:out_of_gas)
+allow(car).to receive(:go).and_throw(:out_of_gas, :level =&gt; 0.1)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-and_throw_source')" id="l_method-i-and_throw_source">show</a>
+                
+              </p>
+              <div id="method-i-and_throw_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">and_throw</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">terminal_implementation_action</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">throw</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-and_wrap_original">
+            
+              <b>and_wrap_original</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-and_wrap_original" name="method-i-and_wrap_original" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Decorates the stubbed method with the supplied block. The original unmodified method is passed to the block along with any method call arguments so you can delegate to it, whilst still being able to change what args are passed to it and/or change the return value.</p>
+
+<p>@note This is only available on partial doubles.</p>
+
+<p>@return [nil] No further chaining is supported after this. @example</p>
+
+<pre><code>expect(api).to receive(:large_list).and_wrap_original do |original_method, *args, &amp;block|
+  original_method.call(*args, &amp;block).first(10)
+end
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-and_wrap_original_source')" id="l_method-i-and_wrap_original_source">show</a>
+                
+              </p>
+              <div id="method-i-and_wrap_original_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">and_wrap_original</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">wrap_original</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-and_yield">
+            
+              <b>and_yield</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-and_yield" name="method-i-and_yield" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Tells the object to yield one or more args to a block when the message is received.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>stream.stub(:open).and_yield(StringIO.new)
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-and_yield_source')" id="l_method-i-and_yield_source">show</a>
+                
+              </p>
+              <div id="method-i-and_yield_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">and_yield</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-ivar">@eval_context</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+
+  <span class="ruby-comment"># Initialize args to yield now that it&#39;s being used, see also: comment</span>
+  <span class="ruby-comment"># in constructor.</span>
+  <span class="ruby-ivar">@args_to_yield</span> <span class="ruby-operator">||=</span> []
+
+  <span class="ruby-ivar">@args_to_yield</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">initial_implementation_action</span> = <span class="ruby-constant">AndYieldImplementation</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@args_to_yield</span>, <span class="ruby-ivar">@eval_context</span>, <span class="ruby-ivar">@error_generator</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-at_least">
+            
+              <b>at_least</b>(n, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-at_least" name="method-i-at_least" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Constrain a message expectation to be received at least a specific number of times.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(dealer).to receive(:deal_card).at_least(9).times
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-at_least_source')" id="l_method-i-at_least_source">show</a>
+                
+              </p>
+              <div id="method-i-at_least_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">at_least</span>(<span class="ruby-identifier">n</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-identifier">set_expected_received_count</span> <span class="ruby-value">:at_least</span>, <span class="ruby-identifier">n</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;at_least(0) has been removed, use allow(...).to receive(:message) instead&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-at_most">
+            
+              <b>at_most</b>(n, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-at_most" name="method-i-at_most" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Constrain a message expectation to be received at most a specific number of times.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(dealer).to receive(:deal_card).at_most(10).times
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-at_most_source')" id="l_method-i-at_most_source">show</a>
+                
+              </p>
+              <div id="method-i-at_most_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">at_most</span>(<span class="ruby-identifier">n</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">set_expected_received_count</span> <span class="ruby-value">:at_most</span>, <span class="ruby-identifier">n</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-exactly">
+            
+              <b>exactly</b>(n, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-exactly" name="method-i-exactly" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Constrain a message expectation to be received a specific number of times.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(dealer).to receive(:deal_card).exactly(10).times
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-exactly_source')" id="l_method-i-exactly_source">show</a>
+                
+              </p>
+              <div id="method-i-exactly_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exactly</span>(<span class="ruby-identifier">n</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">set_expected_received_count</span> <span class="ruby-value">:exactly</span>, <span class="ruby-identifier">n</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="MessageExpectation.html#method-i-to_s">to_s</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-never">
+            
+              <b>never</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-never" name="method-i-never" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Expect a message not to be received at all.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(car).to receive(:stop).never
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-never_source')" id="l_method-i-never_source">show</a>
+                
+              </p>
+              <div id="method-i-never_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">never</span>
+  <span class="ruby-identifier">error_generator</span>.<span class="ruby-identifier">raise_double_negation_error</span>(<span class="ruby-string">&quot;expect(obj)&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">negative?</span>
+  <span class="ruby-ivar">@expected_received_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-once">
+            
+              <b>once</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-once" name="method-i-once" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Expect a message to be received exactly one time.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(car).to receive(:go).once
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-once_source')" id="l_method-i-once_source">show</a>
+                
+              </p>
+              <div id="method-i-once_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">once</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">set_expected_received_count</span> <span class="ruby-value">:exactly</span>, <span class="ruby-value">1</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ordered">
+            
+              <b>ordered</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-ordered" name="method-i-ordered" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Expect messages to be received in a specific order.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(api).to receive(:prepare).ordered
+expect(api).to receive(:run).ordered
+expect(api).to receive(:finish).ordered
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-ordered_source')" id="l_method-i-ordered_source">show</a>
+                
+              </p>
+              <div id="method-i-ordered_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ordered</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:stub</span>
+    <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">warning</span>(
+      <span class="ruby-string">&quot;`allow(...).to receive(..).ordered` is not supported and will &quot;</span> \
+      <span class="ruby-string">&quot;have no effect, use `and_return(*ordered_values)` instead.&quot;</span>
+    )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">additional_expected_calls</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@order_group</span>.<span class="ruby-identifier">register</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ordered</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thrice">
+            
+              <b>thrice</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-thrice" name="method-i-thrice" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Expect a message to be received exactly three times.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(car).to receive(:go).thrice
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-thrice_source')" id="l_method-i-thrice_source">show</a>
+                
+              </p>
+              <div id="method-i-thrice_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">thrice</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">set_expected_received_count</span> <span class="ruby-value">:exactly</span>, <span class="ruby-value">3</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-times">
+            
+              <b>times</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-times" name="method-i-times" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Syntactic sugar for `exactly`, `at_least` and `at_most`</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(dealer).to receive(:deal_card).exactly(10).times
+expect(dealer).to receive(:deal_card).at_least(10).times
+expect(dealer).to receive(:deal_card).at_most(10).times
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-times_source')" id="l_method-i-times_source">show</a>
+                
+              </p>
+              <div id="method-i-times_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">times</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [String] a nice representation of the message expectation</p>
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="MessageExpectation.html#method-i-inspect">inspect</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-identifier">args_description</span> = <span class="ruby-identifier">error_generator</span>.<span class="ruby-identifier">method_call_args_description</span>(<span class="ruby-ivar">@argument_list_matcher</span>.<span class="ruby-identifier">expected_args</span>, <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;&quot;</span>) { <span class="ruby-keyword">true</span> }
+  <span class="ruby-identifier">args_description</span> = <span class="ruby-node">&quot;(#{args_description})&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args_description</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;(&quot;</span>)
+  <span class="ruby-node">&quot;#&lt;#{self.class} #{error_generator.intro}.#{message}#{args_description}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-twice">
+            
+              <b>twice</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-twice" name="method-i-twice" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Expect a message to be received exactly two times.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>expect(car).to receive(:go).twice
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-twice_source')" id="l_method-i-twice_source">show</a>
+                
+              </p>
+              <div id="method-i-twice_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">twice</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">set_expected_received_count</span> <span class="ruby-value">:exactly</span>, <span class="ruby-value">2</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-with">
+            
+              <b>with</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Mocks/MessageExpectation.html#method-i-with" name="method-i-with" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Constrains a stub or message expectation to invocations with specific arguments.</p>
+
+<p>With a stub, if the message might be received with other args as well, you should stub a default value first, and then stub or mock the same message using `with` to constrain to specific arguments.</p>
+
+<p>A message expectation will fail if the message is received with different arguments.</p>
+
+<p>@return [MessageExpectation] self, to support further chaining. @example</p>
+
+<pre><code>allow(cart).to receive(:add) { :failure }
+allow(cart).to receive(:add).with(Book.new(:isbn =&gt; 1934356379)) { :success }
+cart.add(Book.new(:isbn =&gt; 1234567890))
+# =&gt; :failure
+cart.add(Book.new(:isbn =&gt; 1934356379))
+# =&gt; :success
+
+expect(cart).to receive(:add).with(Book.new(:isbn =&gt; 1934356379)) { :success }
+cart.add(Book.new(:isbn =&gt; 1234567890))
+# =&gt; failed expectation
+cart.add(Book.new(:isbn =&gt; 1934356379))
+# =&gt; passes
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-with_source')" id="l_method-i-with_source">show</a>
+                
+              </p>
+              <div id="method-i-with_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise_already_invoked_error_if_necessary</span>(<span class="ruby-identifier">__method__</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+          <span class="ruby-string">&quot;`with` must have at least one argument. Use `no_args` matcher to set the expectation of receiving no arguments.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inner_implementation_action</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-ivar">@argument_list_matcher</span> = <span class="ruby-constant">ArgumentListMatcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

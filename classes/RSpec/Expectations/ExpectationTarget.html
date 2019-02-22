@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Expectations::ExpectationTarget</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Expectations::ExpectationTarget">
+
+  
+    
+    <meta name="description" content="Wraps the target of an expectation.">
+    <meta property="og:description" content="Wraps the target of an expectation.">
+  
+
+    <meta name="keywords" content="RSpec::Expectations::ExpectationTarget class">
+  
+    <meta name="keywords" content="new, for">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Expectations::ExpectationTarget
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/expectation_target_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/expectation_target.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Wraps the target of an expectation.</p>
+
+<p>@example</p>
+
+<pre><code>expect(something)       # =&gt; ExpectationTarget wrapping something
+expect { do_something } # =&gt; ExpectationTarget wrapping the block
+
+# used with `to`
+expect(actual).to eq(3)
+
+# with `not_to`
+expect(actual).not_to eq(3)
+</code></pre>
+
+<p>@note `ExpectationTarget` is not intended to be instantiated</p>
+
+<pre><code>directly by users. Use `expect` instead.
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="ExpectationTarget/InstanceMethods.html">RSpec::Expectations::ExpectationTarget::InstanceMethods</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-for">for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="ExpectationTarget/InstanceMethods.html">
+              RSpec::Expectations::ExpectationTarget::InstanceMethods
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">UndefinedValue</td>
+            <td>=</td>
+            <td class="attr-value">Module.new</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private Used as a sentinel value to be able to tell when the user did not pass an argument. We can&#39;t use `nil` for that because `nil` is a valid value to pass.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>target</td>
+            <td class='attr-desc'><p>@note this name aligns with `Minitest::Expectation` so that our</p>
+
+<pre><code>{InstanceMethods} module can be included in that class when
+used in a Minitest context.
+</code></pre>
+
+<p>@return [Object] the target of the expectation</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-for">
+            
+              <b>for</b>(value, block)
+            
+            <a href="../../../classes/RSpec/Expectations/ExpectationTarget.html#method-c-for" name="method-c-for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-for_source')" id="l_method-c-for_source">show</a>
+                
+              </p>
+              <div id="method-c-for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/expectation_target.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-keyword">for</span>(<span class="ruby-identifier ruby-title">value</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">UndefinedValue</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must pass either an argument or a block to `expect`.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">BlockExpectationTarget</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You cannot pass both an argument and a block to `expect`.&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(value)
+            
+            <a href="../../../classes/RSpec/Expectations/ExpectationTarget.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/expectation_target.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@target</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

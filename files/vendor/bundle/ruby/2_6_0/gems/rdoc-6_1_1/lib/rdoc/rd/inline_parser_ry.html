@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>inline_parser.ry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../../../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            inline_parser.ry
+        </h1>
+        <ul class="files">
+            <li>vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/rd/inline_parser.ry</li>
+            <li>Last modified: 2019-02-22 15:37:57 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>class InlineParser</p>
+
+<pre><code>preclow
+  nonassoc EX_LOW
+  left QUOTE
+       BAR
+       SLASH
+       BACK_SLASH
+       URL
+       OTHER
+       REF_OPEN
+       FOOTNOTE_OPEN
+       FOOTNOTE_CLOSE
+  nonassoc EX_HIGH
+prechigh
+
+token EM_OPEN
+      EM_CLOSE
+      CODE_OPEN
+      CODE_CLOSE
+      VAR_OPEN
+      VAR_CLOSE
+      KBD_OPEN
+      KBD_CLOSE
+      INDEX_OPEN
+      INDEX_CLOSE
+      REF_OPEN
+      REF_CLOSE
+      FOOTNOTE_OPEN
+      FOOTNOTE_CLOSE
+      VERB_OPEN
+      VERB_CLOSE
+      BAR
+      QUOTE
+      SLASH
+      BACK_SLASH
+      URL
+      OTHER
+      EX_LOW
+      EX_HIGH
+
+rule
+  content : elements
+          ;
+
+  elements : elements element { result.append val[1] }
+           | element          { result = val[0] }
+           ;
+
+  element : emphasis
+          | code
+          | var
+          | keyboard
+          | index
+          | reference
+          | footnote
+          | verb
+          | normal_str_ele
+          ;
+
+  emphasis : EM_OPEN content EM_CLOSE {
+    content = val[1]
+    result = inline &quot;&lt;em&gt;#{content}&lt;/em&gt;&quot;, content
+  }
+  ;
+
+  code : CODE_OPEN content CODE_CLOSE {
+    content = val[1]
+    result = inline &quot;&lt;code&gt;#{content}&lt;/code&gt;&quot;, content
+  }
+  ;
+
+  var : VAR_OPEN content VAR_CLOSE {
+    content = val[1]
+    result = inline &quot;+#{content}+&quot;, content
+  }
+  ;
+
+  keyboard : KBD_OPEN content KBD_CLOSE {
+    content = val[1]
+    result = inline &quot;&lt;tt&gt;#{content}&lt;/tt&gt;&quot;, content
+  }
+  ;
+
+  index : INDEX_OPEN content INDEX_CLOSE {
+    label = val[1]
+    @block_parser.add_label label.reference
+    result = &quot;&lt;span id=\&quot;label-#{label}\&quot;&gt;#{label}&lt;/span&gt;&quot;
+  }
+  ;
+</code></pre>
+
+<p># Reference # ((&lt;subst|filename/element_label&gt;))</p>
+
+<pre><code>reference : REF_OPEN substitute ref_label REF_CLOSE {
+  result = &quot;{#{val[1]}}[#{val[2].join}]&quot;
+} | REF_OPEN ref_label2 REF_CLOSE {
+  scheme, inline = val[1]
+
+  result = &quot;{#{inline}}[#{scheme}#{inline.reference}]&quot;
+}
+;
+
+# result is scheme and reference
+ref_label : URL ref_url_strings {
+  result = [nil, inline(val[1])]
+} | filename element_label {
+  result = [
+    &#39;rdoc-label:&#39;,
+    inline(&quot;#{val[0].reference}/#{val[1].reference}&quot;)
+  ]
+} | element_label {
+  result = [&#39;rdoc-label:&#39;, val[0].reference]
+} | filename {
+  result = [&#39;rdoc-label:&#39;, &quot;#{val[0].reference}/&quot;]
+}
+;
+
+# result is reference type and value
+ref_label2 : URL ref_url_strings {
+  result = [nil, inline(val[1])]
+} | filename element_label2 {
+  result = [
+    &#39;rdoc-label:&#39;,
+    inline(&quot;#{val[0].reference}/#{val[1].reference}&quot;)
+  ]
+} | element_label2 {
+  result = [&#39;rdoc-label:&#39;, val[0]]
+} | filename {
+  ref = val[0].reference
+  result = [&#39;rdoc-label:&#39;, inline(ref, &quot;#{ref}/&quot;)]
+}
+;
+
+substitute : ref_subst_content BAR
+           | QUOTE ref_subst_content_q QUOTE BAR { result = val[1] }
+           | QUOTE ref_subst_strings_q QUOTE BAR { result = val[1] }
+           ;
+
+filename : ref_subst_strings_first SLASH {
+  result = inline val[0]
+} | QUOTE ref_subst_strings_q QUOTE SLASH {
+  result = inline &quot;\&quot;#{val[1]}\&quot;&quot;
+}
+;
+
+# when substitute part exists
+element_label : ref_subst_strings_first {
+  result = inline val[0]
+} | QUOTE ref_subst_strings_q QUOTE {
+  result = inline &quot;\&quot;#{val[1]}\&quot;&quot;
+}
+;
+
+# when substitute part doesn&#39;t exist
+# in this case, element label can contain Inlines
+element_label2 : ref_subst_content
+               | QUOTE ref_subst_content_q QUOTE { result = val[1] }
+               | QUOTE ref_subst_strings_q QUOTE { result = inline val[1] }
+               ;
+
+ref_subst_content : ref_subst_ele2 ref_subst_eles {
+  result = val[0].append val[1]
+} | ref_subst_str_ele_first ref_subst_eles {
+  result = val[0].append val[1]
+} | ref_subst_str_ele_first {
+  result = val[0]
+} | ref_subst_ele2 {
+  result = inline val[0]
+}
+;
+
+ref_subst_content_q : ref_subst_eles_q
+                    ;
+
+ref_subst_eles : ref_subst_eles ref_subst_ele {
+  result = val[0].append val[1]
+} | ref_subst_ele {
+  result = inline val[0]
+}
+;
+
+ref_subst_eles_q : ref_subst_eles_q ref_subst_ele_q {
+  result = val[0].append val[1]
+} | ref_subst_ele_q {
+  result = val[0]
+}
+;
+
+ref_subst_ele2 : emphasis
+               | code
+               | var
+               | keyboard
+               | index
+               | verb
+               ;
+
+ref_subst_ele : ref_subst_ele2
+              | ref_subst_str_ele
+              ;
+
+ref_subst_ele_q : ref_subst_ele2
+                | ref_subst_str_ele_q
+                ;
+
+ref_subst_str_ele : ref_subst_strings = EX_LOW {
+  result = val[0]
+}
+;
+
+ref_subst_str_ele_first : ref_subst_strings_first {
+  result = inline val[0]
+}
+;
+
+ref_subst_str_ele_q : ref_subst_strings_q = EX_LOW {
+  result = inline val[0]
+}
+;
+
+ref_subst_strings : ref_subst_strings ref_subst_string3 { result &lt;&lt; val[1] }
+                  | ref_subst_string3
+                  ;
+
+# if it is first element of substitute, it can&#39;t contain URL on head.
+ref_subst_strings_first : ref_subst_string ref_subst_strings = EX_HIGH {
+  result &lt;&lt; val[1]
+} | ref_subst_string = EX_LOW
+;
+
+ref_subst_strings_q : ref_subst_strings_q ref_subst_string_q {
+  result &lt;&lt; val[1]
+} | ref_subst_string_q
+;
+
+ref_subst_string : OTHER
+                 | BACK_SLASH
+                 | REF_OPEN
+                 | FOOTNOTE_OPEN
+                 | FOOTNOTE_CLOSE
+                 ;
+
+ref_subst_string2 : ref_subst_string
+                  | URL
+                  ;
+
+ref_subst_string3 : ref_subst_string2
+                  | QUOTE
+                  ;
+
+ref_subst_string_q : ref_subst_string2
+                   | BAR
+                   | SLASH
+                   ;
+</code></pre>
+
+<p># end subst </p>
+
+<p># string in url</p>
+
+<pre><code>ref_url_strings : ref_url_strings ref_url_string { result &lt;&lt; val[1] }
+                | ref_url_string
+                ;
+
+ref_url_string : OTHER
+               | BACK_SLASH BACK_SLASH
+               | URL
+               | SLASH
+               | BAR
+               | QUOTE
+               | EM_OPEN
+               | EM_CLOSE
+               | CODE_OPEN
+               | CODE_CLOSE
+               | VAR_OPEN
+               | VAR_CLOSE
+               | KBD_OPEN
+               | KBD_CLOSE
+               | INDEX_OPEN
+               | INDEX_CLOSE
+               | REF_OPEN
+               | FOOTNOTE_OPEN
+               | FOOTNOTE_CLOSE
+               | VERB_OPEN
+               | VERB_CLOSE
+               ;
+</code></pre>
+
+<p># end url # end Reference</p>
+
+<pre><code>footnote : FOOTNOTE_OPEN content FOOTNOTE_CLOSE {
+  index = @block_parser.add_footnote val[1].rdoc
+  result = &quot;{*#{index}}[rdoc-label:foottext-#{index}:footmark-#{index}]&quot;
+}
+;
+
+verb : VERB_OPEN verb_strings VERB_CLOSE {
+  result = inline &quot;&lt;tt&gt;#{val[1]}&lt;/tt&gt;&quot;, val[1]
+}
+;
+
+# normal string
+# OTHER, QUOTE, BAR, SLASH, BACK_SLASH, URL
+normal_string : OTHER
+              | QUOTE
+              | BAR
+              | SLASH
+              | BACK_SLASH
+              | URL
+              ;
+
+normal_strings : normal_strings normal_string { result &lt;&lt; val[1] }
+               | normal_string
+               ;
+
+normal_str_ele : normal_strings = EX_LOW {
+  result = inline val[0]
+}
+;
+
+# in verb
+verb_string : verb_normal_string
+            | BACK_SLASH verb_normal_string { result = val[1] }
+            | BACK_SLASH VERB_CLOSE         { result = val[1] }
+            | BACK_SLASH BACK_SLASH         { result = val[1] }
+            ;
+
+verb_normal_string : OTHER
+                   | QUOTE
+                   | BAR
+                   | SLASH
+                   | EM_OPEN
+                   | EM_CLOSE
+                   | CODE_OPEN
+                   | CODE_CLOSE
+                   | VAR_OPEN
+                   | VAR_CLOSE
+                   | KBD_OPEN 
+                   | KBD_CLOSE
+                   | INDEX_OPEN
+                   | INDEX_CLOSE
+                   | REF_OPEN 
+                   | REF_CLOSE
+                   | FOOTNOTE_OPEN 
+                   | FOOTNOTE_CLOSE 
+                   | VERB_OPEN
+                   | URL
+                   ;
+
+verb_strings : verb_strings verb_string { result &lt;&lt; val[1] }
+             | verb_string
+             ; 
+
+   verb_str_ele : verb_strings
+   ;
+</code></pre>
+
+<p>end</p>
+
+<p>—- inner</p>
+
+<p>#</p>
+
+<p>EM_OPEN = &#39;((*&#39; EM_OPEN_RE = /A#{Regexp.quote(EM_OPEN)}/ EM_CLOSE = &#39;*))&#39; EM_CLOSE_RE = /A#{Regexp.quote(EM_CLOSE)}/ CODE_OPEN = &#39;(({&#39; CODE_OPEN_RE = /A#{Regexp.quote(CODE_OPEN)}/ CODE_CLOSE = &#39;}))&#39; CODE_CLOSE_RE = /A#{Regexp.quote(CODE_CLOSE)}/ VAR_OPEN = &#39;((|&#39; VAR_OPEN_RE = /A#{Regexp.quote(VAR_OPEN)}/ VAR_CLOSE = &#39;|))&#39; VAR_CLOSE_RE = /A#{Regexp.quote(VAR_CLOSE)}/ KBD_OPEN = &#39;((%&#39; KBD_OPEN_RE = /A#{Regexp.quote(KBD_OPEN)}/ KBD_CLOSE = &#39;%))&#39; KBD_CLOSE_RE = /A#{Regexp.quote(KBD_CLOSE)}/ INDEX_OPEN = &#39;((:&#39; INDEX_OPEN_RE = /A#{Regexp.quote(INDEX_OPEN)}/ INDEX_CLOSE = &#39;:))&#39; INDEX_CLOSE_RE = /A#{Regexp.quote(INDEX_CLOSE)}/ REF_OPEN = &#39;((&lt;&#39; REF_OPEN_RE = /A#{Regexp.quote(REF_OPEN)}/ REF_CLOSE = &#39;&gt;))&#39; REF_CLOSE_RE = /A#{Regexp.quote(REF_CLOSE)}/ FOOTNOTE_OPEN = &#39;((-&#39; FOOTNOTE_OPEN_RE = /A#{Regexp.quote(FOOTNOTE_OPEN)}/ FOOTNOTE_CLOSE = &#39;-))&#39; FOOTNOTE_CLOSE_RE = /A#{Regexp.quote(FOOTNOTE_CLOSE)}/ VERB_OPEN = “((&#39;” VERB_OPEN_RE = /A#{Regexp.quote(VERB_OPEN)}/ VERB_CLOSE = “&#39;))” VERB_CLOSE_RE = /A#{Regexp.quote(VERB_CLOSE)}/</p>
+
+<p>BAR = “|” BAR_RE = /A#{Regexp.quote(BAR)}/ QUOTE = &#39;“&#39; QUOTE_RE = /A#{Regexp.quote(QUOTE)}/ SLASH = ”/“ SLASH_RE = /A#{Regexp.quote(SLASH)}/ BACK_SLASH = ”\“ BACK_SLASH_RE = /A#{Regexp.quote(BACK_SLASH)}/ URL = ”URL:“ URL_RE = /A#{Regexp.quote(URL)}/</p>
+
+<p>other_re_mode = Regexp::EXTENDED other_re_mode |= Regexp::MULTILINE</p>
+
+<p>OTHER_RE = Regexp.new(</p>
+
+<pre><code>&quot;\\A.+?(?=#{Regexp.quote(EM_OPEN)}|#{Regexp.quote(EM_CLOSE)}|
+            #{Regexp.quote(CODE_OPEN)}|#{Regexp.quote(CODE_CLOSE)}|
+            #{Regexp.quote(VAR_OPEN)}|#{Regexp.quote(VAR_CLOSE)}|
+            #{Regexp.quote(KBD_OPEN)}|#{Regexp.quote(KBD_CLOSE)}|
+            #{Regexp.quote(INDEX_OPEN)}|#{Regexp.quote(INDEX_CLOSE)}|
+            #{Regexp.quote(REF_OPEN)}|#{Regexp.quote(REF_CLOSE)}|
+          #{Regexp.quote(FOOTNOTE_OPEN)}|#{Regexp.quote(FOOTNOTE_CLOSE)}|
+            #{Regexp.quote(VERB_OPEN)}|#{Regexp.quote(VERB_CLOSE)}|
+            #{Regexp.quote(BAR)}|
+            #{Regexp.quote(QUOTE)}|
+            #{Regexp.quote(SLASH)}|
+            #{Regexp.quote(BACK_SLASH)}|
+            #{Regexp.quote(URL)})&quot;, other_re_mode)
+</code></pre>
+
+<p>#</p>
+
+<p>## # Creates a new parser for inline markup in the rd format.  The <code>block_parser</code> # is used to for footnotes and labels in the inline text.</p>
+
+<p>def initialize block_parser</p>
+
+<pre><code>@block_parser = block_parser
+</code></pre>
+
+<p>end</p>
+
+<p>## # Parses the <code>inline</code> text from RD format into <a href="../../../../../../../../../../classes/RDoc.html"><code>RDoc</code></a> format.</p>
+
+<p>def parse inline</p>
+
+<pre><code>@inline = inline
+@src = StringScanner.new inline
+@pre = &quot;&quot;.dup
+@yydebug = true
+do_parse.to_s
+</code></pre>
+
+<p>end</p>
+
+<p>## # Returns the next token from the inline text</p>
+
+<p>def next_token</p>
+
+<pre><code>return [false, false] if @src.eos?
+</code></pre>
+
+<p>#  p @src.rest if @yydebug</p>
+
+<pre><code>if ret = @src.scan(EM_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:EM_OPEN, ret]
+elsif ret = @src.scan(EM_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:EM_CLOSE, ret]
+elsif ret = @src.scan(CODE_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:CODE_OPEN, ret]
+elsif ret = @src.scan(CODE_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:CODE_CLOSE, ret]
+elsif ret = @src.scan(VAR_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:VAR_OPEN, ret]
+elsif ret = @src.scan(VAR_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:VAR_CLOSE, ret]
+elsif ret = @src.scan(KBD_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:KBD_OPEN, ret]
+elsif ret = @src.scan(KBD_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:KBD_CLOSE, ret]
+elsif ret = @src.scan(INDEX_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:INDEX_OPEN, ret]
+elsif ret = @src.scan(INDEX_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:INDEX_CLOSE, ret]
+elsif ret = @src.scan(REF_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:REF_OPEN, ret]
+elsif ret = @src.scan(REF_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:REF_CLOSE, ret]
+elsif ret = @src.scan(FOOTNOTE_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:FOOTNOTE_OPEN, ret]
+elsif ret = @src.scan(FOOTNOTE_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:FOOTNOTE_CLOSE, ret]
+elsif ret = @src.scan(VERB_OPEN_RE)
+  @pre &lt;&lt; ret
+  [:VERB_OPEN, ret]
+elsif ret = @src.scan(VERB_CLOSE_RE)
+  @pre &lt;&lt; ret
+  [:VERB_CLOSE, ret]
+elsif ret = @src.scan(BAR_RE)
+  @pre &lt;&lt; ret
+  [:BAR, ret]
+elsif ret = @src.scan(QUOTE_RE)
+  @pre &lt;&lt; ret
+  [:QUOTE, ret]
+elsif ret = @src.scan(SLASH_RE)
+  @pre &lt;&lt; ret
+  [:SLASH, ret]
+elsif ret = @src.scan(BACK_SLASH_RE)
+  @pre &lt;&lt; ret
+  [:BACK_SLASH, ret]
+elsif ret = @src.scan(URL_RE)
+  @pre &lt;&lt; ret
+  [:URL, ret]
+elsif ret = @src.scan(OTHER_RE)
+  @pre &lt;&lt; ret
+  [:OTHER, ret]
+else
+  ret = @src.rest
+  @pre &lt;&lt; ret
+  @src.terminate
+  [:OTHER, ret]
+end
+</code></pre>
+
+<p>end</p>
+
+<p>## # Raises a ParseError when invalid formatting is found</p>
+
+<p>def on_error(et, ev, values)</p>
+
+<pre><code>lines_of_rest = @src.rest.lines.to_a.length
+prev_words = prev_words_on_error(ev)
+at = 4 + prev_words.length
+
+message = &lt;&lt;-MSG
+</code></pre>
+
+<p>RD syntax error: line #{@block_parser.line_index - lines_of_rest}: …#{prev_words} #{(ev||&#39;&#39;)} #{next_words_on_error()} …</p>
+
+<pre><code>MSG
+
+message &lt;&lt; &quot; &quot; * at + &quot;^&quot; * (ev ? ev.length : 0) + &quot;\n&quot;
+raise ParseError, message
+</code></pre>
+
+<p>end</p>
+
+<p>## # Returns words before the error</p>
+
+<p>def prev_words_on_error(ev)</p>
+
+<pre><code>pre = @pre
+if ev and /#{Regexp.quote(ev)}$/ =~ pre
+  pre = $`
+end
+last_line(pre)
+</code></pre>
+
+<p>end</p>
+
+<p>## # Returns the last line of <code>src</code></p>
+
+<p>def last_line(src)</p>
+
+<pre><code>if n = src.rindex(&quot;\n&quot;)
+  src[(n+1) .. -1]
+else
+  src
+end
+</code></pre>
+
+<p>end private :last_line</p>
+
+<p>## # Returns words following an error</p>
+
+<p>def next_words_on_error</p>
+
+<pre><code>if n = @src.rest.index(&quot;\n&quot;)
+  @src.rest[0 .. (n-1)]
+else
+  @src.rest
+end
+</code></pre>
+
+<p>end</p>
+
+<p>## # Creates a new <a href="../../../../../../../../../../classes/RDoc/RD/Inline.html"><code>RDoc::RD::Inline</code></a> for the <code>rdoc</code> markup and the raw <code>reference</code></p>
+
+<p>def inline rdoc, reference = rdoc</p>
+
+<pre><code>RDoc::RD::Inline.new rdoc, reference
+</code></pre>
+
+<p>end</p>
+
+<p># —- header require &#39;strscan&#39;</p>
+
+<p>class <a href="../../../../../../../../../../classes/RDoc/RD.html"><code>RDoc::RD</code></a></p>
+
+<p>## # RD format parser for inline markup such as emphasis, links, footnotes, etc.</p>
+
+<p>—- footer end</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

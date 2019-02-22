@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Parser::ChangeLog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Parser::ChangeLog">
+
+  
+    
+    <meta name="description" content="A ChangeLog file parser.  This parser converts a ChangeLog into an RDoc::Markup::Document.">
+    <meta property="og:description" content="A ChangeLog file parser.  This parser converts a ChangeLog into an RDoc::Markup::Document.">
+  
+
+    <meta name="keywords" content="RDoc::Parser::ChangeLog class">
+  
+    <meta name="keywords" content="continue_entry_body, create_document, create_entries, create_items, group_entries, parse_entries, scan">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Parser::ChangeLog
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Parser.html">RDoc::Parser</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/parser/changelog_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A <a href="ChangeLog.html"><code>ChangeLog</code></a> file parser.</p>
+
+<p>This parser converts a <a href="ChangeLog.html"><code>ChangeLog</code></a> into an <a href="../Markup/Document.html"><code>RDoc::Markup::Document</code></a>.  When viewed as HTML a <a href="ChangeLog.html"><code>ChangeLog</code></a> page will have an entry for each day&#39;s entries in the sidebar table of contents.</p>
+
+<p>This parser is meant to parse the MRI <a href="ChangeLog.html"><code>ChangeLog</code></a>, but can be used to parse any <a href="http://www.gnu.org/prep/standards/html_node/Style-of-Change-Logs.html">GNU style Change Log</a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-continue_entry_body">continue_entry_body</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_document">create_document</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_entries">create_entries</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_items">create_items</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-group_entries">group_entries</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse_entries">parse_entries</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-scan">scan</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Text.html">
+              RDoc::Parser::Text
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-continue_entry_body">
+            
+              <b>continue_entry_body</b>(entry_body, continuation)
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-continue_entry_body" name="method-i-continue_entry_body" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Attaches the <code>continuation</code> of the previous line to the <code>entry_body</code>.</p>
+
+<p>Continued function listings are joined together as a single entry. Continued descriptions are joined to make a single paragraph.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-continue_entry_body_source')" id="l_method-i-continue_entry_body_source">show</a>
+                
+              </p>
+              <div id="method-i-continue_entry_body_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">continue_entry_body</span> <span class="ruby-identifier">entry_body</span>, <span class="ruby-identifier">continuation</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">last</span> = <span class="ruby-identifier">entry_body</span>.<span class="ruby-identifier">last</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\)\s*\z/</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">continuation</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A\(/</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">last</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\)\s*\z/</span>, <span class="ruby-string">&#39;,&#39;</span>)
+    <span class="ruby-identifier">continuation</span> = <span class="ruby-identifier">continuation</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\A\(/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\s\z/</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">continuation</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">continuation</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_document">
+            
+              <b>create_document</b>(groups)
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-create_document" name="method-i-create_document" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates an <a href="../Markup/Document.html"><code>RDoc::Markup::Document</code></a> given the <code>groups</code> of <a href="ChangeLog.html"><code>ChangeLog</code></a> entries.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create_document_source')" id="l_method-i-create_document_source">show</a>
+                
+              </p>
+              <div id="method-i-create_document_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_document</span> <span class="ruby-identifier">groups</span>
+  <span class="ruby-identifier">doc</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">omit_headings_below</span> = <span class="ruby-value">2</span>
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">file</span> = <span class="ruby-ivar">@top_level</span>
+
+  <span class="ruby-identifier">doc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Heading</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@file_name</span>))
+  <span class="ruby-identifier">doc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">BlankLine</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">sort_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">day</span>,<span class="ruby-operator">|</span> <span class="ruby-identifier">day</span> <span class="ruby-keyword">end</span>.<span class="ruby-identifier">reverse_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">day</span>, <span class="ruby-identifier">entries</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">doc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Heading</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>, <span class="ruby-identifier">day</span>.<span class="ruby-identifier">dup</span>)
+    <span class="ruby-identifier">doc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">BlankLine</span>.<span class="ruby-identifier">new</span>
+
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">create_entries</span> <span class="ruby-identifier">entries</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">doc</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_entries">
+            
+              <b>create_entries</b>(entries)
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-create_entries" name="method-i-create_entries" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns a list of <a href="ChangeLog.html"><code>ChangeLog</code></a> entries an <a href="../Markup.html"><code>RDoc::Markup</code></a> nodes for the given <code>entries</code>.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create_entries_source')" id="l_method-i-create_entries_source">show</a>
+                
+              </p>
+              <div id="method-i-create_entries_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_entries</span> <span class="ruby-identifier">entries</span>
+  <span class="ruby-identifier">out</span> = []
+
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span>, <span class="ruby-identifier">items</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Heading</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>, <span class="ruby-identifier">entry</span>)
+    <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">BlankLine</span>.<span class="ruby-identifier">new</span>
+
+    <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">create_items</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">out</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_items">
+            
+              <b>create_items</b>(items)
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-create_items" name="method-i-create_items" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns an <a href="../Markup/List.html"><code>RDoc::Markup::List</code></a> containing the given <code>items</code> in the <a href="ChangeLog.html"><code>ChangeLog</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-create_items_source')" id="l_method-i-create_items_source">show</a>
+                
+              </p>
+              <div id="method-i-create_items_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_items</span> <span class="ruby-identifier">items</span>
+  <span class="ruby-identifier">list</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:NOTE</span>
+
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">item</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A(.*?(?:\([^)]+\))?):\s*/</span>
+
+    <span class="ruby-identifier">title</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-identifier">body</span> = <span class="ruby-node">$&#39;</span>
+
+    <span class="ruby-identifier">paragraph</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">Paragraph</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">body</span>
+    <span class="ruby-identifier">list_item</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Markup</span><span class="ruby-operator">::</span><span class="ruby-constant">ListItem</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">title</span>, <span class="ruby-identifier">paragraph</span>
+    <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list_item</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">list</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-group_entries">
+            
+              <b>group_entries</b>(entries)
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-group_entries" name="method-i-group_entries" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Groups <code>entries</code> by date.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-group_entries_source')" id="l_method-i-group_entries_source">show</a>
+                
+              </p>
+              <div id="method-i-group_entries_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">group_entries</span> <span class="ruby-identifier">entries</span>
+  <span class="ruby-ivar">@time_cache</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">group_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">title</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">time</span> = <span class="ruby-ivar">@time_cache</span>[<span class="ruby-identifier">title</span>]
+      (<span class="ruby-identifier">time</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">title</span>)).<span class="ruby-identifier">strftime</span> <span class="ruby-string">&#39;%Y-%m-%d&#39;</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-constant">ArgumentError</span>
+      <span class="ruby-identifier">time</span>, = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">split</span> <span class="ruby-string">&#39;  &#39;</span>, <span class="ruby-value">2</span>
+      <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">time</span>).<span class="ruby-identifier">strftime</span> <span class="ruby-string">&#39;%Y-%m-%d&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse_entries">
+            
+              <b>parse_entries</b>()
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-parse_entries" name="method-i-parse_entries" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Parses the entries in the <a href="ChangeLog.html"><code>ChangeLog</code></a>.</p>
+
+<p>Returns an <a href="../../Array.html"><code>Array</code></a> of each <a href="ChangeLog.html"><code>ChangeLog</code></a> entry in order of parsing.</p>
+
+<p>A <a href="ChangeLog.html"><code>ChangeLog</code></a> entry is an <a href="../../Array.html"><code>Array</code></a> containing the <a href="ChangeLog.html"><code>ChangeLog</code></a> title (date and committer) and an <a href="../../Array.html"><code>Array</code></a> of <a href="ChangeLog.html"><code>ChangeLog</code></a> items (file and function changed with description).</p>
+
+<p>An example result would be:</p>
+
+<pre><code>[ &#39;Tue Dec  4 08:33:46 2012  Eric Hodel  &lt;drbrain@segment7.net&gt;&#39;,
+  [ &#39;README.EXT:  Converted to RDoc format&#39;,
+    &#39;README.EXT.ja:  ditto&#39;]]
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-parse_entries_source')" id="l_method-i-parse_entries_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_entries_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse_entries</span>
+  <span class="ruby-ivar">@time_cache</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-identifier">entries</span> = []
+  <span class="ruby-identifier">entry_name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">entry_body</span> = []
+
+  <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">each_line</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">line</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^\s*$/</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^\w.*/</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">entries</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">entry_name</span>, <span class="ruby-identifier">entry_body</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry_name</span>
+
+      <span class="ruby-identifier">entry_name</span> = <span class="ruby-node">$&amp;</span>
+
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">entry_name</span>
+        <span class="ruby-ivar">@time_cache</span>[<span class="ruby-identifier">entry_name</span>] = <span class="ruby-identifier">time</span>
+        <span class="ruby-comment"># HACK Ruby 1.8 does not raise ArgumentError for Time.parse &quot;Other&quot;</span>
+        <span class="ruby-identifier">entry_name</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entry_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/#{time.year}/</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>
+        <span class="ruby-comment"># HACK Ruby 2.1.2 and earlier raises NoMethodError if time part is absent</span>
+        <span class="ruby-identifier">entry_name</span>.<span class="ruby-identifier">split</span> <span class="ruby-string">&#39;  &#39;</span>, <span class="ruby-value">2</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-regexp">/out of range/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">$!</span>.<span class="ruby-identifier">message</span>
+          <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">entry_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;  &#39;</span>, <span class="ruby-value">2</span>)[<span class="ruby-value">0</span>]) <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">entry_name</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">entry_name</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">entry_body</span> = []
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^(\t| {8})?\*\s*(.*)/</span> <span class="ruby-keyword">then</span> <span class="ruby-comment"># &quot;\t* file.c (func): ...&quot;</span>
+      <span class="ruby-identifier">entry_body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">$2</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^(\t| {8})?\s*(\(.*)/</span> <span class="ruby-keyword">then</span> <span class="ruby-comment"># &quot;\t(func): ...&quot;</span>
+      <span class="ruby-identifier">entry</span> = <span class="ruby-node">$2</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry_body</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/:/</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">entry_body</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">continue_entry_body</span> <span class="ruby-identifier">entry_body</span>, <span class="ruby-identifier">entry</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^(\t| {8})?\s*(.*)/</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">continue_entry_body</span> <span class="ruby-identifier">entry_body</span>, <span class="ruby-node">$2</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">entries</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">entry_name</span>, <span class="ruby-identifier">entry_body</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry_name</span>
+
+  <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">reject!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">entry</span>,<span class="ruby-identifier">_</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">entry</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">entries</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-scan">
+            
+              <b>scan</b>()
+            
+            <a href="../../../classes/RDoc/Parser/ChangeLog.html#method-i-scan" name="method-i-scan" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Converts the <a href="ChangeLog.html"><code>ChangeLog</code></a> into an <a href="../Markup/Document.html"><code>RDoc::Markup::Document</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-scan_source')" id="l_method-i-scan_source">show</a>
+                
+              </p>
+              <div id="method-i-scan_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/parser/changelog.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">scan</span>
+  <span class="ruby-ivar">@time_cache</span> = {}
+  <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">parse_entries</span>
+  <span class="ruby-identifier">grouped_entries</span> = <span class="ruby-identifier">group_entries</span> <span class="ruby-identifier">entries</span>
+
+  <span class="ruby-identifier">doc</span> = <span class="ruby-identifier">create_document</span> <span class="ruby-identifier">grouped_entries</span>
+
+  <span class="ruby-ivar">@top_level</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-identifier">doc</span>
+
+  <span class="ruby-ivar">@top_level</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

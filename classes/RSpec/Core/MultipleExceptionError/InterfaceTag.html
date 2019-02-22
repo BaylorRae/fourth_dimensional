@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::MultipleExceptionError::InterfaceTag</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::MultipleExceptionError::InterfaceTag">
+
+  
+    
+    <meta name="description" content="@private Used so there is a common module in the ancestor chain of this class and `RSpec::Expectations::MultipleExpectationsNotMetError`, which allows code to detect exceptions that are instances of e.">
+    <meta property="og:description" content="@private Used so there is a common module in the ancestor chain of this class and `RSpec::Expectations::MultipleExpectationsNotMetError`, which allows code to detect exceptions that are instances of e.">
+  
+
+    <meta name="keywords" content="RSpec::Core::MultipleExceptionError::InterfaceTag class">
+  
+    <meta name="keywords" content="add, for">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Core::MultipleExceptionError::InterfaceTag
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/exception_presenter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private Used so there is a common module in the ancestor chain of this class and `RSpec::Expectations::MultipleExpectationsNotMetError`, which allows code to detect exceptions that are instances of either, without first checking to see if rspec-expectations is loaded.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-for">for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-for">
+            
+              <b>for</b>(ex)
+            
+            <a href="../../../../classes/RSpec/Core/MultipleExceptionError/InterfaceTag.html#method-c-for" name="method-c-for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Provides a way to force `ex` to be something that satisfies the multiple exception error interface. If it already satisfies it, it will be returned; otherwise it will wrap it in a `MultipleExceptionError`. @private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-for_source')" id="l_method-c-for_source">show</a>
+                
+              </p>
+              <div id="method-c-for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb, line 439</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-keyword">for</span>(<span class="ruby-identifier ruby-title">ex</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ex</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">ex</span>
+  <span class="ruby-constant">MultipleExceptionError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">ex</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>(exception)
+            
+            <a href="../../../../classes/RSpec/Core/MultipleExceptionError/InterfaceTag.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Appends the provided exception to the list. @param exception [Exception] Exception to append to the list. @private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb, line 413</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">exception</span>)
+  <span class="ruby-comment"># `PendingExampleFixedError` can be assigned to an example that initially has no</span>
+  <span class="ruby-comment"># failures, but when the `aggregate_failures` around hook completes, it notifies of</span>
+  <span class="ruby-comment"># a failure. If we do not ignore `PendingExampleFixedError` it would be surfaced to</span>
+  <span class="ruby-comment"># the user as part of a multiple exception error, which is undesirable. While it&#39;s</span>
+  <span class="ruby-comment"># pretty weird we handle this here, it&#39;s the best solution I&#39;ve been able to come</span>
+  <span class="ruby-comment"># up with, and `PendingExampleFixedError` always represents the _lack_ of any exception</span>
+  <span class="ruby-comment"># so clearly when we are transitioning to a `MultipleExceptionError`, it makes sense to</span>
+  <span class="ruby-comment"># ignore it.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Pending</span><span class="ruby-operator">::</span><span class="ruby-constant">PendingExampleFixedError</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">exception</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">exception</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>
+
+  <span class="ruby-identifier">all_exceptions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">exception</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">exception</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/RSpec/</span>
+    <span class="ruby-identifier">failures</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">exception</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">other_errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">exception</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

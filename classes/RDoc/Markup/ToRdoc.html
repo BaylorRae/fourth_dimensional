@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Markup::ToRdoc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Markup::ToRdoc">
+
+  
+    
+    <meta name="description" content="Outputs RDoc markup as RDoc markup! (mostly).">
+    <meta property="og:description" content="Outputs RDoc markup as RDoc markup! (mostly).">
+  
+
+    <meta name="keywords" content="RDoc::Markup::ToRdoc class">
+  
+    <meta name="keywords" content="new, init_tags, accept_blank_line, accept_block_quote, accept_heading, accept_list_end, accept_list_item_end, accept_list_item_start, accept_list_start, accept_paragraph, accept_indented_paragraph, accept_raw, accept_rule, accept_verbatim, attributes, end_accepting, handle_regexp_SUPPRESSED_CROSSREF, handle_regexp_HARD_BREAK, start_accepting, use_prefix, wrap">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Markup::ToRdoc
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Formatter.html">RDoc::Markup::Formatter</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/markup/to_rdoc_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Outputs <a href="../../RDoc.html"><code>RDoc</code></a> markup as <a href="../../RDoc.html"><code>RDoc</code></a> markup! (mostly)</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-accept_blank_line">accept_blank_line</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_block_quote">accept_block_quote</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_heading">accept_heading</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_indented_paragraph">accept_indented_paragraph</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_end">accept_list_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_item_end">accept_list_item_end</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_item_start">accept_list_item_start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_list_start">accept_list_start</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_paragraph">accept_paragraph</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_raw">accept_raw</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_rule">accept_rule</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-accept_verbatim">accept_verbatim</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-attributes">attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-end_accepting">end_accepting</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-handle_regexp_HARD_BREAK">handle_regexp_HARD_BREAK</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-handle_regexp_SUPPRESSED_CROSSREF">handle_regexp_SUPPRESSED_CROSSREF</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-init_tags">init_tags</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-start_accepting">start_accepting</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-use_prefix">use_prefix</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-wrap">wrap</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>indent</td>
+            <td class='attr-desc'><p>Current indent amount for output in characters</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>list_index</td>
+            <td class='attr-desc'><p>Stack of current list indexes for alphabetic and numeric lists</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>list_type</td>
+            <td class='attr-desc'><p>Stack of list types</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>list_width</td>
+            <td class='attr-desc'><p>Stack of list widths for indentation</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>prefix</td>
+            <td class='attr-desc'><p>Prefix for the next list item.  See <a href="ToRdoc.html#method-i-use_prefix"><code>use_prefix</code></a></p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>res</td>
+            <td class='attr-desc'><p>Output accumulator</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>width</td>
+            <td class='attr-desc'><p>Output width in characters</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(markup = nil)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new formatter that will output (mostly) RDoc markup</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">markup</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">markup</span>
+
+  <span class="ruby-ivar">@markup</span>.<span class="ruby-identifier">add_regexp_handling</span>(<span class="ruby-regexp">/\\\S/</span>, <span class="ruby-value">:SUPPRESSED_CROSSREF</span>)
+  <span class="ruby-ivar">@width</span> = <span class="ruby-value">78</span>
+  <span class="ruby-identifier">init_tags</span>
+
+  <span class="ruby-ivar">@headings</span> = {}
+  <span class="ruby-ivar">@headings</span>.<span class="ruby-identifier">default</span> = []
+
+  <span class="ruby-ivar">@headings</span>[<span class="ruby-value">1</span>] = [<span class="ruby-string">&#39;= &#39;</span>,      <span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@headings</span>[<span class="ruby-value">2</span>] = [<span class="ruby-string">&#39;== &#39;</span>,     <span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@headings</span>[<span class="ruby-value">3</span>] = [<span class="ruby-string">&#39;=== &#39;</span>,    <span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@headings</span>[<span class="ruby-value">4</span>] = [<span class="ruby-string">&#39;==== &#39;</span>,   <span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@headings</span>[<span class="ruby-value">5</span>] = [<span class="ruby-string">&#39;===== &#39;</span>,  <span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@headings</span>[<span class="ruby-value">6</span>] = [<span class="ruby-string">&#39;====== &#39;</span>, <span class="ruby-string">&#39;&#39;</span>]
+
+  <span class="ruby-ivar">@hard_break</span> = <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_blank_line">
+            
+              <b>accept_blank_line</b>(blank_line)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_blank_line" name="method-i-accept_blank_line" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>blank_line</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_blank_line_source')" id="l_method-i-accept_blank_line_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_blank_line_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_blank_line</span> <span class="ruby-identifier">blank_line</span>
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_block_quote">
+            
+              <b>accept_block_quote</b>(block_quote)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_block_quote" name="method-i-accept_block_quote" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>paragraph</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_block_quote_source')" id="l_method-i-accept_block_quote_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_block_quote_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_block_quote</span> <span class="ruby-identifier">block_quote</span>
+  <span class="ruby-ivar">@indent</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+
+  <span class="ruby-identifier">block_quote</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@prefix</span> = <span class="ruby-string">&#39;&gt; &#39;</span>
+
+    <span class="ruby-identifier">part</span>.<span class="ruby-identifier">accept</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@indent</span> <span class="ruby-operator">-=</span> <span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_heading">
+            
+              <b>accept_heading</b>(heading)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_heading" name="method-i-accept_heading" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>heading</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_heading_source')" id="l_method-i-accept_heading_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_heading_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_heading</span> <span class="ruby-identifier">heading</span>
+  <span class="ruby-identifier">use_prefix</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@indent</span>
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@headings</span>[<span class="ruby-identifier">heading</span>.<span class="ruby-identifier">level</span>][<span class="ruby-value">0</span>]
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">attributes</span>(<span class="ruby-identifier">heading</span>.<span class="ruby-identifier">text</span>)
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@headings</span>[<span class="ruby-identifier">heading</span>.<span class="ruby-identifier">level</span>][<span class="ruby-value">1</span>]
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_indented_paragraph">
+            
+              <b>accept_indented_paragraph</b>(paragraph)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_indented_paragraph" name="method-i-accept_indented_paragraph" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>paragraph</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_indented_paragraph_source')" id="l_method-i-accept_indented_paragraph_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_indented_paragraph_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_indented_paragraph</span> <span class="ruby-identifier">paragraph</span>
+  <span class="ruby-ivar">@indent</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">paragraph</span>.<span class="ruby-identifier">indent</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">paragraph</span>.<span class="ruby-identifier">text</span> <span class="ruby-ivar">@hard_break</span>
+  <span class="ruby-identifier">wrap</span> <span class="ruby-identifier">attributes</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-ivar">@indent</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">paragraph</span>.<span class="ruby-identifier">indent</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_end">
+            
+              <b>accept_list_end</b>(list)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_list_end" name="method-i-accept_list_end" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Finishes consumption of <code>list</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_end_source')" id="l_method-i-accept_list_end_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_end_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_end</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@list_index</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-ivar">@list_type</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-ivar">@list_width</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_item_end">
+            
+              <b>accept_list_item_end</b>(list_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_list_item_end" name="method-i-accept_list_item_end" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Finishes consumption of <code>list_item</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_item_end_source')" id="l_method-i-accept_list_item_end_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_item_end_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_item_end</span> <span class="ruby-identifier">list_item</span>
+  <span class="ruby-identifier">width</span> = <span class="ruby-keyword">case</span> <span class="ruby-ivar">@list_type</span>.<span class="ruby-identifier">last</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-value">:BULLET</span> <span class="ruby-keyword">then</span>
+            <span class="ruby-value">2</span>
+          <span class="ruby-keyword">when</span> <span class="ruby-value">:NOTE</span>, <span class="ruby-value">:LABEL</span> <span class="ruby-keyword">then</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@prefix</span> <span class="ruby-keyword">then</span>
+              <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@prefix</span>.<span class="ruby-identifier">strip</span>
+              <span class="ruby-ivar">@prefix</span> = <span class="ruby-keyword">nil</span>
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+            <span class="ruby-value">2</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">bullet</span> = <span class="ruby-ivar">@list_index</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_s</span>
+            <span class="ruby-ivar">@list_index</span>[<span class="ruby-value">-1</span>] = <span class="ruby-ivar">@list_index</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">succ</span>
+            <span class="ruby-identifier">bullet</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>
+          <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@indent</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_item_start">
+            
+              <b>accept_list_item_start</b>(list_item)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_list_item_start" name="method-i-accept_list_item_start" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the visitor for consuming <code>list_item</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_item_start_source')" id="l_method-i-accept_list_item_start_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_item_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_item_start</span> <span class="ruby-identifier">list_item</span>
+  <span class="ruby-identifier">type</span> = <span class="ruby-ivar">@list_type</span>.<span class="ruby-identifier">last</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:NOTE</span>, <span class="ruby-value">:LABEL</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">bullets</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">list_item</span>.<span class="ruby-identifier">label</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">label</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">attributes</span>(<span class="ruby-identifier">label</span>).<span class="ruby-identifier">strip</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+    <span class="ruby-identifier">bullets</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;:\n&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bullets</span>.<span class="ruby-identifier">empty?</span>
+
+    <span class="ruby-ivar">@prefix</span> = <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@indent</span>
+    <span class="ruby-ivar">@indent</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+    <span class="ruby-ivar">@prefix</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">bullets</span> <span class="ruby-operator">+</span> (<span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@indent</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">bullet</span> = <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:BULLET</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;*&#39;</span> <span class="ruby-operator">:</span>  <span class="ruby-ivar">@list_index</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;.&#39;</span>
+    <span class="ruby-ivar">@prefix</span> = (<span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@indent</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">bullet</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">bullet</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">width</span> = <span class="ruby-identifier">bullet</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@indent</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">width</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_list_start">
+            
+              <b>accept_list_start</b>(list)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_list_start" name="method-i-accept_list_start" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the visitor for consuming <code>list</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_list_start_source')" id="l_method-i-accept_list_start_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_list_start_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_list_start</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:BULLET</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@list_index</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@list_width</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:LABEL</span>, <span class="ruby-value">:NOTE</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@list_index</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@list_width</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:LALPHA</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@list_index</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;a&#39;</span>
+    <span class="ruby-ivar">@list_width</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:NUMBER</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@list_index</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@list_width</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:UALPHA</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@list_index</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;A&#39;</span>
+    <span class="ruby-ivar">@list_width</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;invalid list type #{list.type}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@list_type</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">list</span>.<span class="ruby-identifier">type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_paragraph">
+            
+              <b>accept_paragraph</b>(paragraph)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_paragraph" name="method-i-accept_paragraph" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>paragraph</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_paragraph_source')" id="l_method-i-accept_paragraph_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_paragraph_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_paragraph</span> <span class="ruby-identifier">paragraph</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">paragraph</span>.<span class="ruby-identifier">text</span> <span class="ruby-ivar">@hard_break</span>
+  <span class="ruby-identifier">wrap</span> <span class="ruby-identifier">attributes</span> <span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_raw">
+            
+              <b>accept_raw</b>(raw)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_raw" name="method-i-accept_raw" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>raw</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_raw_source')" id="l_method-i-accept_raw_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_raw_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_raw</span> <span class="ruby-identifier">raw</span>
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">raw</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_rule">
+            
+              <b>accept_rule</b>(rule)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_rule" name="method-i-accept_rule" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds <code>rule</code> to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_rule_source')" id="l_method-i-accept_rule_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_rule_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_rule</span> <span class="ruby-identifier">rule</span>
+  <span class="ruby-identifier">use_prefix</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@indent</span>
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@width</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@indent</span>)
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-accept_verbatim">
+            
+              <b>accept_verbatim</b>(verbatim)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-accept_verbatim" name="method-i-accept_verbatim" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Outputs <code>verbatim</code> indented 2 columns</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-accept_verbatim_source')" id="l_method-i-accept_verbatim_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_verbatim_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept_verbatim</span> <span class="ruby-identifier">verbatim</span>
+  <span class="ruby-identifier">indent</span> = <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@indent</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>)
+
+  <span class="ruby-identifier">verbatim</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">indent</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">part</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">part</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-attributes">
+            
+              <b>attributes</b>(text)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-attributes" name="method-i-attributes" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Applies attribute-specific markup to <code>text</code> using RDoc::AttributeManager</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-attributes_source')" id="l_method-i-attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">attributes</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-identifier">flow</span> = <span class="ruby-ivar">@am</span>.<span class="ruby-identifier">flow</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">convert_flow</span> <span class="ruby-identifier">flow</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-end_accepting">
+            
+              <b>end_accepting</b>()
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-end_accepting" name="method-i-end_accepting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns the generated output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-end_accepting_source')" id="l_method-i-end_accepting_source">show</a>
+                
+              </p>
+              <div id="method-i-end_accepting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">end_accepting</span>
+  <span class="ruby-ivar">@res</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-handle_regexp_HARD_BREAK">
+            
+              <b>handle_regexp_HARD_BREAK</b>(target)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-handle_regexp_HARD_BREAK" name="method-i-handle_regexp_HARD_BREAK" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds a newline to the output</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-handle_regexp_HARD_BREAK_source')" id="l_method-i-handle_regexp_HARD_BREAK_source">show</a>
+                
+              </p>
+              <div id="method-i-handle_regexp_HARD_BREAK_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_regexp_HARD_BREAK</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-string">&quot;\n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-handle_regexp_SUPPRESSED_CROSSREF">
+            
+              <b>handle_regexp_SUPPRESSED_CROSSREF</b>(target)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-handle_regexp_SUPPRESSED_CROSSREF" name="method-i-handle_regexp_SUPPRESSED_CROSSREF" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes preceding \ from the suppressed crossref <code>target</code></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-handle_regexp_SUPPRESSED_CROSSREF_source')" id="l_method-i-handle_regexp_SUPPRESSED_CROSSREF_source">show</a>
+                
+              </p>
+              <div id="method-i-handle_regexp_SUPPRESSED_CROSSREF_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_regexp_SUPPRESSED_CROSSREF</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">text</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;\\&#39;</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">in_tt?</span>
+  <span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-init_tags">
+            
+              <b>init_tags</b>()
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-init_tags" name="method-i-init_tags" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Maps attributes to HTML sequences</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-init_tags_source')" id="l_method-i-init_tags_source">show</a>
+                
+              </p>
+              <div id="method-i-init_tags_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">init_tags</span>
+  <span class="ruby-identifier">add_tag</span> <span class="ruby-value">:BOLD</span>, <span class="ruby-string">&quot;&lt;b&gt;&quot;</span>, <span class="ruby-string">&quot;&lt;/b&gt;&quot;</span>
+  <span class="ruby-identifier">add_tag</span> <span class="ruby-value">:TT</span>,   <span class="ruby-string">&quot;&lt;tt&gt;&quot;</span>, <span class="ruby-string">&quot;&lt;/tt&gt;&quot;</span>
+  <span class="ruby-identifier">add_tag</span> <span class="ruby-value">:EM</span>,   <span class="ruby-string">&quot;&lt;em&gt;&quot;</span>, <span class="ruby-string">&quot;&lt;/em&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-start_accepting">
+            
+              <b>start_accepting</b>()
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-start_accepting" name="method-i-start_accepting" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Prepares the visitor for text generation</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-start_accepting_source')" id="l_method-i-start_accepting_source">show</a>
+                
+              </p>
+              <div id="method-i-start_accepting_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_accepting</span>
+  <span class="ruby-ivar">@res</span> = [<span class="ruby-string">&quot;&quot;</span>]
+  <span class="ruby-ivar">@indent</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@prefix</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@list_index</span> = []
+  <span class="ruby-ivar">@list_type</span>  = []
+  <span class="ruby-ivar">@list_width</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-use_prefix">
+            
+              <b>use_prefix</b>()
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-use_prefix" name="method-i-use_prefix" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Adds the stored <a href="ToRdoc.html#attribute-i-prefix"><code>prefix</code></a> to the output and clears it.  Lists generate a prefix for later consumption.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-use_prefix_source')" id="l_method-i-use_prefix_source">show</a>
+                
+              </p>
+              <div id="method-i-use_prefix_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">use_prefix</span>
+  <span class="ruby-identifier">prefix</span>, <span class="ruby-ivar">@prefix</span> = <span class="ruby-ivar">@prefix</span>, <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prefix</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span>
+
+  <span class="ruby-identifier">prefix</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-wrap">
+            
+              <b>wrap</b>(text)
+            
+            <a href="../../../classes/RDoc/Markup/ToRdoc.html#method-i-wrap" name="method-i-wrap" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Wraps <code>text</code> to <a href="ToRdoc.html#attribute-i-width"><code>width</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-wrap_source')" id="l_method-i-wrap_source">show</a>
+                
+              </p>
+              <div id="method-i-wrap_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/markup/to_rdoc.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wrap</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">text</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">text_len</span> = <span class="ruby-ivar">@width</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@indent</span>
+
+  <span class="ruby-identifier">text_len</span> = <span class="ruby-value">20</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">text_len</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">20</span>
+
+  <span class="ruby-identifier">re</span> = <span class="ruby-regexp">/^(.{0,#{text_len}})[ \n]/</span>
+  <span class="ruby-identifier">next_prefix</span> = <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@indent</span>
+
+  <span class="ruby-identifier">prefix</span> = <span class="ruby-ivar">@prefix</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">next_prefix</span>
+  <span class="ruby-ivar">@prefix</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prefix</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">text_len</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">re</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">$1</span>
+      <span class="ruby-identifier">text</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span>, <span class="ruby-node">$&amp;</span>.<span class="ruby-identifier">length</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">text_len</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">next_prefix</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@res</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-ivar">@res</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>
+    <span class="ruby-ivar">@res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

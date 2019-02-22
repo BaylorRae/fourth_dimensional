@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::ErrorGenerator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::ErrorGenerator">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::ErrorGenerator class">
+  
+    <meta name="keywords" content="new, opts, raise_unexpected_message_error, raise_unexpected_message_args_error, raise_missing_default_stub_error, raise_similar_message_args_error, default_error_message, raise_expectation_error, raise_unimplemented_error, raise_non_public_error, raise_invalid_arguments_error, raise_expired_test_double_error, describe_expectation, raise_out_of_order_error, raise_missing_block_error, raise_wrong_arity_error, raise_only_valid_on_a_partial_double, raise_expectation_on_unstubbed_method, raise_expectation_on_mocked_method, raise_double_negation_error, raise_verifying_double_not_defined_error, raise_have_received_disallowed, raise_cant_constrain_count_for_negated_have_received_error, raise_method_not_stubbed_error, raise_already_invoked_error, raise_expectation_on_nil_error, expectation_on_nil_message, intro, method_call_args_description">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::ErrorGenerator
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/error_generator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-default_error_message">default_error_message</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-describe_expectation">describe_expectation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expectation_on_nil_message">expectation_on_nil_message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-intro">intro</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-method_call_args_description">method_call_args_description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-opts">opts</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-raise_already_invoked_error">raise_already_invoked_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_cant_constrain_count_for_negated_have_received_error">raise_cant_constrain_count_for_negated_have_received_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_double_negation_error">raise_double_negation_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_expectation_error">raise_expectation_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_expectation_on_mocked_method">raise_expectation_on_mocked_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_expectation_on_nil_error">raise_expectation_on_nil_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_expectation_on_unstubbed_method">raise_expectation_on_unstubbed_method</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_expired_test_double_error">raise_expired_test_double_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_have_received_disallowed">raise_have_received_disallowed</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_invalid_arguments_error">raise_invalid_arguments_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_method_not_stubbed_error">raise_method_not_stubbed_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_missing_block_error">raise_missing_block_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_missing_default_stub_error">raise_missing_default_stub_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_non_public_error">raise_non_public_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_only_valid_on_a_partial_double">raise_only_valid_on_a_partial_double</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_out_of_order_error">raise_out_of_order_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_similar_message_args_error">raise_similar_message_args_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_unexpected_message_args_error">raise_unexpected_message_args_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_unexpected_message_error">raise_unexpected_message_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_unimplemented_error">raise_unimplemented_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_verifying_double_not_defined_error">raise_verifying_double_not_defined_error</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-raise_wrong_arity_error">raise_wrong_arity_error</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>opts</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(target=nil)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">target</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@target</span> = <span class="ruby-identifier">target</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-default_error_message">
+            
+              <b>default_error_message</b>(expectation, expected_args, actual_args)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-default_error_message" name="method-i-default_error_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-default_error_message_source')" id="l_method-i-default_error_message_source">show</a>
+                
+              </p>
+              <div id="method-i-default_error_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">default_error_message</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">expected_args</span>, <span class="ruby-identifier">actual_args</span>)
+  <span class="ruby-node">&quot;#{intro} received #{expectation.message.inspect} #{unexpected_arguments_message(expected_args, actual_args)}&quot;</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-describe_expectation">
+            
+              <b>describe_expectation</b>(verb, message, expected_received_count, _actual_received_count, args)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-describe_expectation" name="method-i-describe_expectation" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-describe_expectation_source')" id="l_method-i-describe_expectation_source">show</a>
+                
+              </p>
+              <div id="method-i-describe_expectation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">describe_expectation</span>(<span class="ruby-identifier">verb</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">_actual_received_count</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-node">&quot;#{verb} #{message}#{format_args(args)} #{count_message(expected_received_count)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expectation_on_nil_message">
+            
+              <b>expectation_on_nil_message</b>(method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-expectation_on_nil_message" name="method-i-expectation_on_nil_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-expectation_on_nil_message_source')" id="l_method-i-expectation_on_nil_message_source">show</a>
+                
+              </p>
+              <div id="method-i-expectation_on_nil_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">expectation_on_nil_message</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-node">&quot;An expectation of `:#{method_name}` was set on `nil`. &quot;</span> \
+  <span class="ruby-string">&quot;To allow expectations on `nil` and suppress this message, set `RSpec::Mocks.configuration.allow_message_expectations_on_nil` to `true`. &quot;</span> \
+  <span class="ruby-string">&quot;To disallow expectations on `nil`, set `RSpec::Mocks.configuration.allow_message_expectations_on_nil` to `false`&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-intro">
+            
+              <b>intro</b>(unwrapped=false)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-intro" name="method-i-intro" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-intro_source')" id="l_method-i-intro_source">show</a>
+                
+              </p>
+              <div id="method-i-intro_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">intro</span>(<span class="ruby-identifier">unwrapped</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@target</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">TestDouble</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">TestDoubleFormatter</span>.<span class="ruby-identifier">format</span>(<span class="ruby-ivar">@target</span>, <span class="ruby-identifier">unwrapped</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Class</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">formatted</span> = <span class="ruby-node">&quot;#{@target.inspect} (class)&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">formatted</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">unwrapped</span>
+    <span class="ruby-node">&quot;#&lt;#{formatted}&gt;&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NilClass</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;nil&quot;</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-ivar">@target</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-method_call_args_description">
+            
+              <b>method_call_args_description</b>(args, generic_prefix=&quot; with arguments: &quot;, matcher_prefix=&quot; with &quot;)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-method_call_args_description" name="method-i-method_call_args_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-method_call_args_description_source')" id="l_method-i-method_call_args_description_source">show</a>
+                
+              </p>
+              <div id="method-i-method_call_args_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">method_call_args_description</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">generic_prefix</span>=<span class="ruby-string">&quot; with arguments: &quot;</span>, <span class="ruby-identifier">matcher_prefix</span>=<span class="ruby-string">&quot; with &quot;</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ArgumentMatchers</span><span class="ruby-operator">::</span><span class="ruby-constant">AnyArgsMatcher</span> <span class="ruby-keyword">then</span> <span class="ruby-node">&quot;#{matcher_prefix}any arguments&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ArgumentMatchers</span><span class="ruby-operator">::</span><span class="ruby-constant">NoArgsMatcher</span>  <span class="ruby-keyword">then</span> <span class="ruby-node">&quot;#{matcher_prefix}no arguments&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">yield</span>
+      <span class="ruby-node">&quot;#{generic_prefix}#{format_args(args)}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-opts">
+            
+              <b>opts</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-opts" name="method-i-opts" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-opts_source')" id="l_method-i-opts_source">show</a>
+                
+              </p>
+              <div id="method-i-opts_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">opts</span>
+  <span class="ruby-ivar">@opts</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_already_invoked_error">
+            
+              <b>raise_already_invoked_error</b>(message, calling_customization)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_already_invoked_error" name="method-i-raise_already_invoked_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_already_invoked_error_source')" id="l_method-i-raise_already_invoked_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_already_invoked_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_already_invoked_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">calling_customization</span>)
+  <span class="ruby-identifier">error_message</span> = <span class="ruby-node">&quot;The message expectation for #{intro}.#{message} has already been invoked &quot;</span> \
+    <span class="ruby-node">&quot;and cannot be modified further (e.g. using `#{calling_customization}`). All message expectation &quot;</span> \
+    <span class="ruby-string">&quot;customizations must be applied before it is used for the first time.&quot;</span>
+
+  <span class="ruby-identifier">notify</span> <span class="ruby-constant">MockExpectationAlreadyInvokedError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">error_message</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_cant_constrain_count_for_negated_have_received_error">
+            
+              <b>raise_cant_constrain_count_for_negated_have_received_error</b>(count_constraint)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_cant_constrain_count_for_negated_have_received_error" name="method-i-raise_cant_constrain_count_for_negated_have_received_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_cant_constrain_count_for_negated_have_received_error_source')" id="l_method-i-raise_cant_constrain_count_for_negated_have_received_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_cant_constrain_count_for_negated_have_received_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_cant_constrain_count_for_negated_have_received_error</span>(<span class="ruby-identifier">count_constraint</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;can&#39;t use #{count_constraint} when negative&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_double_negation_error">
+            
+              <b>raise_double_negation_error</b>(wrapped_expression)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_double_negation_error" name="method-i-raise_double_negation_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_double_negation_error_source')" id="l_method-i-raise_double_negation_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_double_negation_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_double_negation_error</span>(<span class="ruby-identifier">wrapped_expression</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-string">&quot;Isn&#39;t life confusing enough? You&#39;ve already set a &quot;</span> \
+          <span class="ruby-string">&quot;negative message expectation and now you are trying to &quot;</span> \
+          <span class="ruby-string">&quot;negate it again with `never`. What does an expression like &quot;</span> \
+          <span class="ruby-node">&quot;`#{wrapped_expression}.not_to receive(:msg).never` even mean?&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_expectation_error">
+            
+              <b>raise_expectation_error</b>(message, expected_received_count, argument_list_matcher, actual_received_count, expectation_count_type, args, backtrace_line=nil, source_id=nil)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_expectation_error" name="method-i-raise_expectation_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>rubocop:disable Metrics/ParameterLists @private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_expectation_error_source')" id="l_method-i-raise_expectation_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_expectation_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_expectation_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">argument_list_matcher</span>,
+                            <span class="ruby-identifier">actual_received_count</span>, <span class="ruby-identifier">expectation_count_type</span>, <span class="ruby-identifier">args</span>,
+                            <span class="ruby-identifier">backtrace_line</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">source_id</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">expected_part</span> = <span class="ruby-identifier">expected_part_of_expectation_error</span>(<span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">expectation_count_type</span>, <span class="ruby-identifier">argument_list_matcher</span>)
+  <span class="ruby-identifier">received_part</span> = <span class="ruby-identifier">received_part_of_expectation_error</span>(<span class="ruby-identifier">actual_received_count</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;(#{intro(:unwrapped)}).#{message}#{format_args(args)}\n    #{expected_part}\n    #{received_part}&quot;</span>, <span class="ruby-identifier">backtrace_line</span>, <span class="ruby-identifier">source_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_expectation_on_mocked_method">
+            
+              <b>raise_expectation_on_mocked_method</b>(method)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_expectation_on_mocked_method" name="method-i-raise_expectation_on_mocked_method" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_expectation_on_mocked_method_source')" id="l_method-i-raise_expectation_on_mocked_method_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_expectation_on_mocked_method_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_expectation_on_mocked_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} expected to have received #{method}, but that &quot;</span> \
+          <span class="ruby-string">&quot;method has been mocked instead of stubbed or spied.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_expectation_on_nil_error">
+            
+              <b>raise_expectation_on_nil_error</b>(method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_expectation_on_nil_error" name="method-i-raise_expectation_on_nil_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_expectation_on_nil_error_source')" id="l_method-i-raise_expectation_on_nil_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_expectation_on_nil_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_expectation_on_nil_error</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-identifier">expectation_on_nil_message</span>(<span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_expectation_on_unstubbed_method">
+            
+              <b>raise_expectation_on_unstubbed_method</b>(method)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_expectation_on_unstubbed_method" name="method-i-raise_expectation_on_unstubbed_method" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_expectation_on_unstubbed_method_source')" id="l_method-i-raise_expectation_on_unstubbed_method_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_expectation_on_unstubbed_method_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_expectation_on_unstubbed_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} expected to have received #{method}, but that &quot;</span> \
+          <span class="ruby-string">&quot;object is not a spy or method has not been stubbed.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_expired_test_double_error">
+            
+              <b>raise_expired_test_double_error</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_expired_test_double_error" name="method-i-raise_expired_test_double_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_expired_test_double_error_source')" id="l_method-i-raise_expired_test_double_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_expired_test_double_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_expired_test_double_error</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ExpiredTestDoubleError</span>,
+        <span class="ruby-node">&quot;#{intro} was originally created in one example but has leaked into &quot;</span> \
+        <span class="ruby-string">&quot;another example and can no longer be used. rspec-mocks&#39; doubles are &quot;</span> \
+        <span class="ruby-string">&quot;designed to only last for one example, and you need to create a new &quot;</span> \
+        <span class="ruby-string">&quot;one in each example you wish to use it for.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_have_received_disallowed">
+            
+              <b>raise_have_received_disallowed</b>(type, reason)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_have_received_disallowed" name="method-i-raise_have_received_disallowed" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_have_received_disallowed_source')" id="l_method-i-raise_have_received_disallowed_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_have_received_disallowed_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_have_received_disallowed</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">reason</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;Using #{type}(...) with the `have_received` &quot;</span> \
+          <span class="ruby-node">&quot;matcher is not supported#{reason}.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_invalid_arguments_error">
+            
+              <b>raise_invalid_arguments_error</b>(verifier)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_invalid_arguments_error" name="method-i-raise_invalid_arguments_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_invalid_arguments_error_source')" id="l_method-i-raise_invalid_arguments_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_invalid_arguments_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_invalid_arguments_error</span>(<span class="ruby-identifier">verifier</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-identifier">verifier</span>.<span class="ruby-identifier">error_message</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_method_not_stubbed_error">
+            
+              <b>raise_method_not_stubbed_error</b>(method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_method_not_stubbed_error" name="method-i-raise_method_not_stubbed_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_method_not_stubbed_error_source')" id="l_method-i-raise_method_not_stubbed_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_method_not_stubbed_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_method_not_stubbed_error</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;The method `#{method_name}` was not stubbed or was already unstubbed&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_missing_block_error">
+            
+              <b>raise_missing_block_error</b>(args_to_yield)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_missing_block_error" name="method-i-raise_missing_block_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_missing_block_error_source')" id="l_method-i-raise_missing_block_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_missing_block_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_missing_block_error</span>(<span class="ruby-identifier">args_to_yield</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} asked to yield |#{arg_list(args_to_yield)}| but no block was passed&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_missing_default_stub_error">
+            
+              <b>raise_missing_default_stub_error</b>(expectation, args_for_multiple_calls)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_missing_default_stub_error" name="method-i-raise_missing_default_stub_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_missing_default_stub_error_source')" id="l_method-i-raise_missing_default_stub_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_missing_default_stub_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_missing_default_stub_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>)
+  <span class="ruby-identifier">__raise</span>(
+    <span class="ruby-identifier">error_message</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>) <span class="ruby-operator">+</span>
+    <span class="ruby-string">&quot;\n Please stub a default value first if message might be received with other args as well. \n&quot;</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_non_public_error">
+            
+              <b>raise_non_public_error</b>(method_name, visibility)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_non_public_error" name="method-i-raise_non_public_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_non_public_error_source')" id="l_method-i-raise_non_public_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_non_public_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_non_public_error</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">visibility</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-string">&quot;%s method `%s&#39; called on %s&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">visibility</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">intro</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_only_valid_on_a_partial_double">
+            
+              <b>raise_only_valid_on_a_partial_double</b>(method)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_only_valid_on_a_partial_double" name="method-i-raise_only_valid_on_a_partial_double" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_only_valid_on_a_partial_double_source')" id="l_method-i-raise_only_valid_on_a_partial_double_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_only_valid_on_a_partial_double_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_only_valid_on_a_partial_double</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} is a pure test double. `#{method}` is only &quot;</span> \
+          <span class="ruby-string">&quot;available on a partial double.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_out_of_order_error">
+            
+              <b>raise_out_of_order_error</b>(message)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_out_of_order_error" name="method-i-raise_out_of_order_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_out_of_order_error_source')" id="l_method-i-raise_out_of_order_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_out_of_order_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_out_of_order_error</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received :#{message} out of order&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_similar_message_args_error">
+            
+              <b>raise_similar_message_args_error</b>(expectation, args_for_multiple_calls, backtrace_line=nil)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_similar_message_args_error" name="method-i-raise_similar_message_args_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_similar_message_args_error_source')" id="l_method-i-raise_similar_message_args_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_similar_message_args_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_similar_message_args_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>, <span class="ruby-identifier">backtrace_line</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-identifier">error_message</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>), <span class="ruby-identifier">backtrace_line</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_unexpected_message_args_error">
+            
+              <b>raise_unexpected_message_args_error</b>(expectation, args_for_multiple_calls, source_id=nil)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_unexpected_message_args_error" name="method-i-raise_unexpected_message_args_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_unexpected_message_args_error_source')" id="l_method-i-raise_unexpected_message_args_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_unexpected_message_args_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_unexpected_message_args_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>, <span class="ruby-identifier">source_id</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-identifier">error_message</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>), <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">source_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_unexpected_message_error">
+            
+              <b>raise_unexpected_message_error</b>(message, args)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_unexpected_message_error" name="method-i-raise_unexpected_message_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_unexpected_message_error_source')" id="l_method-i-raise_unexpected_message_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_unexpected_message_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_unexpected_message_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received unexpected message :#{message} with #{format_args(args)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_unimplemented_error">
+            
+              <b>raise_unimplemented_error</b>(doubled_module, method_name, object)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_unimplemented_error" name="method-i-raise_unimplemented_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_unimplemented_error_source')" id="l_method-i-raise_unimplemented_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_unimplemented_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_unimplemented_error</span>(<span class="ruby-identifier">doubled_module</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">message</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">object</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-constant">InstanceVerifyingDouble</span>
+              <span class="ruby-string">&quot;the %s class does not implement the instance method: %s&quot;</span>.<span class="ruby-identifier">dup</span> <span class="ruby-operator">&lt;&lt;</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-constant">ObjectMethodReference</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">doubled_module</span>, <span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">implemented?</span>
+                  <span class="ruby-string">&quot;. Perhaps you meant to use `class_double` instead?&quot;</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-string">&quot;&quot;</span>
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-constant">ClassVerifyingDouble</span>
+              <span class="ruby-string">&quot;the %s class does not implement the class method: %s&quot;</span>.<span class="ruby-identifier">dup</span> <span class="ruby-operator">&lt;&lt;</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-constant">InstanceMethodReference</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">doubled_module</span>, <span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">implemented?</span>
+                  <span class="ruby-string">&quot;. Perhaps you meant to use `instance_double` instead?&quot;</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-string">&quot;&quot;</span>
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-string">&quot;%s does not implement: %s&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">__raise</span> <span class="ruby-identifier">message</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">doubled_module</span>.<span class="ruby-identifier">description</span>, <span class="ruby-identifier">method_name</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_verifying_double_not_defined_error">
+            
+              <b>raise_verifying_double_not_defined_error</b>(ref)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_verifying_double_not_defined_error" name="method-i-raise_verifying_double_not_defined_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_verifying_double_not_defined_error_source')" id="l_method-i-raise_verifying_double_not_defined_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_verifying_double_not_defined_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_verifying_double_not_defined_error</span>(<span class="ruby-identifier">ref</span>)
+  <span class="ruby-identifier">notify</span>(<span class="ruby-constant">VerifyingDoubleNotDefinedError</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-node">&quot;#{ref.description.inspect} is not a defined constant. &quot;</span> \
+    <span class="ruby-string">&quot;Perhaps you misspelt it? &quot;</span> \
+    <span class="ruby-string">&quot;Disable check with `verify_doubled_constant_names` configuration option.&quot;</span>
+  ))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-raise_wrong_arity_error">
+            
+              <b>raise_wrong_arity_error</b>(args_to_yield, signature)
+            
+            <a href="../../../classes/RSpec/Mocks/ErrorGenerator.html#method-i-raise_wrong_arity_error" name="method-i-raise_wrong_arity_error" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-raise_wrong_arity_error_source')" id="l_method-i-raise_wrong_arity_error_source">show</a>
+                
+              </p>
+              <div id="method-i-raise_wrong_arity_error_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">raise_wrong_arity_error</span>(<span class="ruby-identifier">args_to_yield</span>, <span class="ruby-identifier">signature</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} yielded |#{arg_list(args_to_yield)}| to block with #{signature.description}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

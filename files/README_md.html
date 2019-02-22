@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>README.md</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            README.md
+        </h1>
+        <ul class="files">
+            <li>README.md</li>
+            <li>Last modified: 2019-02-22 15:37:18 +0000</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h1 id="label-Fourth+Dimensional">Fourth Dimensional</h1>
+
+<p>Fourth Dimensional is an event sourcing library to account for the state of a system in relation to time.</p>
+
+<p>This project is a lightweight dsl for commands and events for use with ActiveRecord. Eventually I&#39;d like it to support Sequel as well.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Add this line to your application&#39;s Gemfile:</p>
+
+<pre><code>gem &#39;fourth_dimensional&#39;
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install fourth_dimensional
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<p>This API is in flux, but here&#39;s the general idea.</p>
+
+<pre><code>class PostAdded &lt; FourthDimensional::Event
+  def title
+    data.fetch(&#39;title&#39;)
+  end
+
+  def body
+    data.fetch(&#39;body&#39;)
+  end
+
+  def published
+    data.fetch(&#39;published&#39;)
+  end
+end
+
+class AddPost &lt; FourthDimensional::Command
+  attributes :title, :body, :published
+  validates_presence_of :title, :body
+end
+
+class PostCommandHandler &lt; FourthDimensional::CommandHandler
+  on AddPost do |command|
+    with_aggregate(PostAggregate, command) do |post|
+      post.add(title: command.title,
+               body: command.body,
+               published: command.published)
+    end
+  end
+end
+
+class PostAggregate &lt; FourthDimensional::AggregateRoot
+  def add(title:, body:, published:)
+    apply(PostAdded,
+      data: {
+        title: title,
+        body: body,
+        published: published
+      }
+    )
+  end
+end
+
+class PostProjector &lt; FourthDimensional::RecordProjector
+  self.record_class = &#39;Post&#39;
+
+  on PostAdded do |event|
+    record.title = event.title
+    record.body = event.body
+    record.published = event.published
+  end
+end
+
+def main
+  FourthDimensional.configure do |config|
+    config.event_handlers = [
+      PostCommandHandler,
+      PostProjector
+    ]
+  end
+
+  aggregate_id = SecureRandom.uuid
+
+  command = AddPost.new(aggregate_id: aggregate_id,
+                        title: &#39;post-title&#39;,
+                        body: &#39;post-body&#39;,
+                        published: true)
+
+  # persists command and event if successful
+  FourthDimensional.execute_commands(command)
+
+  post = Post.find(aggregate_id)
+  expect(post.title).to eq(&#39;post-title&#39;)
+  expect(post.body).to eq(&#39;post-body&#39;)
+  expect(post.published).to be_truthy
+end
+</code></pre>
+
+<h2 id="label-Development">Development</h2>
+
+<p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run <code>rake spec</code> to run the tests. You can also run <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
+
+<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To release a new version, update the version number in <code>version.rb</code>, and then run <code>bundle exec rake release</code>, which will create a git tag for the version, push git commits and tags, and push the <code>.gem</code> file to <a href="https://rubygems.org">rubygems.org</a>.</p>
+
+<h2 id="label-Contributing"><a href="vendor/bundle/ruby/2_6_0/gems/diff-lcs-1_3/Contributing_md.html">Contributing</a></h2>
+
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/baylorrae/fourth_dimensional">github.com/baylorrae/fourth_dimensional</a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

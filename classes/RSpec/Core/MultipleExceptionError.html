@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::MultipleExceptionError</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::MultipleExceptionError">
+
+  
+    
+    <meta name="description" content="Provides a single exception instance that provides access to multiple sub-exceptions.">
+    <meta property="og:description" content="Provides a single exception instance that provides access to multiple sub-exceptions.">
+  
+
+    <meta name="keywords" content="RSpec::Core::MultipleExceptionError class">
+  
+    <meta name="keywords" content="new, message, summary, exception_count_description">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::MultipleExceptionError
+            
+                <span class="parent">&lt;
+                    
+                    StandardError
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/exception_presenter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Provides a single exception instance that provides access to multiple sub-exceptions. This is used in situations where a single individual spec has multiple exceptions, such as one in the `it` block and one in an `after` block.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="MultipleExceptionError/InterfaceTag.html">RSpec::Core::MultipleExceptionError::InterfaceTag</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-exception_count_description">exception_count_description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-message">message</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-summary">summary</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="MultipleExceptionError/InterfaceTag.html">
+              RSpec::Core::MultipleExceptionError::InterfaceTag
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>aggregation_block_label</td>
+            <td class='attr-desc'><p>@return [nil] Provided only for interface compatibility with</p>
+
+<pre><code>`RSpec::Expectations::MultipleExpectationsNotMetError`.
+</code></pre></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>aggregation_metadata</td>
+            <td class='attr-desc'><p>@return [Hash] <a href="Metadata.html"><code>Metadata</code></a> used by <a href="../../RSpec.html"><code>RSpec</code></a> for formatting purposes.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>all_exceptions</td>
+            <td class='attr-desc'><p>@return [Array&lt;Exception&gt;] The list of failures and other exceptions, combined.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>failures</td>
+            <td class='attr-desc'><p>@return [Array&lt;Exception&gt;] The list of failures.</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>other_errors</td>
+            <td class='attr-desc'><p>@return [Array&lt;Exception&gt;] The list of other errors.</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(*exceptions)
+            
+            <a href="../../../classes/RSpec/Core/MultipleExceptionError.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@param exceptions [Array&lt;Exception&gt;] The initial list of exceptions.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb, line 464</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">exceptions</span>)
+  <span class="ruby-keyword">super</span>()
+
+  <span class="ruby-ivar">@failures</span>                = []
+  <span class="ruby-ivar">@other_errors</span>            = []
+  <span class="ruby-ivar">@all_exceptions</span>          = []
+  <span class="ruby-ivar">@aggregation_metadata</span>    = { <span class="ruby-value">:hide_backtrace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span> }
+  <span class="ruby-ivar">@aggregation_block_label</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">exceptions</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add</span> <span class="ruby-identifier">e</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-exception_count_description">
+            
+              <b>exception_count_description</b>()
+            
+            <a href="../../../classes/RSpec/Core/MultipleExceptionError.html#method-i-exception_count_description" name="method-i-exception_count_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>return [String] A description of the failure/error counts.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-exception_count_description_source')" id="l_method-i-exception_count_description_source">show</a>
+                
+              </p>
+              <div id="method-i-exception_count_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb, line 489</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">exception_count_description</span>
+  <span class="ruby-identifier">failure_count</span> = <span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">pluralize</span>(<span class="ruby-identifier">failures</span>.<span class="ruby-identifier">size</span>, <span class="ruby-string">&quot;failure&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">failure_count</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">other_errors</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">error_count</span> = <span class="ruby-constant">Formatters</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">pluralize</span>(<span class="ruby-identifier">other_errors</span>.<span class="ruby-identifier">size</span>, <span class="ruby-string">&quot;other error&quot;</span>)
+  <span class="ruby-node">&quot;#{failure_count} and #{error_count}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-message">
+            
+              <b>message</b>()
+            
+            <a href="../../../classes/RSpec/Core/MultipleExceptionError.html#method-i-message" name="method-i-message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [String] Combines all the exception messages into a single string. @note <a href="../../RSpec.html"><code>RSpec</code></a> does not actually use this – instead it formats each exception</p>
+
+<pre><code>individually.
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-message_source')" id="l_method-i-message_source">show</a>
+                
+              </p>
+              <div id="method-i-message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">message</span>
+  <span class="ruby-identifier">all_exceptions</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:message</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-summary">
+            
+              <b>summary</b>()
+            
+            <a href="../../../classes/RSpec/Core/MultipleExceptionError.html#method-i-summary" name="method-i-summary" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@return [String] A summary of the failure, including the block label and a count of failures.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-summary_source')" id="l_method-i-summary_source">show</a>
+                
+              </p>
+              <div id="method-i-summary_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb, line 484</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summary</span>
+  <span class="ruby-node">&quot;Got #{exception_count_description}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

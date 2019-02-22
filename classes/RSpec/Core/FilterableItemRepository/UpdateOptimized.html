@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::FilterableItemRepository::UpdateOptimized</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::FilterableItemRepository::UpdateOptimized">
+
+  
+    
+    <meta name="description" content="This implementation is simple, and is optimized for frequent updates but rare queries.">
+    <meta property="og:description" content="This implementation is simple, and is optimized for frequent updates but rare queries.">
+  
+
+    <meta name="keywords" content="RSpec::Core::FilterableItemRepository::UpdateOptimized class">
+  
+    <meta name="keywords" content="new, append, prepend, delete, items_for">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::FilterableItemRepository::UpdateOptimized
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/metadata_filter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>This implementation is simple, and is optimized for frequent updates but rare queries. `append` and `prepend` do no extra processing, and no internal memoization is done, since this is not optimized for queries.</p>
+
+<p>This is ideal for use by a example or example group, which may be updated multiple times with globally configured hooks, etc, but will not be queried frequently by other examples or examle groups. @private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-append">append</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete">delete</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-items_for">items_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prepend">prepend</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>items_and_filters</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(applies_predicate)
+            
+            <a href="../../../../classes/RSpec/Core/FilterableItemRepository/UpdateOptimized.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">applies_predicate</span>)
+  <span class="ruby-ivar">@applies_predicate</span> = <span class="ruby-identifier">applies_predicate</span>
+  <span class="ruby-ivar">@items_and_filters</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-append">
+            
+              <b>append</b>(item, metadata)
+            
+            <a href="../../../../classes/RSpec/Core/FilterableItemRepository/UpdateOptimized.html#method-i-append" name="method-i-append" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-append_source')" id="l_method-i-append_source">show</a>
+                
+              </p>
+              <div id="method-i-append_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">append</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">metadata</span>)
+  <span class="ruby-ivar">@items_and_filters</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">item</span>, <span class="ruby-identifier">metadata</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+            
+              <b>delete</b>(item, metadata)
+            
+            <a href="../../../../classes/RSpec/Core/FilterableItemRepository/UpdateOptimized.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">metadata</span>)
+  <span class="ruby-ivar">@items_and_filters</span>.<span class="ruby-identifier">delete</span> [<span class="ruby-identifier">item</span>, <span class="ruby-identifier">metadata</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-items_for">
+            
+              <b>items_for</b>(request_meta)
+            
+            <a href="../../../../classes/RSpec/Core/FilterableItemRepository/UpdateOptimized.html#method-i-items_for" name="method-i-items_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-items_for_source')" id="l_method-i-items_for_source">show</a>
+                
+              </p>
+              <div id="method-i-items_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">items_for</span>(<span class="ruby-identifier">request_meta</span>)
+  <span class="ruby-ivar">@items_and_filters</span>.<span class="ruby-identifier">each_with_object</span>([]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">item_meta</span>), <span class="ruby-identifier">to_return</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">to_return</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">item_meta</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span>
+                         <span class="ruby-constant">MetadataFilter</span>.<span class="ruby-identifier">apply?</span>(<span class="ruby-ivar">@applies_predicate</span>, <span class="ruby-identifier">item_meta</span>, <span class="ruby-identifier">request_meta</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prepend">
+            
+              <b>prepend</b>(item, metadata)
+            
+            <a href="../../../../classes/RSpec/Core/FilterableItemRepository/UpdateOptimized.html#method-i-prepend" name="method-i-prepend" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-prepend_source')" id="l_method-i-prepend_source">show</a>
+                
+              </p>
+              <div id="method-i-prepend_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">prepend</span>(<span class="ruby-identifier">item</span>, <span class="ruby-identifier">metadata</span>)
+  <span class="ruby-ivar">@items_and_filters</span>.<span class="ruby-identifier">unshift</span> [<span class="ruby-identifier">item</span>, <span class="ruby-identifier">metadata</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

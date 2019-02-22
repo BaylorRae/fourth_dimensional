@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Matchers::BuiltIn::Change</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Matchers::BuiltIn::Change">
+
+  
+    
+    <meta name="description" content="@api private Provides the implementation for `change`. Not intended to be instantiated directly.">
+    <meta property="og:description" content="@api private Provides the implementation for `change`. Not intended to be instantiated directly.">
+  
+
+    <meta name="keywords" content="RSpec::Matchers::BuiltIn::Change class">
+  
+    <meta name="keywords" content="by, by_at_least, by_at_most, to, from, matches?, does_not_match?, failure_message, failure_message_when_negated, description, supports_block_expectations?, new">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Matchers::BuiltIn::Change
+            
+                <span class="parent">&lt;
+                    
+                    <a href="BaseMatcher.html">RSpec::Matchers::BuiltIn::BaseMatcher</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/change_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@api private Provides the implementation for `change`. Not intended to be instantiated directly.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-by">by</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-by_at_least">by_at_least</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-by_at_most">by_at_most</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-does_not_match-3F">does_not_match?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-failure_message">failure_message</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-failure_message_when_negated">failure_message_when_negated</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-from">from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-matches-3F">matches?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-supports_block_expectations-3F">supports_block_expectations?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to">to</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(receiver=nil, message=nil, &amp;block)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">receiver</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@receiver</span> = <span class="ruby-identifier">receiver</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">message</span>
+  <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-by">
+            
+              <b>by</b>(expected_delta)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-by" name="method-i-by" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Specifies the delta of the expected change.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-by_source')" id="l_method-i-by_source">show</a>
+                
+              </p>
+              <div id="method-i-by_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">by</span>(<span class="ruby-identifier">expected_delta</span>)
+  <span class="ruby-constant">ChangeRelatively</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">change_details</span>, <span class="ruby-identifier">expected_delta</span>, <span class="ruby-value">:by</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">actual_delta</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">values_match?</span>(<span class="ruby-identifier">expected_delta</span>, <span class="ruby-identifier">actual_delta</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-by_at_least">
+            
+              <b>by_at_least</b>(minimum)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-by_at_least" name="method-i-by_at_least" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Specifies a minimum delta of the expected change.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-by_at_least_source')" id="l_method-i-by_at_least_source">show</a>
+                
+              </p>
+              <div id="method-i-by_at_least_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">by_at_least</span>(<span class="ruby-identifier">minimum</span>)
+  <span class="ruby-constant">ChangeRelatively</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">change_details</span>, <span class="ruby-identifier">minimum</span>, <span class="ruby-value">:by_at_least</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">actual_delta</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">actual_delta</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">minimum</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-by_at_most">
+            
+              <b>by_at_most</b>(maximum)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-by_at_most" name="method-i-by_at_most" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Specifies a maximum delta of the expected change.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-by_at_most_source')" id="l_method-i-by_at_most_source">show</a>
+                
+              </p>
+              <div id="method-i-by_at_most_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">by_at_most</span>(<span class="ruby-identifier">maximum</span>)
+  <span class="ruby-constant">ChangeRelatively</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">change_details</span>, <span class="ruby-identifier">maximum</span>, <span class="ruby-value">:by_at_most</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">actual_delta</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">actual_delta</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">maximum</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-node">&quot;change #{change_details.value_representation}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-does_not_match-3F">
+            
+              <b>does_not_match?</b>(event_proc)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-does_not_match-3F" name="method-i-does_not_match-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-does_not_match-3F_source')" id="l_method-i-does_not_match-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-does_not_match-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">does_not_match?</span>(<span class="ruby-identifier">event_proc</span>)
+  <span class="ruby-identifier">raise_block_syntax_error</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">perform_change</span>(<span class="ruby-identifier">event_proc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">change_details</span>.<span class="ruby-identifier">changed?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message">
+            
+              <b>failure_message</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-failure_message" name="method-i-failure_message" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_source')" id="l_method-i-failure_message_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message</span>
+  <span class="ruby-node">&quot;expected #{change_details.value_representation} to have changed, &quot;</span> \
+  <span class="ruby-node">&quot;but #{positive_failure_reason}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-failure_message_when_negated">
+            
+              <b>failure_message_when_negated</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-failure_message_when_negated" name="method-i-failure_message_when_negated" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api private @return [String]</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-failure_message_when_negated_source')" id="l_method-i-failure_message_when_negated_source">show</a>
+                
+              </p>
+              <div id="method-i-failure_message_when_negated_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">failure_message_when_negated</span>
+  <span class="ruby-node">&quot;expected #{change_details.value_representation} not to have changed, &quot;</span> \
+  <span class="ruby-node">&quot;but #{negative_failure_reason}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-from">
+            
+              <b>from</b>(value)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-from" name="method-i-from" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Specifies the original value.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-from_source')" id="l_method-i-from_source">show</a>
+                
+              </p>
+              <div id="method-i-from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">ChangeFromValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">change_details</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-matches-3F">
+            
+              <b>matches?</b>(event_proc)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-matches-3F" name="method-i-matches-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-matches-3F_source')" id="l_method-i-matches-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-matches-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">matches?</span>(<span class="ruby-identifier">event_proc</span>)
+  <span class="ruby-identifier">raise_block_syntax_error</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">perform_change</span>(<span class="ruby-identifier">event_proc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">change_details</span>.<span class="ruby-identifier">changed?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-supports_block_expectations-3F">
+            
+              <b>supports_block_expectations?</b>()
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-supports_block_expectations-3F" name="method-i-supports_block_expectations-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-supports_block_expectations-3F_source')" id="l_method-i-supports_block_expectations-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-supports_block_expectations-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">supports_block_expectations?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to">
+            
+              <b>to</b>(value)
+            
+            <a href="../../../../classes/RSpec/Matchers/BuiltIn/Change.html#method-i-to" name="method-i-to" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@api public Specifies the new value you expect.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_source')" id="l_method-i-to_source">show</a>
+                
+              </p>
+              <div id="method-i-to_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">ChangeToValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">change_details</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::FilterRules</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::FilterRules">
+
+  
+    
+    <meta name="description" content="@private.">
+    <meta property="og:description" content="@private.">
+  
+
+    <meta name="keywords" content="RSpec::Core::FilterRules class">
+  
+    <meta name="keywords" content="build, new, add, add_with_low_priority, use_only, clear, delete, fetch, [], empty?, each_pair, description, include_example?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Core::FilterRules
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/filter_manager_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D">[]</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_with_low_priority">add_with_low_priority</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-build">build</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-clear">clear</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete">delete</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-each_pair">each_pair</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-empty-3F">empty?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-fetch">fetch</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-include_example-3F">include_example?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-use_only">use_only</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">PROC_HEX_NUMBER</td>
+            <td>=</td>
+            <td class="attr-value">/0x[0-9a-f]+@/</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">PROJECT_DIR</td>
+            <td>=</td>
+            <td class="attr-value">File.expand_path(&#39;.&#39;)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>opposite</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>rules</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-build">
+            
+              <b>build</b>()
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-c-build" name="method-c-build" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-build_source')" id="l_method-c-build_source">show</a>
+                
+              </p>
+              <div id="method-c-build_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">build</span>
+  <span class="ruby-identifier">exclusions</span> = <span class="ruby-constant">ExclusionRules</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">inclusions</span> = <span class="ruby-constant">InclusionRules</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">opposite</span> = <span class="ruby-identifier">inclusions</span>
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">opposite</span> = <span class="ruby-identifier">exclusions</span>
+  [<span class="ruby-identifier">exclusions</span>, <span class="ruby-identifier">inclusions</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(rules={})
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">rules</span>={})
+  <span class="ruby-ivar">@rules</span> = <span class="ruby-identifier">rules</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D">
+            
+              <b>[]</b>(key)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-5B-5D" name="method-i-5B-5D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-5B-5D_source')" id="l_method-i-5B-5D_source">show</a>
+                
+              </p>
+              <div id="method-i-5B-5D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@rules</span>[<span class="ruby-identifier">key</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>(updated)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add</span>(<span class="ruby-identifier">updated</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">updated</span>).<span class="ruby-identifier">each_key</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">opposite</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">k</span>) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_with_low_priority">
+            
+              <b>add_with_low_priority</b>(updated)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-add_with_low_priority" name="method-i-add_with_low_priority" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-add_with_low_priority_source')" id="l_method-i-add_with_low_priority_source">show</a>
+                
+              </p>
+              <div id="method-i-add_with_low_priority_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_with_low_priority</span>(<span class="ruby-identifier">updated</span>)
+  <span class="ruby-identifier">updated</span> = <span class="ruby-identifier">updated</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-ivar">@rules</span>)
+  <span class="ruby-identifier">opposite</span>.<span class="ruby-identifier">each_pair</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">updated</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">k</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">updated</span>[<span class="ruby-identifier">k</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">v</span> }
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">updated</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-clear">
+            
+              <b>clear</b>()
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-clear" name="method-i-clear" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-clear_source')" id="l_method-i-clear_source">show</a>
+                
+              </p>
+              <div id="method-i-clear_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear</span>
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete">
+            
+              <b>delete</b>(key)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-delete" name="method-i-delete" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-delete_source')" id="l_method-i-delete_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">inspect</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">PROC_HEX_NUMBER</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">PROJECT_DIR</span>, <span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39; (lambda)&#39;</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-each_pair">
+            
+              <b>each_pair</b>(&amp;block)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-each_pair" name="method-i-each_pair" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-each_pair_source')" id="l_method-i-each_pair_source">show</a>
+                
+              </p>
+              <div id="method-i-each_pair_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_pair</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">each_pair</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-empty-3F">
+            
+              <b>empty?</b>()
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-empty-3F" name="method-i-empty-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-empty-3F_source')" id="l_method-i-empty-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-empty-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty?</span>
+  <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-fetch">
+            
+              <b>fetch</b>(*args, &amp;block)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-fetch" name="method-i-fetch" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-fetch_source')" id="l_method-i-fetch_source">show</a>
+                
+              </p>
+              <div id="method-i-fetch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-include_example-3F">
+            
+              <b>include_example?</b>(example)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-include_example-3F" name="method-i-include_example-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-include_example-3F_source')" id="l_method-i-include_example-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-include_example-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">include_example?</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-constant">MetadataFilter</span>.<span class="ruby-identifier">apply?</span>(<span class="ruby-value">:any?</span>, <span class="ruby-ivar">@rules</span>, <span class="ruby-identifier">example</span>.<span class="ruby-identifier">metadata</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-use_only">
+            
+              <b>use_only</b>(updated)
+            
+            <a href="../../../classes/RSpec/Core/FilterRules.html#method-i-use_only" name="method-i-use_only" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-use_only_source')" id="l_method-i-use_only_source">show</a>
+                
+              </p>
+              <div id="method-i-use_only_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">use_only</span>(<span class="ruby-identifier">updated</span>)
+  <span class="ruby-identifier">updated</span>.<span class="ruby-identifier">each_key</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">opposite</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">k</span>) }
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">updated</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

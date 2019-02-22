@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::Comment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::Comment">
+
+  
+    
+    <meta name="description" content="A comment holds the text comment for a RDoc::CodeObject and provides a unified way of cleaning it up and parsing it into an RDoc::Markup::Document.">
+    <meta property="og:description" content="A comment holds the text comment for a RDoc::CodeObject and provides a unified way of cleaning it up and parsing it into an RDoc::Markup::Document.">
+  
+
+    <meta name="keywords" content="RDoc::Comment class">
+  
+    <meta name="keywords" content="new, extract_call_seq, empty?, encode!, format=, normalize, parse, remove_private, text=, tomdoc?">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::Comment
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/comment_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>A comment holds the text comment for a <a href="CodeObject.html"><code>RDoc::CodeObject</code></a> and provides a unified way of cleaning it up and parsing it into an <a href="Markup/Document.html"><code>RDoc::Markup::Document</code></a>.</p>
+
+<p>Each comment may have a different markup format set by <a href="Comment.html#method-i-format-3D"><code>format=</code></a>.  By default &#39;rdoc&#39; is used.  The :markup: directive tells <a href="../RDoc.html"><code>RDoc</code></a> which format to use.</p>
+
+<p>See <a href="Markup.html#label-Other+directives">Other directives at <code>RDoc::Markup</code></a> for instructions on adding an alternate format.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-empty-3F">empty?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-encode-21">encode!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_call_seq">extract_call_seq</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-format-3D">format=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-normalize">normalize</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parse">parse</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-remove_private">remove_private</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-text-3D">text=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-tomdoc-3F">tomdoc?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Text.html">
+              RDoc::Text
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>document</td>
+            <td class='attr-desc'><p>Overrides the content returned by <a href="Comment.html#method-i-parse"><code>parse</code></a>.  Use when there is no <a href="Comment.html#attribute-i-text"><code>text</code></a> source for this comment</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>file</td>
+            <td class='attr-desc'><p>The <a href="TopLevel.html"><code>RDoc::TopLevel</code></a> this comment was found in</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>format</td>
+            <td class='attr-desc'><p>The format of this comment.  Defaults to <a href="Markup.html"><code>RDoc::Markup</code></a></p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>location</td>
+            <td class='attr-desc'><p>The <a href="TopLevel.html"><code>RDoc::TopLevel</code></a> this comment was found in</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>text</td>
+            <td class='attr-desc'><p>The text for this comment</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(text = nil, location = nil)
+            
+            <a href="../../classes/RDoc/Comment.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Creates a new comment with <code>text</code> that is found in the <a href="TopLevel.html"><code>RDoc::TopLevel</code></a> <code>location</code>.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">text</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">location</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">location</span>
+  <span class="ruby-ivar">@text</span>     = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-ivar">@document</span>   = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@format</span>     = <span class="ruby-string">&#39;rdoc&#39;</span>
+  <span class="ruby-ivar">@normalized</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-empty-3F">
+            
+              <b>empty?</b>()
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-empty-3F" name="method-i-empty-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>A comment is empty if its text <a href="../String.html"><code>String</code></a> is empty.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-empty-3F_source')" id="l_method-i-empty-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-empty-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">empty?</span>
+  <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-encode-21">
+            
+              <b>encode!</b>(encoding)
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-encode-21" name="method-i-encode-21" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>HACK dubious</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-encode-21_source')" id="l_method-i-encode-21_source">show</a>
+                
+              </p>
+              <div id="method-i-encode-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encode!</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-comment"># TODO: Remove this condition after Ruby 2.2 EOL</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&lt;</span> <span class="ruby-string">&#39;2.3.0&#39;</span>
+    <span class="ruby-ivar">@text</span> = <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">force_encoding</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@text</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@text</span>, <span class="ruby-value">encoding:</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_call_seq">
+            
+              <b>extract_call_seq</b>(method)
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-extract_call_seq" name="method-i-extract_call_seq" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Look for a &#39;call-seq&#39; in the comment to override the normal parameter handling.  The :call-seq: is indented from the baseline.  All lines of the same indentation level and prefix are consumed.</p>
+
+<p>For example, all of the following will be used as the :call-seq:</p>
+
+<pre><code># :call-seq:
+#   ARGF.readlines(sep=$/)     -&gt; array
+#   ARGF.readlines(limit)      -&gt; array
+#   ARGF.readlines(sep, limit) -&gt; array
+#
+#   ARGF.to_a(sep=$/)     -&gt; array
+#   ARGF.to_a(limit)      -&gt; array
+#   ARGF.to_a(sep, limit) -&gt; array
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-extract_call_seq_source')" id="l_method-i-extract_call_seq_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_call_seq_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extract_call_seq</span> <span class="ruby-identifier">method</span>
+  <span class="ruby-comment"># we must handle situations like the above followed by an unindented first</span>
+  <span class="ruby-comment"># comment.  The difficulty is to make sure not to match lines starting</span>
+  <span class="ruby-comment"># with ARGF at the same indent, but that are after the first description</span>
+  <span class="ruby-comment"># paragraph.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@text</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\s*:?call-seq:(.*?(?:\S).*?)^\s*$/m</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">all_start</span>, <span class="ruby-identifier">all_stop</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">offset</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-identifier">seq_start</span>, <span class="ruby-identifier">seq_stop</span> = <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">offset</span>(<span class="ruby-value">1</span>)
+
+    <span class="ruby-comment"># we get the following lines that start with the leading word at the</span>
+    <span class="ruby-comment"># same indent, even if they have blank lines before</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-node">$1</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(^\s*\n)+^(\s*\w+)/m</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">leading</span> = <span class="ruby-node">$2</span> <span class="ruby-comment"># &#39; *    ARGF&#39; in the example above</span>
+      <span class="ruby-identifier">re</span> = <span class="ruby-regexp">%r%
+        \A(
+           (^\s*\n)+
+           (^#{Regexp.escape leading}.*?\n)+
+          )+
+        ^\s*$
+      %xm</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@text</span>[<span class="ruby-identifier">seq_stop</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">=~</span> <span class="ruby-identifier">re</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">all_stop</span> = <span class="ruby-identifier">seq_stop</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">offset</span>(<span class="ruby-value">0</span>).<span class="ruby-identifier">last</span>
+        <span class="ruby-identifier">seq_stop</span> = <span class="ruby-identifier">seq_stop</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">$~</span>.<span class="ruby-identifier">offset</span>(<span class="ruby-value">1</span>).<span class="ruby-identifier">last</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">seq</span> = <span class="ruby-ivar">@text</span>[<span class="ruby-identifier">seq_start</span><span class="ruby-operator">..</span><span class="ruby-identifier">seq_stop</span>]
+    <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/^\s*(\S|\n)/m</span>, <span class="ruby-string">&#39;\1&#39;</span>)
+    <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">slice!</span> <span class="ruby-identifier">all_start</span><span class="ruby-operator">...</span><span class="ruby-identifier">all_stop</span>
+
+    <span class="ruby-identifier">method</span>.<span class="ruby-identifier">call_seq</span> = <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">chomp</span>
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">regexp</span> = <span class="ruby-regexp">/^\s*:?call-seq:(.*?)(^\s*$|\z)/m</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">regexp</span> <span class="ruby-operator">=~</span> <span class="ruby-ivar">@text</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-ivar">@text</span> = <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">regexp</span>, <span class="ruby-string">&#39;&#39;</span>)
+      <span class="ruby-identifier">seq</span> = <span class="ruby-node">$1</span>
+      <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/^\s*/</span>, <span class="ruby-string">&#39;&#39;</span>)
+      <span class="ruby-identifier">method</span>.<span class="ruby-identifier">call_seq</span> = <span class="ruby-identifier">seq</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">method</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-format-3D">
+            
+              <b>format=</b>(format)
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-format-3D" name="method-i-format-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Sets the format of this comment and resets any parsed document</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-format-3D_source')" id="l_method-i-format-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-format-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">format=</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">format</span>
+  <span class="ruby-ivar">@document</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-normalize">
+            
+              <b>normalize</b>()
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-normalize" name="method-i-normalize" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Normalizes the text.  See <a href="Text.html#method-i-normalize_comment"><code>RDoc::Text#normalize_comment</code></a> for details</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-normalize_source')" id="l_method-i-normalize_source">show</a>
+                
+              </p>
+              <div id="method-i-normalize_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">normalize</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@text</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@normalized</span> <span class="ruby-comment"># TODO eliminate duplicate normalization</span>
+
+  <span class="ruby-ivar">@text</span> = <span class="ruby-identifier">normalize_comment</span> <span class="ruby-ivar">@text</span>
+
+  <span class="ruby-ivar">@normalized</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parse">
+            
+              <b>parse</b>()
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-parse" name="method-i-parse" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Parses the comment into an <a href="Markup/Document.html"><code>RDoc::Markup::Document</code></a>.  The parsed document is cached until the text is changed.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-parse_source')" id="l_method-i-parse_source">show</a>
+                
+              </p>
+              <div id="method-i-parse_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parse</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@document</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document</span>
+
+  <span class="ruby-ivar">@document</span> = <span class="ruby-keyword">super</span> <span class="ruby-ivar">@text</span>, <span class="ruby-ivar">@format</span>
+  <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">file</span> = <span class="ruby-ivar">@location</span>
+  <span class="ruby-ivar">@document</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_private">
+            
+              <b>remove_private</b>()
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-remove_private" name="method-i-remove_private" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Removes private sections from this comment.  Private sections are flush to the comment marker and start with <code>--</code> and end with <code>++</code>. For C-style comments, a private marker may not start at the opening of the comment.</p>
+
+<pre><code>*--
+* private
+*++
+* public
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-remove_private_source')" id="l_method-i-remove_private_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_private_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_private</span>
+  <span class="ruby-comment"># Workaround for gsub encoding for Ruby 1.9.2 and earlier</span>
+  <span class="ruby-identifier">empty</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">empty</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">change_encoding</span> <span class="ruby-identifier">empty</span>, <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">encoding</span>
+
+  <span class="ruby-ivar">@text</span> = <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r%^\s*([#*]?)--.*?^\s*(\1)\+\+\n?%m</span>, <span class="ruby-identifier">empty</span>)
+  <span class="ruby-ivar">@text</span> = <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r%^\s*[#*]?--.*%m</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-text-3D">
+            
+              <b>text=</b>(text)
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-text-3D" name="method-i-text-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Replaces this comment&#39;s text with <code>text</code> and resets the parsed document.</p>
+
+<p>An error is raised if the comment contains a document but no text.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-text-3D_source')" id="l_method-i-text-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-text-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">text=</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-string">&#39;replacing document-only comment is not allowed&#39;</span> <span class="ruby-keyword">if</span>
+    <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-ivar">@document</span>
+
+  <span class="ruby-ivar">@document</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tomdoc-3F">
+            
+              <b>tomdoc?</b>()
+            
+            <a href="../../classes/RDoc/Comment.html#method-i-tomdoc-3F" name="method-i-tomdoc-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns true if this comment is in TomDoc format.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-tomdoc-3F_source')" id="l_method-i-tomdoc-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-tomdoc-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/comment.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tomdoc?</span>
+  <span class="ruby-ivar">@format</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;tomdoc&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

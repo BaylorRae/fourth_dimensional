@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec">
+
+  
+    
+    <meta name="description" content="Namespace for all core RSpec code.  This is borrowed (slightly modified) from Scott Taylor&#39;s project_path project:  http://github.">
+    <meta property="og:description" content="Namespace for all core RSpec code.  This is borrowed (slightly modified) from Scott Taylor&#39;s project_path project:  http://github.">
+  
+
+    <meta name="keywords" content="RSpec class">
+  
+    <meta name="keywords" content="reset, clear_examples, configuration, configure, current_example, current_example=, world, const_missing">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-3_8_0/lib/rspec/version_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-3.8.0/lib/rspec/version.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/autorun_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/autorun.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/backtrace_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/backtrace_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/coordinator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/coordinator.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/example_minimizer_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/example_minimizer.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/fork_runner_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/fork_runner.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/server_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/server.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/shell_command_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_command.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/shell_runner_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/shell_runner.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/bisect/utilities_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/bisect/utilities.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/configuration_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/configuration.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/configuration_options_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/configuration_options.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/drb_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/drb.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/dsl_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/dsl.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/example_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/example_group_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example_group.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/example_status_persister_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/example_status_persister.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/filter_manager_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/filter_manager.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/flat_map_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/flat_map.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/base_bisect_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_bisect_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/base_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/base_text_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/base_text_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/bisect_drb_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_drb_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/bisect_progress_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/bisect_progress_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/console_codes_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/console_codes.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/deprecation_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/deprecation_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/documentation_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/documentation_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/exception_presenter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/exception_presenter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/fallback_message_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/fallback_message_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/helpers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/helpers.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/html_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/html_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/html_printer_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/html_printer.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/html_snippet_extractor_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/html_snippet_extractor.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/json_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/json_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/profile_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/profile_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/progress_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/progress_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/protocol_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/protocol.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/snippet_extractor_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/snippet_extractor.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/formatters/syntax_highlighter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/formatters/syntax_highlighter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/hooks_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/hooks.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/invocations_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/invocations.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/memoized_helpers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/memoized_helpers.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/metadata_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/metadata_filter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/metadata_filter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/minitest_assertions_adapter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/minitest_assertions_adapter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/mocking_adapters/flexmock_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/mocking_adapters/flexmock.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/mocking_adapters/mocha_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/mocking_adapters/mocha.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/mocking_adapters/null_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/mocking_adapters/null.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/mocking_adapters/rr_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/mocking_adapters/rr.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/mocking_adapters/rspec_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/mocking_adapters/rspec.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/notifications_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/notifications.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/option_parser_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/option_parser.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/ordering_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ordering.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/output_wrapper_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/output_wrapper.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/pending_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/pending.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/profiler_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/profiler.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/project_initializer_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/project_initializer.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/rake_task_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/rake_task.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/reporter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/reporter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/ruby_project_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/ruby_project.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/runner_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/runner.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/sandbox_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/sandbox.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/set_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/set.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/shared_context_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shared_context.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/shared_example_group_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shared_example_group.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/shell_escape_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shell_escape.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/test_unit_assertions_adapter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/test_unit_assertions_adapter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/version_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/version.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/warnings_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/warnings.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/world_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/world.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/block_snippet_extractor_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/block_snippet_extractor.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/configuration_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/configuration.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/expectation_target_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/expectation_target.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/fail_with_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/fail_with.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/failure_aggregator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/failure_aggregator.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/handler_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/handler.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/minitest_integration_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/minitest_integration.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/syntax_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/syntax.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/expectations/version_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/expectations/version.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/aliased_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/aliased_matcher.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/all_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/all.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/base_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/base_matcher.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_between_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_between.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_instance_of_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_instance_of.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_kind_of_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_kind_of.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/be_within_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/be_within.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/change_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/change.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/compound_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/compound.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/contain_exactly_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/contain_exactly.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/cover_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/cover.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/eq_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/eq.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/eql_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/eql.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/equal_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/equal.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/exist_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/exist.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/has_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/has.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/have_attributes_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/have_attributes.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/include_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/include.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/match_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/match.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/operators_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/operators.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/output_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/output.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/raise_error_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/raise_error.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/respond_to_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/respond_to.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/satisfy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/satisfy.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/start_or_end_with_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/start_or_end_with.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/throw_symbol_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/throw_symbol.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/built_in/yield_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/built_in/yield.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/composable_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/composable.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/dsl_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/dsl.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/english_phrasing_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/english_phrasing.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/expecteds_for_multiple_diffs_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/expecteds_for_multiple_diffs.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/fail_matchers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/fail_matchers.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/generated_descriptions_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/generated_descriptions.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/matcher_delegator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/matcher_delegator.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-expectations-3_8_2/lib/rspec/matchers/matcher_protocol_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-expectations-3.8.2/lib/rspec/matchers/matcher_protocol.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/error_generator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/error_generator.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/expect_chain_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/expect_chain_chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/expectation_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/expectation_chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/message_chains_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/message_chains.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/proxy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/proxy.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/recorder_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/recorder.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/stub_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/stub_chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/any_instance/stub_chain_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/any_instance/stub_chain_chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/argument_list_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/argument_list_matcher.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/argument_matchers_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/argument_matchers.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/configuration_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/configuration.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/error_generator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/error_generator.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/example_methods_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/example_methods.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/instance_method_stasher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/instance_method_stasher.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/marshal_extension_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/marshal_extension.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/matchers/expectation_customization_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/matchers/expectation_customization.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/matchers/have_received_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/matchers/have_received.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/matchers/receive_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/matchers/receive.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/matchers/receive_message_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/matchers/receive_message_chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/matchers/receive_messages_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/matchers/receive_messages.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/message_chain_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_chain.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/message_expectation_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/message_expectation.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/method_double_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_double.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/method_reference_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/minitest_integration_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/minitest_integration.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/mutate_const_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/mutate_const.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/object_reference_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/object_reference.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/order_group_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/order_group.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/proxy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/proxy.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/space_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/space.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/standalone_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/standalone.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/syntax_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/syntax.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/targets_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/targets.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/test_double_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/test_double.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/verifying_double_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_double.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/verifying_message_expectation_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_message_expectation.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/verifying_proxy_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/verifying_proxy.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/version_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/version.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/caller_filter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/caller_filter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/comparable_version_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/comparable_version.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/differ_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/differ.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/directory_maker_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/directory_maker.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/encoded_string_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/encoded_string.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/fuzzy_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/fuzzy_matcher.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/hunk_generator_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/hunk_generator.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/matcher_definition_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/matcher_definition.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/method_signature_verifier_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/mutex_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/mutex.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/object_formatter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/object_formatter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/recursive_const_methods_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/recursive_const_methods.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/reentrant_mutex_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/reentrant_mutex.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/ruby_features_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/ruby_features.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/location_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/location.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/node_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/node.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/source/token_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/source/token.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/formatting_support_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/formatting_support.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/in_sub_process_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/in_sub_process.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/library_wide_checks_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/library_wide_checks.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/shell_out_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/shell_out.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/stderr_splitter_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/stderr_splitter.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/string_matcher_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/string_matcher.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/spec/with_isolated_stderr_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/spec/with_isolated_stderr.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/version_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/version.rb</a></li>
+            
+            <li><a href="../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/warnings_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/warnings.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Namespace for all core <a href="RSpec.html"><code>RSpec</code></a> code.</p>
+
+<p>This is borrowed (slightly modified) from Scott Taylor&#39;s project_path project:</p>
+
+<pre><code>http://github.com/smtlaissezfaire/project_path
+</code></pre>
+
+<p>RSpec&#39;s top level namespace. All of rspec-expectations is contained in the `RSpec::Expectations` and `RSpec::Matchers` namespaces.</p>
+
+<p>Share the top-level <a href="RSpec.html"><code>RSpec</code></a> namespace, because we are a core supported extension.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RSpec/Core.html">RSpec::Core</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RSpec/ExampleGroups.html">RSpec::ExampleGroups</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RSpec/Expectations.html">RSpec::Expectations</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RSpec/Matchers.html">RSpec::Matchers</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RSpec/Mocks.html">RSpec::Mocks</a>
+        </li>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RSpec/Support.html">RSpec::Support</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="RSpec/CallerFilter.html">RSpec::CallerFilter</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-clear_examples">clear_examples</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-configuration">configuration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-configure">configure</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-const_missing">const_missing</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-current_example">current_example</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-current_example-3D">current_example=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-reset">reset</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-world">world</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">MODULES_TO_AUTOLOAD</td>
+            <td>=</td>
+            <td class="attr-value">{
+:Matchers     =&gt; &quot;rspec/expectations&quot;,
+:Expectations =&gt; &quot;rspec/expectations&quot;,
+:Mocks        =&gt; &quot;rspec/mocks&quot;
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SharedContext</td>
+            <td>=</td>
+            <td class="attr-value">Core::SharedContext</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>configuration</td>
+            <td class='attr-desc'><p>Setters for shared global objects @api private</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>world</td>
+            <td class='attr-desc'><p>Setters for shared global objects @api private</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-clear_examples">
+            
+              <b>clear_examples</b>()
+            
+            <a href="../classes/RSpec.html#method-c-clear_examples" name="method-c-clear_examples" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Used to ensure examples get reloaded between multiple runs in the same process and ensures user configuration is persisted.</p>
+
+<p>Users must invoke this if they want to clear all examples but preserve current configuration when they use the runner multiple times within the same process.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-clear_examples_source')" id="l_method-c-clear_examples_source">show</a>
+                
+              </p>
+              <div id="method-c-clear_examples_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">clear_examples</span>
+  <span class="ruby-identifier">world</span>.<span class="ruby-identifier">reset</span>
+  <span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">reset_reporter</span>
+  <span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">start_time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">reset_filters</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-configuration">
+            
+              <b>configuration</b>()
+            
+            <a href="../classes/RSpec.html#method-c-configuration" name="method-c-configuration" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns the global [Configuration](RSpec/Core/Configuration) object. While you <em>can</em> use this method to access the configuration, the more common convention is to use [RSpec.configure](RSpec#configure-class_method).</p>
+
+<p>@example</p>
+
+<pre><code>RSpec.configuration.drb_port = 1234
+</code></pre>
+
+<p>@see <a href="RSpec.html#method-c-configure"><code>RSpec.configure</code></a> @see <a href="RSpec/Core/Configuration.html"><code>Core::Configuration</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-configuration_source')" id="l_method-c-configuration_source">show</a>
+                
+              </p>
+              <div id="method-c-configuration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">configuration</span>
+  <span class="ruby-ivar">@configuration</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-configure">
+            
+              <b>configure</b>()
+            
+            <a href="../classes/RSpec.html#method-c-configure" name="method-c-configure" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Yields the global configuration to a block. @yield [Configuration] global configuration</p>
+
+<p>@example</p>
+
+<pre><code>RSpec.configure do |config|
+  config.add_formatter &#39;documentation&#39;
+end
+</code></pre>
+
+<p>@see <a href="RSpec/Core/Configuration.html"><code>Core::Configuration</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-configure_source')" id="l_method-c-configure_source">show</a>
+                
+              </p>
+              <div id="method-c-configure_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">configure</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">configuration</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-const_missing">
+            
+              <b>const_missing</b>(name)
+            
+            <a href="../classes/RSpec.html#method-c-const_missing" name="method-c-const_missing" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-const_missing_source')" id="l_method-c-const_missing_source">show</a>
+                
+              </p>
+              <div id="method-c-const_missing_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">const_missing</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-comment"># Load rspec-expectations when RSpec::Matchers is referenced. This allows</span>
+  <span class="ruby-comment"># people to define custom matchers (using `RSpec::Matchers.define`) before</span>
+  <span class="ruby-comment"># rspec-core has loaded rspec-expectations (since it delays the loading of</span>
+  <span class="ruby-comment"># it to allow users to configure a different assertion/expectation</span>
+  <span class="ruby-comment"># framework). `autoload` can&#39;t be used since it works with ruby&#39;s built-in</span>
+  <span class="ruby-comment"># require (e.g. for files that are available relative to a load path dir),</span>
+  <span class="ruby-comment"># but not with rubygems&#39; extended require.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># As of rspec 2.14.1, we no longer require `rspec/mocks` and</span>
+  <span class="ruby-comment"># `rspec/expectations` when `rspec` is required, so we want</span>
+  <span class="ruby-comment"># to make them available as an autoload.</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-constant">MODULES_TO_AUTOLOAD</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">name</span>) { <span class="ruby-keyword">return</span> <span class="ruby-keyword">super</span> }
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-current_example">
+            
+              <b>current_example</b>()
+            
+            <a href="../classes/RSpec.html#method-c-current_example" name="method-c-current_example" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>The example being executed.</p>
+
+<p>The primary audience for this method is library authors who need access to the example currently being executed and also want to support all versions of <a href="RSpec.html"><code>RSpec</code></a> 2 and 3.</p>
+
+<p>@example</p>
+
+<pre><code>RSpec.configure do |c|
+  # context.example is deprecated, but RSpec.current_example is not
+  # available until RSpec 3.0.
+  fetch_current_example = RSpec.respond_to?(:current_example) ?
+    proc { RSpec.current_example } : proc { |context| context.example }
+
+  c.before(:example) do
+    example = fetch_current_example.call(self)
+
+    # ...
+  end
+end
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-current_example_source')" id="l_method-c-current_example_source">show</a>
+                
+              </p>
+              <div id="method-c-current_example_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">current_example</span>
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span>.<span class="ruby-identifier">thread_local_data</span>[<span class="ruby-value">:current_example</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-current_example-3D">
+            
+              <b>current_example=</b>(example)
+            
+            <a href="../classes/RSpec.html#method-c-current_example-3D" name="method-c-current_example-3D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Set the current example being executed. @api private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-current_example-3D_source')" id="l_method-c-current_example-3D_source">show</a>
+                
+              </p>
+              <div id="method-c-current_example-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">current_example=</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span>.<span class="ruby-identifier">thread_local_data</span>[<span class="ruby-value">:current_example</span>] = <span class="ruby-identifier">example</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-reset">
+            
+              <b>reset</b>()
+            
+            <a href="../classes/RSpec.html#method-c-reset" name="method-c-reset" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Used to ensure examples get reloaded and user configuration gets reset to defaults between multiple runs in the same process.</p>
+
+<p>Users must invoke this if they want to have the configuration reset when they use the runner multiple times within the same process. Users must deal themselves with re-configuration of <a href="RSpec.html"><code>RSpec</code></a> before run.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-reset_source')" id="l_method-c-reset_source">show</a>
+                
+              </p>
+              <div id="method-c-reset_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">reset</span>
+  <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">ExampleGroups</span>.<span class="ruby-identifier">remove_all_constants</span>
+  <span class="ruby-ivar">@world</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@configuration</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-world">
+            
+              <b>world</b>()
+            
+            <a href="../classes/RSpec.html#method-c-world" name="method-c-world" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private Internal container for global non-configuration data.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-world_source')" id="l_method-c-world_source">show</a>
+                
+              </p>
+              <div id="method-c-world_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">world</span>
+  <span class="ruby-ivar">@world</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">World</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

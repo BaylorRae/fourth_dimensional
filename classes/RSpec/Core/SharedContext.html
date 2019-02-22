@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Core::SharedContext</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Core::SharedContext">
+
+  
+    
+    <meta name="description" content="Exposes {ExampleGroup}-level methods to a module, so you can include that module in an {ExampleGroup}.">
+    <meta property="og:description" content="Exposes {ExampleGroup}-level methods to a module, so you can include that module in an {ExampleGroup}.">
+  
+
+    <meta name="keywords" content="RSpec::Core::SharedContext class">
+  
+    <meta name="keywords" content="included, __shared_context_recordings, record">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span>
+            RSpec::Core::SharedContext
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-core-3_8_0/lib/rspec/core/shared_context_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shared_context.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Exposes {ExampleGroup}-level methods to a module, so you can include that module in an {ExampleGroup}.</p>
+
+<p>@example</p>
+
+<pre><code>module LoggedInAsAdmin
+  extend RSpec::Core::SharedContext
+  before(:example) do
+    log_in_as :admin
+  end
+end
+
+describe &quot;admin section&quot; do
+  include LoggedInAsAdmin
+  # ...
+end
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-__shared_context_recordings">__shared_context_recordings</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-included">included</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-record">record</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">Recording</td>
+            <td>=</td>
+            <td class="attr-value">Struct.new(:method_name, :args, :block) do
+def playback_onto(group)
+group.__send__(method_name, *args, &amp;block)
+end
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>@private</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-record">
+            
+              <b>record</b>(methods)
+            
+            <a href="../../../classes/RSpec/Core/SharedContext.html#method-c-record" name="method-c-record" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-record_source')" id="l_method-c-record_source">show</a>
+                
+              </p>
+              <div id="method-c-record_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shared_context.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">record</span>(<span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">meth</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">meth</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">__shared_context_recordings</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Recording</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">meth</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-__shared_context_recordings">
+            
+              <b>__shared_context_recordings</b>()
+            
+            <a href="../../../classes/RSpec/Core/SharedContext.html#method-i-__shared_context_recordings" name="method-i-__shared_context_recordings" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-__shared_context_recordings_source')" id="l_method-i-__shared_context_recordings_source">show</a>
+                
+              </p>
+              <div id="method-i-__shared_context_recordings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shared_context.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">__shared_context_recordings</span>
+  <span class="ruby-ivar">@__shared_context_recordings</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-included">
+            
+              <b>included</b>(group)
+            
+            <a href="../../../classes/RSpec/Core/SharedContext.html#method-i-included" name="method-i-included" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>@private</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-included_source')" id="l_method-i-included_source">show</a>
+                
+              </p>
+              <div id="method-i-included_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-core-3.8.0/lib/rspec/core/shared_context.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">included</span>(<span class="ruby-identifier">group</span>)
+  <span class="ruby-identifier">__shared_context_recordings</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">recording</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">recording</span>.<span class="ruby-identifier">playback_onto</span>(<span class="ruby-identifier">group</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

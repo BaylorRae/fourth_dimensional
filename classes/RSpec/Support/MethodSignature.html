@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Support::MethodSignature</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Support::MethodSignature">
+
+  
+    
+    <meta name="description" content="Extracts info about the number of arguments and allowed/required keyword args of a given method.">
+    <meta property="og:description" content="Extracts info about the number of arguments and allowed/required keyword args of a given method.">
+  
+
+    <meta name="keywords" content="RSpec::Support::MethodSignature class">
+  
+    <meta name="keywords" content="new, non_kw_args_arity_description, valid_non_kw_args?, classify_arity, description, missing_kw_args_from, invalid_kw_args_from, has_kw_args_in?, could_contain_kw_args?, arbitrary_kw_args?, unlimited_args?, classify_parameters">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Support::MethodSignature
+            
+                <span class="parent">&lt;
+                    
+                    remove_const(:MethodSignature)
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-support-3_8_0/lib/rspec/support/method_signature_verifier_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Extracts info about the number of arguments and allowed/required keyword args of a given method.</p>
+
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-arbitrary_kw_args-3F">arbitrary_kw_args?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-classify_arity">classify_arity</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-classify_parameters">classify_parameters</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-could_contain_kw_args-3F">could_contain_kw_args?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-description">description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-has_kw_args_in-3F">has_kw_args_in?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-invalid_kw_args_from">invalid_kw_args_from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-missing_kw_args_from">missing_kw_args_from</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-non_kw_args_arity_description">non_kw_args_arity_description</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unlimited_args-3F">unlimited_args?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-valid_non_kw_args-3F">valid_non_kw_args?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">INFINITY</td>
+            <td>=</td>
+            <td class="attr-value">1 / 0.0</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>max_non_kw_args</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>min_non_kw_args</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>optional_kw_args</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>required_kw_args</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(method)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-ivar">@method</span>           = <span class="ruby-identifier">method</span>
+  <span class="ruby-ivar">@optional_kw_args</span> = []
+  <span class="ruby-ivar">@required_kw_args</span> = []
+  <span class="ruby-identifier">classify_parameters</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-arbitrary_kw_args-3F">
+            
+              <b>arbitrary_kw_args?</b>()
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-arbitrary_kw_args-3F" name="method-i-arbitrary_kw_args-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-arbitrary_kw_args-3F_source')" id="l_method-i-arbitrary_kw_args-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-arbitrary_kw_args-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">arbitrary_kw_args?</span>
+  <span class="ruby-ivar">@allows_any_kw_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-classify_arity">
+            
+              <b>classify_arity</b>(arity=@method.arity)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-classify_arity" name="method-i-classify_arity" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-classify_arity_source')" id="l_method-i-classify_arity_source">show</a>
+                
+              </p>
+              <div id="method-i-classify_arity_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">classify_arity</span>(<span class="ruby-identifier">arity</span>=<span class="ruby-ivar">@method</span>.<span class="ruby-identifier">arity</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arity</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-comment"># `~` inverts the one&#39;s complement and gives us the</span>
+    <span class="ruby-comment"># number of required args</span>
+    <span class="ruby-ivar">@min_non_kw_args</span> = <span class="ruby-operator">~</span><span class="ruby-identifier">arity</span>
+    <span class="ruby-ivar">@max_non_kw_args</span> = <span class="ruby-constant">INFINITY</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@min_non_kw_args</span> = <span class="ruby-identifier">arity</span>
+    <span class="ruby-ivar">@max_non_kw_args</span> = <span class="ruby-identifier">arity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-classify_parameters">
+            
+              <b>classify_parameters</b>()
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-classify_parameters" name="method-i-classify_parameters" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-classify_parameters_source')" id="l_method-i-classify_parameters_source">show</a>
+                
+              </p>
+              <div id="method-i-classify_parameters_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">classify_parameters</span>
+  <span class="ruby-identifier">optional_non_kw_args</span> = <span class="ruby-ivar">@min_non_kw_args</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@allows_any_kw_args</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">name</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+    <span class="ruby-comment"># def foo(a:)</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:keyreq</span>  <span class="ruby-keyword">then</span> <span class="ruby-ivar">@required_kw_args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-comment"># def foo(a: 1)</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:key</span>     <span class="ruby-keyword">then</span> <span class="ruby-ivar">@optional_kw_args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-comment"># def foo(**kw_args)</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:keyrest</span> <span class="ruby-keyword">then</span> <span class="ruby-ivar">@allows_any_kw_args</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-comment"># def foo(a)</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:req</span>     <span class="ruby-keyword">then</span> <span class="ruby-ivar">@min_non_kw_args</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># def foo(a = 1)</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:opt</span>     <span class="ruby-keyword">then</span> <span class="ruby-identifier">optional_non_kw_args</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># def foo(*a)</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:rest</span>    <span class="ruby-keyword">then</span> <span class="ruby-identifier">optional_non_kw_args</span> = <span class="ruby-constant">INFINITY</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@max_non_kw_args</span> = <span class="ruby-ivar">@min_non_kw_args</span>  <span class="ruby-operator">+</span> <span class="ruby-identifier">optional_non_kw_args</span>
+  <span class="ruby-ivar">@allowed_kw_args</span> = <span class="ruby-ivar">@required_kw_args</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@optional_kw_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-could_contain_kw_args-3F">
+            
+              <b>could_contain_kw_args?</b>(args)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-could_contain_kw_args-3F" name="method-i-could_contain_kw_args-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Without considering what the last arg is, could it contain keyword arguments?</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-could_contain_kw_args-3F_source')" id="l_method-i-could_contain_kw_args-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-could_contain_kw_args-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">could_contain_kw_args?</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">min_non_kw_args</span>
+  <span class="ruby-ivar">@allows_any_kw_args</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@allowed_kw_args</span>.<span class="ruby-identifier">any?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-description">
+            
+              <b>description</b>()
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-description" name="method-i-description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-description_source')" id="l_method-i-description_source">show</a>
+                
+              </p>
+              <div id="method-i-description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">description</span>
+  <span class="ruby-ivar">@description</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">parts</span> = []
+
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">non_kw_args_arity_description</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;0&quot;</span>
+      <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;arity of #{non_kw_args_arity_description}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@optional_kw_args</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;optional keyword args (#{@optional_kw_args.map(&amp;:inspect).join(&quot;, &quot;)})&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@required_kw_args</span>.<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;required keyword args (#{@required_kw_args.map(&amp;:inspect).join(&quot;, &quot;)})&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;any additional keyword args&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@allows_any_kw_args</span>
+
+    <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; and &quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-has_kw_args_in-3F">
+            
+              <b>has_kw_args_in?</b>(args)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-has_kw_args_in-3F" name="method-i-has_kw_args_in-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-has_kw_args_in-3F_source')" id="l_method-i-has_kw_args_in-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-has_kw_args_in-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">has_kw_args_in?</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">could_contain_kw_args?</span>(<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-invalid_kw_args_from">
+            
+              <b>invalid_kw_args_from</b>(given_kw_args)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-invalid_kw_args_from" name="method-i-invalid_kw_args_from" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-invalid_kw_args_from_source')" id="l_method-i-invalid_kw_args_from_source">show</a>
+                
+              </p>
+              <div id="method-i-invalid_kw_args_from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">invalid_kw_args_from</span>(<span class="ruby-identifier">given_kw_args</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@allows_any_kw_args</span>
+  <span class="ruby-identifier">given_kw_args</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@allowed_kw_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-missing_kw_args_from">
+            
+              <b>missing_kw_args_from</b>(given_kw_args)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-missing_kw_args_from" name="method-i-missing_kw_args_from" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-missing_kw_args_from_source')" id="l_method-i-missing_kw_args_from_source">show</a>
+                
+              </p>
+              <div id="method-i-missing_kw_args_from_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">missing_kw_args_from</span>(<span class="ruby-identifier">given_kw_args</span>)
+  <span class="ruby-ivar">@required_kw_args</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">given_kw_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-non_kw_args_arity_description">
+            
+              <b>non_kw_args_arity_description</b>()
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-non_kw_args_arity_description" name="method-i-non_kw_args_arity_description" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-non_kw_args_arity_description_source')" id="l_method-i-non_kw_args_arity_description_source">show</a>
+                
+              </p>
+              <div id="method-i-non_kw_args_arity_description_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">non_kw_args_arity_description</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">max_non_kw_args</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">min_non_kw_args</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">min_non_kw_args</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">INFINITY</span> <span class="ruby-keyword">then</span> <span class="ruby-node">&quot;#{min_non_kw_args} or more&quot;</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-node">&quot;#{min_non_kw_args} to #{max_non_kw_args}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unlimited_args-3F">
+            
+              <b>unlimited_args?</b>()
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-unlimited_args-3F" name="method-i-unlimited_args-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-unlimited_args-3F_source')" id="l_method-i-unlimited_args-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-unlimited_args-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unlimited_args?</span>
+  <span class="ruby-ivar">@max_non_kw_args</span> <span class="ruby-operator">==</span> <span class="ruby-constant">INFINITY</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-valid_non_kw_args-3F">
+            
+              <b>valid_non_kw_args?</b>(positional_arg_count, optional_max_arg_count=positional_arg_count)
+            
+            <a href="../../../classes/RSpec/Support/MethodSignature.html#method-i-valid_non_kw_args-3F" name="method-i-valid_non_kw_args-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-valid_non_kw_args-3F_source')" id="l_method-i-valid_non_kw_args-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-valid_non_kw_args-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-support-3.8.0/lib/rspec/support/method_signature_verifier.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_non_kw_args?</span>(<span class="ruby-identifier">positional_arg_count</span>, <span class="ruby-identifier">optional_max_arg_count</span>=<span class="ruby-identifier">positional_arg_count</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">positional_arg_count</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">min_non_kw_args</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">positional_arg_count</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">optional_max_arg_count</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">max_non_kw_args</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

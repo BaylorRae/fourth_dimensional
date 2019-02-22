@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RSpec::Mocks::MethodReference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RSpec::Mocks::MethodReference">
+
+  
+    
+    <meta name="description" content="Represents a method on an object that may or may not be defined. The method may be an instance method on a module or a method on any object.">
+    <meta property="og:description" content="Represents a method on an object that may or may not be defined. The method may be an instance method on a module or a method on any object.">
+  
+
+    <meta name="keywords" content="RSpec::Mocks::MethodReference class">
+  
+    <meta name="keywords" content="for, new, implemented?, unimplemented?, defined?, with_signature, visibility, instance_method_visibility_for, method_defined_at_any_visibility?, method_visibility_for">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RSpec::Mocks::MethodReference
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../../Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rspec-mocks-3_8_0/lib/rspec/mocks/method_reference_rb.html">vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Represents a method on an object that may or may not be defined. The method may be an instance method on a module or a method on any object.</p>
+
+<p>@private</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-defined-3F">defined?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-for">for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-implemented-3F">implemented?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-instance_method_visibility_for">instance_method_visibility_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-method_defined_at_any_visibility-3F">method_defined_at_any_visibility?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-method_visibility_for">method_visibility_for</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unimplemented-3F">unimplemented?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-visibility">visibility</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-with_signature">with_signature</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-for">
+            
+              <b>for</b>(object_reference, method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-c-for" name="method-c-for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-for_source')" id="l_method-c-for_source">show</a>
+                
+              </p>
+              <div id="method-c-for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-keyword">for</span>(<span class="ruby-identifier ruby-title">object_reference</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">object_reference</span>, <span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-instance_method_visibility_for">
+            
+              <b>instance_method_visibility_for</b>(klass, method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-c-instance_method_visibility_for" name="method-c-instance_method_visibility_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+            <div class="aka">
+              Also aliased as: <a href="MethodReference.html#method-c-method_defined_at_any_visibility-3F">method_defined_at_any_visibility?</a>
+            </div>
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-instance_method_visibility_for_source')" id="l_method-c-instance_method_visibility_for_source">show</a>
+                
+              </p>
+              <div id="method-c-instance_method_visibility_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">instance_method_visibility_for</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">public_method_defined?</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-value">:public</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-value">:private</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">protected_method_defined?</span>(<span class="ruby-identifier">method_name</span>)
+    <span class="ruby-value">:protected</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-method_defined_at_any_visibility-3F">
+            
+              <b>method_defined_at_any_visibility?</b>(klass, method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-c-method_defined_at_any_visibility-3F" name="method-c-method_defined_at_any_visibility-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="MethodReference.html#method-c-instance_method_visibility_for">instance_method_visibility_for</a>
+            </div>
+          
+
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-method_visibility_for">
+            
+              <b>method_visibility_for</b>(object, method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-c-method_visibility_for" name="method-c-method_visibility_for" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-method_visibility_for_source')" id="l_method-c-method_visibility_for_source">show</a>
+                
+              </p>
+              <div id="method-c-method_visibility_for_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">method_visibility_for</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">vis</span> = <span class="ruby-identifier">instance_method_visibility_for</span>(<span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">object</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>, <span class="ruby-identifier">method_name</span>)
+
+  <span class="ruby-comment"># If the method is not defined on the class, `instance_method_visibility_for`</span>
+  <span class="ruby-comment"># returns `nil`. However, it may be handled dynamically by `method_missing`,</span>
+  <span class="ruby-comment"># so here we check `respond_to` (passing false to not check private methods).</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># This only considers the public case, but I don&#39;t think it&#39;s possible to</span>
+  <span class="ruby-comment"># write `method_missing` in such a way that it handles a dynamic message</span>
+  <span class="ruby-comment"># with private or protected visibility. Ruby doesn&#39;t provide you with</span>
+  <span class="ruby-comment"># the caller info.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">vis</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">vis</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">proxy</span> = <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.<span class="ruby-identifier">proxy_for</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">respond_to</span> = <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">method_double_if_exists_for_message</span>(<span class="ruby-value">:respond_to?</span>)
+
+  <span class="ruby-identifier">visible</span> = <span class="ruby-identifier">respond_to</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">respond_to</span>.<span class="ruby-identifier">original_method</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">method_name</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">object</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method_name</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:public</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">visible</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(object_reference, method_name)
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">object_reference</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-ivar">@object_reference</span> = <span class="ruby-identifier">object_reference</span>
+  <span class="ruby-ivar">@method_name</span> = <span class="ruby-identifier">method_name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-defined-3F">
+            
+              <b>defined?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-i-defined-3F" name="method-i-defined-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>A method is defined if we are able to get a `Method` object for it. In that case, we can assert against metadata like the arity.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-defined-3F_source')" id="l_method-i-defined-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-defined-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">defined?</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier ruby-title">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-implemented-3F">
+            
+              <b>implemented?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-i-implemented-3F" name="method-i-implemented-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>A method is implemented if sending the message does not result in a `NoMethodError`. It might be dynamically implemented by `method_missing`.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-implemented-3F_source')" id="l_method-i-implemented-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-implemented-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">implemented?</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">method_implemented?</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unimplemented-3F">
+            
+              <b>unimplemented?</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-i-unimplemented-3F" name="method-i-unimplemented-3F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Returns true if we definitively know that sending the method will result in a `NoMethodError`.</p>
+
+<p>This is not simply the inverse of `implemented?`: there are cases when we don&#39;t know if a method is implemented and both `implemented?` and `unimplemented?` will return false.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-unimplemented-3F_source')" id="l_method-i-unimplemented-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-unimplemented-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unimplemented?</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_m</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-identifier">implemented?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># If it&#39;s not loaded, then it may be implemented but we can&#39;t check.</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-visibility">
+            
+              <b>visibility</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-i-visibility" name="method-i-visibility" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-visibility_source')" id="l_method-i-visibility_source">show</a>
+                
+              </p>
+              <div id="method-i-visibility_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">visibility</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">visibility_from</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># When it&#39;s not loaded, assume it&#39;s public. We don&#39;t want to</span>
+  <span class="ruby-comment"># wrongly treat the method as private.</span>
+  <span class="ruby-value">:public</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-with_signature">
+            
+              <b>with_signature</b>()
+            
+            <a href="../../../classes/RSpec/Mocks/MethodReference.html#method-i-with_signature" name="method-i-with_signature" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-with_signature_source')" id="l_method-i-with_signature_source">show</a>
+                
+              </p>
+              <div id="method-i-with_signature_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rspec-mocks-3.8.0/lib/rspec/mocks/method_reference.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with_signature</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">original</span> = <span class="ruby-identifier">original_method</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodSignature</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">original</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>

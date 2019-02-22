@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>RDoc::RI::Task</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RDoc::RI::Task">
+
+  
+    
+    <meta name="description" content="RDoc::RI::Task creates ri data in ./.rdoc for your project.  It contains the following tasks: ri  Build ri data clobber_ri  Delete ri data files.">
+    <meta property="og:description" content="RDoc::RI::Task creates ri data in ./.rdoc for your project.  It contains the following tasks: ri  Build ri data clobber_ri  Delete ri data files.">
+  
+
+    <meta name="keywords" content="RDoc::RI::Task class">
+  
+    <meta name="keywords" content="new, defaults">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RDoc::RI::Task
+            
+                <span class="parent">&lt;
+                    
+                    <a href="../Task.html">RDoc::Task</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/vendor/bundle/ruby/2_6_0/gems/rdoc-6_1_1/lib/rdoc/ri/task_rb.html">vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/ri/task.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="Task.html"><code>RDoc::RI::Task</code></a> creates ri data in <code>./.rdoc</code> for your project.</p>
+
+<p>It contains the following tasks:</p>
+<dl class="rdoc-list label-list"><dt>ri
+<dd>
+<p>Build ri data</p>
+</dd><dt>clobber_ri
+<dd>
+<p>Delete ri data files.  This target is automatically added to the main clobber target.</p>
+</dd><dt>reri
+<dd>
+<p>Rebuild the ri data from scratch even if they are not out of date.</p>
+</dd></dl>
+
+<p>Simple example:</p>
+
+<pre><code>require &#39;rdoc/ri/task&#39;
+
+RDoc::RI::Task.new do |ri|
+  ri.main = &#39;README.rdoc&#39;
+  ri.rdoc_files.include &#39;README.rdoc&#39;, &#39;lib   /*.rb&#39;
+end
+</code></pre>
+
+<p>For further configuration details see <a href="../Task.html"><code>RDoc::Task</code></a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-defaults">defaults</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(name = DEFAULT_NAMES)
+            
+            <a href="../../../classes/RDoc/RI/Task.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Create an ri task with the given name. See <a href="../Task.html"><code>RDoc::Task</code></a> for documentation on setting names.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/ri/task.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span> <span class="ruby-identifier">name</span> = <span class="ruby-constant">DEFAULT_NAMES</span> <span class="ruby-comment"># :yield: self</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-defaults">
+            
+              <b>defaults</b>()
+            
+            <a href="../../../classes/RDoc/RI/Task.html#method-i-defaults" name="method-i-defaults" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Sets default task values</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-defaults_source')" id="l_method-i-defaults_source">show</a>
+                
+              </p>
+              <div id="method-i-defaults_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.6.0/gems/rdoc-6.1.1/lib/rdoc/ri/task.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">defaults</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-ivar">@rdoc_dir</span> = <span class="ruby-string">&#39;.rdoc&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
