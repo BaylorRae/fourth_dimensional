@@ -9,6 +9,7 @@ RDoc::Task.new do |rdoc|
   rdoc.rdoc_dir = 'doc'
   rdoc.options << '--format=sdoc'
   rdoc.main = 'README.md'
+  rdoc.rdoc_files.include('README.md', 'lib/**/*.rb')
 end
 
 task :default => [:spec, :rdoc]
