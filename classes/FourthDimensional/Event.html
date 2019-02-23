@@ -201,13 +201,15 @@ event.metadata # =&gt; { &#39;two&#39; =&gt; 2 }
                 Source:
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/aa6beb71f383fe9d0d06a7a81678578ee7b4b942/lib/fourth_dimensional/event.rb#L50" target="_blank" class="github_url">on GitHub</a>
+                
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 48</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">aggregate_id:</span>, <span class="ruby-value">data:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">metadata:</span> <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@aggregate_id</span> = <span class="ruby-identifier">aggregate_id</span>
-  <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span> <span class="ruby-operator">||</span> {}
-  <span class="ruby-ivar">@metadata</span> = <span class="ruby-identifier">metadata</span> <span class="ruby-operator">||</span> {}
+  <span class="ruby-ivar">@data</span> = (<span class="ruby-identifier">data</span> <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">transform_keys</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+  <span class="ruby-ivar">@metadata</span> = (<span class="ruby-identifier">metadata</span> <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">transform_keys</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>

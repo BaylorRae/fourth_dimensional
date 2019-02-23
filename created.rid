@@ -1,5 +1,7 @@
-Fri, 22 Feb 2019 15:50:52 +0000
-README.md	Fri, 22 Feb 2019 15:50:17 +0000
-lib/fourth_dimensional.rb	Fri, 22 Feb 2019 15:50:17 +0000
-lib/fourth_dimensional/event.rb	Fri, 22 Feb 2019 15:50:17 +0000
-lib/fourth_dimensional/version.rb	Fri, 22 Feb 2019 15:50:17 +0000
+Sat, 23 Feb 2019 18:55:27 +0000
+README.md	Sat, 23 Feb 2019 18:54:44 +0000
+lib/fourth_dimensional.rb	Sat, 23 Feb 2019 18:54:44 +0000
+lib/fourth_dimensional/aggregate_root.rb	Sat, 23 Feb 2019 18:54:44 +0000
+lib/fourth_dimensional/event.rb	Sat, 23 Feb 2019 18:54:44 +0000
+lib/fourth_dimensional/eventable.rb	Sat, 23 Feb 2019 18:54:44 +0000
+lib/fourth_dimensional/version.rb	Sat, 23 Feb 2019 18:54:44 +0000
