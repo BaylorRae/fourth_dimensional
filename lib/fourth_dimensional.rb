@@ -4,6 +4,7 @@ module FourthDimensional
   class Error < StandardError; end
 
   autoload :AggregateRoot, 'fourth_dimensional/aggregate_root'
+  autoload :Command, 'fourth_dimensional/command'
   autoload :Event, 'fourth_dimensional/event'
   autoload :Eventable, 'fourth_dimensional/eventable'
 end
