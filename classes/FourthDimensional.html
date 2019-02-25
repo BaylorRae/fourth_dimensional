@@ -19,7 +19,7 @@
 
     <meta name="keywords" content="FourthDimensional class">
   
-    <meta name="keywords" content="config, configure">
+    <meta name="keywords" content="config, configure, build_repository">
   
 </head>
 
@@ -119,6 +119,18 @@
     <div class="sectiontitle">Methods</div>
     <dl class="methods">
       
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-build_repository">build_repository</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
         <dt>C</dt>
         <dd>
           <ul>
@@ -178,6 +190,48 @@
       <div class="sectiontitle">Class Public methods</div>
       
         <div class="method">
+          <div class="title method-title" id="method-c-build_repository">
+            
+              <b>build_repository</b>()
+            
+            <a href="../classes/FourthDimensional.html#method-c-build_repository" name="method-c-build_repository" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Iniitlaizes a <a href="FourthDimensional/Repository.html"><code>Repository</code></a> with the required dependencies.</p>
+
+<pre><code>FourthDimensional.repository # =&gt; FourthDimensional::Repository
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-build_repository_source')" id="l_method-c-build_repository_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional.rb#L34" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-build_repository_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">build_repository</span>
+  <span class="ruby-constant">Repository</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">event_loader:</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">event_loader</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <div class="title method-title" id="method-c-config">
             
               <b>config</b>()
@@ -203,7 +257,7 @@
                 Source:
                 <a href="javascript:toggleSource('method-c-config_source')" id="l_method-c-config_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/8580a05baf3c3ce0bb64c8d438bb88c0db73c0c3/lib/fourth_dimensional.rb#L15" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional.rb#L15" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-config_source" class="dyn-source">
@@ -250,7 +304,7 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-c-configure_source')" id="l_method-c-configure_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/8580a05baf3c3ce0bb64c8d438bb88c0db73c0c3/lib/fourth_dimensional.rb#L27" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional.rb#L27" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-configure_source" class="dyn-source">
