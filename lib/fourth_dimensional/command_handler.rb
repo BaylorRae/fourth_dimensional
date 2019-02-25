@@ -26,7 +26,13 @@ module FourthDimensional
   class CommandHandler
     include Eventable
 
+    attr_reader :repository
+
     CommandAndEvents = Struct.new(:command, :events, keyword_init: true)
+
+    def initialize(repository:)
+      @repository = repository
+    end
 
     # Invokes a callback for an command.
     def call(command)
@@ -38,7 +44,7 @@ module FourthDimensional
 
     # Yields the aggregate and saves the applied events
     def with_aggregate(aggregate_class, command, &block)
-      aggregate = aggregate_class.new(id: command.aggregate_id)
+      aggregate = repository.load_aggregate(aggregate_class, command.aggregate_id)
       yield aggregate
       applied_events.concat(aggregate.applied_events)
     end

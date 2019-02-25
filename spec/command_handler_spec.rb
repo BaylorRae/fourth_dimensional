@@ -2,6 +2,8 @@ require "spec_helper"
 
 module FourthDimensional
   describe CommandHandler do
+    let(:repository) { double(:repository) }
+
     context "call" do
       it "invokes bound commands" do
         stub_const("Command1", Class.new(Command))
@@ -23,7 +25,7 @@ module FourthDimensional
           end
         end
 
-        handler = ExampleCommandHandler.new
+        handler = ExampleCommandHandler.new(repository: repository)
         handler.call(command)
       end
 
@@ -32,7 +34,7 @@ module FourthDimensional
         stub_const("ExampleCommandHandler", Class.new(CommandHandler))
 
         command = Command1.new(aggregate_id: '1-2-3')
-        handler = ExampleCommandHandler.new
+        handler = ExampleCommandHandler.new(repository: repository)
         handler.call(command)
       end
     end
@@ -45,13 +47,20 @@ module FourthDimensional
 
         aggregate_id = double(:aggregate_id)
         command = Command1.new(aggregate_id: aggregate_id)
-        handler = ExampleCommandHandler.new
+        handler = ExampleCommandHandler.new(repository: repository)
+
+        loaded_aggregate = double(:example_aggregate)
+        allow(loaded_aggregate).to receive(:applied_events) { [] }
+
+        allow(repository).to receive(:load_aggregate)
+          .with(ExampleAggregate, aggregate_id)
+          .and_return(loaded_aggregate)
 
         aggregate = nil
         handler.with_aggregate(ExampleAggregate, command) do |x|
           aggregate = x
         end
-        expect(aggregate.id).to eq(aggregate_id)
+        expect(aggregate).to eq(loaded_aggregate)
       end
     end
 
@@ -117,7 +126,15 @@ module FourthDimensional
       end
 
       it "tracks the command and events applied to multiple aggregates" do
-        handler = ExampleCommandHandler.new
+        allow(repository).to receive(:load_aggregate)
+          .with(ExampleAggregate, aggregate_id)
+          .and_return(ExampleAggregate.new(id: aggregate_id))
+
+        allow(repository).to receive(:load_aggregate)
+          .with(ExampleAggregate2, aggregate_id)
+          .and_return(ExampleAggregate2.new(id: aggregate_id))
+
+        handler = ExampleCommandHandler.new(repository: repository)
         handler.call(command)
 
         command_and_events = handler.tracked_command_and_events
