@@ -1,10 +1,11 @@
-Mon, 25 Feb 2019 14:32:39 +0000
-README.md	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/aggregate_root.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/command.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/command_handler.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/event.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/eventable.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/repository.rb	Mon, 25 Feb 2019 14:31:57 +0000
-lib/fourth_dimensional/version.rb	Mon, 25 Feb 2019 14:31:57 +0000
+Mon, 25 Feb 2019 16:55:01 +0000
+README.md	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/aggregate_root.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/command.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/command_handler.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/configuration.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/event.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/eventable.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/repository.rb	Mon, 25 Feb 2019 16:54:24 +0000
+lib/fourth_dimensional/version.rb	Mon, 25 Feb 2019 16:54:24 +0000

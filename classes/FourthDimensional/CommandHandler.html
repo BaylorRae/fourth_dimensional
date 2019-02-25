@@ -23,7 +23,7 @@
 
     <meta name="keywords" content="FourthDimensional::CommandHandler class">
   
-    <meta name="keywords" content="call, with_aggregate, tracked_command_and_events">
+    <meta name="keywords" content="new, call, with_aggregate, save">
   
 </head>
 
@@ -63,10 +63,11 @@
     end
   end
 
+  # manually load and save aggregate
   on UpdateTitle do |command|
-    with_aggregate(PostAggregate, command) do |post|
-      post.update_title(title: command.title)
-    end
+    post = repository.load_aggregate(PostAggregate, command.aggregate_id)
+    post.update_title(title: command.title)
+    save(command, post)
   end
 
   on PublishPost do |command|
@@ -108,13 +109,25 @@ end
           </ul>
         </dd>
       
-        <dt>T</dt>
+        <dt>N</dt>
         <dd>
           <ul>
             
               
               <li>
-                <a href="#method-i-tracked_command_and_events">tracked_command_and_events</a>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-save">save</a>
               </li>
             
           </ul>
@@ -181,10 +194,66 @@ end
 
 
     
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>repository</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
 
 
     <!-- Methods -->
     
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(repository:)
+            
+            <a href="../../classes/FourthDimensional/CommandHandler.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/8580a05baf3c3ce0bb64c8d438bb88c0db73c0c3/lib/fourth_dimensional/command_handler.rb#L34" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">repository:</span>)
+  <span class="ruby-ivar">@repository</span> = <span class="ruby-identifier">repository</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
     
       <div class="sectiontitle">Instance Public methods</div>
       
@@ -214,16 +283,15 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-call_source')" id="l_method-i-call_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/881809df6597419940c734b49530bbc1c6ed8dee/lib/fourth_dimensional/command_handler.rb#L32" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/8580a05baf3c3ce0bb64c8d438bb88c0db73c0c3/lib/fourth_dimensional/command_handler.rb#L39" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-call_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 32</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">command</span>)
   <span class="ruby-identifier">callback</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">event_bindings</span>[<span class="ruby-identifier">command</span>.<span class="ruby-identifier">class</span>]
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">command</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
-  <span class="ruby-ivar">@called_command</span> = <span class="ruby-identifier">command</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -231,16 +299,25 @@ end
           </div>
         
         <div class="method">
-          <div class="title method-title" id="method-i-tracked_command_and_events">
+          <div class="title method-title" id="method-i-save">
             
-              <b>tracked_command_and_events</b>()
+              <b>save</b>(command, aggregate)
             
-            <a href="../../classes/FourthDimensional/CommandHandler.html#method-i-tracked_command_and_events" name="method-i-tracked_command_and_events" class="permalink">Link</a>
+            <a href="../../classes/FourthDimensional/CommandHandler.html#method-i-save" name="method-i-save" class="permalink">Link</a>
           </div>
 
           
             <div class="description">
-              <p>Returns the command and applied events in a <a href="CommandHandler.html#CommandAndEvents"><code>CommandAndEvents</code></a></p>
+              <p>Saves the command and aggregate&#39;s applied events</p>
+
+<pre><code>class PostCommandHandler &lt; FourthDimensional::CommandHandler
+  on AddPost do |command|
+    post = repository.load_aggregate(PostAggregate, command.aggregate_id)
+    post.add(title: command.title)
+    save(command, post)
+  end
+end
+</code></pre>
             </div>
           
 
@@ -254,16 +331,18 @@ end
               
               <p class="source-link">
                 Source:
-                <a href="javascript:toggleSource('method-i-tracked_command_and_events_source')" id="l_method-i-tracked_command_and_events_source">show</a>
+                <a href="javascript:toggleSource('method-i-save_source')" id="l_method-i-save_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/881809df6597419940c734b49530bbc1c6ed8dee/lib/fourth_dimensional/command_handler.rb#L47" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/8580a05baf3c3ce0bb64c8d438bb88c0db73c0c3/lib/fourth_dimensional/command_handler.rb#L61" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
-              <div id="method-i-tracked_command_and_events_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 47</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tracked_command_and_events</span>
-  <span class="ruby-constant">CommandAndEvents</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">command:</span> <span class="ruby-ivar">@called_command</span>,
-                       <span class="ruby-value">events:</span> <span class="ruby-identifier">applied_events</span>)
+              <div id="method-i-save_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">aggregate</span>)
+  <span class="ruby-identifier">repository</span>.<span class="ruby-identifier">save_command_and_events</span>(<span class="ruby-constant">CommandAndEvents</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-value">command:</span> <span class="ruby-identifier">command</span>,
+    <span class="ruby-value">events:</span> <span class="ruby-identifier">aggregate</span>.<span class="ruby-identifier">applied_events</span>
+  ))
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -296,15 +375,15 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-with_aggregate_source')" id="l_method-i-with_aggregate_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/881809df6597419940c734b49530bbc1c6ed8dee/lib/fourth_dimensional/command_handler.rb#L40" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/8580a05baf3c3ce0bb64c8d438bb88c0db73c0c3/lib/fourth_dimensional/command_handler.rb#L46" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-with_aggregate_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 40</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command_handler.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">with_aggregate</span>(<span class="ruby-identifier">aggregate_class</span>, <span class="ruby-identifier">command</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-  <span class="ruby-identifier">aggregate</span> = <span class="ruby-identifier">aggregate_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">aggregate_id</span>)
+  <span class="ruby-identifier">aggregate</span> = <span class="ruby-identifier">repository</span>.<span class="ruby-identifier">load_aggregate</span>(<span class="ruby-identifier">aggregate_class</span>, <span class="ruby-identifier">command</span>.<span class="ruby-identifier">aggregate_id</span>)
   <span class="ruby-keyword">yield</span> <span class="ruby-identifier">aggregate</span>
-  <span class="ruby-identifier">applied_events</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">aggregate</span>.<span class="ruby-identifier">applied_events</span>)
+  <span class="ruby-identifier">save</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">aggregate</span>)
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>

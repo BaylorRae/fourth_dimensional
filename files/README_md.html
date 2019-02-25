@@ -22,7 +22,7 @@
         </h1>
         <ul class="files">
             <li>README.md</li>
-            <li>Last modified: 2019-02-25 14:31:57 +0000</li>
+            <li>Last modified: 2019-02-25 16:54:24 +0000</li>
         </ul>
     </div>
 
@@ -115,8 +115,11 @@ end
 
 def main
   FourthDimensional.configure do |config|
+    config.command_handlers = [
+      PostCommandHandler
+    ]
+
     config.event_handlers = [
-      PostCommandHandler,
       PostProjector
     ]
   end
