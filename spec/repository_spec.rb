@@ -77,7 +77,7 @@ module FourthDimensional
       let(:repository) { Repository.new(event_loader: event_loader) }
 
       let(:command) { double(:command) }
-      let(:events) { double(:events) }
+      let(:events) { [double(:events)] }
 
       it "saves the command and events" do
         expect(event_loader).to receive(:save_command).with(command)
@@ -87,6 +87,33 @@ module FourthDimensional
           command: command,
           events: events
         ))
+      end
+    end
+
+    context "applied_events" do
+      let(:event_loader) { double(:event_loader) }
+      let(:repository) { Repository.new(event_loader: event_loader) }
+
+      let(:command) { double(:command) }
+      let(:events1) { [double(:events1), double(:events1_2)] }
+      let(:events2) { [double(:events2)] }
+
+      it "returns events saved" do
+        allow(event_loader).to receive(:save_command).with(command)
+        allow(event_loader).to receive(:save_events).with(events1)
+        allow(event_loader).to receive(:save_events).with(events2)
+
+        repository.save_command_and_events(CommandHandler::CommandAndEvents.new(
+          command: command,
+          events: events1
+        ))
+
+        repository.save_command_and_events(CommandHandler::CommandAndEvents.new(
+          command: command,
+          events: events2
+        ))
+
+        expect(repository.applied_events).to eq([*events1, *events2])
       end
     end
   end

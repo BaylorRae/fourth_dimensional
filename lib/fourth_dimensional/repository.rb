@@ -45,9 +45,13 @@ module FourthDimensional
   class Repository
     # The source to load events
     attr_reader :event_loader
+
+    # An array of events saved
+    attr_reader :applied_events
     
     def initialize(event_loader:)
       @event_loader = event_loader
+      @applied_events = []
     end
 
     # Delegates to +event_loader#for_aggregate+
@@ -78,6 +82,7 @@ module FourthDimensional
     def save_command_and_events(command_and_events)
       event_loader.save_command(command_and_events.command)
       event_loader.save_events(command_and_events.events)
+      applied_events.concat(command_and_events.events)
     end
   end
 end
