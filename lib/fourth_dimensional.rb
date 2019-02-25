@@ -27,4 +27,11 @@ module FourthDimensional
   def self.configure
     yield config
   end
+
+  # Iniitlaizes a Repository with the required dependencies.
+  #
+  #   FourthDimensional.repository # => FourthDimensional::Repository
+  def self.build_repository
+    Repository.new(event_loader: config.event_loader)
+  end
 end
