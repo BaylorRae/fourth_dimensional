@@ -8,7 +8,7 @@ ActiveRecord. Eventually I'd like it to support Sequel as well.
 
 [RDoc][rdoc_url]
 
-[![Build Status]][travis_status] | [![Code Climate Maintainability]][maintainability_status] | [![Code Climate Coverage]][coverage_status]
+[![Build Status]][travis_status] [![Code Climate Maintainability]][maintainability_status] [![Code Climate Coverage]][coverage_status]
 
 ## Installation
 
