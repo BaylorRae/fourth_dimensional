@@ -84,8 +84,11 @@ end
 
 def main
   FourthDimensional.configure do |config|
+    config.command_handlers = [
+      PostCommandHandler
+    ]
+
     config.event_handlers = [
-      PostCommandHandler,
       PostProjector
     ]
   end
