@@ -2,6 +2,41 @@ require "spec_helper"
 
 module FourthDimensional
   describe AggregateRoot do
+    let(:id) { double(:id) }
+    let(:aggregate) { ExampleAggregate.new(id: id) }
+
+    before do
+      stub_const("Added", Class.new(Event))
+      stub_const("Deleted", Class.new(Event))
+      stub_const("ExampleAggregate", Class.new(AggregateRoot))
+
+      ExampleAggregate.class_eval do
+        attr_reader :state
+
+        def initialize(*args)
+          super
+
+          @state = :initial
+        end
+
+        def add
+          apply Added
+        end
+
+        def delete
+          apply Deleted
+        end
+
+        on Added do |event|
+          @state = :added
+        end
+
+        on Deleted do |event|
+          @state = :deleted
+        end
+      end
+    end
+
     context "id" do
       it "has a required id" do
         expect do
@@ -15,41 +50,6 @@ module FourthDimensional
     end
 
     context "apply" do
-      let(:id) { double(:id) }
-      let(:aggregate) { ExampleAggregate.new(id: id) }
-
-      before do
-        stub_const("Added", Class.new(Event))
-        stub_const("Deleted", Class.new(Event))
-        stub_const("ExampleAggregate", Class.new(AggregateRoot))
-
-        ExampleAggregate.class_eval do
-          attr_reader :state
-
-          def initialize(*args)
-            super
-
-            @state = :initial
-          end
-
-          def add
-            apply Added
-          end
-
-          def delete
-            apply Deleted
-          end
-
-          on Added do |event|
-            @state = :added
-          end
-
-          on Deleted do |event|
-            @state = :deleted
-          end
-        end
-      end
-
       it "calls bindings on object" do
         expect(aggregate.state).to eq(:initial)
 
@@ -103,6 +103,27 @@ module FourthDimensional
       it "ignores unknown events" do
         stub_const("UnknownEvent", Class.new(Event))
         aggregate.apply(UnknownEvent)
+        expect(aggregate.state).to eq(:initial)
+        expect(aggregate.applied_events).to eq([])
+      end
+    end
+
+    context "apply_existing_event" do
+      it "call bindings without tracking" do
+        expect(aggregate.state).to eq(:initial)
+
+        aggregate.apply_existing_event(Added.new(aggregate_id: id))
+        expect(aggregate.state).to eq(:added)
+        expect(aggregate.applied_events).to eq([])
+
+        aggregate.apply_existing_event(Deleted.new(aggregate_id: id))
+        expect(aggregate.state).to eq(:deleted)
+        expect(aggregate.applied_events).to eq([])
+      end
+
+      it "ignores unknown events" do
+        stub_const("UnknownEvent", Class.new(Event))
+        aggregate.apply_existing_event(UnknownEvent.new(aggregate_id: id))
         expect(aggregate.state).to eq(:initial)
         expect(aggregate.applied_events).to eq([])
       end

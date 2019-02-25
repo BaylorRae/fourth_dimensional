@@ -71,5 +71,15 @@ module FourthDimensional
       instance_exec(event, &callback)
       applied_events << event
     end
+
+    # Calls the event binding without persisting the event being applied. Used
+    # when loading an aggregate from an existing store.
+    #
+    #   post.apply_existing_event(title_updated_event)
+    def apply_existing_event(event)
+      callback = self.class.event_bindings[event.class]
+      return if callback.nil?
+      instance_exec(event, &callback)
+    end
   end
 end
