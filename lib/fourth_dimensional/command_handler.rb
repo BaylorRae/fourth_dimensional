@@ -11,10 +11,11 @@ module FourthDimensional
   #       end
   #     end
   #
+  #     # manually load and save aggregate
   #     on UpdateTitle do |command|
-  #       with_aggregate(PostAggregate, command) do |post|
-  #         post.update_title(title: command.title)
-  #       end
+  #       post = repository.load_aggregate(PostAggregate, command.aggregate_id)
+  #       post.update_title(title: command.title)
+  #       save(command, post)
   #     end
   #
   #     on PublishPost do |command|
@@ -39,26 +40,29 @@ module FourthDimensional
       callback = self.class.event_bindings[command.class]
       return if callback.nil?
       instance_exec(command, &callback)
-      @called_command = command
     end
 
     # Yields the aggregate and saves the applied events
     def with_aggregate(aggregate_class, command, &block)
       aggregate = repository.load_aggregate(aggregate_class, command.aggregate_id)
       yield aggregate
-      applied_events.concat(aggregate.applied_events)
+      save(command, aggregate)
     end
 
-    # Returns the command and applied events in a CommandAndEvents
-    def tracked_command_and_events
-      CommandAndEvents.new(command: @called_command,
-                           events: applied_events)
-    end
-
-    private
-
-    def applied_events
-      @applied_events ||= []
+    # Saves the command and aggregate's applied events
+    #
+    #   class PostCommandHandler < FourthDimensional::CommandHandler
+    #     on AddPost do |command|
+    #       post = repository.load_aggregate(PostAggregate, command.aggregate_id)
+    #       post.add(title: command.title)
+    #       save(command, post)
+    #     end
+    #   end
+    def save(command, aggregate)
+      repository.save_command_and_events(CommandAndEvents.new(
+        command: command,
+        events: aggregate.applied_events
+      ))
     end
   end
 end

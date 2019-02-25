@@ -40,21 +40,29 @@ module FourthDimensional
     end
 
     context "with_aggregate" do
-      it "loads an aggregate with the command's aggregate id" do
+      let(:aggregate_id) { double(:aggregate_id) }
+      let(:command) { double(:command, aggregate_id: aggregate_id) }
+      let(:events) { double(:events) }
+
+      let(:handler) { ExampleCommandHandler.new(repository: repository) }
+
+      let(:loaded_aggregate) { double(:example_aggregate, applied_events: events) }
+
+      before do
         stub_const("ExampleAggregate", Class.new(AggregateRoot))
-        stub_const("Command1", Class.new(Command))
         stub_const("ExampleCommandHandler", Class.new(CommandHandler))
-
-        aggregate_id = double(:aggregate_id)
-        command = Command1.new(aggregate_id: aggregate_id)
-        handler = ExampleCommandHandler.new(repository: repository)
-
-        loaded_aggregate = double(:example_aggregate)
-        allow(loaded_aggregate).to receive(:applied_events) { [] }
 
         allow(repository).to receive(:load_aggregate)
           .with(ExampleAggregate, aggregate_id)
           .and_return(loaded_aggregate)
+      end
+
+      it "loads an aggregate with the command's aggregate id" do
+        expect(repository).to receive(:save_command_and_events)
+          .with(CommandHandler::CommandAndEvents.new(
+            command: command,
+            events: events
+          ))
 
         aggregate = nil
         handler.with_aggregate(ExampleAggregate, command) do |x|
@@ -64,94 +72,22 @@ module FourthDimensional
       end
     end
 
-    context "tracked_command_and_events" do
-      let(:aggregate_id) { double(:aggregate_id) }
-      let(:command) { Command1.new(aggregate_id: aggregate_id) }
-
-      before do
-        stub_const("ExampleAggregate", Class.new(AggregateRoot))
-        stub_const("ExampleAggregate2", Class.new(AggregateRoot))
-
-        stub_const("ExampleEvent1", Class.new(Event))
-        stub_const("ExampleEvent2", Class.new(Event))
-
-        stub_const("Command1", Class.new(Command))
+    context "save" do
+      it "saves the command and aggregate events" do
         stub_const("ExampleCommandHandler", Class.new(CommandHandler))
-
-        ExampleAggregate.class_eval do
-          def example_event1
-            apply ExampleEvent1
-          end
-
-          def example_event2
-            apply ExampleEvent2
-          end
-
-          on ExampleEvent1 do
-          end
-
-          on ExampleEvent2 do
-          end
-        end
-
-        ExampleAggregate2.class_eval do
-          def example_event1
-            apply ExampleEvent1
-          end
-
-          def example_event2
-            apply ExampleEvent2
-          end
-
-          on ExampleEvent1 do
-          end
-
-          on ExampleEvent2 do
-          end
-        end
-
-        ExampleCommandHandler.class_eval do
-          on Command1 do |command|
-            with_aggregate(ExampleAggregate, command) do |aggregate|
-              aggregate.example_event1
-              aggregate.example_event2
-            end
-
-            with_aggregate(ExampleAggregate2, command) do |aggregate|
-              aggregate.example_event1
-              aggregate.example_event2
-            end
-          end
-        end
-      end
-
-      it "tracks the command and events applied to multiple aggregates" do
-        allow(repository).to receive(:load_aggregate)
-          .with(ExampleAggregate, aggregate_id)
-          .and_return(ExampleAggregate.new(id: aggregate_id))
-
-        allow(repository).to receive(:load_aggregate)
-          .with(ExampleAggregate2, aggregate_id)
-          .and_return(ExampleAggregate2.new(id: aggregate_id))
-
         handler = ExampleCommandHandler.new(repository: repository)
-        handler.call(command)
 
-        command_and_events = handler.tracked_command_and_events
+        command = double(:command)
+        events = double(:events)
+        aggregate = double(:aggregate, applied_events: events)
 
-        expect(command_and_events.command).to eq(command)
+        expect(repository).to receive(:save_command_and_events)
+          .with(CommandHandler::CommandAndEvents.new(
+            command: command,
+            events: events
+          ))
 
-        expect(command_and_events.events.length).to eq(4)
-
-        expect(command_and_events.events.map(&:class)).to eq([
-          ExampleEvent1, ExampleEvent2,
-          ExampleEvent1, ExampleEvent2
-        ])
-
-        expect(command_and_events.events.map(&:aggregate_id)).to eq([
-          aggregate_id, aggregate_id,
-          aggregate_id, aggregate_id
-        ])
+        handler.save(command, aggregate)
       end
     end
   end

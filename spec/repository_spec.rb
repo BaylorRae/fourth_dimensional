@@ -69,5 +69,23 @@ module FourthDimensional
         expect(aggregate.published).to eq(false)
       end
     end
+
+    context "save_command_and_events" do
+      let(:event_loader) { double(:event_loader) }
+      let(:repository) { Repository.new(event_loader: event_loader) }
+
+      let(:command) { double(:command) }
+      let(:events) { double(:events) }
+
+      it "saves the command and events" do
+        expect(event_loader).to receive(:save_command).with(command)
+        expect(event_loader).to receive(:save_events).with(events)
+
+        repository.save_command_and_events(CommandHandler::CommandAndEvents.new(
+          command: command,
+          events: events
+        ))
+      end
+    end
   end
 end

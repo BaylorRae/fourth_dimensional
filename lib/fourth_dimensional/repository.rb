@@ -29,6 +29,14 @@ module FourthDimensional
   #       InMemoryEvents.events
   #         .filter { |event| event.aggregate_id == aggregate_id }
   #     end
+  #
+  #     def save_command(command)
+  #       # noop
+  #     end
+  #
+  #     def save_events(events)
+  #       InMemoryEvents.events.concat(events)
+  #     end
   #   end
   #
   #   FourthDimensional.configure do |config|
@@ -59,6 +67,17 @@ module FourthDimensional
           aggregate.apply_existing_event(event)
           aggregate
         end
+    end
+
+    # Saves the command and events with the +event_loader+
+    #
+    #   repository.save_command_and_events(FourthDimensional::CommandHandler::CommandAndEvents.new(
+    #     command: AddPost,
+    #     events: [PostAdded]
+    #   ))
+    def save_command_and_events(command_and_events)
+      event_loader.save_command(command_and_events.command)
+      event_loader.save_events(command_and_events.events)
     end
   end
 end
