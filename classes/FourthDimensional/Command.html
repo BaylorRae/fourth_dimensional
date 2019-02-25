@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>FourthDimensional::Command</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="FourthDimensional::Command">
+
+  
+    
+    <meta name="description" content="FourthDimensional::Command  Commands are the input to create events. They provide an early validation step to ensuring the data format is correct before validating the current state of the system.">
+    <meta property="og:description" content="FourthDimensional::Command  Commands are the input to create events. They provide an early validation step to ensuring the data format is correct before validating the current state of the system.">
+  
+
+    <meta name="keywords" content="FourthDimensional::Command class">
+  
+    <meta name="keywords" content="new, attributes">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            FourthDimensional::Command
+            
+                <span class="parent">&lt;
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/fourth_dimensional/command_rb.html">lib/fourth_dimensional/command.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="class-FourthDimensional::Command-label-FourthDimensional-3A-3ACommand"><a href="Command.html"><code>FourthDimensional::Command</code></a></h2>
+
+<p>Commands are the input to create events. They provide an early validation step to ensuring the data format is correct before validating the current state of the system.</p>
+
+<pre><code>class AddPost &lt; FourthDimensional::Command
+  attributes :title, :body, :published
+  validates_presence_of :title, :body
+end
+
+AddPost.new # =&gt; raises ArgumentError.new(&quot;missing keywords: aggregate_id, :title, :body, :published)
+command = AddPost.new(aggregate_id: &#39;1-2-3&#39;, title: &#39;post-title&#39;, body: &#39;post-body&#39;, published: false)
+command.valid? # =&gt; true
+command.aggregate_id # =&gt; &#39;1-2-3&#39;
+command.title # =&gt; &#39;post-title&#39;
+command.body # =&gt; &#39;post-body&#39;
+command.published # =&gt; false
+
+command.to_h # =&gt; {&#39;title&#39; =&gt; &#39;post-title&#39;, &#39;body&#39; =&gt; &#39;post-body&#39;, &#39;published&#39; =&gt; false}
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-attributes">attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            ActiveModel::Validations
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>aggregate_id</td>
+            <td class='attr-desc'><p>The aggregate the command is acting on</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-attributes">
+            
+              <b>attributes</b>(*attributes)
+            
+            <a href="../../classes/FourthDimensional/Command.html#method-c-attributes" name="method-c-attributes" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Defines an initializer with required keyword arguments, readonly only attributes and <code>to_h</code> to access all defined attributes</p>
+
+<pre><code>class AddPost &lt; FourthDimensional::Command
+  attributes :title, :body, :published
+end
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-attributes_source')" id="l_method-c-attributes_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/881809df6597419940c734b49530bbc1c6ed8dee/lib/fourth_dimensional/command.rb#L40" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command.rb, line 40</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">attributes</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+      <span class="ruby-identifier">attr_reader</span> <span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>
+
+      <span class="ruby-identifier">method_arguments</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{arg}:&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+      <span class="ruby-identifier">method_assignments</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;@#{arg} = #{arg}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;;&#39;</span>)
+      <span class="ruby-identifier">method_attrs_to_hash</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;&#39;#{arg}&#39; =&gt; #{arg}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)
+
+      <span class="ruby-identifier">class_eval</span> <span class="ruby-identifier">&lt;&lt;~CODE</span>
+<span class="ruby-value">        def initialize(aggregate_id:, #{method_arguments})
+          @aggregate_id = aggregate_id
+          #{method_assignments}
+        end
+
+        def to_h
+          {#{method_attrs_to_hash}}
+        end
+</span><span class="ruby-identifier">      CODE</span>
+    <span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(aggregate_id:)
+            
+            <a href="../../classes/FourthDimensional/Command.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/881809df6597419940c734b49530bbc1c6ed8dee/lib/fourth_dimensional/command.rb#L30" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/command.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">aggregate_id:</span>)
+  <span class="ruby-ivar">@aggregate_id</span> = <span class="ruby-identifier">aggregate_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
