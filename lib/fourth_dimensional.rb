@@ -8,4 +8,5 @@ module FourthDimensional
   autoload :CommandHandler, 'fourth_dimensional/command_handler'
   autoload :Event, 'fourth_dimensional/event'
   autoload :Eventable, 'fourth_dimensional/eventable'
+  autoload :Repository, 'fourth_dimensional/repository'
 end
