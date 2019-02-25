@@ -57,6 +57,7 @@ module FourthDimensional
         aggregate = repository.load_aggregate(ExampleAggregate, aggregate_id)
         expect(aggregate.title).to eq('title-v2')
         expect(aggregate.published).to eq(true)
+        expect(aggregate.applied_events).to eq([])
       end
 
       it "loads without any events" do
@@ -67,6 +68,7 @@ module FourthDimensional
         aggregate = repository.load_aggregate(ExampleAggregate, aggregate_id)
         expect(aggregate.title).to be_nil
         expect(aggregate.published).to eq(false)
+        expect(aggregate.applied_events).to eq([])
       end
     end
 
