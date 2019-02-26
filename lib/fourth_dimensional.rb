@@ -47,6 +47,10 @@ module FourthDimensional
     save_commands_and_events(repository)
   end
 
+  class << self
+    alias_method :execute_command, :execute_commands
+  end
+
   private
 
   def self.call_command_handlers(repository, commands)
