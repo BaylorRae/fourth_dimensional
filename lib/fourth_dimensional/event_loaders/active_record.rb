@@ -14,6 +14,7 @@ module FourthDimensional
       def for_aggregate(aggregate_id)
         Event.where(aggregate_id: aggregate_id).order(:version).map do |event|
           event.event_type.camelize.constantize.new(aggregate_id: event.aggregate_id,
+                                                    version: event.version,
                                                     data: event.data,
                                                     metadata: event.metadata)
         end

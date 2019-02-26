@@ -31,6 +31,9 @@ module FourthDimensional
     # hash of data with stringified keys
     attr_reader :data, :metadata
 
+    # The version of the event relative to the aggregate
+    attr_reader :version
+
     # Initializes an event with the required +aggregate_id+ and optional +data+
     # and +metadata+.
     #
@@ -43,12 +46,15 @@ module FourthDimensional
     # strings to accommodate deserializing the values from json.
     #
     #   event = MyEvent.new(aggregate_id: '1-2-3',
+    #                       version: 1,
     #                       data: { one: 1 },
     #                       metadata: { two: 2 })
+    #   event.version # => 1
     #   event.data # => { 'one' => 1 }
     #   event.metadata # => { 'two' => 2 }
-    def initialize(aggregate_id:, data: nil, metadata: nil)
+    def initialize(aggregate_id:, version: nil, data: nil, metadata: nil)
       @aggregate_id = aggregate_id
+      @version = version
       @data = (data || {}).transform_keys(&:to_s)
       @metadata = (metadata || {}).transform_keys(&:to_s)
     end

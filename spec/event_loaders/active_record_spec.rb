@@ -85,12 +85,14 @@ create table fourd_events (
 
           event = events.first
           expect(event).to be_instance_of(TopLevelEvent)
+          expect(event.version).to eq(1)
           expect(event.aggregate_id).to eq(aggregate_id)
           expect(event.data).to eq({})
           expect(event.metadata).to eq({})
 
           event = events.second
           expect(event).to be_instance_of(My::Deep::Event)
+          expect(event.version).to eq(2)
           expect(event.aggregate_id).to eq(aggregate_id)
           expect(event.data).to eq({
             'string' => 'example-string',

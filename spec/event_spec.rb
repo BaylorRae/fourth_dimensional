@@ -15,6 +15,18 @@ module FourthDimensional
       end
     end
 
+    context "version" do
+      it "has a readonly version" do
+        version = double(:version)
+        event = Event.new(aggregate_id: aggregate_id, version: version)
+        expect(event.version).to eq(version)
+
+        expect do
+          event.version = version
+        end.to raise_error(NoMethodError)
+      end
+    end
+
     context "data" do
       it "has data" do
         data = { this: 'that' }
