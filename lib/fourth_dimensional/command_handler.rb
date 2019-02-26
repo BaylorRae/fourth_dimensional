@@ -29,7 +29,18 @@ module FourthDimensional
 
     attr_reader :repository
 
-    CommandAndEvents = Struct.new(:command, :events, keyword_init: true)
+    class CommandAndEvents
+      attr_reader :command, :events
+
+      def initialize(command:, events:)
+        @command = command
+        @events = events
+      end
+
+      def ==(other)
+        self.class == other.class && command == other.command && events == other.events
+      end
+    end
 
     def initialize(repository:)
       @repository = repository
