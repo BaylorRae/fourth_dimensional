@@ -55,11 +55,15 @@ module FourthDimensional
     # array of events applied
     attr_reader :applied_events
 
+    # current version
+    attr_reader :version
+
     # Initializes an aggregate with an id
     def initialize(id:)
       @id = id
 
       @applied_events = []
+      @version = 1
     end
 
     # Applies an event to the aggregate when a callback is bound. **+args+ are
@@ -84,6 +88,13 @@ module FourthDimensional
       end
 
       instance_exec(event, &callback)
+      @version = next_version
+    end
+
+    private
+
+    def next_version
+      version + 1
     end
   end
 end

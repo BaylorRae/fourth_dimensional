@@ -52,12 +52,15 @@ module FourthDimensional
     context "apply" do
       it "calls bindings on object" do
         expect(aggregate.state).to eq(:initial)
+        expect(aggregate.version).to eq(1)
 
         aggregate.add
         expect(aggregate.state).to eq(:added)
+        expect(aggregate.version).to eq(2)
 
         aggregate.delete
         expect(aggregate.state).to eq(:deleted)
+        expect(aggregate.version).to eq(3)
       end
 
       it "tracks applied events" do
@@ -90,12 +93,15 @@ module FourthDimensional
         end
 
         aggregate.apply(DataEvent, data: { one: 1 })
+        expect(aggregate.version).to eq(2)
         expect(aggregate.applied_events.last.data).to eq({ 'one' => 1 })
 
         aggregate.apply(MetaDataEvent, metadata: { two: 2 })
+        expect(aggregate.version).to eq(3)
         expect(aggregate.applied_events.last.metadata).to eq({ 'two' => 2 })
 
         aggregate.apply(AllDataEvent, data: { three: 3 }, metadata: { four: 4 })
+        expect(aggregate.version).to eq(4)
         expect(aggregate.applied_events.last.data).to eq({ 'three' => 3 })
         expect(aggregate.applied_events.last.metadata).to eq({ 'four' => 4 })
       end
@@ -105,18 +111,22 @@ module FourthDimensional
         expect do
           aggregate.apply(UnknownEvent)
         end.to raise_error(AggregateRoot::UnknownEventError, "ExampleAggregate doesn't have a binding for 'UnknownEvent'")
+        expect(aggregate.version).to eq(1)
       end
     end
 
     context "apply_existing_event" do
       it "call bindings without tracking" do
         expect(aggregate.state).to eq(:initial)
+        expect(aggregate.version).to eq(1)
 
         aggregate.apply_existing_event(Added.new(aggregate_id: id))
+        expect(aggregate.version).to eq(2)
         expect(aggregate.state).to eq(:added)
         expect(aggregate.applied_events).to eq([])
 
         aggregate.apply_existing_event(Deleted.new(aggregate_id: id))
+        expect(aggregate.version).to eq(3)
         expect(aggregate.state).to eq(:deleted)
         expect(aggregate.applied_events).to eq([])
       end
@@ -126,6 +136,7 @@ module FourthDimensional
         expect do
           aggregate.apply_existing_event(UnknownEvent.new(aggregate_id: id))
         end.to raise_error(AggregateRoot::UnknownEventError, "ExampleAggregate doesn't have a binding for 'UnknownEvent'")
+        expect(aggregate.version).to eq(1)
       end
     end
   end
