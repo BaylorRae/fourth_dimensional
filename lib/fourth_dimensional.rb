@@ -39,7 +39,7 @@ module FourthDimensional
   # Runs a single or array of commands through all command handlers, saves
   # commands and applied events, and invokes event handlers.
   #
-  #   FourthDimensional.execute_commands(command)
+  #   Fourthdimensional.execute_command(command)
   #   FourthDimensional.execute_commands(command1, command2)
   #   FourthDimensional.execute_commands([command1, command2])
   def self.execute_commands(*commands)
