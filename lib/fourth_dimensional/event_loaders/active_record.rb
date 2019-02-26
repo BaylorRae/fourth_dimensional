@@ -8,6 +8,17 @@ module FourthDimensional
     #     config.event_loader = FourthDimensional::EventLoaders::ActiveRecord.new
     #   end
     class ActiveRecord
+      # Deserializes recorded events into into an array of the +event_type+ class.
+      #
+      #   FourthDimensional.config.event_loader.for_aggregate(aggregate_id)
+      def for_aggregate(aggregate_id)
+        Event.where(aggregate_id: aggregate_id).order(:version).map do |event|
+          event.event_type.camelize.constantize.new(aggregate_id: event.aggregate_id,
+                                                    data: event.data,
+                                                    metadata: event.metadata)
+        end
+      end
+
       # Saves commands and events in active record compatible database.
       def save_commands_and_events(commands:, events:)
         FourthDimensionalRecord.transaction do

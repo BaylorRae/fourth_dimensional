@@ -42,7 +42,65 @@ create table fourd_events (
         ::ActiveRecord::Base.clear_all_connections!
       end
 
-      context "for_aggregate"
+      context "for_aggregate" do
+        it "deserializes an event to its original class" do
+          aggregate_id = SecureRandom.uuid
+          stub_const("My::Deep::Event", Class.new(Event))
+          stub_const("TopLevelEvent", Class.new(Event))
+
+          ActiveRecord::Event.create!([
+            {
+              uuid: SecureRandom.uuid,
+              aggregate_id: aggregate_id,
+              version: 2,
+              event_type: "my/deep/event",
+              data: {
+                string: 'example-string',
+                float: 13.37
+              },
+              metadata: {
+                aggregate_id: aggregate_id
+              }
+            },
+            {
+              uuid: SecureRandom.uuid,
+              aggregate_id: SecureRandom.uuid,
+              version: 1,
+              event_type: "my/deep/event",
+              data: {},
+              metadata: {}
+            },
+            {
+              uuid: SecureRandom.uuid,
+              aggregate_id: aggregate_id,
+              version: 1,
+              event_type: "top_level_event"
+            }
+          ])
+
+          event_loader = ActiveRecord.new
+          events = event_loader.for_aggregate(aggregate_id)
+
+          expect(events.length).to eq(2)
+
+          event = events.first
+          expect(event).to be_instance_of(TopLevelEvent)
+          expect(event.aggregate_id).to eq(aggregate_id)
+          expect(event.data).to eq({})
+          expect(event.metadata).to eq({})
+
+          event = events.second
+          expect(event).to be_instance_of(My::Deep::Event)
+          expect(event.aggregate_id).to eq(aggregate_id)
+          expect(event.data).to eq({
+            'string' => 'example-string',
+            'float' => 13.37
+          })
+          expect(event.metadata).to eq({
+            'aggregate_id' => aggregate_id
+          })
+        end
+      end
 
       context "save_commands_and_events" do
         before do
