@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>FourthDimensional::EventLoaders::ActiveRecord</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="FourthDimensional::EventLoaders::ActiveRecord">
+
+  
+    
+    <meta name="description" content="FourthDimensional::EventLoaders::ActiveRecord  FourthDimensional.configure do |config|   config.event_loader = FourthDimensional::EventLoaders::ActiveRecord.">
+    <meta property="og:description" content="FourthDimensional::EventLoaders::ActiveRecord  FourthDimensional.configure do |config|   config.event_loader = FourthDimensional::EventLoaders::ActiveRecord.">
+  
+
+    <meta name="keywords" content="FourthDimensional::EventLoaders::ActiveRecord class">
+  
+    <meta name="keywords" content="save_commands_and_events">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            FourthDimensional::EventLoaders::ActiveRecord
+            
+                <span class="parent">&lt;
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/fourth_dimensional/event_loaders/active_record_rb.html">lib/fourth_dimensional/event_loaders/active_record.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="class-FourthDimensional::EventLoaders::ActiveRecord-label-FourthDimensional-3A-3AEventLoaders-3A-3AActiveRecord"><a href="ActiveRecord.html"><code>FourthDimensional::EventLoaders::ActiveRecord</code></a></h2>
+
+<pre><code>FourthDimensional.configure do |config|
+  config.event_loader = FourthDimensional::EventLoaders::ActiveRecord.new
+end
+</code></pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-save_commands_and_events">save_commands_and_events</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-save_commands_and_events">
+            
+              <b>save_commands_and_events</b>(commands:, events:)
+            
+            <a href="../../../classes/FourthDimensional/EventLoaders/ActiveRecord.html#method-i-save_commands_and_events" name="method-i-save_commands_and_events" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Saves commands and events in active record compatible database.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-save_commands_and_events_source')" id="l_method-i-save_commands_and_events_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/157b6dde202ddfd05a14119e559d906853646aa2/lib/fourth_dimensional/event_loaders/active_record.rb#L12" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-i-save_commands_and_events_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event_loaders/active_record.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_commands_and_events</span>(<span class="ruby-value">commands:</span>, <span class="ruby-value">events:</span>)
+  <span class="ruby-constant">FourthDimensionalRecord</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">create_commands!</span>(<span class="ruby-identifier">commands</span>)
+    <span class="ruby-identifier">create_events!</span>(<span class="ruby-identifier">events</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </div>
+  </body>
+</html>
