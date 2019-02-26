@@ -100,11 +100,11 @@ module FourthDimensional
         expect(aggregate.applied_events.last.metadata).to eq({ 'four' => 4 })
       end
 
-      it "ignores unknown events" do
+      it "raises an error for unknown events" do
         stub_const("UnknownEvent", Class.new(Event))
-        aggregate.apply(UnknownEvent)
-        expect(aggregate.state).to eq(:initial)
-        expect(aggregate.applied_events).to eq([])
+        expect do
+          aggregate.apply(UnknownEvent)
+        end.to raise_error(AggregateRoot::UnknownEventError, "ExampleAggregate doesn't have a binding for 'UnknownEvent'")
       end
     end
 
@@ -121,11 +121,11 @@ module FourthDimensional
         expect(aggregate.applied_events).to eq([])
       end
 
-      it "ignores unknown events" do
+      it "raises an error for unknown events" do
         stub_const("UnknownEvent", Class.new(Event))
-        aggregate.apply_existing_event(UnknownEvent.new(aggregate_id: id))
-        expect(aggregate.state).to eq(:initial)
-        expect(aggregate.applied_events).to eq([])
+        expect do
+          aggregate.apply_existing_event(UnknownEvent.new(aggregate_id: id))
+        end.to raise_error(AggregateRoot::UnknownEventError, "ExampleAggregate doesn't have a binding for 'UnknownEvent'")
       end
     end
   end

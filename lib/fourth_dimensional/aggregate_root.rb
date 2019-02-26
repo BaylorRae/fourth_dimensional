@@ -47,6 +47,8 @@ module FourthDimensional
   class AggregateRoot
     include Eventable
 
+    UnknownEventError = Class.new(Error)
+
     # aggregate id
     attr_reader :id
 
@@ -65,10 +67,8 @@ module FourthDimensional
     #
     # Callbacks are invoked within the instance of the aggregate root.
     def apply(event_class, **args)
-      callback = self.class.event_bindings[event_class]
-      return if callback.nil?
       event = event_class.new(args.merge(aggregate_id: id))
-      instance_exec(event, &callback)
+      apply_existing_event(event)
       applied_events << event
     end
 
@@ -78,7 +78,11 @@ module FourthDimensional
     #   post.apply_existing_event(title_updated_event)
     def apply_existing_event(event)
       callback = self.class.event_bindings[event.class]
-      return if callback.nil?
+
+      if callback.nil?
+        raise UnknownEventError.new("#{self.class.name} doesn't have a binding for '#{event.class}'")
+      end
+
       instance_exec(event, &callback)
     end
   end
