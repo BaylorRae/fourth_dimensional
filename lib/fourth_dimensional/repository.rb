@@ -30,11 +30,7 @@ module FourthDimensional
   #         .filter { |event| event.aggregate_id == aggregate_id }
   #     end
   #
-  #     def save_commands(commands)
-  #       # noop
-  #     end
-  #
-  #     def save_events(events)
+  #     def save_commands_and_events(commands:, events:)
   #       InMemoryEvents.events.concat(events)
   #     end
   #   end

@@ -34,4 +34,33 @@ module FourthDimensional
   def self.build_repository
     Repository.new(event_loader: config.event_loader)
   end
+
+  # Runs a single or array of commands through all command handlers, saves
+  # commands and applied events, and invokes event handlers.
+  #
+  #   FourthDimensional.execute_commands(command)
+  #   FourthDimensional.execute_commands(command1, command2)
+  #   FourthDimensional.execute_commands([command1, command2])
+  def self.execute_commands(*commands)
+    repository = build_repository
+    call_command_handlers(repository, commands)
+    save_commands_and_events(repository)
+  end
+
+  private
+
+  def self.call_command_handlers(repository, commands)
+    config.command_handlers.each do |command_handler|
+      commands.flatten.each do |command|
+        command_handler.new(repository: repository).call(command)
+      end
+    end
+  end
+
+  def self.save_commands_and_events(repository)
+    config.event_loader.save_commands_and_events(
+      commands: repository.called_commands,
+      events: repository.applied_events
+    )
+  end
 end
