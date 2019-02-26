@@ -1,47 +1,9 @@
 require "spec_helper"
+require "active_record_helper"
 
 module FourthDimensional
   module EventLoaders
     describe ActiveRecord do
-      before do
-        ::ActiveRecord::Base.establish_connection(
-          adapter: :sqlite3,
-          dbfile: ':memory:',
-          database: ':memory:'
-        )
-
-        ::ActiveRecord::Base.connection.execute(<<~SQL
-create table fourd_commands (
-  id integer primary key autoincrement,
-  aggregate_id uuid not null,
-  command_type text not null,
-  data text,
-  created_at datetime,
-  updated_at datetime
-)
-        SQL
-        )
-
-        ::ActiveRecord::Base.connection.execute(<<~SQL
-create table fourd_events (
-  id integer primary key autoincrement,
-  uuid uuid not null,
-  aggregate_id uuid not null,
-  event_type text not null,
-  data text,
-  metadata text,
-  version integer,
-  created_at datetime,
-  updated_at datetime
-);
-        SQL
-        )
-      end
-
-      after do
-        ::ActiveRecord::Base.clear_all_connections!
-      end
-
       context "for_aggregate" do
         it "deserializes an event to its original class" do
           aggregate_id = SecureRandom.uuid

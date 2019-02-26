@@ -10,6 +10,7 @@ module FourthDimensional
   autoload :Event, 'fourth_dimensional/event'
   autoload :Eventable, 'fourth_dimensional/eventable'
   autoload :EventLoaders, 'fourth_dimensional/event_loaders'
+  autoload :RecordProjector, 'fourth_dimensional/record_projector'
   autoload :Repository, 'fourth_dimensional/repository'
 
   # The singleton instance of Configuration
