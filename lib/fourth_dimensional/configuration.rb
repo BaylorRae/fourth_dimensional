@@ -15,5 +15,14 @@ module FourthDimensional
 
     # The event loader
     attr_accessor :event_loader
+
+    # The table prefix
+    attr_accessor :table_prefix
+
+    def initialize
+      @command_handlers = []
+      @event_handlers = []
+      @table_prefix = 'fourd_'
+    end
   end
 end

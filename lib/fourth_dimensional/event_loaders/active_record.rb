@@ -21,10 +21,14 @@ module FourthDimensional
       end
 
       class Command < FourthDimensionalRecord # :nodoc:
+        self.table_name = FourthDimensional.config.table_prefix + 'commands'
+
         serialize :data, JSON
       end
 
       class Event < FourthDimensionalRecord # :nodoc:
+        self.table_name = FourthDimensional.config.table_prefix + 'events'
+
         serialize :data, JSON
         serialize :metadata, JSON
       end

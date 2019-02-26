@@ -11,7 +11,7 @@ module FourthDimensional
         )
 
         ::ActiveRecord::Base.connection.execute(<<~SQL
-create table commands (
+create table fourd_commands (
   id integer primary key autoincrement,
   aggregate_id uuid not null,
   command_type text not null,
@@ -23,7 +23,7 @@ create table commands (
         )
 
         ::ActiveRecord::Base.connection.execute(<<~SQL
-create table events (
+create table fourd_events (
   id integer primary key autoincrement,
   uuid uuid not null,
   aggregate_id uuid not null,
