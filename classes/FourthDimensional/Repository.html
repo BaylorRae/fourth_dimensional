@@ -78,11 +78,7 @@ class InMemoryEventLoader
       .filter { |event| event.aggregate_id == aggregate_id }
   end
 
-  def save_command(command)
-    # noop
-  end
-
-  def save_events(events)
+  def save_commands_and_events(commands:, events:)
     InMemoryEvents.events.concat(events)
   end
 end
@@ -184,6 +180,22 @@ end
             <td class='attr-rw'>
               [R]
             </td>
+            <td class='attr-name'>applied_events</td>
+            <td class='attr-desc'><p>An array of events saved</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>called_commands</td>
+            <td class='attr-desc'><p>An array of commands called</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
             <td class='attr-name'>event_loader</td>
             <td class='attr-desc'><p>The source to load events</p></td>
           </tr>
@@ -222,13 +234,15 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional/repository.rb#L49" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/d925c8bb990e904081579ae5b9b2edd666fe9430/lib/fourth_dimensional/repository.rb#L51" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 49</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">event_loader:</span>)
   <span class="ruby-ivar">@event_loader</span> = <span class="ruby-identifier">event_loader</span>
+  <span class="ruby-ivar">@applied_events</span> = []
+  <span class="ruby-ivar">@called_commands</span> = []
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -268,11 +282,11 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-events_for_aggregate_source')" id="l_method-i-events_for_aggregate_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional/repository.rb#L56" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/d925c8bb990e904081579ae5b9b2edd666fe9430/lib/fourth_dimensional/repository.rb#L60" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-events_for_aggregate_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 56</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">events_for_aggregate</span>(<span class="ruby-identifier">aggregate_id</span>)
   <span class="ruby-identifier">event_loader</span>.<span class="ruby-identifier">for_aggregate</span>(<span class="ruby-identifier">aggregate_id</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -310,11 +324,11 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-load_aggregate_source')" id="l_method-i-load_aggregate_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional/repository.rb#L64" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/d925c8bb990e904081579ae5b9b2edd666fe9430/lib/fourth_dimensional/repository.rb#L68" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-load_aggregate_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 64</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_aggregate</span>(<span class="ruby-identifier">aggregate_class</span>, <span class="ruby-identifier">aggregate_id</span>)
   <span class="ruby-identifier">events_for_aggregate</span>(<span class="ruby-identifier">aggregate_id</span>)
     .<span class="ruby-identifier">reduce</span>(<span class="ruby-identifier">aggregate_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">id:</span> <span class="ruby-identifier">aggregate_id</span>)) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">aggregate</span>, <span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
@@ -359,14 +373,14 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-save_command_and_events_source')" id="l_method-i-save_command_and_events_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/879e90d61ba8206f7ff577ded8b2a689103f2ebd/lib/fourth_dimensional/repository.rb#L78" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/d925c8bb990e904081579ae5b9b2edd666fe9430/lib/fourth_dimensional/repository.rb#L82" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-save_command_and_events_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 78</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/repository.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_command_and_events</span>(<span class="ruby-identifier">command_and_events</span>)
-  <span class="ruby-identifier">event_loader</span>.<span class="ruby-identifier">save_command</span>(<span class="ruby-identifier">command_and_events</span>.<span class="ruby-identifier">command</span>)
-  <span class="ruby-identifier">event_loader</span>.<span class="ruby-identifier">save_events</span>(<span class="ruby-identifier">command_and_events</span>.<span class="ruby-identifier">events</span>)
+  <span class="ruby-identifier">called_commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">command_and_events</span>.<span class="ruby-identifier">command</span>
+  <span class="ruby-identifier">applied_events</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">command_and_events</span>.<span class="ruby-identifier">events</span>)
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
