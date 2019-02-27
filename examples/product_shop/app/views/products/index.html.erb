@@ -17,6 +17,7 @@
         <td><%= product.price %></td>
         <td>
           <%= link_to "Edit", edit_product_path(product) %> |
+          <%= link_to "History", history_product_path(product) %> |
           <% if product.deleted? %>
             Deleted <%= time_ago_in_words product.deleted_at %> ago
           <% else %>

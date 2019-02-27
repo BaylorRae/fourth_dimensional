@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def history
+    @events = FourthDimensional.config.event_loader.for_aggregate(params[:id])
+  end
+
   def new
     @product = Product.new
   end
