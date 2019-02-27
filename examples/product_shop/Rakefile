@@ -4,3 +4,11 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+task backfill: :environment do
+  events = FourthDimensional::EventLoaders::ActiveRecord::Event.order(:version).map do |event|
+    FourthDimensional.config.event_loader.deserialize_event(event)
+  end
+
+  Products::ProductProjector.call(events)
+end
