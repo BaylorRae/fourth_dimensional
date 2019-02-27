@@ -27,6 +27,30 @@ module FourthDimensional
       end
     end
 
+    context "created_at" do
+      it "has a readonly created_at" do
+        created_at = double(:created_at)
+        event = Event.new(aggregate_id: aggregate_id, created_at: created_at)
+        expect(event.created_at).to eq(created_at)
+
+        expect do
+          event.created_at = created_at
+        end.to raise_error(NoMethodError)
+      end
+    end
+
+    context "updated_at" do
+      it "has a readonly updated_at" do
+        updated_at = double(:updated_at)
+        event = Event.new(aggregate_id: aggregate_id, updated_at: updated_at)
+        expect(event.updated_at).to eq(updated_at)
+
+        expect do
+          event.updated_at = updated_at
+        end.to raise_error(NoMethodError)
+      end
+    end
+
     context "data" do
       it "has data" do
         data = { this: 'that' }
