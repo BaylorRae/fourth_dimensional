@@ -10,7 +10,9 @@ module FourthDimensional
 create table posts (
   id uuid primary key,
   title varchar(100),
-  published boolean
+  published boolean,
+  created_at datetime,
+  updated_at datetime
 )
       SQL
       )
@@ -91,6 +93,33 @@ create table posts (
         expect(projector.record).to be_new_record
         projector.save
         expect(projector.record).to be_persisted
+      end
+    end
+
+    context "call" do
+      it "applies events and saves" do
+        stub_const("TitleChanged", Class.new(Event))
+
+        PostProjector.class_eval do
+          on TitleChanged do |event|
+            record.title = event.data.fetch('title')
+          end
+        end
+
+        projector = PostProjector.new(aggregate_id: aggregate_id)
+        expect(projector.record).to be_new_record
+
+        projector.call(
+          TitleChanged.new(aggregate_id: aggregate_id,
+                           data: {title: 'post-title'},
+                           version: 1),
+          TitleChanged.new(aggregate_id: aggregate_id,
+                           data: {title: 'post-title-v2'},
+                           version: 2)
+        )
+        expect(projector.record).to be_persisted
+        expect(projector.record.title).to eq('post-title-v2')
+        expect(projector.record.created_at).to eq(projector.record.updated_at)
       end
     end
   end

@@ -39,5 +39,15 @@ module FourthDimensional
     def save
       record.save
     end
+
+    # Applies multiple events and saves at the end.
+    #
+    #   projector.record.persisted? # => false
+    #   projector.call(event1, event2)
+    #   projector.record.persisted? # => true
+    def call(*events)
+      events.flatten.map(&method(:apply_event))
+      save
+    end
   end
 end
