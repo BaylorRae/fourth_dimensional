@@ -47,7 +47,8 @@ module FourthDimensional
   def self.execute_commands(*commands)
     repository = build_repository
     call_command_handlers(repository, commands)
-    save_commands_and_events(repository)
+    saved_events = save_commands_and_events(repository)
+    call_event_handlers(saved_events)
   end
 
   class << self
@@ -69,5 +70,11 @@ module FourthDimensional
       commands: repository.called_commands,
       events: repository.applied_events
     )
+  end
+
+  def self.call_event_handlers(events)
+    config.event_handlers.each do |event_handler|
+      event_handler.call(events)
+    end
   end
 end

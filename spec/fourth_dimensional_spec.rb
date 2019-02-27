@@ -134,5 +134,37 @@ describe FourthDimensional do
       FourthDimensional.config.event_loader = event_loader
       FourthDimensional.execute_commands(command)
     end
+
+    it "calls event handlers with saved events" do
+      event = double(:event)
+      aggregate = double(:aggregate, applied_events: [event])
+
+      CommandHandler1.class_eval do
+        on Command1 do |x_command|
+          save(x_command, aggregate)
+        end
+      end
+
+      command = Command1.new(aggregate_id: nil)
+
+      saved_events = double(:saved_events)
+      event_loader = double(:event_loader)
+      allow(event_loader).to receive(:save_commands_and_events)
+        .with(commands: [command], events: [event])
+        .and_return(saved_events)
+
+      event_handler1 = double(:event_handler1)
+      event_handler2 = double(:event_handler2)
+
+      expect(event_handler1).to receive(:call).with(saved_events)
+      expect(event_handler2).to receive(:call).with(saved_events)
+
+      FourthDimensional.config.event_loader = event_loader
+      FourthDimensional.config.event_handlers = [
+        event_handler1,
+        event_handler2
+      ]
+      FourthDimensional.execute_commands(command)
+    end
   end
 end
