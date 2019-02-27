@@ -13,7 +13,24 @@ module Products
       )
     end
 
+    def update(title:, body:, price:)
+      apply(
+        Products::Events::ProductUpdated,
+        data: {
+          title: title,
+          body: body,
+          price: price
+        }
+      )
+    end
+
     on Products::Events::ProductCreated do |event|
+      @title = event.title
+      @body = event.body
+      @price = event.price
+    end
+
+    on Products::Events::ProductUpdated do |event|
       @title = event.title
       @body = event.body
       @price = event.price
