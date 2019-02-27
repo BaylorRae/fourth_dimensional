@@ -14,6 +14,7 @@ module Products
     end
 
     def update(title:, body:, price:)
+      raise RuntimeError if @deleted
       apply(
         Products::Events::ProductUpdated,
         data: {
