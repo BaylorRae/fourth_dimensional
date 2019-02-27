@@ -246,6 +246,30 @@ module FourthDimensional
           expect(actual_event.data).to eq({})
           expect(actual_event.metadata).to eq({})
         end
+
+        it "returns deserialized events" do
+          stub_const("Event1", Class.new(Event))
+
+          aggregate_id = SecureRandom.uuid
+
+          event = Event1.new(aggregate_id: aggregate_id)
+
+          event_loader = ActiveRecord.new
+          created_events = event_loader.save_commands_and_events(
+            commands: [],
+            events: [event]
+          )
+
+          expect(created_events.length).to eq(1)
+          event = created_events.first
+
+          expect(event).to be_instance_of(Event1)
+          expect(event.aggregate_id).to eq(aggregate_id)
+          expect(event.id).to eq(1)
+          expect(event.version).to eq(1)
+          expect(event.created_at).to_not be_nil
+          expect(event.updated_at).to_not be_nil
+        end
       end
     end
   end

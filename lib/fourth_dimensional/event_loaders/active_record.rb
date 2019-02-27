@@ -32,7 +32,7 @@ module FourthDimensional
       def save_commands_and_events(commands:, events:)
         FourthDimensionalRecord.transaction do
           create_commands!(commands)
-          create_events!(events)
+          create_events!(events).map(&method(:deserialize_event))
         end
       end
 
@@ -65,7 +65,7 @@ module FourthDimensional
 
       def create_events!(events)
         versions = aggregate_versions
-        events.each do |event|
+        events.map do |event|
           version = versions[event.aggregate_id] += 1
           Event.create!(uuid: SecureRandom.uuid,
                         aggregate_id: event.aggregate_id,
