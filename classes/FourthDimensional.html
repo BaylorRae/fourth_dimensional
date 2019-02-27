@@ -57,7 +57,11 @@
             
             <li><a href="../files/lib/fourth_dimensional/version_rb.html">lib/fourth_dimensional/version.rb</a></li>
             
+            <li><a href="../files/lib/generators/fourth_dimensional/install_generator_rb.html">lib/generators/fourth_dimensional/install_generator.rb</a></li>
+            
             <li><a href="../files/lib/generators/fourth_dimensional/migration_generator_rb.html">lib/generators/fourth_dimensional/migration_generator.rb</a></li>
+            
+            <li><a href="../files/lib/generators/fourth_dimensional/templates/initializer_rb.html">lib/generators/fourth_dimensional/templates/initializer.rb</a></li>
             
         </ul>
     </div>
@@ -116,6 +120,11 @@
         <li>
           <span class="type">CLASS</span>
           <a href="FourthDimensional/Event.html">FourthDimensional::Event</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="FourthDimensional/InstallGenerator.html">FourthDimensional::InstallGenerator</a>
         </li>
       
         <li>
@@ -258,7 +267,7 @@
                 Source:
                 <a href="javascript:toggleSource('method-c-build_repository_source')" id="l_method-c-build_repository_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional.rb#L37" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional.rb#L37" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-build_repository_source" class="dyn-source">
@@ -297,7 +306,7 @@
                 Source:
                 <a href="javascript:toggleSource('method-c-config_source')" id="l_method-c-config_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional.rb#L18" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional.rb#L18" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-config_source" class="dyn-source">
@@ -344,7 +353,7 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-c-configure_source')" id="l_method-c-configure_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional.rb#L30" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional.rb#L30" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-configure_source" class="dyn-source">
@@ -417,7 +426,7 @@ FourthDimensional.execute_commands([command1, command2])
                 Source:
                 <a href="javascript:toggleSource('method-c-execute_commands_source')" id="l_method-c-execute_commands_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional.rb#L47" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional.rb#L47" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-execute_commands_source" class="dyn-source">
@@ -425,7 +434,8 @@ FourthDimensional.execute_commands([command1, command2])
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">execute_commands</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">commands</span>)
   <span class="ruby-identifier">repository</span> = <span class="ruby-identifier">build_repository</span>
   <span class="ruby-identifier">call_command_handlers</span>(<span class="ruby-identifier">repository</span>, <span class="ruby-identifier">commands</span>)
-  <span class="ruby-identifier">save_commands_and_events</span>(<span class="ruby-identifier">repository</span>)
+  <span class="ruby-identifier">saved_events</span> = <span class="ruby-identifier">save_commands_and_events</span>(<span class="ruby-identifier">repository</span>)
+  <span class="ruby-identifier">call_event_handlers</span>(<span class="ruby-identifier">saved_events</span>)
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>

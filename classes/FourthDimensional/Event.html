@@ -23,7 +23,7 @@
 
     <meta name="keywords" content="FourthDimensional::Event class">
   
-    <meta name="keywords" content="new">
+    <meta name="keywords" content="new, type">
   
 </head>
 
@@ -102,6 +102,18 @@ end
               
               <li>
                 <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-type">type</a>
               </li>
             
           </ul>
@@ -235,11 +247,11 @@ event.metadata # =&gt; { &#39;two&#39; =&gt; 2 }
                 Source:
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional/event.rb#L55" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/event.rb#L56" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 55</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">aggregate_id:</span>,
                <span class="ruby-value">id:</span> <span class="ruby-keyword">nil</span>,
                <span class="ruby-value">version:</span> <span class="ruby-keyword">nil</span>,
@@ -262,6 +274,51 @@ event.metadata # =&gt; { &#39;two&#39; =&gt; 2 }
         
       
     
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-type">
+            
+              <b>type</b>()
+            
+            <a href="../../classes/FourthDimensional/Event.html#method-i-type" name="method-i-type" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Underscored event type</p>
+
+<pre><code>Products::Events::Created.new.type # =&gt; &quot;products/events/created&quot;
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-type_source')" id="l_method-i-type_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/event.rb#L75" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-i-type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">type</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">underscore</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
     
   
 </div>

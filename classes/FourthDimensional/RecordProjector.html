@@ -23,7 +23,7 @@
 
     <meta name="keywords" content="FourthDimensional::RecordProjector class">
   
-    <meta name="keywords" content="new, apply_event, save">
+    <meta name="keywords" content="new, apply_event, save, call, call">
   
 </head>
 
@@ -89,6 +89,23 @@ end
               
               <li>
                 <a href="#method-i-apply_event">apply_event</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-call">call</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-call">call</a>
               </li>
             
           </ul>
@@ -170,6 +187,47 @@ end
       <div class="sectiontitle">Class Public methods</div>
       
         <div class="method">
+          <div class="title method-title" id="method-c-call">
+            
+              <b>call</b>(*events)
+            
+            <a href="../../classes/FourthDimensional/RecordProjector.html#method-c-call" name="method-c-call" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Bulk apply and save events to multiple aggregates.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-call_source')" id="l_method-c-call_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/record_projector.rb#L54" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-call_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/record_projector.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">events</span>)
+  <span class="ruby-identifier">events</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">group_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:aggregate_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">aggregate_id</span>, <span class="ruby-identifier">events</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">new</span>(<span class="ruby-value">aggregate_id:</span> <span class="ruby-identifier">aggregate_id</span>).<span class="ruby-identifier">call</span>(<span class="ruby-identifier">events</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
           <div class="title method-title" id="method-c-new">
             
               <b>new</b>(aggregate_id:)
@@ -195,7 +253,7 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional/record_projector.rb#L22" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/record_projector.rb#L22" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
@@ -242,7 +300,7 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-apply_event_source')" id="l_method-i-apply_event_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional/record_projector.rb#L30" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/record_projector.rb#L30" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-apply_event_source" class="dyn-source">
@@ -251,6 +309,51 @@ end
   <span class="ruby-identifier">callback</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">event_bindings</span>[<span class="ruby-identifier">event</span>.<span class="ruby-identifier">class</span>]
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">event</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-call">
+            
+              <b>call</b>(*events)
+            
+            <a href="../../classes/FourthDimensional/RecordProjector.html#method-i-call" name="method-i-call" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Applies multiple events and saves at the end.</p>
+
+<pre><code>projector.record.persisted? # =&gt; false
+projector.call(event1, event2)
+projector.record.persisted? # =&gt; true
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-call_source')" id="l_method-i-call_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/record_projector.rb#L48" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-i-call_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/record_projector.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">events</span>)
+  <span class="ruby-identifier">events</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">method</span>(<span class="ruby-value">:apply_event</span>))
+  <span class="ruby-identifier">save</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -286,7 +389,7 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-save_source')" id="l_method-i-save_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/c55608ed21ab428d47c406303dbae271987c60c8/lib/fourth_dimensional/record_projector.rb#L39" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/78dbf441a65d918b44dc45308a92b54ff3d48348/lib/fourth_dimensional/record_projector.rb#L39" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-save_source" class="dyn-source">
