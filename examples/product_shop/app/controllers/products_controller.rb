@@ -24,6 +24,22 @@ class ProductsController < ApplicationController
     redirect_to product_path(aggregate_id)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    aggregate_id = params[:id]
+    command = Products::Commands::UpdateProduct.new(
+      aggregate_id: aggregate_id,
+      title: product_params[:title],
+      body: product_params[:body],
+      price: product_params[:price]
+    )
+    FourthDimensional.execute_command(command)
+    redirect_to product_path(aggregate_id)
+  end
+
   private
 
   def product_params

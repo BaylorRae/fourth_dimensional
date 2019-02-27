@@ -7,5 +7,11 @@ module Products
       record.body = event.body
       record.price = event.price
     end
+
+    on Products::Events::ProductUpdated do |event|
+      record.title = event.title
+      record.body = event.body
+      record.price = event.price
+    end
   end
 end
