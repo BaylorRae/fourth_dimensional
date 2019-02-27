@@ -23,6 +23,8 @@
 
     <meta name="keywords" content="FourthDimensional::Configuration class">
   
+    <meta name="keywords" content="new">
+  
 </head>
 
 <body>
@@ -74,6 +76,24 @@ end
 
 
   
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
 
   
 
@@ -117,12 +137,64 @@ end
             <td class='attr-desc'><p>The event loader</p></td>
           </tr>
         
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>table_prefix</td>
+            <td class='attr-desc'><p>The table prefix</p></td>
+          </tr>
+        
       </table>
     
 
 
     <!-- Methods -->
     
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>()
+            
+            <a href="../../classes/FourthDimensional/Configuration.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/configuration.rb#L22" target="_blank" class="github_url">on GitHub</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/configuration.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-ivar">@command_handlers</span> = []
+  <span class="ruby-ivar">@event_handlers</span> = []
+  <span class="ruby-ivar">@table_prefix</span> = <span class="ruby-string">&#39;fourd_&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
     
     
   

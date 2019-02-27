@@ -140,6 +140,14 @@ end
             <td class='attr-rw'>
               [R]
             </td>
+            <td class='attr-name'>created_at</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
             <td class='attr-name'>data</td>
             <td class='attr-desc'><p>hash of data with stringified keys</p></td>
           </tr>
@@ -150,6 +158,22 @@ end
             </td>
             <td class='attr-name'>metadata</td>
             <td class='attr-desc'><p>hash of data with stringified keys</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>updated_at</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>version</td>
+            <td class='attr-desc'></td>
           </tr>
         
       </table>
@@ -163,7 +187,7 @@ end
         <div class="method">
           <div class="title method-title" id="method-c-new">
             
-              <b>new</b>(aggregate_id:, data: nil, metadata: nil)
+              <b>new</b>(aggregate_id:, version: nil, created_at: nil, updated_at: nil, data: nil, metadata: nil)
             
             <a href="../../classes/FourthDimensional/Event.html#method-c-new" name="method-c-new" class="permalink">Link</a>
           </div>
@@ -181,8 +205,10 @@ event.metadata # =&gt; {}
 <p><code>data</code> and <code>metadata</code> should be hashes and the keys will transformed  into strings to accommodate deserializing the values from json.</p>
 
 <pre><code>event = MyEvent.new(aggregate_id: &#39;1-2-3&#39;,
+                    version: 1,
                     data: { one: 1 },
                     metadata: { two: 2 })
+event.version # =&gt; 1
 event.data # =&gt; { &#39;one&#39; =&gt; 1 }
 event.metadata # =&gt; { &#39;two&#39; =&gt; 2 }
 </code></pre>
@@ -201,13 +227,21 @@ event.metadata # =&gt; { &#39;two&#39; =&gt; 2 }
                 Source:
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/157b6dde202ddfd05a14119e559d906853646aa2/lib/fourth_dimensional/event.rb#L50" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/event.rb#L54" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 50</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">aggregate_id:</span>, <span class="ruby-value">data:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">metadata:</span> <span class="ruby-keyword">nil</span>)
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">aggregate_id:</span>,
+               <span class="ruby-value">version:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-value">created_at:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-value">updated_at:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-value">data:</span> <span class="ruby-keyword">nil</span>,
+               <span class="ruby-value">metadata:</span> <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@aggregate_id</span> = <span class="ruby-identifier">aggregate_id</span>
+  <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">version</span>
+  <span class="ruby-ivar">@created_at</span> = <span class="ruby-identifier">created_at</span>
+  <span class="ruby-ivar">@updated_at</span> = <span class="ruby-identifier">updated_at</span>
   <span class="ruby-ivar">@data</span> = (<span class="ruby-identifier">data</span> <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">transform_keys</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
   <span class="ruby-ivar">@metadata</span> = (<span class="ruby-identifier">metadata</span> <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">transform_keys</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
 <span class="ruby-keyword">end</span></pre>

@@ -173,6 +173,24 @@ aggregate.state # =&gt; :deleted
     
 
     
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">UnknownEventError</td>
+            <td>=</td>
+            <td class="attr-value">Class.new(Error)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
 
 
     
@@ -194,6 +212,14 @@ aggregate.state # =&gt; :deleted
             </td>
             <td class='attr-name'>id</td>
             <td class='attr-desc'><p>aggregate id</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>version</td>
+            <td class='attr-desc'><p>current version</p></td>
           </tr>
         
       </table>
@@ -230,15 +256,16 @@ aggregate.state # =&gt; :deleted
                 Source:
                 <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/157b6dde202ddfd05a14119e559d906853646aa2/lib/fourth_dimensional/aggregate_root.rb#L57" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/aggregate_root.rb#L62" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-new_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/aggregate_root.rb, line 57</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/aggregate_root.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">id:</span>)
   <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">id</span>
 
   <span class="ruby-ivar">@applied_events</span> = []
+  <span class="ruby-ivar">@version</span> = <span class="ruby-value">1</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
@@ -277,16 +304,14 @@ aggregate.state # =&gt; :deleted
                 Source:
                 <a href="javascript:toggleSource('method-i-apply_source')" id="l_method-i-apply_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/157b6dde202ddfd05a14119e559d906853646aa2/lib/fourth_dimensional/aggregate_root.rb#L67" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/aggregate_root.rb#L73" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-apply_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/aggregate_root.rb, line 67</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/aggregate_root.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply</span>(<span class="ruby-identifier">event_class</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
-  <span class="ruby-identifier">callback</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">event_bindings</span>[<span class="ruby-identifier">event_class</span>]
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-identifier">event</span> = <span class="ruby-identifier">event_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">aggregate_id:</span> <span class="ruby-identifier">id</span>))
-  <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">event</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+  <span class="ruby-identifier">apply_existing_event</span>(<span class="ruby-identifier">event</span>)
   <span class="ruby-identifier">applied_events</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">event</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
@@ -323,15 +348,20 @@ aggregate.state # =&gt; :deleted
                 Source:
                 <a href="javascript:toggleSource('method-i-apply_existing_event_source')" id="l_method-i-apply_existing_event_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/157b6dde202ddfd05a14119e559d906853646aa2/lib/fourth_dimensional/aggregate_root.rb#L79" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/aggregate_root.rb#L83" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-apply_existing_event_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/aggregate_root.rb, line 79</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/aggregate_root.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">apply_existing_event</span>(<span class="ruby-identifier">event</span>)
   <span class="ruby-identifier">callback</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">event_bindings</span>[<span class="ruby-identifier">event</span>.<span class="ruby-identifier">class</span>]
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnknownEventError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{self.class.name} doesn&#39;t have a binding for &#39;#{event.class}&#39;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
   <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">event</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+  <span class="ruby-ivar">@version</span> = <span class="ruby-identifier">next_version</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
             </div>
