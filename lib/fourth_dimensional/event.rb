@@ -1,4 +1,5 @@
 require "active_support/core_ext/hash/keys"
+require "active_support/inflector"
 
 module FourthDimensional
   # == FourthDimensional::Event
@@ -66,6 +67,13 @@ module FourthDimensional
       @updated_at = updated_at
       @data = (data || {}).transform_keys(&:to_s)
       @metadata = (metadata || {}).transform_keys(&:to_s)
+    end
+
+    # Underscored event type
+    #
+    #     Products::Events::Created.new.type # => "products/events/created"
+    def type
+      self.class.name.underscore
     end
   end
 end

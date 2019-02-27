@@ -70,7 +70,7 @@ module FourthDimensional
           Event.create!(uuid: SecureRandom.uuid,
                         aggregate_id: event.aggregate_id,
                         version: version,
-                        event_type: event.class.name.underscore,
+                        event_type: event.type,
                         data: event.data,
                         metadata: event.metadata)
         end

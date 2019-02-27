@@ -3,6 +3,13 @@ require "spec_helper"
 module FourthDimensional
   describe Event do
     let(:aggregate_id) { double(:aggregate_id) }
+    
+    context "type" do
+      it "has a pretty type" do
+        stub_const("This::Is::Not::APrettyEvent", Class.new(Event))
+        expect(This::Is::Not::APrettyEvent.new(aggregate_id: 1).type).to eq('this/is/not/a_pretty_event')
+      end
+    end
 
     context "aggregate_id" do
       it "requires an aggregate id on initialize" do
