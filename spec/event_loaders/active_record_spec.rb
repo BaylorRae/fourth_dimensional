@@ -78,6 +78,7 @@ module FourthDimensional
           updated_at = double(:updated_at)
 
           event = ActiveRecord::Event.new(aggregate_id: aggregate_id,
+                                          id: 1,
                                           version: version,
                                           event_type: 'example_event',
                                           data: data,
@@ -90,6 +91,7 @@ module FourthDimensional
           event = event_loader.deserialize_event(event)
           expect(event).to be_instance_of(ExampleEvent)
           expect(event.aggregate_id).to eq(aggregate_id)
+          expect(event.id).to eq(1)
           expect(event.version).to eq(version.to_i)
           expect(event.data).to eq(JSON.parse(data.to_json))
           expect(event.metadata).to eq(JSON.parse(metadata.to_json))
