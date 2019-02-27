@@ -66,6 +66,38 @@ module FourthDimensional
         end
       end
 
+      context "deserialize_event" do
+        it "creates an instance of the original event" do
+          stub_const("ExampleEvent", Class.new(Event))
+
+          aggregate_id = double(:aggregate_id)
+          version = double(:version, to_i: 1)
+          data = double(:data)
+          metadata = double(:metadata)
+          created_at = double(:created_at)
+          updated_at = double(:updated_at)
+
+          event = ActiveRecord::Event.new(aggregate_id: aggregate_id,
+                                          version: version,
+                                          event_type: 'example_event',
+                                          data: data,
+                                          metadata: metadata,
+                                          created_at: created_at,
+                                          updated_at: updated_at)
+
+          event_loader = ActiveRecord.new
+
+          event = event_loader.deserialize_event(event)
+          expect(event).to be_instance_of(ExampleEvent)
+          expect(event.aggregate_id).to eq(aggregate_id)
+          expect(event.version).to eq(version.to_i)
+          expect(event.data).to eq(JSON.parse(data.to_json))
+          expect(event.metadata).to eq(JSON.parse(metadata.to_json))
+          expect(event.created_at).to eq(created_at)
+          expect(event.updated_at).to eq(updated_at)
+        end
+      end
+
       context "save_commands_and_events" do
         before do
           stub_const("ExampleCommand", Class.new(Command))
