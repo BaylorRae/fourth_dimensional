@@ -1,0 +1,11 @@
+module Products
+  class CommandHandler < FourthDimensional::CommandHandler
+    on Products::Commands::CreateProduct do |command|
+      with_aggregate(Products::Product, command) do |product|
+        product.create(title: command.title,
+                       body: command.body,
+                       price: command.price)
+      end
+    end
+  end
+end
