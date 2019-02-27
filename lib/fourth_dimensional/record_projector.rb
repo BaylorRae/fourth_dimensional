@@ -49,5 +49,12 @@ module FourthDimensional
       events.flatten.map(&method(:apply_event))
       save
     end
+
+    # Bulk apply and save events to multiple aggregates.
+    def self.call(*events)
+      events.flatten.group_by(&:aggregate_id).each do |aggregate_id, events|
+        new(aggregate_id: aggregate_id).call(events)
+      end
+    end
   end
 end

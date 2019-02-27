@@ -96,7 +96,7 @@ create table posts (
       end
     end
 
-    context "call" do
+    context "#call" do
       it "applies events and saves" do
         stub_const("TitleChanged", Class.new(Event))
 
@@ -120,6 +120,55 @@ create table posts (
         expect(projector.record).to be_persisted
         expect(projector.record.title).to eq('post-title-v2')
         expect(projector.record.created_at).to eq(projector.record.updated_at)
+      end
+    end
+
+    context "::call" do
+      it "applies and saves grouped events for aggregates" do
+        expect(Post.count).to be_zero
+        stub_const("TitleChanged", Class.new(Event))
+
+        PostProjector.class_eval do
+          on TitleChanged do |event|
+            record.title = event.data.fetch('title')
+          end
+        end
+
+        post_1_id = SecureRandom.uuid
+        post_2_id = SecureRandom.uuid
+        post_3_id = SecureRandom.uuid
+
+        PostProjector.call(
+          TitleChanged.new(aggregate_id: post_1_id,
+                           version: 1,
+                           data: {title: 'post_1-title-v1'}),
+          TitleChanged.new(aggregate_id: post_2_id,
+                           version: 1,
+                           data: {title: 'post_2-title-v1'}),
+          TitleChanged.new(aggregate_id: post_3_id,
+                           version: 1,
+                           data: {title: 'post_3-title-v1'}),
+          TitleChanged.new(aggregate_id: post_1_id,
+                           version: 2,
+                           data: {title: 'post_1-title-v2'}),
+          TitleChanged.new(aggregate_id: post_3_id,
+                           version: 2,
+                           data: {title: 'post_3-title-v2'}),
+          TitleChanged.new(aggregate_id: post_1_id,
+                           version: 3,
+                           data: {title: 'post_1-title-v3'}),
+        )
+
+        expect(Post.count).to eq(3)
+
+        post_1 = Post.find(post_1_id)
+        expect(post_1.title).to eq('post_1-title-v3')
+
+        post_2 = Post.find(post_2_id)
+        expect(post_2.title).to eq('post_2-title-v1')
+
+        post_3 = Post.find(post_3_id)
+        expect(post_3.title).to eq('post_3-title-v2')
       end
     end
   end
