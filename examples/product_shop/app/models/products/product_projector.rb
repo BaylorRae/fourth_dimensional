@@ -13,5 +13,10 @@ module Products
       record.body = event.body
       record.price = event.price
     end
+
+    on Products::Events::ProductDeleted do |event|
+      record.deleted = true
+      record.deleted_at = event.created_at
+    end
   end
 end

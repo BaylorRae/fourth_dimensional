@@ -40,6 +40,13 @@ class ProductsController < ApplicationController
     redirect_to product_path(aggregate_id)
   end
 
+  def destroy
+    aggregate_id = params[:id]
+    command = Products::Commands::DeleteProduct.new(aggregate_id: aggregate_id)
+    FourthDimensional.execute_command(command)
+    redirect_to products_path
+  end
+
   private
 
   def product_params

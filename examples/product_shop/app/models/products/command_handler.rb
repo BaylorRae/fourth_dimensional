@@ -15,5 +15,11 @@ module Products
                        price: command.price)
       end
     end
+
+    on Products::Commands::DeleteProduct do |command|
+      with_aggregate(Products::Product, command) do |product|
+        product.delete
+      end
+    end
   end
 end

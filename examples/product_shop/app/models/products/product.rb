@@ -24,6 +24,10 @@ module Products
       )
     end
 
+    def delete
+      apply Products::Events::ProductDeleted
+    end
+
     on Products::Events::ProductCreated do |event|
       @title = event.title
       @body = event.body
@@ -34,6 +38,10 @@ module Products
       @title = event.title
       @body = event.body
       @price = event.price
+    end
+
+    on Products::Events::ProductDeleted do |event|
+      @deleted = true
     end
   end
 end

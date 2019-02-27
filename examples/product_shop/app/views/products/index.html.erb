@@ -16,7 +16,12 @@
         <td><%= product.title %></td>
         <td><%= product.price %></td>
         <td>
-          <%= link_to "Edit", edit_product_path(product) %>
+          <%= link_to "Edit", edit_product_path(product) %> |
+          <% if product.deleted? %>
+            Deleted <%= time_ago_in_words product.deleted_at %> ago
+          <% else %>
+            <%= link_to "Delete", product_path(product), method: :delete %>
+          <% end %>
         </td>
       </tr>
     <% end %>
