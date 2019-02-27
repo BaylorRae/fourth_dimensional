@@ -1,0 +1,14 @@
+<h2><%= @product.title %></h2>
+
+<%= link_to "All Products", products_path %>
+
+<dl>
+  <dt>Title</dt>
+  <dd><%= @product.title %></dd>
+
+  <dt>Price</dt>
+  <dd><%= number_to_currency @product.price %></dd>
+
+  <dt>Body</dt>
+  <dd><%= @product.body %></dd>
+</dl>
