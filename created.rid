@@ -1,16 +1,16 @@
-Wed, 27 Feb 2019 12:17:42 +0000
-README.md	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/aggregate_root.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/command.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/command_handler.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/configuration.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/event.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/event_loaders.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/event_loaders/active_record.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/eventable.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/railtie.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/record_projector.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/repository.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/fourth_dimensional/version.rb	Wed, 27 Feb 2019 12:17:05 +0000
-lib/generators/fourth_dimensional/migration_generator.rb	Wed, 27 Feb 2019 12:17:05 +0000
+Wed, 27 Feb 2019 12:17:46 +0000
+README.md	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/aggregate_root.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/command.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/command_handler.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/configuration.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/event.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/event_loaders.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/event_loaders/active_record.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/eventable.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/railtie.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/record_projector.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/repository.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/fourth_dimensional/version.rb	Wed, 27 Feb 2019 12:17:10 +0000
+lib/generators/fourth_dimensional/migration_generator.rb	Wed, 27 Feb 2019 12:17:10 +0000
