@@ -57,6 +57,8 @@
             
             <li><a href="../files/lib/fourth_dimensional/version_rb.html">lib/fourth_dimensional/version.rb</a></li>
             
+            <li><a href="../files/lib/generators/fourth_dimensional/migration_generator_rb.html">lib/generators/fourth_dimensional/migration_generator.rb</a></li>
+            
         </ul>
     </div>
     <div id="bodyContent">
@@ -114,6 +116,11 @@
         <li>
           <span class="type">CLASS</span>
           <a href="FourthDimensional/Event.html">FourthDimensional::Event</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="FourthDimensional/MigrationGenerator.html">FourthDimensional::MigrationGenerator</a>
         </li>
       
         <li>
@@ -251,11 +258,11 @@
                 Source:
                 <a href="javascript:toggleSource('method-c-build_repository_source')" id="l_method-c-build_repository_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional.rb#L36" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/09b3cb7fcb7a5170070d560ac26fa6c09a3e02d5/lib/fourth_dimensional.rb#L37" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-build_repository_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 36</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">build_repository</span>
   <span class="ruby-constant">Repository</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">event_loader:</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">event_loader</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -290,11 +297,11 @@
                 Source:
                 <a href="javascript:toggleSource('method-c-config_source')" id="l_method-c-config_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional.rb#L17" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/09b3cb7fcb7a5170070d560ac26fa6c09a3e02d5/lib/fourth_dimensional.rb#L18" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-config_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 17</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">config</span>
   <span class="ruby-ivar">@configuration</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Configuration</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -337,11 +344,11 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-c-configure_source')" id="l_method-c-configure_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional.rb#L29" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/09b3cb7fcb7a5170070d560ac26fa6c09a3e02d5/lib/fourth_dimensional.rb#L30" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-configure_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 29</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">configure</span>
   <span class="ruby-keyword">yield</span> <span class="ruby-identifier">config</span>
 <span class="ruby-keyword">end</span></pre>
@@ -410,11 +417,11 @@ FourthDimensional.execute_commands([command1, command2])
                 Source:
                 <a href="javascript:toggleSource('method-c-execute_commands_source')" id="l_method-c-execute_commands_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional.rb#L46" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/09b3cb7fcb7a5170070d560ac26fa6c09a3e02d5/lib/fourth_dimensional.rb#L47" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-c-execute_commands_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 46</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">execute_commands</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">commands</span>)
   <span class="ruby-identifier">repository</span> = <span class="ruby-identifier">build_repository</span>
   <span class="ruby-identifier">call_command_handlers</span>(<span class="ruby-identifier">repository</span>, <span class="ruby-identifier">commands</span>)
