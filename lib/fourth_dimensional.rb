@@ -1,4 +1,5 @@
 require "fourth_dimensional/version"
+require "fourth_dimensional/railtie" if defined?(Rails)
 
 module FourthDimensional
   class Error < StandardError; end
