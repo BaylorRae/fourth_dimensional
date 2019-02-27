@@ -31,6 +31,10 @@ module FourthDimensional
       @aggregate_id = aggregate_id
     end
 
+    def to_h
+      {}
+    end
+
     # Defines an initializer with required keyword arguments, readonly only
     # attributes and +to_h+ to access all defined attributes
     #

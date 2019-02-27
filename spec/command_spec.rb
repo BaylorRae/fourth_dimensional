@@ -6,6 +6,13 @@ module FourthDimensional
 
     before { stub_const('ExampleCommand', Class.new(Command)) }
 
+    context "to_h" do
+      it "is empty without attributes" do
+        command = ExampleCommand.new(aggregate_id: aggregate_id)
+        expect(command.to_h).to eq({})
+      end
+    end
+
     context "attributes" do
       context "aggregate_id" do
         it "requires an aggregate_id with no attributes" do
