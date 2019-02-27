@@ -15,6 +15,18 @@ module FourthDimensional
       end
     end
 
+    context "id" do
+      it "has a readonly id" do
+        id = double(:id)
+        event = Event.new(aggregate_id: aggregate_id, id: id)
+        expect(event.id).to eq(id)
+
+        expect do
+          event.id = id
+        end.to raise_error(NoMethodError)
+      end
+    end
+
     context "version" do
       it "has a readonly version" do
         version = double(:version)
