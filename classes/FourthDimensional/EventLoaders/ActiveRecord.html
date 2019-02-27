@@ -164,13 +164,14 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-deserialize_event_source')" id="l_method-i-deserialize_event_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/event_loaders/active_record.rb#L21" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional/event_loaders/active_record.rb#L21" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-deserialize_event_source" class="dyn-source">
                 <pre><span class="ruby-comment"># File lib/fourth_dimensional/event_loaders/active_record.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">deserialize_event</span>(<span class="ruby-identifier">event</span>)
   <span class="ruby-identifier">event</span>.<span class="ruby-identifier">event_type</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">constantize</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">aggregate_id:</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">aggregate_id</span>,
+                                            <span class="ruby-value">id:</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">id</span>,
                                             <span class="ruby-value">version:</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">version</span>,
                                             <span class="ruby-value">data:</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span>,
                                             <span class="ruby-value">metadata:</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">metadata</span>,
@@ -211,7 +212,7 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-for_aggregate_source')" id="l_method-i-for_aggregate_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/event_loaders/active_record.rb#L14" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional/event_loaders/active_record.rb#L14" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-for_aggregate_source" class="dyn-source">
@@ -252,15 +253,15 @@ end
                 Source:
                 <a href="javascript:toggleSource('method-i-save_commands_and_events_source')" id="l_method-i-save_commands_and_events_source">show</a>
                 
-                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/a7d0ebf474d1b7215859f039cbfb5ac65331eb19/lib/fourth_dimensional/event_loaders/active_record.rb#L31" target="_blank" class="github_url">on GitHub</a>
+                  | <a href="https://github.com/BaylorRae/fourth_dimensional/blob/6155101088aacc7dfe4dc5bfd3674830d21ea6f8/lib/fourth_dimensional/event_loaders/active_record.rb#L32" target="_blank" class="github_url">on GitHub</a>
                 
               </p>
               <div id="method-i-save_commands_and_events_source" class="dyn-source">
-                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event_loaders/active_record.rb, line 31</span>
+                <pre><span class="ruby-comment"># File lib/fourth_dimensional/event_loaders/active_record.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_commands_and_events</span>(<span class="ruby-value">commands:</span>, <span class="ruby-value">events:</span>)
   <span class="ruby-constant">FourthDimensionalRecord</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
     <span class="ruby-identifier">create_commands!</span>(<span class="ruby-identifier">commands</span>)
-    <span class="ruby-identifier">create_events!</span>(<span class="ruby-identifier">events</span>)
+    <span class="ruby-identifier">create_events!</span>(<span class="ruby-identifier">events</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">method</span>(<span class="ruby-value">:deserialize_event</span>))
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
               </div>
