@@ -3,4 +3,7 @@ FourthDimensional.configure do |config|
   config.command_handlers = [
     Products::CommandHandler
   ]
+  config.event_handlers = [
+    Products::ProductProjector
+  ]
 end
